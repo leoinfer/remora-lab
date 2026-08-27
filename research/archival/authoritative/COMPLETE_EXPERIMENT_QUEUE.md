@@ -1,4 +1,4 @@
-# the project Complete Experiment Queue
+# Complete Experiment Queue
 
 This is the complete dependency-aware queue, not the earlier 12-lane shortlist. It preserves 96 individually falsifiable experiments across the 65 named idea families in the atlas.
 
@@ -217,7 +217,7 @@ This is why the queue contains 96 experiments rather than 12 lanes. The active s
 8. Prepare context-memory and semantic-memory CPU twins.
 9. Prepare bounded autonomous queue/certificate orchestration with finite budgets and no graph mutation.
 
-## Contradictions/duplicates requiring the project's interpretation
+## Contradictions/duplicates requiring interpretation
 
 - **MARC acronym collision:** H07 Margin-Aware Routing Calibration versus N06–N09 Modular Architecture with Routing and Control.
 - **Q2 exact compact transport versus H03 low-bit skeleton:** same word “compact,” different representation and correctness.

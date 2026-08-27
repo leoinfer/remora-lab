@@ -1,6 +1,6 @@
 # REMORA Discovery Notes
 
-**Program:** REMORA / the project Local-AI discovery lab
+**Program:** REMORA / Local-AI discovery lab
 **Audit date:** 2026-08-03
 **Role:** theory-first synthesis; no production-code edits, no live GPU inference, no hardware-lock ownership
 **Primary output set:** `REMORA_OPEN_PROBLEM_PORTFOLIO.md`, `REMORA_CROSS_IDEA_SYNTHESIS_GRAPH.md`, `REMORA_NEW_CONJECTURES.md`, `REMORA_COUNTEREXAMPLE_LEDGER.md`, `REMORA_FORMALIZATION_QUEUE.md`, `REMORA_DISCOVERY_TO_EXPERIMENT_HANDOFF.md`

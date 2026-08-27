@@ -7,7 +7,7 @@ this candidate.
 
 | Source ID | Research material | Public action | Public destination | Originality / license boundary |
 | --- | --- | --- | --- | --- |
-| `hermes-v4-idea-atlas` | Complete HERMES-V4 mechanism atlas | include source text with path and hardware identifiers generalized | `research/archival/authoritative/HERMES_V4_COMPLETE_IDEA_ATLAS.md` | the project-originated atlas with later technical refinement; novelty not independently established |
+| `hermes-v4-idea-atlas` | Complete HERMES-V4 mechanism atlas | include source text with path and hardware identifiers generalized | `research/archival/authoritative/HERMES_V4_COMPLETE_IDEA_ATLAS.md` | project-originated atlas with later technical refinement; novelty not independently established |
 | `complete-atlas` | H01–H39 and N01–N26 inventory | include and split into normalized cards | `research/archival/authoritative/COMPLETE_RESEARCH_ATLAS.md`, `research/ideas/atlas/` | local research record; status labels preserved |
 | `remora-manifest` | 30 numbered ideas, TBEH, and PFM | include source and M01–M30 cards | `research/archival/authoritative/REMORA_NEW_IDEA_MASTER_MANIFEST.md`, `research/ideas/manifest/` | local research record; no novelty claim |
 | `remora-open-problems` | OP-01–OP-12 portfolio | include source and individual records | `research/archival/authoritative/REMORA_OPEN_PROBLEM_PORTFOLIO.md`, `research/open-problems/` | formal research agenda; evidence labels retained |

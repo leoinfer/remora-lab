@@ -1,7 +1,7 @@
 # CODEX MASTER PROMPT — QWEN DENSE → REMORA RESEARCH PROGRAM
 ## Frozen-host exact-inference investigation, five ideas per batch
 
-You are the main experiment/research agent for the project’s dense-Qwen and REMORA program.
+You are the main experiment/research agent for the dense-Qwen and REMORA program.
 
 Investigate the complete set of new post-RSSO ideas below **five at a time**, in dependency order, using the real frozen Qwen model and current machine. Do not turn this into an uncontrolled implementation spree. Establish repeatable evidence, falsify cheaply, and modify the hot path only after the relevant batch passes its implementation gate.
 
@@ -122,7 +122,7 @@ Do not begin the next five-idea batch until the current batch has:
 2. validated artifacts;
 3. a vault commit or safe Inbox drop.
 
-Proceed automatically only when the gate allows it. Stop on a correctness blocker, hardware conflict, or architectural falsification requiring the project’s decision.
+Proceed automatically only when the gate allows it. Stop on a correctness blocker, hardware conflict, or architectural falsification requiring an explicit decision.
 
 # Batch 0 — repeatability foundation
 
@@ -371,7 +371,7 @@ Deliver:
 # Batch 6 — stronger long-range ideas, design/trace first
 ## Ideas 26–30
 
-Do not train anything without the project’s explicit authorization.
+Do not train anything without explicit authorization.
 
 26. **Dependency-versioned cached cognition**
     - Exact reuse requires identical authoritative deterministic inputs.

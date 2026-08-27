@@ -3,7 +3,7 @@
 **DeepSeek-V4-Flash Q8_K_XL (0731 UD) → SSD → RAM → VRAM expert working-set hierarchy**
 
 **Status:** STATIC DESIGN — produced by static inspection only. No GPU, no training, no
-long inference, no repository mutation, no active-job interference (the project's training owns
+long inference, no repository mutation, no active-job interference (the training job owns
 the GPU). All claims are labeled `MEASURED` (prior research artifacts), `DERIVED`
 (computation from measured geometry), or `HYPOTHESIS` (to be verified at runtime).
 

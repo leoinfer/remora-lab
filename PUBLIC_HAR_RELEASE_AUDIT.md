@@ -67,7 +67,7 @@ The expanded publication audit passed after the profile and documentation
 changes:
 
 ```text
-PUBLICATION_AUDIT PASS: 623 files, 4502041 bytes, no release-gate findings
+PUBLICATION_AUDIT PASS: 623 files, 4517302 bytes, no release-gate findings
 ```
 
 The tree contains no model weights, checkpoints, tokenizer payloads, datasets,
@@ -80,6 +80,23 @@ member names, and manifests. No separately cleared idea manuscript was found;
 model payloads, raw receipts, private archives, opaque source bundles,
 model-derived plans, and unrelated backups remain excluded. The decision is
 recorded in [`research/SOURCE_REGISTER.md`](research/SOURCE_REGISTER.md).
+
+## Final adversarial privacy/de-anonymization audit
+
+The final privacy gate covers every current tracked file, every blob and commit
+reachable from the staging refs, commit author/committer/message metadata,
+signed metadata, ref/tag visibility, and GitHub repository metadata. It checks
+identity/contact markers, network and hardware identifiers, filesystem paths,
+private keys, provider credential shapes, personal-content classes, and
+temporary-path labels. Historical owner/path labels found during triage were
+removed from the current corpus and the private staging history was rewritten.
+
+The Rust publication audit now includes conservative detectors and tests for
+synthetic fake credentials, emails, IP/MAC/UUID/serial-shaped identifiers,
+private-key headers, and suspicious assignments. Ordinary model token
+terminology and PCI/software-version values remain accepted. The final result
+is `PASS` with zero remaining sensitive findings; the detailed red-team report
+is retained privately outside this repository.
 
 ## Rust-only validation
 

@@ -1,6 +1,6 @@
-# the project Complete Research Atlas
+# Complete Research Atlas
 
-**Purpose:** authoritative inventory of the project's HERMES-V4 mechanisms plus the broader Qwen, MARC, compression, kernel, memory, and autonomous-experiment programs. This is an inventory and dependency record, not a claim that every item is implemented.
+**Purpose:** authoritative inventory of the HERMES-V4 mechanisms plus the broader Qwen, MARC, compression, kernel, memory, and autonomous-experiment programs. This is an inventory and dependency record, not a claim that every item is implemented.
 
 **Authoritative HERMES source read in full:** `archival/HERMES_V4_COMPLETE_IDEA_ATLAS.md` (2,491 lines, SHA-256 `7b092e2d9d850950d9d29b3424a26f71239107ca81d48faa2372aa85dc7369be`). The `.txt` copy has the same hash. Durable inputs also include the Qwen compact audits/port map, MARC-Symbiote schemas and policy, DeepSeek/HERMES feasibility and streaming records, DSpark memory-lookahead records, MoE-Skipper claims/failures, Laguna/REAP reports, and R4I8 checkpoint notes.
 
@@ -11,7 +11,7 @@
 The count is explicit so later queue revisions cannot silently merge names:
 
 - **39 HERMES-V4 mechanisms:** `H01`–`H39`, exactly the 39 numbered mechanisms in the complete atlas.
-- **26 broader/new named families:** `N01`–`N26`. Names that the project supplied separately remain separate: MARC-X, MARC-OS, and MARC-Synapse are three layers; REAP, Laguna, pruning, and AutoSurgeon are four tracks; coverage-first, precision-first, and heterogeneous are three practical variants; R4I8, R5I8, and R6I8 are three format tracks; cooperative-matrix and GEMV/GEMM are two kernel tracks.
+- **26 broader/new named families:** `N01`–`N26`. Separately named families remain separate: MARC-X, MARC-OS, and MARC-Synapse are three layers; REAP, Laguna, pruning, and AutoSurgeon are four tracks; coverage-first, precision-first, and heterogeneous are three practical variants; R4I8, R5I8, and R6I8 are three format tracks; cooperative-matrix and GEMV/GEMM are two kernel tracks.
 - **Total preserved idea families: 65** under the strict no-merge count used here.
 - **Top-level bundles in the user's broader bullet list: 56** (39 HERMES + 17 requested broader bullets); the 26-family `N` layer deliberately decomposes those bundles so separately named MARC layers, pruning tracks, three variants, formats, and kernel families are not silently merged.
 - **Decomposed experiments:** 96, enumerated in `COMPLETE_EXPERIMENT_QUEUE.md`.
@@ -652,7 +652,7 @@ A speed number never upgrades a correctness class. Logical bytes, cached bytes, 
 
 ## N13 — AutoSurgeon
 
-- **Original terminology / analogy:** Preserve the project's name **AutoSurgeon** for automated, evidence-driven model surgery across pruning, quantization, routing, layer selection, and conversion.
+- **Original terminology / analogy:** Preserve the project name **AutoSurgeon** for automated, evidence-driven model surgery across pruning, quantization, routing, layer selection, and conversion.
 - **Technical interpretation:** A manifest-producing orchestrator that consumes calibration, saliency, hardware budget, and quality gates, then emits reversible model variants and certificates; it must not silently mutate authority.
 - **Applicability:** Qwen/Laguna first; DeepSeek later; future MARC-native.
 - **Implementation status:** **Unlocated/unvalidated in the durable project files ingested here.** The exact AutoSurgeon artifact was not found, so this entry preserves the requested name without inventing implementation details. REAP/Laguna scripts are related evidence, not proof of AutoSurgeon.
@@ -739,7 +739,7 @@ A speed number never upgrades a correctness class. Logical bytes, cached bytes, 
 - **Original terminology / analogy:** Preserve the distinct R5I8 name for a future round-5-in-8 format rather than assuming R4I8 generalizes.
 - **Technical interpretation:** A prospective higher-fidelity 5-bit-in-8 representation with its own scale/layout, converter, shader, and byte/quality point.
 - **Applicability:** Future Qwen/Laguna/DeepSeek model variants; not currently model-proven.
-- **Implementation status:** No durable implementation or result was located; research placeholder requiring the project's exact format definition.
+- **Implementation status:** No durable implementation or result was located; research placeholder requiring an exact format definition.
 - **Existing evidence:** R4I8 infrastructure supplies a neighboring format experiment only; it is not evidence for R5I8.
 - **Smallest falsifier:** Define a block format and compare reconstruction error, bytes, shader viability, and logits on one layer before conversion work.
 - **Dependencies:** N19, N22/N23, H28/H33.
@@ -816,7 +816,7 @@ A speed number never upgrades a correctness class. Logical bytes, cached bytes, 
 - **Smallest falsifier:** Run a CPU-only queue slice with one planned experiment, an injected failure, and a verifier; require no promotion and a reproducible failure record.
 - **Dependencies:** H02/H14/H29/H33 and the complete graph/queue.
 - **Speed/quality mechanism and correctness:** Increases information gained per local resource while preventing experiment contamination; it does not authorize autonomous model/runtime changes.
-- **Compatibility:** Complementary with all families; prohibited from launching all experiments simultaneously or bypassing the project's unresolved interpretation decisions.
+- **Compatibility:** Complementary with all families; prohibited from launching all experiments simultaneously or bypassing unresolved interpretation decisions.
 
 ---
 
@@ -832,9 +832,9 @@ A speed number never upgrades a correctness class. Logical bytes, cached bytes, 
 - **MoE-Skipper:** fast invalid broad skipping is preserved as negative evidence; the quality-valid F16 L25/L30 result is workload-specific approximate prefill evidence, not exact generation.
 - **Compression:** REAP/Laguna/R4I8 are model-production alternatives, not Qwen Q2 authority. R4I8 byte order is fixed, but quality remains low in the recorded Qwen output.
 
-## Contradictions and duplicate-looking mechanisms that need the project's interpretation
+## Contradictions and duplicate-looking mechanisms that need interpretation
 
-1. **MARC collision:** H07 is **Margin-Aware Routing Calibration**; N06–N09 are the project's **Modular Architecture with Routing and Control** lineage. Keep both names and never use the acronym alone.
+1. **MARC collision:** H07 is **Margin-Aware Routing Calibration**; N06–N09 are the **Modular Architecture with Routing and Control** lineage. Keep both names and never use the acronym alone.
 2. **Q2 compact versus compact skeleton:** N01 copies exact Q6_K/Q8_0 source slices into persistent slots; H03 changes representation to low-bit. They are complementary, not the same experiment.
 3. **P1/P2/P4/P6 versus MoE-Skipper:** H04 is runtime nested expert widening; N17 is learned layer-output substitution with cascade error. They must have separate quality gates.
 4. **Qwen full-core versus Q2 source authority:** N02 needs routed experts off device-local memory; N01 keeps CPU/mmap authority and selected slots. A full all-expert resident control is a competing placement, not an implementation detail.

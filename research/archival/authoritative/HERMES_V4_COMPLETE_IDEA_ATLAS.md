@@ -1,6 +1,6 @@
 # HERMES-V4 Complete Idea Atlas
 
-**Authorial origin:** the project / `leoinfer`, with technical refinement and systems formalization developed jointly in conversation.
+**Authorial origin:** `leoinfer`, with technical refinement and systems formalization developed jointly in conversation.
 
 **Date consolidated:** 2026-08-01
 
@@ -458,7 +458,7 @@ Needs telemetry, stable slots, an asynchronous pipeline, and preferably DSpark f
 
 ### Naming note
 
-Within this HERMES-V4 discussion, **MARC** refers to **Margin-Aware Routing Calibration**. This should not be confused with the project’s older broader MARC project, “Modular Architecture with Routing and Control.” The two share a routing philosophy but are distinct concepts.
+Within this HERMES-V4 discussion, **MARC** refers to **Margin-Aware Routing Calibration**. This should not be confused with the older broader MARC project, “Modular Architecture with Routing and Control.” The two share a routing philosophy but are distinct concepts.
 
 ### Your original idea — faithful reconstruction
 
