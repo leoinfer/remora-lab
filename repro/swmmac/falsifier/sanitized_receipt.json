@@ -1,0 +1,27 @@
+{
+  "accounting_boundary": {
+    "instruction_activity_is_not_useful_work": true,
+    "reference_sparse_int4_envelope_tops": 821,
+    "reference_units": "advertised sparse INT4 TOPS; context only",
+    "useful_work_requires_independent_accumulator_known_answer": true
+  },
+  "historical_corrected_reference": {
+    "device_receipt_rerun": false,
+    "elapsed_ms": 705.9,
+    "instructions": 13107331072,
+    "instructions_per_second": 18568254812.29636,
+    "physical_mac_per_second": 76055571711165.89,
+    "useful_llm_tops": null
+  },
+  "known_answer": {
+    "expected_committed_value": 4,
+    "observed_over_expected": 0.25,
+    "replayed_accumulator_value": 1,
+    "smoking_gun_quarter_result": true,
+    "useful_claim_survives": false
+  },
+  "lane": "swmmac-gfx1200",
+  "schema": "remora.repro_harness.v1.swmmac",
+  "scope": "The Rust fixture reproduces the accumulator-replay falsifier. It is not a fresh GPU ISA measurement and makes no multi-POPS or LLM-throughput claim.",
+  "status": "FALSIFIED_REPRODUCIBLE"
+}

@@ -1,0 +1,14 @@
+[package]
+name = "repro-harness"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+publish = false
+description = "Rust-only deterministic reproduction harnesses for public research lanes"
+
+[dependencies]
+r4kv = { path = "../../har/crates/r4kv" }
+serde_json.workspace = true
+sha2.workspace = true

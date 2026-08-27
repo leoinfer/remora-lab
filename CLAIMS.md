@@ -20,6 +20,7 @@ own acceptance rule.
 | C-010 | Flash-Next/R4F is ready for full-model generation. | INVALIDATED | Bring-up exists, but full-model correctness and recovery gates are incomplete. |
 | C-011 | HAR loads and runs models without Python, C++, llama.cpp, GGML, CMake, or a foreign backend in its runtime path. | VERIFIED FOR THIS CANDIDATE | Dependency metadata, Rust-only source gate, linked-object inspection, and syscall trace are required release evidence. |
 | C-012 | The reference-machine hardware phenotype is recorded with factory, configured, observed, historical, and unknown fields. | VERIFIED FOR THIS CANDIDATE | Read-only PCI/sysfs/Vulkan/CPU/storage/software capture, official board/CPU specifications, and reconciled historical receipts in `HARDWARE_PROFILE.md` and `hardware_profile.json`. This is not a portability claim. |
+| C-013 | A recovered full-model R4X-D32A prefill width sweep at ubatch 512 reached 699.677849 kernel/prefill rows/s at W512 in the tested range. | HISTORICAL | `repro/r4x/width-sweep/sanitized_receipt.json` and `results.csv`; historical diagnostic rows/s, not generation tokens/s, with the original executor and weights excluded. |
 
 Claims C-001 through C-006 and C-009 are research statements, not a promise
 of production coverage. C-011 and C-012 remain valid only while the release

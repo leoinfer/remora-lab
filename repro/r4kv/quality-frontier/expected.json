@@ -1,0 +1,7 @@
+{
+  "schema": "remora.repro.expected.v1",
+  "status": "BLOCKED_PROVENANCE",
+  "expected_command_exit": 0,
+  "quality_metric": null,
+  "interpretation": "The storage KAT is reproducible; the model-quality frontier remains explicitly blocked."
+}

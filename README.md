@@ -116,6 +116,11 @@ with the implementation navigation in
 current Flash-Next status in
 [`research/flash-next/CURRENT_CAMPAIGN.md`](research/flash-next/CURRENT_CAMPAIGN.md).
 
+The artifact-level publication map is
+[`TECHNICAL_ARTIFACT_INDEX.md`](TECHNICAL_ARTIFACT_INDEX.md); it links
+implementations to executable lanes, receipts, historical reconstructions,
+and explicit blockers.
+
 ## AI-assisted development
 
 Implementation of this repository has been heavily AI-assisted. The owner

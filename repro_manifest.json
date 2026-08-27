@@ -1,0 +1,84 @@
+{
+  "schema": "remora.reproducibility.v1",
+  "generated": "2026-08-27",
+  "important_results_without_repro_disposition": 0,
+  "status_vocabulary": [
+    "FULLY_REPRODUCIBLE",
+    "REPRODUCIBLE_WITH_PUBLIC_MODEL_DOWNLOAD",
+    "REPRODUCIBLE_ON_REFERENCE_HARDWARE",
+    "REPRODUCIBLE_WITH_HARDWARE_RETUNING",
+    "HISTORICAL_RECONSTRUCTION_AVAILABLE",
+    "PROPOSED_NO_RESULT_YET",
+    "FALSIFIED_REPRODUCIBLE",
+    "BLOCKED_PROVENANCE",
+    "BLOCKED_LICENSE",
+    "EXCLUDED_PRIVACY",
+    "EXCLUDED_WEIGHTS_DATA",
+    "UNRECOVERABLE_HISTORICAL_RESULT"
+  ],
+  "experiments": [
+    {
+      "id": "r4x-width-sweep-2026-08-25",
+      "path": "repro/r4x/width-sweep",
+      "status": "HISTORICAL_RECONSTRUCTION_AVAILABLE",
+      "claim": "Recovered R4X-D32A full-model prefill width receipt; W512 peaked at 699.677849 diagnostic rows/s at ubatch 512.",
+      "metric_boundary": "kernel/prefill rows/s, not generation tokens/s"
+    },
+    {
+      "id": "r4kv-storage-kat-2026-08-27",
+      "path": "repro/r4kv/storage",
+      "status": "FULLY_REPRODUCIBLE",
+      "claim": "Rust known-answer coverage for R4KV profile accounting, codec round trips, page identity, and corruption rejection.",
+      "metric_boundary": "storage/codec/page correctness, not model quality or GPU throughput"
+    },
+    {
+      "id": "r4kv-quality-frontier-unknown",
+      "path": "repro/r4kv/quality-frontier",
+      "status": "BLOCKED_PROVENANCE",
+      "claim": "R4KV model-quality frontier is not represented by the public storage KAT and has no cleared public receipt.",
+      "metric_boundary": "no perplexity, attention-quality, semantic, or end-to-end parity metric is asserted"
+    },
+    {
+      "id": "effective-context-accounting-2026-08-27",
+      "path": "repro/context/effective-context",
+      "status": "FULLY_REPRODUCIBLE",
+      "claim": "Rust model-free addressable-context accounting and adversarial shortcut fixture.",
+      "metric_boundary": "representation and probe accounting, not dense attention or semantic retrieval"
+    },
+    {
+      "id": "mtp-acceptance-accounting-2026-08-27",
+      "path": "repro/mtp/accounting",
+      "status": "FULLY_REPRODUCIBLE",
+      "claim": "Rust model-free draft/target acceptance accounting with deterministic traces.",
+      "metric_boundary": "acceptance bookkeeping, not neural quality, latency, or speedup"
+    },
+    {
+      "id": "ngram-replay-accounting-2026-08-27",
+      "path": "repro/ngram/accounting",
+      "status": "FULLY_REPRODUCIBLE",
+      "claim": "Rust model-free warm-shell/template token replay accounting.",
+      "metric_boundary": "synthetic replay acceptance, not neural decode tokens/s"
+    },
+    {
+      "id": "qwen-decode-baseline-historical",
+      "path": "repro/qwen27b/historical-baseline",
+      "status": "UNRECOVERABLE_HISTORICAL_RESULT",
+      "claim": "Historical Qwen decode anchors remain bounded context rather than an exact public benchmark.",
+      "metric_boundary": "no public tokens/s result is asserted without the original model, executor, prompt, and receipt"
+    },
+    {
+      "id": "r4f-format-bringup-2026-08-27",
+      "path": "repro/flash-next/full-model",
+      "status": "BLOCKED_PROVENANCE",
+      "claim": "Flash-Next/R4F full-model first-token and generation gates remain incomplete.",
+      "metric_boundary": "format/bring-up documentation, not full-model generation readiness"
+    },
+    {
+      "id": "gfx1200-swmmac-falsifier-2026-08-27",
+      "path": "repro/swmmac/falsifier",
+      "status": "FALSIFIED_REPRODUCIBLE",
+      "claim": "Rust known-answer reproduction of the accumulator-replay falsifier for the historical sparse-matrix anomaly.",
+      "metric_boundary": "useful committed work validation, not instruction activity or TOPS"
+    }
+  ]
+}

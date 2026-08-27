@@ -1,0 +1,117 @@
+{
+  "schema": "remora.r4x.width_sweep_receipt.v1",
+  "status": "HISTORICAL_RECEIPT_RECOVERED",
+  "receipt_scope": "full-model R4X-D32A prompt-prefill width diagnostic",
+  "source": {
+    "raw_receipt_paths": "local historical artifacts; exact private paths withheld",
+    "clean_receipt_sha256": "8681120974242a0d65ecf74ea136e73c80d4c829adf0e758c1643390f0290e86",
+    "malformed_receipt_sha256": "5ab4b505fe41cae0d2111f1d505ef0f282ac2a403db019db47c2404173dbb9c4",
+    "source_commit": "5181a189ed65ad98b069c6dbdd20d486091d7d60",
+    "build_number": 10188,
+    "historical_runtime_boundary": "foreign C++/GGML/Vulkan/CMake diagnostic implementation; not imported into HAR production",
+    "public_reproduction_status": "historical receipt plus Rust-only D32A KAT; exact throughput rerun pending Rust executor"
+  },
+  "model": {
+    "name": "Qwen3.8-27B transformed R4X-D32A Q4_0/MTP GGUF artifact",
+    "sha256": "ead567f63dc1b1f774fccc6000385b62d5e57d1ac26cb26831cf8592cca049b4",
+    "file_bytes": 15388062592,
+    "loader_reported_packed_payload_bytes": 15377076224,
+    "type": "qwen35 27B Q4_0",
+    "container": "GGUF V3; 866 tensors; 506 R4X-D32A tensors; 360 F32 tensors",
+    "weights_public": false
+  },
+  "hardware": {
+    "phenotype_id": "RX9060XT16-NITRO-GFX1200-RADV-2026.08.27-v1",
+    "gpu": "AMD Radeon RX 9060 XT; RDNA4 gfx1200",
+    "backend": "Vulkan/RADV",
+    "device_api": "1.4.354",
+    "instance_api": "1.4.357",
+    "driver_name": "radv",
+    "mesa": "26.2.1 in the reference phenotype capture; exact version not serialized in the historical width receipt",
+    "cpu": "AMD Ryzen 7 3700X 8-Core Processor",
+    "os": "CachyOS rolling x86_64",
+    "kernel": "7.2.0-rc7-1-cachyos-rc",
+    "oc_and_clock_context": {
+      "explicit_lock": false,
+      "per_cell_telemetry_preserved": false,
+      "power_limit": "UNKNOWN for exact run; reference phenotype configured 200 W",
+      "sclk": "UNKNOWN for exact run",
+      "mclk": "UNKNOWN for exact run",
+      "voltage_offset": "UNKNOWN for exact run; reference phenotype records -80 mV",
+      "note": "A companion roofline summary reported a 3202 MHz core sample, but not with per-cell timestamps."
+    }
+  },
+  "configuration": {
+    "profile": "R4X-D32A transformed Q4_0",
+    "tensor_type_id": 36,
+    "n_batch": 2048,
+    "n_ubatch_clean": 512,
+    "n_ubatch_malformed_attempt": 4096,
+    "n_threads": 8,
+    "cpu_mask": "0x0",
+    "cpu_strict": false,
+    "poll": 50,
+    "cache_type_k": "f16",
+    "cache_type_v": "f16",
+    "n_gpu_layers": -1,
+    "n_cpu_moe": 0,
+    "split_mode": "layer",
+    "main_gpu": 0,
+    "no_kv_offload": false,
+    "flash_attention": true,
+    "load_mode": "mmap",
+    "n_gen": 0,
+    "n_depth": 0,
+    "devices": "auto",
+    "width_parameter": "n_prompt W: logical prefill rows; not shader workgroup width",
+    "requested_widths": [64, 128, 256, 384, 512, 768, 1024, 1536, 2048],
+    "repetitions": 3,
+    "warmup": "default enabled; one prompt warm-up per parameter instance",
+    "environment": {
+      "RADV_PERFTEST": "nogttspill",
+      "GGML_VK_ALLOW_GRAPHICS_QUEUE": "1",
+      "R4X_TRACE": "1"
+    }
+  },
+  "timing": {
+    "source": "host high_resolution_clock around prompt decode; llama_synchronize completes the backend before the interval closes",
+    "unit": "nanoseconds for samples; rows/s for derived rate",
+    "formula": "sample_rows_per_s = 1e9 * (n_prompt + n_gen) / sample_ns; n_gen=0, so W/(sample_ns/1e9)",
+    "average_definition": "avg_ts is the mean of per-sample rates; stddev_ts is the sample standard deviation of those rates",
+    "clean_series_start": "2026-08-25T15:13:20Z",
+    "clean_series_end": "2026-08-25T15:13:47Z",
+    "malformed_series_start": "2026-08-25T16:14:59Z",
+    "malformed_series_last_complete": "2026-08-25T16:15:18Z"
+  },
+  "correctness_and_error_gate": {
+    "historical_process_gate": "llama_decode returned success for timed prompt calls and backend synchronization completed",
+    "historical_output_known_answer": "not present in width receipt",
+    "native_path_evidence": "companion integration report states zero dequant events; raw trace not preserved here",
+    "public_gate": "Rust D32A geometry, finite-value, and extrema known-answer test",
+    "interpretation": "Performance evidence is not a standalone numerical-correctness certificate."
+  },
+  "rows": [
+    {"width":64,"ubatch":512,"status":"VALID","test_time":"2026-08-25T15:13:20Z","avg_ns":145106295,"stddev_ns":122804,"avg_rows_per_s":441.056190,"stddev_rows_per_s":0.369598,"samples_ns":[145235259,144993679,145089949],"samples_rows_per_s":[440.664,441.399,441.106]},
+    {"width":128,"ubatch":512,"status":"VALID","test_time":"2026-08-25T15:13:20Z","avg_ns":223991716,"stddev_ns":611294,"avg_rows_per_s":571.452541,"stddev_rows_per_s":1.560446,"samples_ns":[224481408,224186627,223307115],"samples_rows_per_s":[570.203,570.953,573.202]},
+    {"width":256,"ubatch":512,"status":"VALID","test_time":"2026-08-25T15:13:21Z","avg_ns":386973500,"stddev_ns":3832913,"avg_rows_per_s":661.587407,"stddev_rows_per_s":6.572781,"samples_ns":[390336701,387783385,382800415],"samples_rows_per_s":[655.844,660.162,668.756]},
+    {"width":384,"ubatch":512,"status":"VALID","test_time":"2026-08-25T15:13:23Z","avg_ns":558342975,"stddev_ns":138712,"avg_rows_per_s":687.749345,"stddev_rows_per_s":0.168341,"samples_ns":[558500669,558258438,558269819],"samples_rows_per_s":[687.555,687.853,687.839]},
+    {"width":512,"ubatch":512,"status":"VALID","test_time":"2026-08-25T15:13:25Z","avg_ns":731765451,"stddev_ns":346263,"avg_rows_per_s":699.677849,"stddev_rows_per_s":0.331047,"samples_ns":[731446877,731715498,732133978],"samples_rows_per_s":[699.982,699.726,699.326]},
+    {"width":768,"ubatch":512,"status":"VALID","test_time":"2026-08-25T15:13:28Z","avg_ns":1119571263,"stddev_ns":632909,"avg_rows_per_s":685.977024,"stddev_rows_per_s":0.387761,"samples_ns":[1120232524,1118971142,1119510123],"samples_rows_per_s":[685.572,686.345,686.014]},
+    {"width":1024,"ubatch":512,"status":"VALID","test_time":"2026-08-25T15:13:33Z","avg_ns":1468257195,"stddev_ns":610273,"avg_rows_per_s":697.425575,"stddev_rows_per_s":0.289948,"samples_ns":[1468666476,1467555764,1468549345],"samples_rows_per_s":[697.231,697.759,697.287]},
+    {"width":1536,"ubatch":512,"status":"VALID","test_time":"2026-08-25T15:13:39Z","avg_ns":2206373381,"stddev_ns":498369,"avg_rows_per_s":696.165057,"stddev_rows_per_s":0.155833,"samples_ns":[2206258735,2205946865,2206914545],"samples_rows_per_s":[696.201,696.3,695.994]},
+    {"width":2048,"ubatch":512,"status":"VALID","test_time":"2026-08-25T15:13:47Z","avg_ns":2948815044,"stddev_ns":376783,"avg_rows_per_s":694.516269,"stddev_rows_per_s":0.088739,"samples_ns":[2948465253,2948765884,2949213995],"samples_rows_per_s":[694.599,694.528,694.422]},
+    {"width":64,"ubatch":4096,"status":"VALID","series_status":"MALFORMED","test_time":"2026-08-25T16:14:59Z","avg_ns":144787942,"stddev_ns":321924,"avg_rows_per_s":442.027216,"stddev_rows_per_s":0.982925,"samples_ns":[145104376,144798656,144460794],"samples_rows_per_s":[441.062,441.993,443.027]},
+    {"width":128,"ubatch":4096,"status":"VALID","series_status":"MALFORMED","test_time":"2026-08-25T16:14:59Z","avg_ns":223258968,"stddev_ns":1236758,"avg_rows_per_s":573.336955,"stddev_rows_per_s":3.174368,"samples_ns":[224529141,223188988,222058776],"samples_rows_per_s":[570.082,573.505,576.424]},
+    {"width":256,"ubatch":4096,"status":"VALID","series_status":"MALFORMED","test_time":"2026-08-25T16:15:00Z","avg_ns":387434533,"stddev_ns":2366996,"avg_rows_per_s":660.773200,"stddev_rows_per_s":4.028288,"samples_ns":[390038831,386850376,385414393],"samples_rows_per_s":[656.345,661.755,664.22]},
+    {"width":384,"ubatch":4096,"status":"VALID","series_status":"MALFORMED","test_time":"2026-08-25T16:15:02Z","avg_ns":566401187,"stddev_ns":890631,"avg_rows_per_s":677.965799,"stddev_rows_per_s":1.066125,"samples_ns":[567280432,565499589,566423540],"samples_rows_per_s":[676.914,679.046,677.938]},
+    {"width":512,"ubatch":4096,"status":"VALID","series_status":"MALFORMED","test_time":"2026-08-25T16:15:04Z","avg_ns":738922833,"stddev_ns":170253,"avg_rows_per_s":692.900523,"stddev_rows_per_s":0.157620,"samples_ns":[738731113,738992623,739044764],"samples_rows_per_s":[693.08,692.835,692.786]},
+    {"width":768,"ubatch":4096,"status":"VALID","series_status":"MALFORMED","test_time":"2026-08-25T16:15:07Z","avg_ns":1124282191,"stddev_ns":250327,"avg_rows_per_s":683.102544,"stddev_rows_per_s":0.152077,"samples_ns":[1124570598,1124154718,1124121257],"samples_rows_per_s":[682.927,683.18,683.2]},
+    {"width":1024,"ubatch":4096,"status":"VALID","series_status":"MALFORMED","test_time":"2026-08-25T16:15:12Z","avg_ns":1469845658,"stddev_ns":335121,"avg_rows_per_s":696.671809,"stddev_rows_per_s":0.156760,"samples_ns":[1470123755,1469479975,1469933246],"samples_rows_per_s":[696.54,696.845,696.63]},
+    {"width":1536,"ubatch":4096,"status":"VALID","series_status":"MALFORMED","test_time":"2026-08-25T16:15:18Z","avg_ns":2296853820,"stddev_ns":2106071,"avg_rows_per_s":668.741235,"stddev_rows_per_s":0.612971,"samples_ns":[2297092413,2294639710,2298829339],"samples_rows_per_s":[668.671,669.386,668.166]},
+    {"width":2048,"ubatch":4096,"status":"DEVICE_LOST","series_status":"MALFORMED","test_time":null,"avg_ns":null,"stddev_ns":null,"avg_rows_per_s":null,"stddev_rows_per_s":null,"samples_ns":[],"samples_rows_per_s":[],"error":"Vulkan queue submission abort after the complete W1536 object; no valid W2048 measurement"}
+  ],
+  "excluded": {
+    "kernel_width_4096": {"status":"NOT_RUN","evidence":"Recovered script and searched related receipts request or report only widths through 2048; W4096 values found were predictions/preregistration."},
+    "ubatch_4096": {"status":"MALFORMED","evidence":"JSON receipt has GDB text appended after W1536; W2048 attempt aborted."}
+  }
+}

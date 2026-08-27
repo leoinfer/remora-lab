@@ -1,0 +1,21 @@
+{
+  "acceptance_ratio": 0.7463343108504399,
+  "accepted_prefix_rule": true,
+  "accepted_tokens": 509,
+  "draft_tokens": 682,
+  "historical_anchor_comparison": {
+    "accepted_over_rounds": "historical 240/263 is not asserted by this synthetic fixture",
+    "mean_accepted_over_draft": "historical ~3.16 is not asserted by this synthetic fixture"
+  },
+  "horizon_histogram": [11, 85, 77, 90],
+  "lane": "mtp-accounting",
+  "maximum_draft_depth": 3,
+  "mean_accepted_per_round": 1.935361216730038,
+  "mechanism": "synthetic_neural_acceptance_accounting",
+  "per_position_reference_rates": [0.946, 0.694, 0.523],
+  "rounds": 263,
+  "schema": "remora.repro_harness.v1.mtp",
+  "scope": "Acceptance and cost accounting only; no neural model, tokenizer, or throughput claim.",
+  "status": "FULLY_REPRODUCIBLE",
+  "trace_sha256": "ade1ee619789ef26ebcaa843d893397c39c0b97f7d376d288fb6ab1a93067946"
+}

@@ -1,0 +1,89 @@
+kernel_width,ubatch,status,evidence,notes
+32,32,NOT_RUN,recovered width script does not request this cell,related W32 surfaces are different experiments
+32,64,NOT_RUN,recovered width script does not request this cell,related W32 surfaces are different experiments
+32,128,NOT_RUN,recovered width script does not request this cell,related W32 surfaces are different experiments
+32,256,NOT_RUN,recovered width script does not request this cell,related W32 surfaces are different experiments
+32,512,NOT_RUN,recovered width script does not request this cell,related W32 surfaces are different experiments
+32,1024,NOT_RUN,recovered width script does not request this cell,related W32 surfaces are different experiments
+32,2048,NOT_RUN,recovered width script does not request this cell,related W32 surfaces are different experiments
+32,4096,NOT_RUN,recovered width script does not request this cell,related W32 surfaces are different experiments
+64,32,NOT_RUN,recovered width script does not request this ubatch,no authoritative cell in this series
+64,64,NOT_RUN,recovered width script does not request this ubatch,no authoritative cell in this series
+64,128,NOT_RUN,recovered width script does not request this ubatch,no authoritative cell in this series
+64,256,NOT_RUN,recovered width script does not request this ubatch,no authoritative cell in this series
+64,512,VALID,clean ubatch=512 receipt,avg_rows_per_s=441.056190
+64,1024,NOT_RUN,recovered width script does not request this ubatch,no authoritative cell in this series
+64,2048,NOT_RUN,recovered width script does not request this ubatch,no authoritative cell in this series
+64,4096,VALID,complete prefix object in malformed ubatch=4096 receipt,series is MALFORMED
+128,32,NOT_RUN,recovered width script does not request this ubatch,no authoritative cell in this series
+128,64,NOT_RUN,recovered width script does not request this ubatch,no authoritative cell in this series
+128,128,NOT_RUN,recovered width script does not request this ubatch,no authoritative cell in this series
+128,256,NOT_RUN,recovered width script does not request this ubatch,no authoritative cell in this series
+128,512,VALID,clean ubatch=512 receipt,avg_rows_per_s=571.452541
+128,1024,NOT_RUN,recovered width script does not request this ubatch,no authoritative cell in this series
+128,2048,NOT_RUN,recovered width script does not request this ubatch,no authoritative cell in this series
+128,4096,VALID,complete prefix object in malformed ubatch=4096 receipt,series is MALFORMED
+256,32,NOT_RUN,recovered width script does not request this ubatch,no authoritative cell in this series
+256,64,NOT_RUN,recovered width script does not request this ubatch,no authoritative cell in this series
+256,128,NOT_RUN,recovered width script does not request this ubatch,no authoritative cell in this series
+256,256,NOT_RUN,recovered width script does not request this ubatch,no authoritative cell in this series
+256,512,VALID,clean ubatch=512 receipt,avg_rows_per_s=661.587407
+256,1024,NOT_RUN,recovered width script does not request this ubatch,no authoritative cell in this series
+256,2048,NOT_RUN,recovered width script does not request this ubatch,no authoritative cell in this series
+256,4096,VALID,complete prefix object in malformed ubatch=4096 receipt,series is MALFORMED
+384,32,NOT_RUN,recovered width script does not request this ubatch,no authoritative cell in this series
+384,64,NOT_RUN,recovered width script does not request this ubatch,no authoritative cell in this series
+384,128,NOT_RUN,recovered width script does not request this ubatch,no authoritative cell in this series
+384,256,NOT_RUN,recovered width script does not request this ubatch,no authoritative cell in this series
+384,512,VALID,clean ubatch=512 receipt,avg_rows_per_s=687.749345
+384,1024,NOT_RUN,recovered width script does not request this ubatch,no authoritative cell in this series
+384,2048,NOT_RUN,recovered width script does not request this ubatch,no authoritative cell in this series
+384,4096,VALID,complete prefix object in malformed ubatch=4096 receipt,series is MALFORMED
+512,32,NOT_RUN,recovered width script does not request this ubatch,no authoritative cell in this series
+512,64,NOT_RUN,recovered width script does not request this ubatch,no authoritative cell in this series
+512,128,NOT_RUN,recovered width script does not request this ubatch,no authoritative cell in this series
+512,256,NOT_RUN,recovered width script does not request this ubatch,no authoritative cell in this series
+512,512,VALID,clean ubatch=512 receipt,avg_rows_per_s=699.677849
+512,1024,NOT_RUN,recovered width script does not request this ubatch,no authoritative cell in this series
+512,2048,NOT_RUN,recovered width script does not request this ubatch,no authoritative cell in this series
+512,4096,VALID,complete prefix object in malformed ubatch=4096 receipt,series is MALFORMED
+768,32,NOT_RUN,recovered width script does not request this ubatch,no authoritative cell in this series
+768,64,NOT_RUN,recovered width script does not request this ubatch,no authoritative cell in this series
+768,128,NOT_RUN,recovered width script does not request this ubatch,no authoritative cell in this series
+768,256,NOT_RUN,recovered width script does not request this ubatch,no authoritative cell in this series
+768,512,VALID,clean ubatch=512 receipt,avg_rows_per_s=685.977024
+768,1024,NOT_RUN,recovered width script does not request this ubatch,no authoritative cell in this series
+768,2048,NOT_RUN,recovered width script does not request this ubatch,no authoritative cell in this series
+768,4096,VALID,complete prefix object in malformed ubatch=4096 receipt,series is MALFORMED
+1024,32,NOT_RUN,recovered width script does not request this ubatch,no authoritative cell in this series
+1024,64,NOT_RUN,recovered width script does not request this ubatch,no authoritative cell in this series
+1024,128,NOT_RUN,recovered width script does not request this ubatch,no authoritative cell in this series
+1024,256,NOT_RUN,recovered width script does not request this ubatch,no authoritative cell in this series
+1024,512,VALID,clean ubatch=512 receipt,avg_rows_per_s=697.425575
+1024,1024,NOT_RUN,recovered width script does not request this ubatch,no authoritative cell in this series
+1024,2048,NOT_RUN,recovered width script does not request this ubatch,no authoritative cell in this series
+1024,4096,VALID,complete prefix object in malformed ubatch=4096 receipt,series is MALFORMED
+1536,32,NOT_RUN,recovered width script does not request this ubatch,no authoritative cell in this series
+1536,64,NOT_RUN,recovered width script does not request this ubatch,no authoritative cell in this series
+1536,128,NOT_RUN,recovered width script does not request this ubatch,no authoritative cell in this series
+1536,256,NOT_RUN,recovered width script does not request this ubatch,no authoritative cell in this series
+1536,512,VALID,clean ubatch=512 receipt,avg_rows_per_s=696.165057
+1536,1024,NOT_RUN,recovered width script does not request this ubatch,no authoritative cell in this series
+1536,2048,NOT_RUN,recovered width script does not request this ubatch,no authoritative cell in this series
+1536,4096,VALID,complete prefix object in malformed ubatch=4096 receipt,series is MALFORMED
+2048,32,NOT_RUN,recovered width script does not request this ubatch,no authoritative cell in this series
+2048,64,NOT_RUN,recovered width script does not request this ubatch,no authoritative cell in this series
+2048,128,NOT_RUN,recovered width script does not request this ubatch,no authoritative cell in this series
+2048,256,NOT_RUN,recovered width script does not request this ubatch,no authoritative cell in this series
+2048,512,VALID,clean ubatch=512 receipt,avg_rows_per_s=694.516269
+2048,1024,NOT_RUN,recovered width script does not request this ubatch,no authoritative cell in this series
+2048,2048,NOT_RUN,recovered width script does not request this ubatch,no authoritative cell in this series
+2048,4096,DEVICE_LOST,Vulkan queue submission abort,no valid W2048 value and series MALFORMED
+4096,32,NOT_RUN,no W4096 request or authoritative receipt found,predictions/preregistration are not measurements
+4096,64,NOT_RUN,no W4096 request or authoritative receipt found,predictions/preregistration are not measurements
+4096,128,NOT_RUN,no W4096 request or authoritative receipt found,predictions/preregistration are not measurements
+4096,256,NOT_RUN,no W4096 request or authoritative receipt found,predictions/preregistration are not measurements
+4096,512,NOT_RUN,no W4096 request or authoritative receipt found,predictions/preregistration are not measurements
+4096,1024,NOT_RUN,no W4096 request or authoritative receipt found,predictions/preregistration are not measurements
+4096,2048,NOT_RUN,no W4096 request or authoritative receipt found,predictions/preregistration are not measurements
+4096,4096,NOT_RUN,no W4096 request or authoritative receipt found,predictions/preregistration are not measurements

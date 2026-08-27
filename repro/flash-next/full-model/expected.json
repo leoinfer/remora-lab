@@ -1,0 +1,8 @@
+{
+  "schema": "remora.repro.expected.v1",
+  "status": "BLOCKED_PROVENANCE",
+  "expected_command_exit": 0,
+  "first_token_gate": null,
+  "generation_tokens_per_s": null,
+  "interpretation": "The public lane must report that Flash-Next full-model generation is not yet cleared."
+}

@@ -1,0 +1,12 @@
+{
+  "schema": "remora.repro.expected.ngram_accounting.v1",
+  "command": "./repro/ngram/accounting/run.sh",
+  "expected_status": "FULLY_REPRODUCIBLE",
+  "expected_gates": {
+    "workloads": 2,
+    "throughput_status": "NOT_MEASURED_BY_THIS_ACCOUNTING_FIXTURE",
+    "warm_shell_tokens": 300,
+    "template_tokens": 300
+  },
+  "interpretation": "Exact replay accounting is reproducible; neural decode throughput is not measured."
+}

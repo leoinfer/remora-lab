@@ -1,0 +1,78 @@
+{
+  "interpretation": "Storage arithmetic, codec round-trip, proxy KL, and page identity checks are reproducible. They do not reproduce a full-model quality or GPU-parity claim.",
+  "lane": "r4kv",
+  "page_known_answer": {
+    "body_sha256": "6af0527bfcbff4d2f4a7b3d09a49eb7388f011632be430141752b9b5f7a650da",
+    "fail_closed": true,
+    "packed_bytes": 356,
+    "payload_corruption_rejected": true,
+    "restore_gate_passed": true
+  },
+  "profiles": [
+    {
+      "encoded_fixture_bytes": 4096,
+      "k_format": "F16",
+      "main_bytes_per_token": 65536.0,
+      "mtp_bytes_per_token": 69632.0,
+      "name": "REF-A_f16f16",
+      "positive_proxy_forward_kl": 1.9997466940076757e-8,
+      "quality_metric_scope": "synthetic positive-vector proxy; not a model perplexity or attention-quality result",
+      "v_format": "F16",
+      "value_roundtrip_max_abs_error": 0.001953125,
+      "value_roundtrip_rel_rms": 0.00019765266915783286
+    },
+    {
+      "encoded_fixture_bytes": 4096,
+      "k_format": "Q8",
+      "main_bytes_per_token": 34816.0,
+      "mtp_bytes_per_token": 36992.0,
+      "name": "BASE-Q8",
+      "positive_proxy_forward_kl": 0.000017107992291727997,
+      "quality_metric_scope": "synthetic positive-vector proxy; not a model perplexity or attention-quality result",
+      "v_format": "Q8",
+      "value_roundtrip_max_abs_error": 0.016904354095458984,
+      "value_roundtrip_rel_rms": 0.003707319498062134
+    },
+    {
+      "encoded_fixture_bytes": 4096,
+      "k_format": "Q6",
+      "main_bytes_per_token": 22528.0,
+      "mtp_bytes_per_token": 23936.0,
+      "name": "P-K6V4",
+      "positive_proxy_forward_kl": 0.06484637716930007,
+      "quality_metric_scope": "synthetic positive-vector proxy; not a model perplexity or attention-quality result",
+      "v_format": "Q4",
+      "value_roundtrip_max_abs_error": 0.29369544982910156,
+      "value_roundtrip_rel_rms": 0.06796538829803467
+    },
+    {
+      "encoded_fixture_bytes": 4096,
+      "k_format": "Q4",
+      "main_bytes_per_token": 18432.0,
+      "mtp_bytes_per_token": 19584.0,
+      "name": "P-K4V4",
+      "positive_proxy_forward_kl": 0.06484637716930007,
+      "quality_metric_scope": "synthetic positive-vector proxy; not a model perplexity or attention-quality result",
+      "v_format": "Q4",
+      "value_roundtrip_max_abs_error": 0.29369544982910156,
+      "value_roundtrip_rel_rms": 0.06796538829803467
+    },
+    {
+      "encoded_fixture_bytes": 4096,
+      "k_format": "Q4",
+      "main_bytes_per_token": 16384.0,
+      "mtp_bytes_per_token": 17408.0,
+      "name": "P-K4V3",
+      "positive_proxy_forward_kl": 0.4456447704566058,
+      "quality_metric_scope": "synthetic positive-vector proxy; not a model perplexity or attention-quality result",
+      "v_format": "Q3",
+      "value_roundtrip_max_abs_error": 0.6862912178039551,
+      "value_roundtrip_rel_rms": 0.15981198847293854
+    }
+  ],
+  "schema": "remora.repro_harness.v1.r4kv",
+  "seed": 0,
+  "source_vector_elements": 4096,
+  "source_vector_sha256": "1dbec46fae9b37a13961acfa05d693ec0771b664999dc0b0f3e9ee7beb0a5966",
+  "status": "FULLY_REPRODUCIBLE"
+}

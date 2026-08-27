@@ -1,0 +1,12 @@
+[package]
+name = "repro-audit"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+publish = false
+description = "Machine-readable audit for public reproduction manifests"
+
+[dependencies]
+serde_json.workspace = true

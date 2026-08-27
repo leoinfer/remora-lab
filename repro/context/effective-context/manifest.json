@@ -1,0 +1,71 @@
+{
+  "schema": "remora.repro.experiment.v1",
+  "claim_id": "C-006",
+  "experiment_id": "effective-context-accounting-2026-08-27",
+  "status": "FULLY_REPRODUCIBLE",
+  "description": "Model-free Rust accounting and adversarial shortcut fixture for addressable effective context.",
+  "source_commit": "147c6f1b3ed60babe01b84a3820d14407fccc26a",
+  "source_paths": [
+    "har/crates/har-contextfold/src/",
+    "repro/context/effective-context/run.sh",
+    "tools/repro-harness/src/main.rs"
+  ],
+  "model_name": "none; deterministic model-free fixture",
+  "model_revision": "not applicable",
+  "model_download_source": "not applicable",
+  "model_hashes": {},
+  "quant_name": "not applicable",
+  "quant_format_version": "not applicable",
+  "quant_hash": null,
+  "hardware_phenotype": "not required; CPU deterministic fixture",
+  "os": "not required for the result; Cargo/Rust host",
+  "kernel": "not required",
+  "mesa": "not required",
+  "radv": "not required",
+  "vulkan": "not required",
+  "rust": "workspace Rust implementation; no foreign inference runtime",
+  "compiler": "workspace rustc/Cargo toolchain",
+  "gpu_configuration": "none",
+  "power_limit": "not applicable",
+  "clock_configuration": "not applicable",
+  "memory_clock": "not applicable",
+  "voltage_offset": "not applicable",
+  "command": "./repro/context/effective-context/run.sh",
+  "environment_variables": {},
+  "prompt": "none",
+  "prompt_hash": null,
+  "context_size": 10000000,
+  "batch_size": "not applicable",
+  "ubatch_size": "not applicable",
+  "kv_format": "sorted address deltas + unsigned LEB128 values",
+  "mtp_enabled": false,
+  "ngram_enabled": false,
+  "warmup": "not applicable; deterministic CPU fixture",
+  "measurement_start": null,
+  "measurement_end": null,
+  "tokens_generated": 0,
+  "prefill_tokens": 0,
+  "decode_tokens": 0,
+  "ttft_ms": null,
+  "prefill_tps": null,
+  "decode_tps": null,
+  "acceptance_metrics": {
+    "shortcut_probe": "47/100 intentionally weak-prefix cases"
+  },
+  "raw_output_digest": "recovered_digest and deterministic seed are recorded in sanitized_receipt.json",
+  "expected_range": {
+    "addressable_positions": 10000000,
+    "recovery_exact": true,
+    "shortcut_solved_fraction": 0.47
+  },
+  "tolerance": {
+    "recovery": "exact byte and pair equality",
+    "semantic_retrieval": "not measured"
+  },
+  "known_limitations": [
+    "This is not dense attention at 10M tokens.",
+    "No model, tokenizer, dataset, or semantic retrieval evaluator is used.",
+    "Lexical R@1 and the shortcut failure fixture do not establish model quality."
+  ],
+  "receipt_path": "repro/context/effective-context/sanitized_receipt.json"
+}
