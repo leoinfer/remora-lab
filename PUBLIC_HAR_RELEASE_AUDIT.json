@@ -1,11 +1,11 @@
 {
   "schema": "har.public_release_audit.v2",
-  "status": "PRIVATE_GITHUB_STAGING_NOT_PUBLIC",
+  "status": "PUBLIC_RELEASED",
   "audit_date": "2026-08-27",
-  "published": false,
+  "published": true,
   "pushed": true,
   "remote_configured": true,
-  "candidate": "local-ai-research-expanded/",
+  "candidate": "remora-lab/",
   "scope": {
     "har_production_host_runtime": "Rust",
     "allowed_non_rust": ["SPIR-V", "GPU shader source", "OS/Vulkan driver libraries"],
@@ -69,7 +69,7 @@
   },
   "privacy": {
     "file_count": 623,
-    "tree_bytes": 4517302,
+    "tree_bytes": 4519194,
     "model_payloads_present": false,
     "raw_receipts_present": false,
     "screenshots_present": false,
@@ -85,7 +85,7 @@
     "findings_requiring_remediation": 0,
     "remaining_sensitive_findings": 0,
     "detailed_report": "private audit companion outside this repository",
-    "publication_state": "private staging only"
+    "publication_state": "public repository"
   },
   "research_corpus": {
     "index": "research_idea_index.json",
@@ -193,9 +193,9 @@
     "flash_next_full_model_ready": false
   },
   "review": {
-    "second_human_reviewer": "PENDING",
-    "owner_approval": "PENDING",
-    "release_allowed": false
+    "second_human_reviewer": "NOT_CLAIMED",
+    "owner_approval": "EXPLICITLY_AUTHORIZED_IN_FINAL_PUBLICATION_BRIEF",
+    "release_allowed": true
   },
   "provenance": {
     "public_files_have_known_provenance": true,

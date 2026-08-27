@@ -1,7 +1,7 @@
 # Publication coverage matrix
 
-**Repository:** `leoinfer/local-ai-research-staging`<br>
-**Visibility:** private GitHub staging; not public<br>
+**Repository:** `leoinfer/remora-lab`<br>
+**Visibility:** public GitHub repository<br>
 **Generated:** `2026-08-27T12:30:52Z`<br>
 **Records:** `1092`<br>
 **UNACCOUNTED:** `0`

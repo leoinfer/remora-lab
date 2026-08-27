@@ -1,11 +1,48 @@
-# Local AI Research
+# REMORA Lab
 
-This is the expanded private GitHub staging candidate for an open-source
-local-AI research stack. It is not public, has no release or Pages
-publication, and has not been announced. The tree contains both the Rust
-runtime and a first-class, public-safe research archive; no model weights,
-private experiment receipts, private machine identifiers, or copied upstream
-execution backends are included.
+REMORA Lab is an open local-AI systems research repository built around
+hardware-specific inference on consumer machines. It explores how large
+models can become more practical through Rust runtimes, quantization, memory
+hierarchies, scheduling, speculation, and experimental GPU kernels.
+
+The reference development machine currently centers on a 16 GB RDNA4 Radeon,
+so many measured results are hardware-specific rather than portability claims.
+
+## In 30 seconds
+
+- **What:** an umbrella repository for the HAR runtime and related local-AI
+  systems research.
+- **Why:** to make constrained-hardware inference measurable, inspectable,
+  and reproducible enough to improve one experiment at a time.
+- **Current:** HAR is a Rust-only production runtime with a Rust Vulkan path;
+  the surrounding research records formats, memory systems, schedulers,
+  speculation, GPU experiments, falsified results, and open questions.
+- **Not claimed:** universal portability, a finished full-model Flash-Next
+  path, a dense 10M-token context, or a performance win over llama.cpp.
+
+Start with the [research idea index](RESEARCH_IDEA_INDEX.md),
+[implementation map](research/implementation-map.md), [claims ledger](CLAIMS.md),
+[falsified work](research/falsified/), [methodology](docs/methodology.md),
+[hardware profile](HARDWARE_PROFILE.md), and [provenance record](PROVENANCE.md).
+
+This is an umbrella repository, not a taxonomy rewrite. HAR remains the
+runtime. REMORA remains its own research and control family. The repository
+keeps distinct lines of work visible: HERMES, REMORA, ContextFold,
+multi-token prediction and speculation, MoE residency, R4X/R4KV/R4F, the
+gfx1200/RDNA4 track, Flash-Next, Laguna, HAR-X, open problems, conjectures,
+falsified experiments, and moonshot research.
+
+## Research stance
+
+High-upside ideas are written as testable hypotheses. An implausible result is
+neither accepted because it is exciting nor rejected because it conflicts with
+an expectation; the discrepancy becomes the experiment. Failed experiments
+are research output when they expose a real mechanism or improve a falsifier.
+Some work is original to this project, some is inspired or overlapping, and
+the repository does not treat originality as proof of superiority.
+
+**Do not reject a moonshot because it sounds impossible. Do not accept it
+because it sounds exciting. Try to kill it.**
 
 ## HAR
 
@@ -18,16 +55,20 @@ CMake-built components, subprocess helpers, and foreign inference backends
 are not part of the HAR production tree.
 
 HAR currently provides native CPU model paths, a Rust Vulkan layer, GGUF
-metadata/tensor loading, serving/scheduling components, R4KV research code,
-and small synthetic metadata fixtures. Model files are supplied by the
+metadata/tensor loading, serving and scheduling components, R4KV research
+code, and small synthetic metadata fixtures. Model files are supplied by the
 caller and are never bundled.
+
+Research-only Python may be used in a separate offline workspace, but it is
+not an inference dependency and no Python source is required to build or run
+HAR from this repository.
 
 ## Research stack
 
-The [`research/`](research/) library is a first-class map of the local research
-program: HERMES/REMORA mechanisms, ContextFold and effective context,
-speculative decode, expert residency, R4X/R4KV/R4F formats, Flash-Next,
-Laguna, HAR-X, and benchmark methodology. The canonical map is
+The [`research/`](research/) library is a public research map for HERMES and
+REMORA mechanisms, ContextFold and effective context, speculative decode,
+expert residency, R4X/R4KV/R4F formats, Flash-Next, Laguna, HAR-X, and
+benchmark methodology. The canonical map is
 [`RESEARCH_IDEA_INDEX.md`](RESEARCH_IDEA_INDEX.md) plus
 [`research_idea_index.json`](research_idea_index.json). The inventory records
 material deliberately omitted because its provenance, license, privacy, or
@@ -37,23 +78,18 @@ reproducibility status is not ready for publication.
 research-only tool and is not a HAR runtime dependency; its optional external
 measurement harness is outside the production boundary.
 
-Research-only Python may be used in a separate offline workspace, but it is
-not an inference dependency and no Python source is currently required to
-build or run HAR from this tree.
-
 ## Hardware-specific research
 
-This project was built primarily around my own workstation rather than around
-a promise of portable peak performance.
-The reference GPU is a Sapphire NITRO+ Radeon RX 9060 XT OC 16 GB (RDNA 4 /
-gfx1200), and many kernels, quantization decisions, memory policies, and
-benchmarks were designed around that machine.
-Some ideas are architecture-independent, but measured performance is not.
-Do not assume a result reported here will reproduce on NVIDIA, Intel, another
-AMD architecture, or even another RX 9060 XT without retuning.
-Exact public-safe reference-system specifications, software versions,
-overclock configuration, and benchmark environment are recorded in
-[HARDWARE_PROFILE.md](HARDWARE_PROFILE.md).
+This project was built primarily around a reference workstation rather than
+around a promise of portable peak performance. The reference GPU is a
+Sapphire NITRO+ Radeon RX 9060 XT OC 16 GB (RDNA 4 / `gfx1200`), and many
+kernels, quantization decisions, memory policies, and benchmarks were designed
+around that machine. Some ideas are architecture-independent, but measured
+performance is not. Do not assume a result reported here will reproduce on
+NVIDIA, Intel, another AMD architecture, or even another RX 9060 XT without
+retuning. Exact public-safe specifications, software versions, overclock
+configuration, and benchmark environment are recorded in
+[`HARDWARE_PROFILE.md`](HARDWARE_PROFILE.md).
 
 The profile is a phenotype, not a portability guarantee. Factory
 specifications, live configuration, idle samples, bounded workload samples,
@@ -80,6 +116,15 @@ with the implementation navigation in
 current Flash-Next status in
 [`research/flash-next/CURRENT_CAMPAIGN.md`](research/flash-next/CURRENT_CAMPAIGN.md).
 
+## AI-assisted development
+
+Implementation of this repository has been heavily AI-assisted. The owner
+directs the questions, ideas, architecture, experiments, validation,
+benchmarking, falsification, and final decisions; AI agents provide much of
+the engineering workforce. The work is open so systems and GPU developers can
+inspect it, criticize it, reproduce it, rewrite it, and improve it. AI
+assistance is not evidence that an implementation or result is correct.
+
 ## Build and audit
 
 From the repository root:
@@ -99,16 +144,12 @@ rustc tools/check_rust_only_runtime.rs -o /tmp/har-rust-only-runtime
 ```
 
 The trace must be run with a caller-supplied model fixture on a machine with
-the required Vulkan driver; this candidate contains no model payload.
+the required Vulkan driver; this repository contains no model payload.
 
-The earlier code-centered private snapshot is not the complete research
-release. This expanded candidate is staged on the private GitHub remote for
-review only; it remains non-public and has no release or Pages publication.
 The current runtime evidence is summarized in
 [PUBLIC_HAR_RELEASE_AUDIT.md](PUBLIC_HAR_RELEASE_AUDIT.md), while the broader
-candidate state is recorded in
-[RESEARCH_CORPUS_STATUS.md](RESEARCH_CORPUS_STATUS.md).
+candidate state is recorded in [RESEARCH_CORPUS_STATUS.md](RESEARCH_CORPUS_STATUS.md).
 
-Read [PROVENANCE.md](PROVENANCE.md) and
-[docs/ACKNOWLEDGEMENTS.md](docs/ACKNOWLEDGEMENTS.md) before redistributing
-derived work.
+Read [PROVENANCE.md](PROVENANCE.md),
+[docs/ACKNOWLEDGEMENTS.md](docs/ACKNOWLEDGEMENTS.md), and
+[THIRD_PARTY.md](THIRD_PARTY.md) before redistributing derived work.

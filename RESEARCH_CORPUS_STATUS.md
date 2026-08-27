@@ -1,19 +1,15 @@
-# Expanded research-corpus candidate
+# REMORA Lab research corpus
 
-**STATUS: PRIVATE GITHUB STAGING — PUBLICATION NOT ANNOUNCED; independent review and owner approval remain pending**
+**STATUS: PUBLIC RESEARCH REPOSITORY — publication complete; ongoing work remains experimental**
 
-This directory is the expanded, code-plus-research release candidate. It is
-not the frozen code-centered snapshot previously pushed to the private
-`leoinfer/local-ai-research` repository. That earlier snapshot remains private
-and unchanged; it is intentionally treated as incomplete for the broader
-publication scope.
+This directory is the expanded, code-plus-research corpus published by REMORA
+Lab. It is distinct from the earlier code-centered snapshot, which remains
+outside this publication and is intentionally treated as incomplete for the
+broader research scope.
 
-This expanded candidate is staged on the private
-`leoinfer/local-ai-research-staging` remote for review only. It is not public,
-has no release or Pages publication, and has not been announced. The larger
-tree's privacy, secret, provenance, license, claim, build/test, dependency, and
-runtime audits are rerun for each closure commit; independent review and
-explicit owner approval remain required before any public publication.
+The public tree's privacy, secret, provenance, license, claim, build/test,
+dependency, and runtime audits are recorded in the release audit and the
+coverage matrix. No versioned release or Pages deployment has been created.
 
 ## Recovered scope
 

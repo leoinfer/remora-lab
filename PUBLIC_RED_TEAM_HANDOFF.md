@@ -1,7 +1,7 @@
 # Public red-team handoff
 
-This is the review packet for a second, adversarial pass before publication.
-It is intentionally separate from the implementation notes.
+This is the public-safe handoff for the completed adversarial publication
+pass. It is intentionally separate from the implementation notes.
 
 ## Required checks
 
@@ -17,10 +17,9 @@ It is intentionally separate from the implementation notes.
 - check that model-architecture attribution is separate from HAR code credit;
 - check that no file with unresolved provenance or license is present.
 
-## Review state
+## Final audit state
 
-The first pass is the implementation audit recorded by the local release
-commands. A second adversarial pass must be rerun after the final tree is
-frozen. The private staging candidate is ready for hosted review; public
-publication remains gated until that pass reports zero findings and the owner
-explicitly approves the public repository and identity.
+The implementation audit and final adversarial pass were rerun against the
+frozen publication tree. They reported zero remaining sensitive findings, and
+the owner explicitly authorized publication of `leoinfer/remora-lab`. The
+detailed audit companion is outside the repository by design.

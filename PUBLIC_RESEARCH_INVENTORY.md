@@ -1,12 +1,12 @@
-# Public research inventory
+# REMORA Lab public research inventory
 
 This inventory is the sanitized result of a full local archaeology pass over
 Git repositories, linked worktrees, non-Git research trees, archives, and
 recent source material. Exact local paths, host identity, branch names, agent
-records, model locations, and raw receipts are retained only in a private
-audit; they are not publication content. The original code-centered candidate
-was expanded into this private GitHub staging candidate after the publication
-stop; this repository is not public.
+records, model locations, and raw receipts are retained only in an audit
+companion; they are not publication content. The original code-centered
+candidate was expanded into this REMORA Lab publication after the earlier
+publication stop; this repository is now public.
 
 The inventory is broader than the current public tree. “Summarize” means that
 the research question or result is represented by a fresh note. “Blocked”
@@ -90,7 +90,7 @@ review.
 
 ## Inventory decision
 
-The fresh candidate publishes the runtime and readable research map now. It
+The published tree contains the runtime and readable research map now. It
 does not pretend that every local experiment is publishable. The omitted
 source IDs remain useful work items and are linked to explicit provenance or
 license decisions in [PROVENANCE.md](PROVENANCE.md). The separately mounted

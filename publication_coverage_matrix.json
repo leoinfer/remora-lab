@@ -1,8 +1,8 @@
 {
   "schema": "local-ai-research.publication-coverage-matrix.v1",
   "generated_at_utc": "2026-08-27T12:30:52Z",
-  "repository": "leoinfer/local-ai-research-staging",
-  "visibility": "private",
+  "repository": "leoinfer/remora-lab",
+  "visibility": "public",
   "declared_archaeology_boundary": "candidate research corpus, whole-machine source/register inventory, HAR worktrees, read-only external research disk, current Flash-Next campaign, and mandatory family crosswalk",
   "allowed_dispositions": [
     "PUBLIC",

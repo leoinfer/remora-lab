@@ -1,12 +1,12 @@
-# HAR public release audit — expanded candidate
+# HAR public release audit — REMORA Lab
 
-Status: `PRIVATE_GITHUB_STAGING_NOT_PUBLIC`
+Status: `PUBLIC`
 
-This audit covers the expanded code-plus-research candidate. It is pushed to
-the private `leoinfer/local-ai-research-staging` repository for review only.
-It is not public, has no release or Pages publication, and has not been
-announced. The earlier private code-centered snapshot remains frozen and
-unchanged; it is not this candidate.
+This audit covers the expanded code-plus-research candidate published in
+`leoinfer/remora-lab`. The repository itself is the research publication; no
+versioned release or Pages deployment has been created. The earlier
+code-centered snapshot remains frozen and unchanged; it is not this
+candidate.
 
 The final closure crosswalk is [`PUBLICATION_COVERAGE_MATRIX.md`](PUBLICATION_COVERAGE_MATRIX.md)
 and [`publication_coverage_matrix.json`](publication_coverage_matrix.json).
@@ -67,7 +67,7 @@ The expanded publication audit passed after the profile and documentation
 changes:
 
 ```text
-PUBLICATION_AUDIT PASS: 623 files, 4517302 bytes, no release-gate findings
+PUBLICATION_AUDIT PASS: 623 files, 4519194 bytes, no release-gate findings
 ```
 
 The tree contains no model weights, checkpoints, tokenizer payloads, datasets,
@@ -84,19 +84,19 @@ recorded in [`research/SOURCE_REGISTER.md`](research/SOURCE_REGISTER.md).
 ## Final adversarial privacy/de-anonymization audit
 
 The final privacy gate covers every current tracked file, every blob and commit
-reachable from the staging refs, commit author/committer/message metadata,
+reachable from the publication refs, commit author/committer/message metadata,
 signed metadata, ref/tag visibility, and GitHub repository metadata. It checks
 identity/contact markers, network and hardware identifiers, filesystem paths,
 private keys, provider credential shapes, personal-content classes, and
 temporary-path labels. Historical owner/path labels found during triage were
-removed from the current corpus and the private staging history was rewritten.
+removed from the current corpus before the published history was finalized.
 
 The Rust publication audit now includes conservative detectors and tests for
 synthetic fake credentials, emails, IP/MAC/UUID/serial-shaped identifiers,
 private-key headers, and suspicious assignments. Ordinary model token
 terminology and PCI/software-version values remain accepted. The final result
 is `PASS` with zero remaining sensitive findings; the detailed red-team report
-is retained privately outside this repository.
+is retained outside this repository and is not publication content.
 
 ## Rust-only validation
 
@@ -195,8 +195,10 @@ preserved in [`docs/methodology.md`](docs/methodology.md) and
 - Flash-Next/R4F remains incomplete.
 - Historical results remain labeled historical or experimental.
 - Unsupported capability, stale state, and missing certificates fail closed.
-- Second human review and owner approval are still pending.
+- The final adversarial privacy/de-anonymization audit passed with zero
+  remaining sensitive findings.
+- The owner explicitly authorized publication in the final publication brief.
 
-The candidate remains private staging. No public release, Pages deployment,
-or public announcement has occurred; any later publication requires the
-hosted review and explicit owner approval.
+The repository is public. No versioned release or Pages deployment has been
+created, and the runtime/model work remains experimental rather than a claim
+of completion.
