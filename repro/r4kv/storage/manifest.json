@@ -4,7 +4,7 @@
   "experiment_id": "r4kv-storage-kat-2026-08-27",
   "status": "FULLY_REPRODUCIBLE",
   "description": "Model-free Rust known-answer lane for R4KV profile accounting, codec round trips, page identity, and corruption rejection.",
-  "source_commit": "147c6f1b3ed60babe01b84a3820d14407fccc26a",
+  "source_commit": "04fdf1b4091991d211746ff12ad9c3f4369f64e1",
   "source_paths": [
     "har/crates/r4kv/src/",
     "repro/r4kv/storage/run.sh",

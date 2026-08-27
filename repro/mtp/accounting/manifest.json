@@ -4,7 +4,7 @@
   "experiment_id": "mtp-acceptance-accounting-2026-08-27",
   "status": "FULLY_REPRODUCIBLE",
   "description": "Model-free Rust acceptance accounting with deterministic target/proposal traces and explicit historical-anchor boundary.",
-  "source_commit": "147c6f1b3ed60babe01b84a3820d14407fccc26a",
+  "source_commit": "04fdf1b4091991d211746ff12ad9c3f4369f64e1",
   "source_paths": [
     "har/crates/har-execution/src/speculation.rs",
     "har/crates/har-residency/src/mtp.rs",

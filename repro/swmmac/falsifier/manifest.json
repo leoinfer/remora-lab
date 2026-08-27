@@ -4,7 +4,7 @@
   "experiment_id": "gfx1200-swmmac-falsifier-2026-08-27",
   "status": "FALSIFIED_REPRODUCIBLE",
   "description": "Rust known-answer reproduction of the accumulator-replay falsifier for the historical gfx1200 sparse-matrix anomaly.",
-  "source_commit": "147c6f1b3ed60babe01b84a3820d14407fccc26a",
+  "source_commit": "04fdf1b4091991d211746ff12ad9c3f4369f64e1",
   "source_paths": [
     "research/falsified/GFX1200_SPARSE_MATRIX_ANOMALY.md",
     "repro/swmmac/falsifier/run.sh",

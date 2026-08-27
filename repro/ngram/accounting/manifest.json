@@ -4,7 +4,7 @@
   "experiment_id": "ngram-replay-accounting-2026-08-27",
   "status": "FULLY_REPRODUCIBLE",
   "description": "Model-free Rust workload-shaped token replay for n-gram acceptance accounting.",
-  "source_commit": "147c6f1b3ed60babe01b84a3820d14407fccc26a",
+  "source_commit": "04fdf1b4091991d211746ff12ad9c3f4369f64e1",
   "source_paths": [
     "har/crates/har-execution/src/speculation.rs",
     "repro/ngram/accounting/run.sh",

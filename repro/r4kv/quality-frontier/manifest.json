@@ -4,7 +4,7 @@
   "experiment_id": "r4kv-quality-frontier-unknown",
   "status": "BLOCKED_PROVENANCE",
   "description": "Explicit evidence-gap lane for the R4KV model-quality frontier; the public storage KAT does not contain model quality results.",
-  "source_commit": "147c6f1b3ed60babe01b84a3820d14407fccc26a",
+  "source_commit": "04fdf1b4091991d211746ff12ad9c3f4369f64e1",
   "source_paths": [
     "har/crates/r4kv/",
     "formats/r4kv/FORMAT.md",
