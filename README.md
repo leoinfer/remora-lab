@@ -74,6 +74,12 @@ benchmark methodology. The canonical map is
 material deliberately omitted because its provenance, license, privacy, or
 reproducibility status is not ready for publication.
 
+The native REMORA metabolism control family is documented separately in
+[`docs/remora_metabolism/PROVENANCE_AND_SCOPE.md`](docs/remora_metabolism/PROVENANCE_AND_SCOPE.md),
+with its Rust implementation under `har/crates/har-metabolism/`. Portion,
+reserve, reclaim, refrigerator, salvage, Waste Ledger, setpoint, safe surplus,
+clock, energy, and replay surfaces remain part of the public candidate.
+
 `benchmarks/local-bench/` is the included MIT-licensed Rust estimator. It is a
 research-only tool and is not a HAR runtime dependency; its optional external
 measurement harness is outside the production boundary.

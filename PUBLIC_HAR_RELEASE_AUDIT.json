@@ -68,8 +68,8 @@
     "portability_claim": false
   },
   "privacy": {
-    "file_count": 685,
-    "tree_bytes": 4691139,
+    "file_count": 687,
+    "tree_bytes": 4710986,
     "model_payloads_present": false,
     "raw_receipts_present": false,
     "screenshots_present": false,
@@ -154,6 +154,7 @@
     "workspace_check": "PASS",
     "workspace_clippy_warnings_as_errors": "PASS",
     "workspace_tests": "PASS",
+    "remora_metabolism_tests": "PASS",
     "workspace_release_build": "PASS",
     "local_bench_format": "PASS",
     "local_bench_check": "PASS",

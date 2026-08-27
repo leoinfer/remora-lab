@@ -21,6 +21,35 @@ claim that one finished REMORA runtime exists.
 | Tiered reserve | Keep capacity for recovery, verification, and burst demand | [`REMORA-RECLAIM`](../ideas/residency/REMORA-RECLAIM.md) |
 | Fast/slow clocks | Adapt routing and maintenance on different time scales | [`C-06`](../conjectures/C-06-SPEH.md) |
 
+## REMORA Metabolism
+
+The native metabolism subsystem is a first-class Rust control surface, not an
+omitted research metaphor. Its frozen public scope is documented in
+[`PROVENANCE_AND_SCOPE.md`](../../docs/remora_metabolism/PROVENANCE_AND_SCOPE.md).
+The implementation is [`har-metabolism`](../../har/crates/har-metabolism/),
+wired into runtime, residency, and decode-control observation boundaries.
+
+| Part | Rust module | Meaning |
+| --- | --- | --- |
+| Portion | [`portion.rs`](../../har/crates/har-metabolism/src/portion.rs) | Decide whether optional work is affordable. |
+| Reserve / mobilization | [`reserve.rs`](../../har/crates/har-metabolism/src/reserve.rs) | Protect recovery capacity and bound reserve debt. |
+| Refrigerator | [`artifact.rs`](../../har/crates/har-metabolism/src/artifact.rs) | Carry causal identity and classify validity. |
+| Reclaim | [`reclaim.rs`](../../har/crates/har-metabolism/src/reclaim.rs) | Classify spent work without inventing value. |
+| Salvage | [`salvage.rs`](../../har/crates/har-metabolism/src/salvage.rs) | Admit retained artifacts only when expected value clears cost. |
+| Waste Ledger | [`ledger.rs`](../../har/crates/har-metabolism/src/ledger.rs) | Record unique work and evidence-backed credit. |
+| Moving maintenance setpoint | [`setpoint.rs`](../../har/crates/har-metabolism/src/setpoint.rs) | Estimate the minimum healthy budget. |
+| Uncertainty-adjusted safe surplus | [`surplus.rs`](../../har/crates/har-metabolism/src/surplus.rs) | Bound optional work under uncertainty and pressure. |
+| Fast/slow clocks | [`clock.rs`](../../har/crates/har-metabolism/src/clock.rs) | Separate immediate observations from slow adaptation. |
+| Energy and replay | [`energy.rs`](../../har/crates/har-metabolism/src/energy.rs), [`trace.rs`](../../har/crates/har-metabolism/src/trace.rs) | Preserve explicit UNKNOWN energy and deterministic replay. |
+
+The associated research records remain visible in the REMORA manifest: Portion,
+Reclaim, computational refrigerator, value-weighted salvage, Waste Ledger,
+tiered reserve, reserve mobilization, moving maintenance setpoint,
+uncertainty-adjusted safe surplus, and fast/slow adaptation clocks. The
+bodybuilding/macros, fatigue/recovery/RIR, and investment/salvage analogies
+remain in their cards as historical working analogies; they are not runtime
+semantics.
+
 ## Evidence boundary
 
 The source corpus contains formal sketches, simulator-oriented queues,

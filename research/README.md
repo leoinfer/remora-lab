@@ -19,6 +19,9 @@ Start with:
   queue;
 - [`systems/`](systems/) — readable system-level entry points for REMORA,
   ContextFold, HAR, R4X/R4KV/R4F, DSpark/MTP, ExpertPack, and MARC-Symbiote;
+- [`../docs/remora_metabolism/PROVENANCE_AND_SCOPE.md`](../docs/remora_metabolism/PROVENANCE_AND_SCOPE.md)
+  — frozen public scope and verification map for the native REMORA metabolism
+  subsystem;
 - [`ideas/`](ideas/) — H/N atlas cards and thematic mechanism notes;
 - [`open-problems/`](open-problems/) and [`conjectures/`](conjectures/) —
   exact section-level records;

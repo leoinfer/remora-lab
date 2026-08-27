@@ -255,6 +255,38 @@
       "notes": "The technical index does not substitute idea records for implementation or experiment receipts."
     },
     {
+      "artifact_id": "REMORA-METABOLISM-RUNTIME",
+      "artifact_type": "bounded-rust-control-subsystem",
+      "research_family": "REMORA/metabolism",
+      "experiment_series": "runtime-control-and-accounting",
+      "experiment_id": "remora-metabolism-invariants",
+      "claim_ids": [],
+      "implementation_path": [
+        "har/crates/har-metabolism/",
+        "har/crates/har-runtime/src/metabolism.rs",
+        "har/crates/har-residency/src/remora.rs",
+        "har/crates/har-decode-control/src/metabolism.rs"
+      ],
+      "repro_path": "har/crates/har-metabolism/tests/invariants.rs",
+      "receipt_path": null,
+      "status": "FULLY_REPRODUCIBLE",
+      "metric_boundary": "bounded Rust accounting and invariant tests; not full-model generation, throughput, quality, or energy evidence",
+      "keywords": [
+        "REMORA",
+        "metabolism",
+        "Portion",
+        "Reserve",
+        "Reclaim",
+        "Refrigerator",
+        "Salvage",
+        "Waste Ledger",
+        "setpoint",
+        "safe surplus",
+        "fast/slow clocks"
+      ],
+      "notes": "The native controller and its runtime observation bridges are public Rust. Unknown critical inputs fail closed; exactness and model-level claims remain separate."
+    },
+    {
       "artifact_id": "FALSIFIED-RESULTS-CORPUS",
       "artifact_type": "negative-knowledge-records",
       "research_family": "falsified results",

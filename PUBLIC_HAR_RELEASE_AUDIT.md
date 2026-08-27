@@ -67,7 +67,7 @@ The expanded publication audit passed after the profile and documentation
 changes:
 
 ```text
-PUBLICATION_AUDIT PASS: 685 files, 4691139 bytes, no release-gate findings
+PUBLICATION_AUDIT PASS: 687 files, 4710986 bytes, no release-gate findings
 ```
 
 The tree contains no model weights, checkpoints, tokenizer payloads, datasets,
@@ -107,6 +107,7 @@ cargo fmt --all -- --check
 cargo check --workspace --all-targets --locked --offline
 cargo clippy --workspace --all-targets --locked --offline -- -D warnings
 cargo test --workspace --locked --offline
+cargo test -p har-metabolism --locked
 cargo build --workspace --release --locked --offline
 rustc tools/check_rust_only_runtime.rs -o /tmp/har-rust-only-runtime
 /tmp/har-rust-only-runtime har
@@ -118,6 +119,12 @@ files`. The workspace tests passed with no failures; the serving crate has 54
 passing tests and one intentionally ignored test requiring a caller-provided
 GGUF. The separate MIT local-bench workspace also passed format, check,
 strict Clippy, tests, and release build checks.
+
+The REMORA metabolism crate passed 15 unit tests and 11 public integration
+invariants. These cover fail-closed unknowns, evidence-gated reuse and overlap
+credit, bounded reserve mobilization, ledger conservation, deterministic trace
+replay, and explicit UNKNOWN energy state. This is bounded Rust control
+evidence, not a full-model performance or energy claim.
 
 ## Dependency and linked-object audit
 

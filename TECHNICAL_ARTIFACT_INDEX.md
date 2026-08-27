@@ -21,6 +21,7 @@ The machine-readable source is [`technical_artifact_index.json`](technical_artif
 | MTP acceptance accounting | `FULLY_REPRODUCIBLE` | [`har/crates/har-execution/src/speculation.rs`](har/crates/har-execution/src/speculation.rs) | [`repro/mtp/accounting/run.sh`](repro/mtp/accounting/run.sh) | [`sanitized_receipt.json`](repro/mtp/accounting/sanitized_receipt.json) | Synthetic acceptance bookkeeping, not neural throughput |
 | N-gram replay accounting | `FULLY_REPRODUCIBLE` | [`tools/repro-harness/src/main.rs`](tools/repro-harness/src/main.rs) | [`repro/ngram/accounting/run.sh`](repro/ngram/accounting/run.sh) | [`sanitized_receipt.json`](repro/ngram/accounting/sanitized_receipt.json) | Synthetic replay; throughput intentionally null |
 | SWMMAC falsifier | `FALSIFIED_REPRODUCIBLE` | [`research/falsified/GFX1200_SPARSE_MATRIX_ANOMALY.md`](research/falsified/GFX1200_SPARSE_MATRIX_ANOMALY.md) | [`repro/swmmac/falsifier/run.sh`](repro/swmmac/falsifier/run.sh) | [`sanitized_receipt.json`](repro/swmmac/falsifier/sanitized_receipt.json) | Independent committed-work KAT, not TOPS |
+| REMORA metabolism Rust control | `FULLY_REPRODUCIBLE` | [`har-metabolism`](har/crates/har-metabolism/) and runtime bridges | [`invariants.rs`](har/crates/har-metabolism/tests/invariants.rs) | none | Bounded deterministic accounting/invariants, not full-model throughput or energy |
 
 ## Explicitly bounded historical or open artifacts
 
