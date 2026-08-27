@@ -1,11 +1,11 @@
 # Local AI Research
 
-This is the expanded local release candidate for an open-source local-AI
-research stack. It is prepared as a fresh repository and is not published by
-this workspace. The tree contains both the Rust runtime and a first-class,
-public-safe research archive; no model weights, private experiment receipts,
-private machine identifiers, or copied upstream execution backends are
-included.
+This is the expanded private GitHub staging candidate for an open-source
+local-AI research stack. It is not public, has no release or Pages
+publication, and has not been announced. The tree contains both the Rust
+runtime and a first-class, public-safe research archive; no model weights,
+private experiment receipts, private machine identifiers, or copied upstream
+execution backends are included.
 
 ## HAR
 
@@ -74,6 +74,12 @@ that a dense attention cache or a single model file has been run at ten
 million tokens. Flash-Next is a bring-up track, not a completed full-model
 generation result.
 
+The closure crosswalk is [`PUBLICATION_COVERAGE_MATRIX.md`](PUBLICATION_COVERAGE_MATRIX.md),
+with the implementation navigation in
+[`research/implementation-map.md`](research/implementation-map.md) and the
+current Flash-Next status in
+[`research/flash-next/CURRENT_CAMPAIGN.md`](research/flash-next/CURRENT_CAMPAIGN.md).
+
 ## Build and audit
 
 From the repository root:
@@ -96,8 +102,8 @@ The trace must be run with a caller-supplied model fixture on a machine with
 the required Vulkan driver; this candidate contains no model payload.
 
 The earlier code-centered private snapshot is not the complete research
-release. This expanded candidate is local-only and has no remote configured;
-publication remains blocked until the larger corpus passes its own audits.
+release. This expanded candidate is staged on the private GitHub remote for
+review only; it remains non-public and has no release or Pages publication.
 The current runtime evidence is summarized in
 [PUBLIC_HAR_RELEASE_AUDIT.md](PUBLIC_HAR_RELEASE_AUDIT.md), while the broader
 candidate state is recorded in

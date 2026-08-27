@@ -1,10 +1,19 @@
 # HAR public release audit — expanded candidate
 
-Status: `LOCAL_ONLY_RELEASE_CANDIDATE_PENDING_REVIEW`
+Status: `PRIVATE_GITHUB_STAGING_NOT_PUBLIC`
 
-This audit covers the expanded code-plus-research candidate. It has not been
-published, pushed, or connected to a remote. The earlier private
-code-centered snapshot remains frozen and unchanged; it is not this candidate.
+This audit covers the expanded code-plus-research candidate. It is pushed to
+the private `leoinfer/local-ai-research-staging` repository for review only.
+It is not public, has no release or Pages publication, and has not been
+announced. The earlier private code-centered snapshot remains frozen and
+unchanged; it is not this candidate.
+
+The final closure crosswalk is [`PUBLICATION_COVERAGE_MATRIX.md`](PUBLICATION_COVERAGE_MATRIX.md)
+and [`publication_coverage_matrix.json`](publication_coverage_matrix.json).
+The current Flash-Next campaign is summarized in
+[`research/flash-next/CURRENT_CAMPAIGN.md`](research/flash-next/CURRENT_CAMPAIGN.md).
+The matrix contains 1,092 normalized records with `UNACCOUNTED = 0`, and
+maps HAR, R4X, R4KV, and R4F research/implementation boundaries explicitly.
 
 ## Scope and publication gates
 
@@ -58,7 +67,7 @@ The expanded publication audit passed after the profile and documentation
 changes:
 
 ```text
-PUBLICATION_AUDIT PASS: 617 files, 3151557 bytes, no release-gate findings
+PUBLICATION_AUDIT PASS: 623 files, 4502041 bytes, no release-gate findings
 ```
 
 The tree contains no model weights, checkpoints, tokenizer payloads, datasets,
@@ -171,5 +180,6 @@ preserved in [`docs/methodology.md`](docs/methodology.md) and
 - Unsupported capability, stale state, and missing certificates fail closed.
 - Second human review and owner approval are still pending.
 
-Publication remains blocked. No remote is configured for this candidate, and
-no push or publication action is authorized by this audit.
+The candidate remains private staging. No public release, Pages deployment,
+or public announcement has occurred; any later publication requires the
+hosted review and explicit owner approval.

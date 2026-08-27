@@ -26,6 +26,14 @@ this candidate.
 | `external-hdd-source-small` | compressed historical source pack | inspect archive member names only; exclude | none | opaque archive not cleared file-by-file for licenses or legacy build boundaries |
 | `external-hdd-r4x-plan` | model-derived R4X planning manifest | inspect schema/idea relevance; exclude | none | model-specific plan, not a standalone redistributable source artifact |
 | `external-hdd-container-dump` | unrelated system backup | exclude | none | outside research publication scope |
+| `root-mega-source-register` | whole-machine source-register metadata | represent each entry in the closure matrix; do not copy private paths or hashes | `PUBLICATION_COVERAGE_MATRIX.md` | source metadata is evidence of discovery, not a license to redistribute contents |
+| `root-mega-artifact-register` | mega-program artifact manifest and generated indexes | represent each registered artifact by ordinal and disposition | `PUBLICATION_COVERAGE_MATRIX.md` | model, binary, receipt, build, and private artifacts remain excluded by class |
+| `machine-archaeology-trees` | non-Git research trees and top-level files | aggregate identity-preserving inventory only; no private paths | `research/archaeology/CLOSURE_PASS.md` | source-tree identity is withheld; file-level clearance is required for promotion |
+| `har-worktree-inventory` | canonical HAR worktrees, archived worktrees, and branch metadata | aggregate 69 worktree records; publish only reviewed Rust already in `har/` | `PUBLICATION_COVERAGE_MATRIX.md` | dirty/private coordination state is not publication content |
+| `flash-next-campaign-summary` | current R4F/Flash-Next bounded campaign | publish sanitized methodology, seams, failures, and gate state | `research/flash-next/CURRENT_CAMPAIGN.md` | raw receipts, model payloads, and private execution context withheld |
+| `flash-next-campaign-rust` | current campaign Rust adapter and probe worktree | pending sanitization and provenance review; do not copy blindly | `PUBLICATION_COVERAGE_MATRIX.md` | dirty worktree and incomplete first-token gate |
+| `flash-next-research-tooling` | current and historical research-only Python helpers | review only; no runtime or source copy | `research/tools/RESEARCH_TOOLING_REVIEW.md` | local paths, receipts, model payloads, and foreign-runtime boundaries require review |
+| `flash-next-model-and-receipts` | R4F container, model-derived artifacts, raw receipts, and build outputs | exclude by payload/receipt class | `PUBLICATION_COVERAGE_MATRIX.md` | weights/data and raw execution evidence are not public-safe |
 
 ## Search boundary
 
@@ -35,3 +43,6 @@ handoff records, and the mounted HDD's documentation/manifests and archive
 member lists. Raw binary payloads, model weights, checkpoints, caches, logs
 with private context, and opaque archives were not treated as publishable idea
 sources.
+
+The final normalized whole-machine crosswalk, including current campaign and
+HDD records, is [`../PUBLICATION_COVERAGE_MATRIX.md`](../PUBLICATION_COVERAGE_MATRIX.md).

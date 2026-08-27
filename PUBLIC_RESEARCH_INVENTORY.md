@@ -5,7 +5,8 @@ Git repositories, linked worktrees, non-Git research trees, archives, and
 recent source material. Exact local paths, host identity, branch names, agent
 records, model locations, and raw receipts are retained only in a private
 audit; they are not publication content. The original code-centered candidate
-was expanded into a separate local-only tree after the publication stop.
+was expanded into this private GitHub staging candidate after the publication
+stop; this repository is not public.
 
 The inventory is broader than the current public tree. “Summarize” means that
 the research question or result is represented by a fresh note. “Blocked”
@@ -95,3 +96,8 @@ source IDs remain useful work items and are linked to explicit provenance or
 license decisions in [PROVENANCE.md](PROVENANCE.md). The separately mounted
 HDD was checked for additional research material; its archive, model payloads,
 receipts, and opaque source bundles remain outside this candidate.
+
+The closure-pass coverage matrix is the authoritative whole-machine
+crosswalk. It records every discovered unit within the declared archaeology
+boundary, including material that is pending sanitization or explicitly
+excluded: [`PUBLICATION_COVERAGE_MATRIX.md`](PUBLICATION_COVERAGE_MATRIX.md).

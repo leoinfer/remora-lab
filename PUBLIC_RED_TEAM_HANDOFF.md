@@ -21,5 +21,6 @@ It is intentionally separate from the implementation notes.
 
 The first pass is the implementation audit recorded by the local release
 commands. A second adversarial pass must be rerun after the final tree is
-frozen. Publication remains blocked until that pass reports zero findings and
-the owner explicitly approves the public repository and identity.
+frozen. The private staging candidate is ready for hosted review; public
+publication remains gated until that pass reports zero findings and the owner
+explicitly approves the public repository and identity.

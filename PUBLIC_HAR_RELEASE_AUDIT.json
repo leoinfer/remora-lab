@@ -1,10 +1,10 @@
 {
   "schema": "har.public_release_audit.v2",
-  "status": "LOCAL_ONLY_RELEASE_CANDIDATE_PENDING_REVIEW",
+  "status": "PRIVATE_GITHUB_STAGING_NOT_PUBLIC",
   "audit_date": "2026-08-27",
   "published": false,
-  "pushed": false,
-  "remote_configured": false,
+  "pushed": true,
+  "remote_configured": true,
   "candidate": "local-ai-research-expanded/",
   "scope": {
     "har_production_host_runtime": "Rust",
@@ -68,8 +68,8 @@
     "portability_claim": false
   },
   "privacy": {
-    "file_count": 617,
-    "tree_bytes": 3151557,
+    "file_count": 623,
+    "tree_bytes": 4502041,
     "model_payloads_present": false,
     "raw_receipts_present": false,
     "screenshots_present": false,
@@ -91,7 +91,40 @@
     "counterexamples": 28,
     "experiments": 96,
     "registry_records": 88,
+    "coverage_matrix_records": 1092,
+    "coverage_matrix_unaccounted": 0,
     "runtime_dependency": false
+  },
+  "coverage_matrix": {
+    "markdown": "PUBLICATION_COVERAGE_MATRIX.md",
+    "json": "publication_coverage_matrix.json",
+    "records": 1092,
+    "unaccounted": 0,
+    "allowed_dispositions_checked": true,
+    "whole_machine_boundary_checked": true
+  },
+  "current_flash_next": {
+    "summary": "research/flash-next/CURRENT_CAMPAIGN.md",
+    "represented": true,
+    "status": "48-layer GPU assembly pending",
+    "first_token_oracle": "PENDING",
+    "full_model_generation_claim": false,
+    "throughput_claim": false
+  },
+  "research_tooling": {
+    "review": "research/tools/RESEARCH_TOOLING_REVIEW.md",
+    "python_in_runtime": false,
+    "python_files_in_candidate": 0,
+    "research_only_tooling_copied": false
+  },
+  "implementation_mapping": {
+    "har_mapped": true,
+    "r4x_mapped": true,
+    "r4kv_mapped": true,
+    "r4f_mapped": true,
+    "current_flash_next_represented": true,
+    "research_only_tooling_reviewed": true,
+    "stale_staging_wording_removed": true
   },
   "hdd": {
     "read_only_checked": true,

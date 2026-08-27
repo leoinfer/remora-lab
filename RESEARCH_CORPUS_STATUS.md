@@ -1,6 +1,6 @@
 # Expanded research-corpus candidate
 
-**STATUS: LOCAL ONLY — PUBLICATION BLOCKED pending independent review and owner approval**
+**STATUS: PRIVATE GITHUB STAGING — PUBLICATION NOT ANNOUNCED; independent review and owner approval remain pending**
 
 This directory is the expanded, code-plus-research release candidate. It is
 not the frozen code-centered snapshot previously pushed to the private
@@ -8,10 +8,12 @@ not the frozen code-centered snapshot previously pushed to the private
 and unchanged; it is intentionally treated as incomplete for the broader
 publication scope.
 
-This expanded candidate has no Git remote and has not been pushed. The larger
+This expanded candidate is staged on the private
+`leoinfer/local-ai-research-staging` remote for review only. It is not public,
+has no release or Pages publication, and has not been announced. The larger
 tree's privacy, secret, provenance, license, claim, build/test, dependency, and
-runtime audits have now been rerun and pass; publication still waits for an
-independent review and explicit owner approval.
+runtime audits are rerun for each closure commit; independent review and
+explicit owner approval remain required before any public publication.
 
 ## Recovered scope
 
@@ -53,3 +55,7 @@ Every indexed item uses one of the public statuses `IMPLEMENTED`,
 `CONJECTURE`, `OPEN_PROBLEM`, `FALSIFIED`, `SUPERSEDED`, or `DEFERRED`.
 Historical source labels such as `SUPPORTED`, `BLOCKED`, and `ORACLE_PENDING`
 are preserved in the archival documents and mapped explicitly in the index.
+
+The final whole-machine disposition is recorded in
+[`PUBLICATION_COVERAGE_MATRIX.md`](PUBLICATION_COVERAGE_MATRIX.md) and its
+machine-readable companion [`publication_coverage_matrix.json`](publication_coverage_matrix.json).
