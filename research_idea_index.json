@@ -200,7 +200,7 @@
     },
     {
       "id": "H06",
-      "name": "Route Scout",
+      "name": "Predictive Expert Route Selection",
       "category": "runtime",
       "status": "PROPOSED",
       "source": "research/archival/vault/IDEA_REGISTRY.jsonl",
@@ -224,7 +224,7 @@
     },
     {
       "id": "H08",
-      "name": "DSpark/MTP future-token canvas",
+      "name": "Speculative Future-State Scheduling",
       "category": "runtime",
       "status": "PROPOSED",
       "source": "research/archival/vault/IDEA_REGISTRY.jsonl",
@@ -305,7 +305,7 @@
     },
     {
       "id": "H14",
-      "name": "global telemetry satellite",
+      "name": "Global Runtime Telemetry",
       "category": "runtime",
       "status": "PROPOSED",
       "source": "research/archival/vault/IDEA_REGISTRY.jsonl",
@@ -317,7 +317,7 @@
     },
     {
       "id": "H15",
-      "name": "dynamic MoE GPS",
+      "name": "Receding-Horizon MoE Route Control",
       "category": "runtime",
       "status": "DEFERRED",
       "source": "research/archival/vault/IDEA_REGISTRY.jsonl",
@@ -329,7 +329,7 @@
     },
     {
       "id": "H16",
-      "name": "Safe/Balanced/Autobahn lanes",
+      "name": "Risk-Aware Operating Profiles",
       "category": "runtime",
       "status": "DEFERRED",
       "source": "research/archival/vault/IDEA_REGISTRY.jsonl",
@@ -341,7 +341,7 @@
     },
     {
       "id": "H17",
-      "name": "motorway merges and ramp metering",
+      "name": "Admission Control and Queue Metering",
       "category": "runtime",
       "status": "DEFERRED",
       "source": "research/archival/vault/IDEA_REGISTRY.jsonl",
@@ -353,7 +353,7 @@
     },
     {
       "id": "H18",
-      "name": "broadband/multi-source expert fabric",
+      "name": "Multi-Source Expert Placement",
       "category": "runtime",
       "status": "PROPOSED",
       "source": "research/archival/vault/IDEA_REGISTRY.jsonl",
@@ -365,7 +365,7 @@
     },
     {
       "id": "H19",
-      "name": "tailwind/headwind/sweet spot",
+      "name": "Sustainable Operating-Point Selection",
       "category": "runtime",
       "status": "DEFERRED",
       "source": "research/archival/vault/IDEA_REGISTRY.jsonl",
@@ -377,7 +377,7 @@
     },
     {
       "id": "H20",
-      "name": "fatigue/recovery/RIR",
+      "name": "Resource Fatigue and Recovery Control",
       "category": "runtime",
       "status": "DEFERRED",
       "source": "research/archival/vault/IDEA_REGISTRY.jsonl",
@@ -389,7 +389,7 @@
     },
     {
       "id": "H21",
-      "name": "compound versus isolation",
+      "name": "Batched Work and Scoped Repair",
       "category": "runtime",
       "status": "PROPOSED",
       "source": "research/archival/vault/IDEA_REGISTRY.jsonl",
@@ -401,7 +401,7 @@
     },
     {
       "id": "H22",
-      "name": "macro resource allocation/bodybuilding",
+      "name": "Adaptive Resource Budgeting",
       "category": "runtime",
       "status": "PROPOSED",
       "source": "research/archival/vault/IDEA_REGISTRY.jsonl",
@@ -413,7 +413,7 @@
     },
     {
       "id": "H23",
-      "name": "water-purification cascade",
+      "name": "Staged Uncertainty Filtering",
       "category": "runtime",
       "status": "DEFERRED",
       "source": "research/archival/vault/IDEA_REGISTRY.jsonl",
@@ -425,7 +425,7 @@
     },
     {
       "id": "H24",
-      "name": "sunscreen protection budget",
+      "name": "Risk-Weighted Verification Budget",
       "category": "runtime",
       "status": "DEFERRED",
       "source": "research/archival/vault/IDEA_REGISTRY.jsonl",
@@ -437,7 +437,7 @@
     },
     {
       "id": "H25",
-      "name": "behaviorism/consequence-driven learning",
+      "name": "Outcome-Driven Policy Learning",
       "category": "runtime",
       "status": "PROPOSED",
       "source": "research/archival/vault/IDEA_REGISTRY.jsonl",
@@ -449,7 +449,7 @@
     },
     {
       "id": "H26",
-      "name": "Id/Superego/Ego arbiter",
+      "name": "Constraint-Gated Action Selection",
       "category": "runtime",
       "status": "PROPOSED",
       "source": "research/archival/vault/IDEA_REGISTRY.jsonl",
@@ -461,7 +461,7 @@
     },
     {
       "id": "H27",
-      "name": "investment/capital/salvage value",
+      "name": "Salvage-Aware Work Valuation",
       "category": "runtime",
       "status": "PROPOSED",
       "source": "research/archival/vault/IDEA_REGISTRY.jsonl",
@@ -473,7 +473,7 @@
     },
     {
       "id": "H28",
-      "name": "inference-IQ/ability per joule",
+      "name": "Energy-Normalized Capability Measurement",
       "category": "runtime",
       "status": "PROPOSED",
       "source": "research/archival/vault/IDEA_REGISTRY.jsonl",
@@ -485,7 +485,7 @@
     },
     {
       "id": "H29",
-      "name": "Maturana viability governor",
+      "name": "Viability-Region Runtime Control",
       "category": "runtime",
       "status": "DEFERRED",
       "source": "research/archival/vault/IDEA_REGISTRY.jsonl",
@@ -497,7 +497,7 @@
     },
     {
       "id": "H30",
-      "name": "Wolff’s law/Inference Mechanostat",
+      "name": "Long-Horizon Structural Adaptation",
       "category": "runtime",
       "status": "DEFERRED",
       "source": "research/archival/vault/IDEA_REGISTRY.jsonl",
@@ -509,7 +509,7 @@
     },
     {
       "id": "H31",
-      "name": "neuro-inspired modular control plane",
+      "name": "Multi-Timescale Modular Control Plane",
       "category": "runtime",
       "status": "PROPOSED",
       "source": "research/archival/vault/IDEA_REGISTRY.jsonl",
@@ -533,7 +533,7 @@
     },
     {
       "id": "H33",
-      "name": "Explorer-Verifier certificates",
+      "name": "Evidence-Certified Exploration and Verification",
       "category": "runtime",
       "status": "DEFERRED",
       "source": "research/archival/vault/IDEA_REGISTRY.jsonl",
@@ -2857,7 +2857,7 @@
     },
     {
       "id": "E038",
-      "name": "Route Scout one-step shadow",
+      "name": "Predictive Expert Route Selection Shadow Step",
       "category": "experiment",
       "status": "EXPERIMENTAL",
       "source": "research/archival/authoritative/COMPLETE_EXPERIMENT_QUEUE.md",
@@ -2929,7 +2929,7 @@
     },
     {
       "id": "E044",
-      "name": "Full telemetry satellite attribution",
+      "name": "Global Runtime Telemetry Attribution",
       "category": "experiment",
       "status": "EXPERIMENTAL",
       "source": "research/archival/authoritative/COMPLETE_EXPERIMENT_QUEUE.md",
@@ -2941,7 +2941,7 @@
     },
     {
       "id": "E045",
-      "name": "Dynamic MoE GPS replay",
+      "name": "Receding-Horizon MoE Route Control Replay",
       "category": "experiment",
       "status": "DEFERRED",
       "source": "research/archival/authoritative/COMPLETE_EXPERIMENT_QUEUE.md",
@@ -2953,7 +2953,7 @@
     },
     {
       "id": "E046",
-      "name": "Safe/Balanced/Autobahn lane replay",
+      "name": "Risk-Aware Operating Profile Replay",
       "category": "experiment",
       "status": "DEFERRED",
       "source": "research/archival/authoritative/COMPLETE_EXPERIMENT_QUEUE.md",
@@ -2965,7 +2965,7 @@
     },
     {
       "id": "E047",
-      "name": "Motorway ramp metering",
+      "name": "Admission Control and Queue Metering",
       "category": "experiment",
       "status": "DEFERRED",
       "source": "research/archival/authoritative/COMPLETE_EXPERIMENT_QUEUE.md",
@@ -2989,7 +2989,7 @@
     },
     {
       "id": "E049",
-      "name": "Tailwind/headwind/sweet-spot sweep",
+      "name": "Sustainable Operating-Point Sweep",
       "category": "experiment",
       "status": "DEFERRED",
       "source": "research/archival/authoritative/COMPLETE_EXPERIMENT_QUEUE.md",
@@ -3001,7 +3001,7 @@
     },
     {
       "id": "E050",
-      "name": "Fatigue/recovery/RIR soak",
+      "name": "Resource Fatigue and Recovery Control Soak",
       "category": "experiment",
       "status": "DEFERRED",
       "source": "research/archival/authoritative/COMPLETE_EXPERIMENT_QUEUE.md",
@@ -3013,7 +3013,7 @@
     },
     {
       "id": "E051",
-      "name": "Compound versus isolation repair",
+      "name": "Batched Work and Scoped Repair",
       "category": "experiment",
       "status": "DEFERRED",
       "source": "research/archival/authoritative/COMPLETE_EXPERIMENT_QUEUE.md",
@@ -3025,7 +3025,7 @@
     },
     {
       "id": "E052",
-      "name": "Macro C/P/F reserve sweep",
+      "name": "Adaptive Resource Budget Reserve Sweep",
       "category": "experiment",
       "status": "DEFERRED",
       "source": "research/archival/authoritative/COMPLETE_EXPERIMENT_QUEUE.md",
@@ -3037,7 +3037,7 @@
     },
     {
       "id": "E053",
-      "name": "Water-purification cascade",
+      "name": "Staged Uncertainty Filtering",
       "category": "experiment",
       "status": "DEFERRED",
       "source": "research/archival/authoritative/COMPLETE_EXPERIMENT_QUEUE.md",
@@ -3049,7 +3049,7 @@
     },
     {
       "id": "E054",
-      "name": "Sunscreen protection budget",
+      "name": "Risk-Weighted Verification Budget",
       "category": "experiment",
       "status": "DEFERRED",
       "source": "research/archival/authoritative/COMPLETE_EXPERIMENT_QUEUE.md",
@@ -3061,7 +3061,7 @@
     },
     {
       "id": "E055",
-      "name": "Behaviorism shadow bandit",
+      "name": "Outcome-Driven Policy Shadow Bandit",
       "category": "experiment",
       "status": "DEFERRED",
       "source": "research/archival/authoritative/COMPLETE_EXPERIMENT_QUEUE.md",
@@ -3073,7 +3073,7 @@
     },
     {
       "id": "E056",
-      "name": "Id/Superego/Ego arbiter ablation",
+      "name": "Constraint-Gated Action Selection Ablation",
       "category": "experiment",
       "status": "DEFERRED",
       "source": "research/archival/authoritative/COMPLETE_EXPERIMENT_QUEUE.md",
@@ -3085,7 +3085,7 @@
     },
     {
       "id": "E057",
-      "name": "Capital/salvage-value policy",
+      "name": "Salvage-Aware Work Valuation Policy",
       "category": "experiment",
       "status": "EXPERIMENTAL",
       "source": "research/archival/authoritative/COMPLETE_EXPERIMENT_QUEUE.md",
@@ -3097,7 +3097,7 @@
     },
     {
       "id": "E058",
-      "name": "Inference-IQ/ability-per-joule battery",
+      "name": "Energy-Normalized Capability Battery",
       "category": "experiment",
       "status": "EXPERIMENTAL",
       "source": "research/archival/authoritative/COMPLETE_EXPERIMENT_QUEUE.md",
@@ -3109,7 +3109,7 @@
     },
     {
       "id": "E059",
-      "name": "Maturana viability governor",
+      "name": "Viability-Region Runtime Control",
       "category": "experiment",
       "status": "DEFERRED",
       "source": "research/archival/authoritative/COMPLETE_EXPERIMENT_QUEUE.md",
@@ -3121,7 +3121,7 @@
     },
     {
       "id": "E060",
-      "name": "Wolff/Inference Mechanostat replay",
+      "name": "Long-Horizon Structural Adaptation Replay",
       "category": "experiment",
       "status": "DEFERRED",
       "source": "research/archival/authoritative/COMPLETE_EXPERIMENT_QUEUE.md",
@@ -3133,7 +3133,7 @@
     },
     {
       "id": "E061",
-      "name": "Neuro-inspired control-plane ablation",
+      "name": "Multi-Timescale Control-Plane Ablation",
       "category": "experiment",
       "status": "DEFERRED",
       "source": "research/archival/authoritative/COMPLETE_EXPERIMENT_QUEUE.md",
@@ -3157,7 +3157,7 @@
     },
     {
       "id": "E063",
-      "name": "Explorer-Verifier certificate replay",
+      "name": "Evidence-Certified Exploration and Verification Replay",
       "category": "experiment",
       "status": "EXPERIMENTAL",
       "source": "research/archival/authoritative/COMPLETE_EXPERIMENT_QUEUE.md",
@@ -3193,7 +3193,7 @@
     },
     {
       "id": "E066",
-      "name": "Trace-only future-token canvas economics",
+      "name": "Trace-Only Speculative Future-State Economics",
       "category": "experiment",
       "status": "EXPERIMENTAL",
       "source": "research/archival/authoritative/COMPLETE_EXPERIMENT_QUEUE.md",

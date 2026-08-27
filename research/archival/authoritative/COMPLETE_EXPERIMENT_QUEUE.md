@@ -83,37 +83,37 @@ These are prepared while Q2 runs, but the larger P1 collection and any learned/b
 | E035 | E1 compact-skeleton fidelity matrix | H03,H35,H02 | HERMES E1A closure/E007 | Bits 2/3/4 × shallow/deep layers; compare logits/routes/tokens/ability/bytes; no Qwen claim until Q2 control is clean. | GATED |
 | E036 | Q8 residual-tile recovery curve | H05,H03,H28 | E035, canonical source | One layer/expert: output error versus ranked exact tile bytes; kill if near-complete expert is required. | GATED |
 | E037 | P1/P2/P4/P6 incremental path test | H04,H07,H23 | E035,E036 | Compute nested paths with reuse, calibrate escalation, and require savings under fixed quality; fail if most positions immediately reach max or recompute. | GATED |
-| E038 | Route Scout one-step shadow | H06,H10,H14 | E010, route traces | Compare transition/history predictors on useful bytes, arrival deadlines, waste, and stall avoided; F1 alone is not success. | READY-STATIC |
+| E038 | Predictive Expert Route Selection Shadow Step | H06,H10,H14 | E010, route traces | Compare transition/history predictors on useful bytes, arrival deadlines, waste, and stall avoided; F1 alone is not success. | READY-STATIC |
 | E039 | Margin-aware routing calibration | H07,H02 | E024 or DeepSeek margin trace | Reliability-bucket margin versus disagreement/repair; fail if raw margin is not calibrated enough for a bounded threshold. | READY-STATIC |
 | E040 | Persistent atlas policy replay | H10,H27 | E019, route history | Compare no map, LRU, LFU, Belady trace oracle, and salvage/value-aware per-layer maps; report hits, bytes, remaps, and displacement. | READY-STATIC |
 | E041 | ExpertPack two-layer microprototype | H11,H10 | E005/E040, pack index | Pack exact gate/up/down spans, replay routes, verify reversible hashes and compare I/O/CPU/staging; no model quality change allowed. | READY-STATIC |
 | E042 | RDNA4-native authority/compact baseline | H12,H37,N23 | E017 or DeepSeek exact kernel shape | Benchmark exact winning shapes, wave modes, fused/dequant variants with identical bytes and parity; isolated gain is insufficient. | GATED |
 | E043 | Three-lane timestamp trace | H13,H14 | E017,E010 | Timestamp route, read, stage, upload, kernel, verify, commit and fence ownership; fail if apparent overlap is queue hiding or stale staging. | GATED |
-| E044 | Full telemetry satellite attribution | H14,H13 | E010,E043 | Add per-token cache/I/O/upload/VK/sync/thermal/queue summaries and predict one tail event with negligible normal overhead. | READY-STATIC |
-| E045 | Dynamic MoE GPS replay | H15,H14,H38 | E040,E044 | Compare static, greedy, receding-horizon, and oracle action policies; fail if planning overhead removes savings. | DESIGN/GATED |
-| E046 | Safe/Balanced/Autobahn lane replay | H16,H15,H29 | E045 | Same trace/workload through fixed profiles; report accepted throughput, p95, waste, reserve, and recovery. | DESIGN/GATED |
-| E047 | Motorway ramp metering | H17,H14,H16 | E043,E046 | Inject speculative load; compare unlimited/fixed/telemetry admission and recovery starvation. | DESIGN/GATED |
+| E044 | Global Runtime Telemetry Attribution | H14,H13 | E010,E043 | Add per-token cache/I/O/upload/VK/sync/thermal/queue summaries and predict one tail event with negligible normal overhead. | READY-STATIC |
+| E045 | Receding-Horizon MoE Route Control Replay | H15,H14,H38 | E040,E044 | Compare static, greedy, receding-horizon, and oracle action policies; fail if planning overhead removes savings. | DESIGN/GATED |
+| E046 | Risk-Aware Operating Profile Replay | H16,H15,H29 | E045 | Same trace/workload through fixed profiles; report accepted throughput, p95, waste, reserve, and recovery. | DESIGN/GATED |
+| E047 | Admission Control and Queue Metering | H17,H14,H16 | E043,E046 | Inject speculative load; compare unlimited/fixed/telemetry admission and recovery starvation. | DESIGN/GATED |
 | E048 | Local multi-source fabric | H18,H10,H14 | E040,E044 | Select VRAM/RAM/NVMe by measured arrival cost; only after local win consider private LAN; no internet path. | DESIGN/GATED |
-| E049 | Tailwind/headwind/sweet-spot sweep | H19,H14,H38 | E044,E046 | Thermal-stabilized concurrency/canvas sweep; identify repeatable regimes or reject universal sweet-spot assumptions. | DESIGN/GATED |
-| E050 | Fatigue/recovery/RIR soak | H20,H29 | E044,E049 | Long generation with fatigue on/off under induced queue/cache/thermal stress; compare drift and recovery. | DESIGN/GATED |
-| E051 | Compound versus isolation repair | H21,H09,H08 | E068/E069 or route replay | Compare shared block repair and local layer/position repair at equal work; fail if compound repair dominates or under-batching loses all reuse. | GATED |
-| E052 | Macro C/P/F reserve sweep | H22,H17,H20 | E047,E050 | Sweep productive, verification, and reserve budgets; require better sustained accepted economics with nonzero reserve. | DESIGN/GATED |
-| E053 | Water-purification cascade | H23,H04,H07 | E037,E039 | Calibrate uncertainty reduction and stopping at each stage; fail on unsafe early stops or no saved work. | DESIGN/GATED |
-| E054 | Sunscreen protection budget | H24,H08,H07 | E053,E066 | Uniform versus risk-weighted verification with prefix-sensitive positions; fail if later protection hides early-prefix risk. | DESIGN/GATED |
+| E049 | Sustainable Operating-Point Sweep | H19,H14,H38 | E044,E046 | Thermal-stabilized concurrency/canvas sweep; identify repeatable regimes or reject universal sweet-spot assumptions. | DESIGN/GATED |
+| E050 | Resource Fatigue and Recovery Control Soak | H20,H29 | E044,E049 | Long generation with fatigue on/off under induced queue/cache/thermal stress; compare drift and recovery. | DESIGN/GATED |
+| E051 | Batched Work and Scoped Repair | H21,H09,H08 | E068/E069 or route replay | Compare shared block repair and local layer/position repair at equal work; fail if compound repair dominates or under-batching loses all reuse. | GATED |
+| E052 | Adaptive Resource Budget Reserve Sweep | H22,H17,H20 | E047,E050 | Sweep productive, verification, and reserve budgets; require better sustained accepted economics with nonzero reserve. | DESIGN/GATED |
+| E053 | Staged Uncertainty Filtering | H23,H04,H07 | E037,E039 | Calibrate uncertainty reduction and stopping at each stage; fail on unsafe early stops or no saved work. | DESIGN/GATED |
+| E054 | Risk-Weighted Verification Budget | H24,H08,H07 | E053,E066 | Uniform versus risk-weighted verification with prefix-sensitive positions; fail if later protection hides early-prefix risk. | DESIGN/GATED |
 
 # Group 4 — learning, arbitration, and slow adaptation (`E055`–`E065`)
 
 | ID | Experiment | Families | Dependency | Smallest protocol and falsifier | State |
 |---|---|---|---|---|---|
-| E055 | Behaviorism shadow bandit | H25,H14,H28 | E044,E058 | Train/evaluate one bounded action on held-out traces; fallback on drift; fail if it cannot beat frozen rules without KPI reward hacking. | DESIGN/GATED |
-| E056 | Id/Superego/Ego arbiter ablation | H26,H29 | E045,E055 | Log proposals, hard rejections, and selected actions; ablate proposer/filter and require safety/opportunity separation. | DESIGN/GATED |
-| E057 | Capital/salvage-value policy | H27,H10,H21 | E040,E051,E066 | Compare latency/byte/hit-only against future-reuse/salvage value; score total accepted-token economics. | READY-STATIC |
-| E058 | Inference-IQ/ability-per-joule battery | H28,H02 | fixed canonical/degraded paths | Establish battery sensitivity, then evaluate compact/pruned/skip paths; fail if it cannot distinguish deliberate degradation. | READY-STATIC |
-| E059 | Maturana viability governor | H29,H14,H17 | E044,E047,E050 | Inject overload, stale state, thermal/queue pressure and require shrink/cancel/revert/fail-closed behavior. | DESIGN/GATED |
-| E060 | Wolff/Inference Mechanostat replay | H30,H10,H27 | E040,E057 | Slow EMA placement/remodeling with hysteresis versus LRU/LFU on held-out traces; fail on prompt-local overfit or instability. | DESIGN/GATED |
-| E061 | Neuro-inspired control-plane ablation | H31,H14,H26,H29 | E044,E056,E059 | Implement safety interrupt, rule selector, slow planner, and bus; each module must have measurable responsibility. | DESIGN/GATED |
+| E055 | Outcome-Driven Policy Shadow Bandit | H25,H14,H28 | E044,E058 | Train/evaluate one bounded action on held-out traces; fallback on drift; fail if it cannot beat frozen rules without KPI reward hacking. | DESIGN/GATED |
+| E056 | Constraint-Gated Action Selection Ablation | H26,H29 | E045,E055 | Log proposals, hard rejections, and selected actions; ablate proposer/filter and require safety/opportunity separation. | DESIGN/GATED |
+| E057 | Salvage-Aware Work Valuation Policy | H27,H10,H21 | E040,E051,E066 | Compare latency/byte/hit-only against future-reuse/salvage value; score total accepted-token economics. | READY-STATIC |
+| E058 | Energy-Normalized Capability Battery | H28,H02 | fixed canonical/degraded paths | Establish battery sensitivity, then evaluate compact/pruned/skip paths; fail if it cannot distinguish deliberate degradation. | READY-STATIC |
+| E059 | Viability-Region Runtime Control | H29,H14,H17 | E044,E047,E050 | Inject overload, stale state, thermal/queue pressure and require shrink/cancel/revert/fail-closed behavior. | DESIGN/GATED |
+| E060 | Long-Horizon Structural Adaptation Replay | H30,H10,H27 | E040,E057 | Slow EMA placement/remodeling with hysteresis versus LRU/LFU on held-out traces; fail on prompt-local overfit or instability. | DESIGN/GATED |
+| E061 | Multi-Timescale Control-Plane Ablation | H31,H14,H26,H29 | E044,E056,E059 | Implement safety interrupt, rule selector, slow planner, and bus; each module must have measurable responsibility. | DESIGN/GATED |
 | E062 | Startup autotuner | H32,H37,H38 | E003,E042,E044 | Bounded quick/full profile, cache by hardware/model/shader identity, restart/reproduce; fail on stale profile or unrepeatable gain. | READY-STATIC |
-| E063 | Explorer-Verifier certificate replay | H33,H02 | E004,E017 | Produce L0–L6 package from a narrow run and independently replay it; fail if parser/environment/hash ambiguity remains. | READY-STATIC |
+| E063 | Evidence-Certified Exploration and Verification Replay | H33,H02 | E004,E017 | Produce L0–L6 package from a narrow run and independently replay it; fail if parser/environment/hash ambiguity remains. | READY-STATIC |
 | E064 | Reasoning-distilled controller | H34,H15,H25,H29 | E045,E055,E059 | Distill one oracle decision; compare student/rule/oracle with bounded runtime cost and rollback. | DESIGN/GATED |
 | E065 | Integrated HERMES invariant dry-run | H39,H02,H33 | E012,E063 | Static dependency/kill-switch/label audit for a two-component composition; fail if any hidden authority, byte, or correctness transition exists. | READY-STATIC |
 
@@ -121,7 +121,7 @@ These are prepared while Q2 runs, but the larger P1 collection and any learned/b
 
 | ID | Experiment | Families | Dependency | Smallest protocol and falsifier | State |
 |---|---|---|---|---|---|
-| E066 | Trace-only future-token canvas economics | H08,H09,H38 | route traces, no runtime | K=1/2/4/8/12/16 union, reuse, exposed-byte and acceptance-weighted simulation; fail if union/byte cost erases all possible value. | READY-STATIC |
+| E066 | Trace-Only Speculative Future-State Economics | H08,H09,H38 | route traces, no runtime | K=1/2/4/8/12/16 union, reuse, exposed-byte and acceptance-weighted simulation; fail if union/byte cost erases all possible value. | READY-STATIC |
 | E067 | DSpark/MTP tensor and converter audit | N18,H08 | model inventories | Enumerate official/current tensors, Markov/confidence heads, converter gaps, and storage; missing authority or incompatible topology blocks restore. | READY-STATIC |
 | E068 | Teacher-forced expert-major batching | H09,H21 | E066, recorded rows | Two layers/K=2/4 grouped execution or replay; compare numeric results, physical loads, and scatter/causal state. | READY-STATIC |
 | E069 | True multi-position graph prototype | H09,H13,N18 | E017,E068 | Minimal Qwen/DeepSeek two-position graph with explicit KV snapshots; fail on broadcast IDs, stale state, or no real load amortization. | GATED |
@@ -200,7 +200,7 @@ claim.
 
 The earlier queue is not authoritative and its durable copy was not found during this audit. The complete missing-as-independent-work-item list is therefore the restored set:
 
-- **HERMES names:** H05–H07, H09–H34, H35–H39 (Q8 residuals, Route Scout, margin calibration, expert-major batching, stable atlas, ExpertPack, asynchronous lanes, telemetry, GPS, all named traffic/bodybuilding/purification/protection/learning/control analogies, startup autotuner, certificates, distilled controller, E1, E2, kernel/configuration lead, roofline, and integrated architecture).
+- **HERMES names:** H05–H07, H09–H34, H35–H39 (Q8 residuals, Predictive Expert Route Selection, margin calibration, expert-major batching, stable atlas, ExpertPack, asynchronous lanes, Global Runtime Telemetry, Receding-Horizon MoE Route Control, the normalized control mechanisms, startup autotuner, certificates, distilled controller, E1, E2, kernel/configuration lead, roofline, and integrated architecture). The original traffic, training, purification, protection, learning, and control analogies remain in the individual records.
 - **New names:** N01–N26 (Qwen compact transport, Qwen full-core residency, Qwen-first policy, semantic/hardware fingerprints, MARC-X/OS/Synapse, MARC-Symbiote body, REAP/Laguna/pruning/AutoSurgeon, all three compressed variants, MoE-Skipper cascade/correction, DSpark/MTP restoration/custom runtime, R4I8/R5I8/R6I8, cooperative matrix, GEMV/GEMM, context-only streaming, associative memory, and autonomous local self-experimentation).
 
 This is why the queue contains 96 experiments rather than 12 lanes. The active schedule still deliberately runs only Q2.

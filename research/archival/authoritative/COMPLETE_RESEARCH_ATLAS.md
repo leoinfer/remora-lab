@@ -36,7 +36,7 @@ A speed number never upgrades a correctness class. Logical bytes, cached bytes, 
 
 ## H01 — consumer-hardware frontier-model challenge
 
-- **Original terminology / analogy:** Run a frontier-scale sparse MoE, especially DeepSeek-V4-Flash, on an ordinary RX 9060 XT/32-GB/NVMe machine; the goal is a new inference architecture rather than merely loading a model. Approximately 30 accepted tokens/s in real chat is a north-star target, not a promise.
+- **Original working analogy:** Run a frontier-scale sparse MoE, especially DeepSeek-V4-Flash, on an ordinary RX 9060 XT/32-GB/NVMe machine; the goal is a new inference architecture rather than merely loading a model. Approximately 30 accepted tokens/s in real chat is a north-star target, not a promise.
 - **Technical interpretation:** An online constrained scheduler over VRAM, RAM, NVMe, CPU copies, Vulkan queues, routing, speculation, verification, energy, and recovery. Optimize verified accepted-token blocks and exposed bytes, not a local kernel KPI.
 - **Applicability:** DeepSeek first; Qwen is the cheaper architecture host; both share sparse-MoE transport lessons; future MARC-native models can expose the same control problem.
 - **Implementation status:** Active research thesis; not achieved. Qwen Q2 is the immediate load-bearing experiment.
@@ -48,7 +48,7 @@ A speed number never upgrades a correctness class. Logical bytes, cached bytes, 
 
 ## H02 — source-of-truth correctness modes
 
-- **Original terminology / analogy:** Full Q8 is the canonical source of truth. Lower-bit paths, skipped experts, and speculation may be aggressive but must not quietly redefine correctness.
+- **Original working analogy:** Full Q8 is the canonical source of truth. Lower-bit paths, skipped experts, and speculation may be aggressive but must not quietly redefine correctness.
 - **Technical interpretation:** Every result carries exact/target-equivalent, numerically close, hybrid/verified, approximate, simulator-only, or unvalidated status. Greedy identity and stochastic rejection sampling require their own gates.
 - **Applicability:** Both Qwen and DeepSeek; future MARC-native systems need the same authority boundary.
 - **Implementation status:** Policy established and used in HERMES certificates; Qwen Q2 will use exact Q6_K_XL source bytes, not re-quantized authority.
@@ -60,7 +60,7 @@ A speed number never upgrades a correctness class. Logical bytes, cached bytes, 
 
 ## H03 — compact expert skeleton
 
-- **Original terminology / analogy:** A tiny low-bit skeleton of the entire expert system stays resident as a cheap whole-model first approximation, while full Q8 remains available for correction or verification.
+- **Original working analogy:** A tiny low-bit skeleton of the entire expert system stays resident as a cheap whole-model first approximation, while full Q8 remains available for correction or verification.
 - **Technical interpretation:** A Q2/Q3/Q4/FP8 or other compact representation supplies proposal, confidence, route assistance, progressive refinement, or residual requests. It is not assumed to replace Q8.
 - **Applicability:** DeepSeek is the original target; Qwen is a high-value transfer host; both; future MARC-native models can train a native skeleton.
 - **Implementation status:** DeepSeek E1 fidelity matrix measured and E1A staging anomaly being closed; Qwen skeleton is not the active Q2 path and must not be confused with exact Q6 compact transport.
@@ -72,7 +72,7 @@ A speed number never upgrades a correctness class. Logical bytes, cached bytes, 
 
 ## H04 — P1/P2/P4/P6 progressive MoE
 
-- **Original terminology / analogy:** Start with fewer selected experts and widen only when confidence or quality requires it; reuse already-computed work.
+- **Original working analogy:** Start with fewer selected experts and widen only when confidence or quality requires it; reuse already-computed work.
 - **Technical interpretation:** Nested P1, P2, P4, and canonical P6 paths with incremental sums and a cost/risk controller. A resident P2 can beat a cold P1, so bit count alone cannot choose the path.
 - **Applicability:** Both existing MoEs; future MARC-native routers can expose nested paths directly.
 - **Implementation status:** Design; no validated runtime widening path. Qwen top-8 makes the direct labels model-specific, so Qwen experiments must define P1/P2/P4/P8 or retain the HERMES terminology as an analogy.
@@ -84,7 +84,7 @@ A speed number never upgrades a correctness class. Logical bytes, cached bytes, 
 
 ## H05 — Q8 residual tiles
 
-- **Original terminology / analogy:** Use the compact base, then fetch only the exact correction information needed instead of a complete expert.
+- **Original working analogy:** Use the compact base, then fetch only the exact correction information needed instead of a complete expert.
 - **Technical interpretation:** Store `W_Q8 = W_skeleton + Delta_W_exact` as ranked tiles, channel corrections, or projection corrections, with full-authority fallback when residuals are dense.
 - **Applicability:** Both if a nested representation is built; future MARC-native models could train residual-friendly layers.
 - **Implementation status:** Design/unvalidated. Ordinary Q3/Q4/Q6 GGUF files are not a nested residual ladder.
@@ -94,9 +94,9 @@ A speed number never upgrades a correctness class. Logical bytes, cached bytes, 
 - **Speed/quality mechanism and correctness:** Selective correction can move tens of MiB rather than a full expert; exactness holds only for fetched exact residuals plus a sound fallback.
 - **Compatibility:** Complementary with H03/H04/H08; a representation change is mutually exclusive with the fixed Q6/Q8 control for the same A/B run.
 
-## H06 — Route Scout
+## H06 — Predictive Expert Route Selection
 
-- **Original terminology / analogy:** A branch predictor for future expert choices; use likely routes to prefetch and prepare slots before the true router finishes.
+- **Original working analogy:** A branch predictor for future expert choices; use likely routes to prefetch and prepare slots before the true router finishes.
 - **Technical interpretation:** Predict future IDs, unions, margins, source tier, reuse, and repair value; judge by useful hidden traffic and stall reduction, not classification accuracy.
 - **Applicability:** Both Qwen and DeepSeek; future MARC-native systems can expose route features natively.
 - **Implementation status:** DeepSeek has a naive transition-table prefetch substrate and trace data; Qwen route history is available; margin-aware and cache-aware Route Scout are not validated.
@@ -108,7 +108,7 @@ A speed number never upgrades a correctness class. Logical bytes, cached bytes, 
 
 ## H07 — margin-aware routing calibration
 
-- **Original terminology / analogy:** Use router confidence and margin, not only expert IDs, to decide how aggressively to approximate, prefetch, skip, or widen.
+- **Original working analogy:** Use router confidence and margin, not only expert IDs, to decide how aggressively to approximate, prefetch, skip, or widen.
 - **Technical interpretation:** Calibrate top-1/top-2 margins, entropy, predictor confidence, residency, load cost, task sensitivity, and repair risk into path and authority decisions.
 - **Applicability:** Both; Qwen derives margins from top-8 probabilities, DeepSeek uses top-6 traces; future MARC-native routers can train confidence heads.
 - **Implementation status:** Proposed; margin fields exist in DeepSeek/Qwen trace designs but no fixed gate has passed.
@@ -118,9 +118,9 @@ A speed number never upgrades a correctness class. Logical bytes, cached bytes, 
 - **Speed/quality mechanism and correctness:** Spends authority on near ties and saves it on stable decisions; the margin is never a proof by itself.
 - **Compatibility:** Complementary with H04/H05/H06; conflicts with fixed-width-only policies only as an optional adaptive mode.
 
-## H08 — DSpark/MTP future-token canvas
+## H08 — Speculative Future-State Scheduling
 
-- **Original terminology / analogy:** Treat proposed future tokens as a canvas: freeze stable positions, refine uncertain ones, group route demand, and verify the longest causal prefix.
+- **Original working analogy:** Treat proposed future tokens as a canvas: freeze stable positions, refine uncertain ones, group route demand, and verify the longest causal prefix.
 - **Technical interpretation:** Propose 2–16 positions, predict route unions, expert-major execute, verify strict rejection/acceptance, and salvage useful rejected work. Future route information is not exact before target execution.
 - **Applicability:** DeepSeek is the original DSpark target; Qwen has separate MTP/DSpark artifacts and is the first practical host; both only after model-specific integration.
 - **Implementation status:** DeepSeek GGUF currently lacks official `mtp.*` tensors; Qwen-first policy defers MTP; trace-only canvas simulations are available. No integrated HERMES block verifier.
@@ -132,7 +132,7 @@ A speed number never upgrades a correctness class. Logical bytes, cached bytes, 
 
 ## H09 — expert-major multi-position batching
 
-- **Original terminology / analogy:** Load an expert once and process every future position that needs it together instead of token-by-token.
+- **Original working analogy:** Load an expert once and process every future position that needs it together instead of token-by-token.
 - **Technical interpretation:** Form the per-layer expert union, group positions by expert, run grouped MMID/GEMM, scatter outputs, and preserve causal/KV state. Teacher-forced grouping is not automatically free-running verification.
 - **Applicability:** Both; Qwen Q2 currently rejects multi-position input; future MARC-native models can train for the shape.
 - **Implementation status:** Offline union curves are measured; true graph execution is not validated.
@@ -144,7 +144,7 @@ A speed number never upgrades a correctness class. Logical bytes, cached bytes, 
 
 ## H10 — persistent expert atlas and stable slots
 
-- **Original terminology / analogy:** Maintain an atlas of where experts live rather than treating each payload as anonymous; stable slots survive tokens, rejection, and route rank churn.
+- **Original working analogy:** Maintain an atlas of where experts live rather than treating each payload as anonymous; stable slots survive tokens, rejection, and route rank churn.
 - **Technical interpretation:** Per-layer original-ID↔slot maps, ages, cache ownership, in-flight state, reuse/salvage value, and eviction policy. Map IDs by identity, not router rank.
 - **Applicability:** Both. DeepSeek has validated associative slot-map transport; Qwen Q2 implements a dynamic 10-slot design in an isolated branch.
 - **Implementation status:** DeepSeek transport/associative mapping validated; Qwen manager exists but is not graph-integrated or tested.
@@ -156,7 +156,7 @@ A speed number never upgrades a correctness class. Logical bytes, cached bytes, 
 
 ## H11 — ExpertPack
 
-- **Original terminology / analogy:** Make expert data physically aerodynamic: contiguous, indexed, aligned, reversible, and arranged for the runtime's actual access pattern.
+- **Original working analogy:** Make expert data physically aerodynamic: contiguous, indexed, aligned, reversible, and arranged for the runtime's actual access pattern.
 - **Technical interpretation:** A lossless `[gate|up|down]` indexed pack with offsets, checksums, quantization, staging/GPU layout, coactivation order, and optional pread/preadv/io_uring support.
 - **Applicability:** Both; Qwen's current authority is a single GGUF and can use tensor-span/pack indexes; DeepSeek has an expert index and a repack WIP.
 - **Implementation status:** DeepSeek repack functions exist in a stash/WIP, not a clean completed result; Qwen Q2 starts from CPU/mmap tensor slices and defers packing.
@@ -168,7 +168,7 @@ A speed number never upgrades a correctness class. Logical bytes, cached bytes, 
 
 ## H12 — RDNA4-native execution
 
-- **Original terminology / analogy:** Make the winning path native to the actual AMD GPU instead of relying on generic compromises.
+- **Original working analogy:** Make the winning path native to the actual AMD GPU instead of relying on generic compromises.
 - **Technical interpretation:** Wave32/64 choice, fused dequant+matmul, persistent descriptors, expert-major MMID, fewer dispatches/fences, and shape-specific kernels for compact and authority forms.
 - **Applicability:** Qwen and DeepSeek on RDNA4; future MARC-native models can target the same hardware interface.
 - **Implementation status:** Hardware capability is audited; custom HERMES/Qwen kernels are not complete. Native Qwen Q6_K/Q8_0 `MUL_MAT_ID` registration exists.
@@ -180,7 +180,7 @@ A speed number never upgrades a correctness class. Logical bytes, cached bytes, 
 
 ## H13 — asynchronous three-lane pipeline
 
-- **Original terminology / analogy:** Draft/Route Scout, data movement, and verification/repair should run as lanes, not a serial loop.
+- **Original working analogy:** Draft/Route Scout, data movement, and verification/repair should run as lanes, not a serial loop.
 - **Technical interpretation:** Overlap draft/route generation, read/stage/upload, and canonical verification/commit with fences, ownership, causal ordering, and recovery reserve.
 - **Applicability:** Both; DeepSeek has deferred copy/staging substrate, Qwen has imported hooks but no integrated graph.
 - **Implementation status:** Partial transport substrate; no complete end-to-end three-lane pipeline.
@@ -190,9 +190,9 @@ A speed number never upgrades a correctness class. Logical bytes, cached bytes, 
 - **Speed/quality mechanism and correctness:** Hides unavoidable latency; staging slices remain owned until a fence/epoch boundary.
 - **Compatibility:** Complementary with H06/H08/H09; `RADV_EXPERIMENTAL=transfer_queue` and `GGML_VK_ALLOW_GRAPHICS_QUEUE=1` remain disabled in Qwen control.
 
-## H14 — global telemetry satellite
+## H14 — Global Runtime Telemetry
 
-- **Original terminology / analogy:** A satellite view sees traffic, queues, accidents, roadworks, energy, and future demand instead of making blind local choices.
+- **Original working analogy:** A satellite view sees traffic, queues, accidents, roadworks, energy, and future demand instead of making blind local choices.
 - **Technical interpretation:** Record routes/margins, slots, cache tiers, staging high-water, pending transfers, bytes/time by tier, queue state, acceptance, thermal/power, KV, policy, and correctness.
 - **Applicability:** Both; DeepSeek already has partial counters and Qwen tracer can add process/route signals; future MARC-native models need a typed state bus.
 - **Implementation status:** Partial and mostly trace-only. Qwen hardware fields are simulated until Q2 exposes live residency.
@@ -202,9 +202,9 @@ A speed number never upgrades a correctness class. Logical bytes, cached bytes, 
 - **Speed/quality mechanism and correctness:** Enables attribution and safe backpressure; synchronous verbose logging is prohibited.
 - **Compatibility:** Foundational and complementary; telemetry must not silently alter graph scheduling.
 
-## H15 — dynamic MoE GPS
+## H15 — Receding-Horizon MoE Route Control
 
-- **Original terminology / analogy:** Live GPS replans the cheapest route as traffic and conditions change.
+- **Original working analogy:** Live GPS replans the cheapest route as traffic and conditions change.
 - **Technical interpretation:** Receding-horizon controller over route state, residency, queues, path width, energy, thermal state, and correctness risk; execute one action, ingest telemetry, replan.
 - **Applicability:** Both; future MARC-OS is a general implementation.
 - **Implementation status:** Design/simulator target; no live authority.
@@ -214,9 +214,9 @@ A speed number never upgrades a correctness class. Logical bytes, cached bytes, 
 - **Speed/quality mechanism and correctness:** Accounts for future reuse and repair rather than one locally cheap action; hard constraints remain authoritative.
 - **Compatibility:** Complementary with H16/H17/H27; conflicts with an unbounded learned controller.
 
-## H16 — Safe/Balanced/Autobahn lanes
+## H16 — Risk-Aware Operating Profiles
 
-- **Original terminology / analogy:** Safe driving is conservative, Balanced takes measured risks, Autobahn exploits favorable conditions while retaining an emergency lane.
+- **Original working analogy:** Safe driving is conservative, Balanced takes measured risks, Autobahn exploits favorable conditions while retaining an emergency lane.
 - **Technical interpretation:** Profiles of canvas length, path width, residency preference, prefetch depth, recovery reserve, and risk budget.
 - **Applicability:** Both; future MARC-OS can expose user/system policy.
 - **Implementation status:** Named policy design; no controlled lane comparison.
@@ -226,9 +226,9 @@ A speed number never upgrades a correctness class. Logical bytes, cached bytes, 
 - **Speed/quality mechanism and correctness:** Trades burst throughput for sustained safe operation; Autobahn never bypasses H02.
 - **Compatibility:** Complementary with H17/H19; lane policies are mutually exclusive choices per run, not merged speed multipliers.
 
-## H17 — motorway merges and ramp metering
+## H17 — Admission Control and Queue Metering
 
-- **Original terminology / analogy:** Admission control prevents speculative and recovery traffic from flooding a motorway.
+- **Original working analogy:** Admission control prevents speculative and recovery traffic from flooding a motorway.
 - **Technical interpretation:** Prioritize canonical recovery/verification over reusable prefetch and low-confidence speculation; cap new work by downstream capacity and use fairness/hysteresis.
 - **Applicability:** Both.
 - **Implementation status:** Design; no runtime admission controller.
@@ -238,9 +238,9 @@ A speed number never upgrades a correctness class. Logical bytes, cached bytes, 
 - **Speed/quality mechanism and correctness:** Prevents queue explosion and protects recovery bandwidth.
 - **Compatibility:** Complementary with all speculative paths; conflicts with unlimited concurrency.
 
-## H18 — broadband/multi-source expert fabric
+## H18 — Multi-Source Expert Placement
 
-- **Original terminology / analogy:** Expert data is broadband traffic from VRAM, RAM, NVMe, LAN RAM, or another GPU; choose the source that arrives soonest and economically.
+- **Original working analogy:** Expert data is broadband traffic from VRAM, RAM, NVMe, LAN RAM, or another GPU; choose the source that arrives soonest and economically.
 - **Technical interpretation:** Measure source arrival time, queue delay, upload/decode cost, energy, opportunity cost, and failure repair risk.
 - **Applicability:** Both; local tiers first, future MARC-native multi-node systems later.
 - **Implementation status:** Local VRAM/RAM/NVMe exists; LAN/remote fabric is unvalidated and not token-critical.
@@ -250,9 +250,9 @@ A speed number never upgrades a correctness class. Logical bytes, cached bytes, 
 - **Speed/quality mechanism and correctness:** Reduces wait or energy by source selection; remote failures must fall back without changing authority.
 - **Compatibility:** Complementary with H13/H17; internet-in-the-token-loop is out of scope.
 
-## H19 — tailwind/headwind/sweet spot
+## H19 — Sustainable Operating-Point Selection
 
-- **Original terminology / analogy:** Residence, reuse, accepted speculation, warm shaders, and empty queues create tailwind; churn, misses, and thermal pressure create headwind.
+- **Original working analogy:** Residence, reuse, accepted speculation, warm shaders, and empty queues create tailwind; churn, misses, and thermal pressure create headwind.
 - **Technical interpretation:** A measured score controls canvas, path width, prefetch, and concurrency; find marginal joules per accepted token/s rather than inventing a universal law.
 - **Applicability:** Both.
 - **Implementation status:** Design; regime measurements exist but no controller.
@@ -262,9 +262,9 @@ A speed number never upgrades a correctness class. Logical bytes, cached bytes, 
 - **Speed/quality mechanism and correctness:** Selects sustainable operating points and prevents peak-only claims.
 - **Compatibility:** Complementary with H16/H17/H20; no fixed universal sweet spot is assumed.
 
-## H20 — fatigue/recovery/RIR
+## H20 — Resource Fatigue and Recovery Control
 
-- **Original terminology / analogy:** Like training, queues, thermal headroom, cache churn, and rollback capacity accumulate fatigue; retain reps in reserve.
+- **Original working analogy:** Like training, queues, thermal headroom, cache churn, and rollback capacity accumulate fatigue; retain reps in reserve.
 - **Technical interpretation:** Exponentially decaying resource-specific fatigue with reserve thresholds and active recovery policies.
 - **Applicability:** Both; future MARC-OS control plane.
 - **Implementation status:** Design only.
@@ -274,9 +274,9 @@ A speed number never upgrades a correctness class. Logical bytes, cached bytes, 
 - **Speed/quality mechanism and correctness:** Prevents self-induced collapse and preserves verification reserve.
 - **Compatibility:** Complementary with H16/H17; artificial rests without measured load are not a mechanism.
 
-## H21 — compound versus isolation
+## H21 — Batched Work and Scoped Repair
 
-- **Original terminology / analogy:** Compound useful work through batching/reuse, but isolate local errors and repair only the failed position/layer.
+- **Original working analogy:** Compound useful work through batching/reuse, but isolate local errors and repair only the failed position/layer.
 - **Technical interpretation:** Choose block size and repair scope using accepted-token value, union growth, scatter cost, and rollback blast radius.
 - **Applicability:** Both.
 - **Implementation status:** Design; union curves and cascade failure evidence make the trade real.
@@ -286,9 +286,9 @@ A speed number never upgrades a correctness class. Logical bytes, cached bytes, 
 - **Speed/quality mechanism and correctness:** Balances amortization against causal error blast radius.
 - **Compatibility:** Complementary with H09; giant blocks and global repair can be mutually exclusive with low-latency exact mode.
 
-## H22 — macro resource allocation/bodybuilding
+## H22 — Adaptive Resource Budgeting
 
-- **Original terminology / analogy:** Carbs are productive speculative work, protein is verification/correction, and fat is reserve/headroom.
+- **Original working analogy:** Carbs are productive speculative work, protein is verification/correction, and fat is reserve/headroom.
 - **Technical interpretation:** Allocate `Budget = C + P + F`; reserve minimum verification and recovery capacity before maximizing speculative work.
 - **Applicability:** Both and future MARC-OS.
 - **Implementation status:** Design.
@@ -298,9 +298,9 @@ A speed number never upgrades a correctness class. Logical bytes, cached bytes, 
 - **Speed/quality mechanism and correctness:** Avoids consuming all resources on work that cannot be certified.
 - **Compatibility:** Complementary with H16/H23/H24; percentages are empirical, not literal physiology.
 
-## H23 — water-purification cascade
+## H23 — Staged Uncertainty Filtering
 
-- **Original terminology / analogy:** Cheap filters remove obvious uncertainty; expensive reverse-osmosis/UV-like stages are reserved for contaminated or risky positions.
+- **Original working analogy:** Cheap filters remove obvious uncertainty; expensive reverse-osmosis/UV-like stages are reserved for contaminated or risky positions.
 - **Technical interpretation:** A calibrated uncertainty vector passes through coarse screening, P1/P2, P4, full P6/Q8, and final certification with an explicit stopping threshold.
 - **Applicability:** Both; future MARC-native models can build stages into the architecture.
 - **Implementation status:** Design.
@@ -310,9 +310,9 @@ A speed number never upgrades a correctness class. Logical bytes, cached bytes, 
 - **Speed/quality mechanism and correctness:** Stops easy positions early while escalating hard ones; unsafe early stopping demotes to approximate.
 - **Compatibility:** Complementary with H04/H24; it is not the same as MoE-Skipper's learned layer substitution.
 
-## H24 — sunscreen protection budget
+## H24 — Risk-Weighted Verification Budget
 
-- **Original terminology / analogy:** Speculative positions have different exposure and sensitivity; protect causal-prefix positions more strongly and reapply protection when conditions change.
+- **Original working analogy:** Speculative positions have different exposure and sensitivity; protect causal-prefix positions more strongly and reapply protection when conditions change.
 - **Technical interpretation:** Allocate verification/widening budget by intensity × exposure time × semantic sensitivity, with residual risk constraints.
 - **Applicability:** Both; future MARC-native semantic sensitivity can improve it.
 - **Implementation status:** Design.
@@ -322,9 +322,9 @@ A speed number never upgrades a correctness class. Logical bytes, cached bytes, 
 - **Speed/quality mechanism and correctness:** Protects early positions whose failure invalidates later acceptance.
 - **Compatibility:** Complementary with H08/H23; cannot weaken the earliest prefix gate to save later work.
 
-## H25 — behaviorism/consequence-driven learning
+## H25 — Outcome-Driven Policy Learning
 
-- **Original terminology / analogy:** Reward what produces verified accepted tokens cheaply; punish wasted bytes, repairs, quality loss, and future debt rather than trusting internal stories.
+- **Original working analogy:** Reward what produces verified accepted tokens cheaply; punish wasted bytes, repairs, quality loss, and future debt rather than trusting internal stories.
 - **Technical interpretation:** Bounded policy learning over canvas, width, source, slots, and priority with a reward based on accepted-token economics.
 - **Applicability:** Both; future MARC-native control.
 - **Implementation status:** Design; no unrestricted online learning.
@@ -334,9 +334,9 @@ A speed number never upgrades a correctness class. Logical bytes, cached bytes, 
 - **Speed/quality mechanism and correctness:** Learns state-dependent policies without allowing a private KPI to replace global accepted-token value.
 - **Compatibility:** Complementary after fixed policies; mutually exclusive with early unrestricted RL.
 
-## H26 — Id/Superego/Ego arbiter
+## H26 — Constraint-Gated Action Selection
 
-- **Original terminology / analogy:** Id proposes aggressive speed; Superego enforces correctness, resource, and viability constraints; Ego selects the realistic feasible action.
+- **Original working analogy:** Id proposes aggressive speed; Superego enforces correctness, resource, and viability constraints; Ego selects the realistic feasible action.
 - **Technical interpretation:** Proposal generator → hard constraint filter → risk-adjusted selector. It is a software architecture, not psychology.
 - **Applicability:** Both; future MARC-OS.
 - **Implementation status:** Design.
@@ -346,9 +346,9 @@ A speed number never upgrades a correctness class. Logical bytes, cached bytes, 
 - **Speed/quality mechanism and correctness:** Retains aggressive options without permitting infeasible or uncertified output.
 - **Compatibility:** Complementary with H25/H31/H34; an opaque learner cannot replace the hard filter.
 
-## H27 — investment/capital/salvage value
+## H27 — Salvage-Aware Work Valuation
 
-- **Original terminology / analogy:** Loads, prefetches, slots, and speculation are investments with immediate return, future dividends, risk, fees, opportunity cost, liquidity, and salvage value.
+- **Original working analogy:** Loads, prefetches, slots, and speculation are investments with immediate return, future dividends, risk, fees, opportunity cost, liquidity, and salvage value.
 - **Technical interpretation:** Score actions by immediate value + future reuse + post-rejection salvage − load/opportunity/risk cost.
 - **Applicability:** Both.
 - **Implementation status:** Design; rejected-work accounting is specified but not measured in live Q2.
@@ -358,9 +358,9 @@ A speed number never upgrades a correctness class. Logical bytes, cached bytes, 
 - **Speed/quality mechanism and correctness:** Retains useful work after rejection without monopolizing scarce slots.
 - **Compatibility:** Complementary with H06/H08/H17; a hit-rate-only cache policy is an explicit competing baseline.
 
-## H28 — inference-IQ/ability per joule
+## H28 — Energy-Normalized Capability Measurement
 
-- **Original terminology / analogy:** Measure useful retained ability and ability-per-joule, explicitly not human IQ.
+- **Original working analogy:** Measure useful retained ability and ability-per-joule, explicitly not human IQ.
 - **Technical interpretation:** A repeatable battery across reasoning, math, code, planning, instruction, factuality, long context, and near ties; report retention and marginal ability per joule.
 - **Applicability:** Both; future MARC-native model comparison.
 - **Implementation status:** Proposed; HERMES Order-2 battery is queued, Qwen quality work has direct logit/task evidence but no unified score.
@@ -370,9 +370,9 @@ A speed number never upgrades a correctness class. Logical bytes, cached bytes, 
 - **Speed/quality mechanism and correctness:** Gives the controller a capability objective rather than only RMS/KL; never upgrades approximate output to exact.
 - **Compatibility:** Complementary with H03/H04/N10–N16; incompatible with reporting an IQ-like number as human psychometrics.
 
-## H29 — Maturana viability governor
+## H29 — Viability-Region Runtime Control
 
-- **Original terminology / analogy:** Preserve the conditions that let the system keep operating and recovering; viability is a control principle, not a claim of life or consciousness.
+- **Original working analogy:** Preserve the conditions that let the system keep operating and recovering; viability is a control principle, not a claim of life or consciousness.
 - **Technical interpretation:** Define a viable region for temperature, queues, free recovery slots, error risk, latency debt, policy drift, and telemetry validity; shrink/cancel/revert when predicted state exits it.
 - **Applicability:** Both; future MARC-OS.
 - **Implementation status:** Design only.
@@ -382,9 +382,9 @@ A speed number never upgrades a correctness class. Logical bytes, cached bytes, 
 - **Speed/quality mechanism and correctness:** Preserves recovery and correctness instead of maximizing short-term throughput until collapse.
 - **Compatibility:** Complementary with every adaptive policy; it is the hard boundary that cannot be learned away.
 
-## H30 — Wolff’s law/Inference Mechanostat
+## H30 — Long-Horizon Structural Adaptation
 
-- **Original terminology / analogy:** Repeated load remodels structure over time; persistent slots, cache tiers, packs, and kernels should slowly adapt to verified demand.
+- **Original working analogy:** Repeated load remodels structure over time; persistent slots, cache tiers, packs, and kernels should slowly adapt to verified demand.
 - **Technical interpretation:** EMA structural value based on accepted-token value, reuse, bytes, energy, and monopolization penalty, with hysteresis, sample counts, holdouts, and rollback.
 - **Applicability:** Both; future MARC-native systems can learn module structure.
 - **Implementation status:** Design/simulator target.
@@ -394,9 +394,9 @@ A speed number never upgrades a correctness class. Logical bytes, cached bytes, 
 - **Speed/quality mechanism and correctness:** Improves long-run placement while avoiding prompt-local overfit.
 - **Compatibility:** Complementary with H10/H11; rapid per-token churn is not a mechanostat.
 
-## H31 — neuro-inspired modular control plane
+## H31 — Multi-Timescale Modular Control Plane
 
-- **Original terminology / analogy:** Specialized modules at different timescales resemble functional brain regions: fast risk interrupt, slower planner, action selection, trace memory, timing correction, homeostasis, and emergency path.
+- **Original working analogy:** Specialized modules at different timescales resemble functional brain regions: fast risk interrupt, slower planner, action selection, trace memory, timing correction, homeostasis, and emergency path.
 - **Technical interpretation:** Explicit dispatcher, risk interrupt, planner, selector, episodic trace, timing predictor, homeostasis, canonical emergency path, and maintenance modules on a shared typed bus.
 - **Applicability:** Both; future MARC-native control plane.
 - **Implementation status:** Static design; no biological claim and no runtime module set.
@@ -408,7 +408,7 @@ A speed number never upgrades a correctness class. Logical bytes, cached bytes, 
 
 ## H32 — startup autotuner
 
-- **Original terminology / analogy:** Measure this exact machine/model/driver/storage at startup instead of trusting universal defaults.
+- **Original working analogy:** Measure this exact machine/model/driver/storage at startup instead of trusting universal defaults.
 - **Technical interpretation:** Quick/full profiles for reads, copies, uploads, kernels, queue depths, slots, synchronization, energy, and thermal behavior, keyed by hardware/model/shader/config hashes.
 - **Applicability:** Both; future MARC-native runtime.
 - **Implementation status:** Design; hardware probe data exists but no production selector.
@@ -418,9 +418,9 @@ A speed number never upgrades a correctness class. Logical bytes, cached bytes, 
 - **Speed/quality mechanism and correctness:** Avoids bad defaults and selects the measured operating point; does not train model quality.
 - **Compatibility:** Complementary with H19/H37; never hides a workload change inside a benchmark.
 
-## H33 — Explorer-Verifier certificates
+## H33 — Evidence-Certified Exploration and Verification
 
-- **Original terminology / analogy:** Explorers search broadly; verifiers are narrow, deterministic, hostile to false positives, and emit replayable certificates.
+- **Original working analogy:** Explorers search broadly; verifiers are narrow, deterministic, hostile to false positives, and emit replayable certificates.
 - **Technical interpretation:** Evidence levels L0–L6, hashes, commands, environment, prompts/seeds, raw logs, parser version, correctness/timing validity, fallback, and limitations.
 - **Applicability:** Both and future MARC-native.
 - **Implementation status:** DeepSeek transport certificates are strong; Qwen Q2 one-layer, eight-token, fence/thrash, and full-core placement certificates pass; speed and wider residency work remain gated.
@@ -432,7 +432,7 @@ A speed number never upgrades a correctness class. Logical bytes, cached bytes, 
 
 ## H34 — reasoning-distilled inference controller
 
-- **Original terminology / analogy:** An expensive offline controller reasons through hardware actions; a small fast policy is distilled from structured decisions.
+- **Original working analogy:** An expensive offline controller reasons through hardware actions; a small fast policy is distilled from structured decisions.
 - **Technical interpretation:** Oracle/state/action/reason-code traces for width, horizon, prefetch, slots, kernel, lanes, and recovery; train bounded student policies in shadow mode.
 - **Applicability:** Both; future MARC-native controller.
 - **Implementation status:** Design only.
@@ -444,7 +444,7 @@ A speed number never upgrades a correctness class. Logical bytes, cached bytes, 
 
 ## H35 — E1 compact-skeleton program
 
-- **Original terminology / analogy:** E1 determines whether a resident compact skeleton has a useful fidelity region across bits and routed-layer depth.
+- **Original working analogy:** E1 determines whether a resident compact skeleton has a useful fidelity region across bits and routed-layer depth.
 - **Technical interpretation:** Matrix of 2/3/4-bit representations and 4/12/24/43-layer depth with logits, route/token identity, ability, bytes, timing, and fallback metrics.
 - **Applicability:** DeepSeek evidence first; Qwen later with its own topology; both.
 - **Implementation status:** DeepSeek matrix completed to a Gate-3 GO with a b4_k43 staging anomaly classified/being corrected; Qwen E1 not started.
@@ -456,7 +456,7 @@ A speed number never upgrades a correctness class. Logical bytes, cached bytes, 
 
 ## H36 — E2 non-MoE floor program
 
-- **Original terminology / analogy:** Measure the non-MoE floor so expert elimination is not mistaken for the whole target.
+- **Original working analogy:** Measure the non-MoE floor so expert elimination is not mistaken for the whole target.
 - **Technical interpretation:** Fit attention/KV/resident compute time versus context/position and separate graph, synchronization, and expert terms.
 - **Applicability:** Both; Qwen's recurrent/delta paths make its topology-specific floor important.
 - **Implementation status:** DeepSeek E2 measured with low confidence because expert-I/O variance contaminated the fit; a clean route-stable follow-up is queued.
@@ -468,7 +468,7 @@ A speed number never upgrades a correctness class. Logical bytes, cached bytes, 
 
 ## H37 — kernel/configuration lead program
 
-- **Original terminology / analogy:** Configuration, driver, power, CPU affinity, queue, and kernel choices may hide cheap gains; anecdotes are leads, not facts.
+- **Original working analogy:** Configuration, driver, power, CPU affinity, queue, and kernel choices may hide cheap gains; anecdotes are leads, not facts.
 - **Technical interpretation:** Controlled one-variable A/B/A/B matrix with build/environment/model hashes and matched correctness.
 - **Applicability:** Both; RDNA4-specific but method general.
 - **Implementation status:** Active measurement discipline; many DeepSeek hardware findings exist, Qwen control intentionally keeps risky queue flags off.
@@ -480,7 +480,7 @@ A speed number never upgrades a correctness class. Logical bytes, cached bytes, 
 
 ## H38 — accepted-token roofline/exposed-byte budget
 
-- **Original terminology / analogy:** Work backward from accepted speed to physical traffic; storage bandwidth cannot be negotiated away.
+- **Original working analogy:** Work backward from accepted speed to physical traffic; storage bandwidth cannot be negotiated away.
 - **Technical interpretation:** `accepted_tokens/s <= bandwidth / exposed_bytes_per_accepted_token`, with separate SSD, H2D, VRAM, compute, and acceptance terms.
 - **Applicability:** Both; future MARC-native.
 - **Implementation status:** Established analytical gate under stated hardware assumptions.
@@ -492,7 +492,7 @@ A speed number never upgrades a correctness class. Logical bytes, cached bytes, 
 
 ## H39 — integrated HERMES-V4 architecture
 
-- **Original terminology / analogy:** The 39 mechanisms form one architecture: representation, prediction, execution, control, safety, and learning layers governed by the cheapest recoverable path to a verified accepted block.
+- **Original working analogy:** The 39 mechanisms form one architecture: representation, prediction, execution, control, safety, and learning layers governed by the cheapest recoverable path to a verified accepted block.
 - **Technical interpretation:** Q8 authority + resident skeleton/residuals + Route Scout/MARC + expert-major verification + persistent atlas + asynchronous lanes + telemetry/GPS/viability + bounded learning/certificates.
 - **Applicability:** DeepSeek target, Qwen-first porting host, both, and future MARC-native models.
 - **Implementation status:** Architecture/design only; no integrated end-to-end HERMES-V4 result.
@@ -508,7 +508,7 @@ A speed number never upgrades a correctness class. Logical bytes, cached bytes, 
 
 ## N01 — Qwen compact expert transport
 
-- **Original terminology / analogy:** Port the proven compact-expert transport architecture to Qwen without importing DeepSeek dimensions or assumptions.
+- **Original working analogy:** Port the proven compact-expert transport architecture to Qwen without importing DeepSeek dimensions or assumptions.
 - **Technical interpretation:** Keep canonical Q6_K/Q8_0 tensors CPU/mmap-authoritative; allocate persistent 10-slot/layer device arenas; map original top-8 IDs to local slots; rewrite only MMID IDs; use native Vulkan `MUL_MAT_ID`; fence before epoch reset; fail closed.
 - **Applicability:** Qwen primary; DeepSeek transport is the reference; future MARC-native sparse models can reuse the invariants.
 - **Implementation status:** **Q2 exact layer/persistence and full-core placement gates PASS, branch `qwen-compact-q2`; speed remains gated.** Layer 21 one-token/eight-token certificates and the full-core residency report are written; no speed claim exists.
@@ -520,7 +520,7 @@ A speed number never upgrades a correctness class. Logical bytes, cached bytes, 
 
 ## N02 — Qwen full-core GPU residency
 
-- **Original terminology / analogy:** Use the VRAM released by compact expert transport to keep the dense/shared model core on Vulkan rather than spending VRAM on all 256 routed experts.
+- **Original working analogy:** Use the VRAM released by compact expert transport to keep the dense/shared model core on Vulkan rather than spending VRAM on all 256 routed experts.
 - **Technical interpretation:** Device-local dense/shared core (~2.494250 GiB file payload) plus runtime buffers and compact slots, while all routed authority remains CPU/mmap.
 - **Applicability:** Qwen primary; concept transfers to DeepSeek only after its different core/MLA budget; future MARC-native.
 - **Implementation status:** **Placement/residency A/B PASS; speed remains unvalidated.** Full-core Q2 places the dense/shared core on Vulkan while routed authority remains host/mmap.
@@ -532,7 +532,7 @@ A speed number never upgrades a correctness class. Logical bytes, cached bytes, 
 
 ## N03 — Qwen-first experimentation
 
-- **Original terminology / analogy:** Use fast local Qwen iteration first; DeepSeek is an expensive gated confirmation, not a place to search every hypothesis.
+- **Original working analogy:** Use fast local Qwen iteration first; DeepSeek is an expensive gated confirmation, not a place to search every hypothesis.
 - **Technical interpretation:** Qwen instrumentation, trace, shadow policies, twin, and Q2 are architecture evidence; DeepSeek transfer requires a fixed Qwen pass gate and separate calibration.
 - **Applicability:** Qwen primary; DeepSeek confirmation only; both topology adapters are explicit.
 - **Implementation status:** Active policy. Qwen baseline, topology audit, route parity, geometry, trace plan, one-layer Q2 exactness, eight-token persistence, fence/thrash, and full-core placement are complete; speed and larger P1 work remain gated.
@@ -544,7 +544,7 @@ A speed number never upgrades a correctness class. Logical bytes, cached bytes, 
 
 ## N04 — semantic fingerprints
 
-- **Original terminology / analogy:** A compact fingerprint says what the host is doing—objective, reasoning phase, entities, constraints, memory references, style, uncertainty, and phase lifetime—rather than relying on keywords.
+- **Original working analogy:** A compact fingerprint says what the host is doing—objective, reasoning phase, entities, constraints, memory references, style, uncertainty, and phase lifetime—rather than relying on keywords.
 - **Technical interpretation:** Typed tuple of explicit route IDs/margins/entropy/hidden deltas and learned latents, with field-specific cadence and expiry; F10 interrupt/refresh condition is explicit.
 - **Applicability:** Qwen first; DeepSeek transfer after Qwen PASS; future MARC-Synapse native.
 - **Implementation status:** Static schema complete; Qwen tracer partially implemented; no P1 gate result; historical keyword/hash MARC fingerprint is a baseline, not a semantic success.
@@ -556,7 +556,7 @@ A speed number never upgrades a correctness class. Logical bytes, cached bytes, 
 
 ## N05 — hardware fingerprints
 
-- **Original terminology / analogy:** The execution body's hardware conditions are part of its identity: resident IDs, slot ages, cache tier, staging, queues, precision forms, and memory pressure.
+- **Original working analogy:** The execution body's hardware conditions are part of its identity: resident IDs, slot ages, cache tier, staging, queues, precision forms, and memory pressure.
 - **Technical interpretation:** Typed snapshot fields H1–H11, authoritative at decision time; stale fields after an epoch are unknown, not valid.
 - **Applicability:** DeepSeek live HERMES; Qwen simulated until Q2 exposes live slots; future MARC-native.
 - **Implementation status:** DeepSeek schema/static design complete; Qwen fields are twin-only in the P1 policy; Q2 will add real slot/staging counters.
@@ -568,7 +568,7 @@ A speed number never upgrades a correctness class. Logical bytes, cached bytes, 
 
 ## N06 — MARC-X
 
-- **Original terminology / analogy:** Apply Modular Architecture with Routing and Control to existing MoE models through observation: hotsets, expert logging, residency, prefetch, substitution, and latency/quality drift.
+- **Original working analogy:** Apply Modular Architecture with Routing and Control to existing MoE models through observation: hotsets, expert logging, residency, prefetch, substitution, and latency/quality drift.
 - **Technical interpretation:** Practical layer for Qwen/DeepSeek runtime interventions over existing router surfaces, not a new trained model.
 - **Applicability:** Qwen and DeepSeek; future MARC-native is not its main target.
 - **Implementation status:** Historical probing and routing vocabulary exist; direct live residency controller is not complete. HERMES/Qwen Q2 are the concrete successor substrate.
@@ -580,7 +580,7 @@ A speed number never upgrades a correctness class. Logical bytes, cached bytes, 
 
 ## N07 — MARC-OS
 
-- **Original terminology / analogy:** A general operating system for conditional compute: choose the cheapest path under a quality-risk budget.
+- **Original working analogy:** A general operating system for conditional compute: choose the cheapest path under a quality-risk budget.
 - **Technical interpretation:** Hardware-aware policy across precision, active modules/layers, context, prefetch, verification, escalation, and model choice.
 - **Applicability:** Both existing models and future MARC-native.
 - **Implementation status:** Historical Qwen budget proxy shows a working policy loop; the old fingerprint is keyword-based and the model-internal runtime is not complete.
@@ -592,7 +592,7 @@ A speed number never upgrades a correctness class. Logical bytes, cached bytes, 
 
 ## N08 — MARC-Synapse
 
-- **Original terminology / analogy:** Train a modular model from scratch: shared core, semantic router, module bank, associative memory, verification/escalation, and hardware-aware residency.
+- **Original working analogy:** Train a modular model from scratch: shared core, semantic router, module bank, associative memory, verification/escalation, and hardware-aware residency.
 - **Technical interpretation:** A future architecture in which the prompt assembles a temporary model from specialized modules.
 - **Applicability:** Future MARC-native primarily; not a direct Qwen/DeepSeek runtime patch.
 - **Implementation status:** Historical V0 only; toy equal-active-FLOP modular FFN lost to monolithic baseline (ppl 3.88 vs 2.68), and router collapsed about 92% of prompts into two modules.
@@ -604,7 +604,7 @@ A speed number never upgrades a correctness class. Logical bytes, cached bytes, 
 
 ## N09 — MARC-Symbiote temporary execution body
 
-- **Original terminology / analogy:** A frozen authoritative host temporarily assembles an execution body from explicit primitives and bounded learned latents, then interrupts/refreshes it when semantic meaning, uncertainty, or requirements change.
+- **Original working analogy:** A frozen authoritative host temporarily assembles an execution body from explicit primitives and bounded learned latents, then interrupts/refreshes it when semantic meaning, uncertainty, or requirements change.
 - **Technical interpretation:** Joint semantic×hardware binder selects KEEP_SLOT, PREFETCH_EXPERT_UNION, GROUP_BY_EXPERT, USE_ANCHOR, APPLY_REFINEMENT, REQUEST_AUTHORITY, REFRESH_HOST, or HALT. It is not speculative token drafting.
 - **Applicability:** DeepSeek host in the original design; Qwen-first trace/twin gate; future MARC-native.
 - **Implementation status:** Static design only; no graph modification, training, executor, DSpark restore, or speed claim permitted.
@@ -616,7 +616,7 @@ A speed number never upgrades a correctness class. Logical bytes, cached bytes, 
 
 ## N10 — REAP
 
-- **Original terminology / analogy:** Remove low-value experts based on observed routing/saliency so capacity can be spent on survivors.
+- **Original working analogy:** Remove low-value experts based on observed routing/saliency so capacity can be spent on survivors.
 - **Technical interpretation:** Per-layer expert token counts, routing-weight sums, retained-ID manifests, and router/tensor rewriting at checkpoint/conversion time.
 - **Applicability:** Laguna and Qwen-like sparse MoEs; DeepSeek only with a separate checkpoint/converter path; future MARC-native training.
 - **Implementation status:** Laguna integration design and Qwen quality-floor calibration artifacts exist; full model quality gate is not complete.
@@ -628,7 +628,7 @@ A speed number never upgrades a correctness class. Logical bytes, cached bytes, 
 
 ## N11 — Laguna
 
-- **Original terminology / analogy:** Laguna-S compression/speculative framework and its resident-128/low-bit model variants.
+- **Original working analogy:** Laguna-S compression/speculative framework and its resident-128/low-bit model variants.
 - **Technical interpretation:** A large MoE compression/conversion/runtime path with fused expert tensors, speculative draft support, and configurable context/memory budget.
 - **Applicability:** Laguna target models; method informs Qwen/DeepSeek compression but is not a drop-in Q2 transport.
 - **Implementation status:** Archived/complete experiment family; outputs on HDD and engine fork required to resume.
@@ -640,7 +640,7 @@ A speed number never upgrades a correctness class. Logical bytes, cached bytes, 
 
 ## N12 — model pruning
 
-- **Original terminology / analogy:** Surgically remove experts/parameters that are dispensable under measured calibration while preserving a usable model.
+- **Original working analogy:** Surgically remove experts/parameters that are dispensable under measured calibration while preserving a usable model.
 - **Technical interpretation:** Layer-specific retained IDs, router row/bias rewriting, expert tensor slicing, streaming conversion, and quality gates.
 - **Applicability:** Laguna/Qwen-like models; DeepSeek future; future MARC-native can train for structured sparsity.
 - **Implementation status:** Virtual-pruning/converter support exists; no complete three-model quality frontier.
@@ -652,7 +652,7 @@ A speed number never upgrades a correctness class. Logical bytes, cached bytes, 
 
 ## N13 — AutoSurgeon
 
-- **Original terminology / analogy:** Preserve the project name **AutoSurgeon** for automated, evidence-driven model surgery across pruning, quantization, routing, layer selection, and conversion.
+- **Original working analogy:** Preserve the project name **AutoSurgeon** for automated, evidence-driven model surgery across pruning, quantization, routing, layer selection, and conversion.
 - **Technical interpretation:** A manifest-producing orchestrator that consumes calibration, saliency, hardware budget, and quality gates, then emits reversible model variants and certificates; it must not silently mutate authority.
 - **Applicability:** Qwen/Laguna first; DeepSeek later; future MARC-native.
 - **Implementation status:** **Unlocated/unvalidated in the durable project files ingested here.** The exact AutoSurgeon artifact was not found, so this entry preserves the requested name without inventing implementation details. REAP/Laguna scripts are related evidence, not proof of AutoSurgeon.
@@ -664,7 +664,7 @@ A speed number never upgrades a correctness class. Logical bytes, cached bytes, 
 
 ## N14 — three practical compressed model variants: coverage-first
 
-- **Original terminology / analogy:** Keep all 256 experts at a very low average precision so coverage is preserved.
+- **Original working analogy:** Keep all 256 experts at a very low average precision so coverage is preserved.
 - **Technical interpretation:** The `three_strategies.py` target is approximately 2.36 bpw for all routed experts, using improved asymmetric/per-channel quantization.
 - **Applicability:** Laguna target first; candidate for Qwen/DeepSeek only after native quantizer and quality gates.
 - **Implementation status:** Script/design; no reported complete model-level result.
@@ -676,7 +676,7 @@ A speed number never upgrades a correctness class. Logical bytes, cached bytes, 
 
 ## N15 — three practical compressed model variants: precision-first
 
-- **Original terminology / analogy:** Keep only the most valuable experts at high precision rather than all experts at low precision.
+- **Original working analogy:** Keep only the most valuable experts at high precision rather than all experts at low precision.
 - **Technical interpretation:** The target script retains roughly 67 experts at approximately Q6/Q9-style precision under the same routed byte budget, with router pruning.
 - **Applicability:** Laguna first; Qwen/DeepSeek future.
 - **Implementation status:** Script/design; no complete quality frontier.
@@ -688,7 +688,7 @@ A speed number never upgrades a correctness class. Logical bytes, cached bytes, 
 
 ## N16 — three practical compressed model variants: heterogeneous
 
-- **Original terminology / analogy:** Spend precision unevenly: approximately 40 Q6 experts, 80 R4I8 experts, 80 2.5-bit experts, and 56 pruned in the target script.
+- **Original working analogy:** Spend precision unevenly: approximately 40 Q6 experts, 80 R4I8 experts, 80 2.5-bit experts, and 56 pruned in the target script.
 - **Technical interpretation:** Layer/expert saliency selects several quantization forms and removes the tail under one routed byte budget.
 - **Applicability:** Laguna first; Qwen/DeepSeek future.
 - **Implementation status:** Script/design; no complete model-level result.
@@ -700,7 +700,7 @@ A speed number never upgrades a correctness class. Logical bytes, cached bytes, 
 
 ## N17 — MoE-Skipper cascade and correction systems
 
-- **Original terminology / analogy:** Replace selected MoE work with learned low-rank gate/down predictors, trained in execution order so downstream predictors see cascade-disturbed inputs; repair the error wall with residual/cascade correction and exact tails.
+- **Original working analogy:** Replace selected MoE work with learned low-rank gate/down predictors, trained in execution order so downstream predictors see cascade-disturbed inputs; repair the error wall with residual/cascade correction and exact tails.
 - **Technical interpretation:** Per-layer affine normalization plus rank-64 gate/down predictors, layer policies, cascade training, exact-tail cutoffs, and direct logit gates.
 - **Applicability:** Qwen3.6-35B-A3B primary; other sparse MoEs with architecture-specific retraining; not a direct DeepSeek exact transport path.
 - **Implementation status:** Quality-valid approximate Qwen L25/L30 F16 path has a fixed long-prefill gain (+17.62%, 112.95 vs 96.03 tok/s) but is context/batch dependent; three-layer and broad all-layer paths fail or regress.
@@ -712,7 +712,7 @@ A speed number never upgrades a correctness class. Logical bytes, cached bytes, 
 
 ## N18 — DSpark/MTP restoration and custom runtime
 
-- **Original terminology / analogy:** Restore the missing future-token module and build the custom runtime needed for block proposal, route/memory lookahead, and strict verification.
+- **Original working analogy:** Restore the missing future-token module and build the custom runtime needed for block proposal, route/memory lookahead, and strict verification.
 - **Technical interpretation:** Converter tensor support, model/draft format, confidence/Markov heads, expert predictor, byte-budget horizon, prefetch scheduler, and causal block verifier.
 - **Applicability:** Qwen has local DSpark/MTP artifacts; DeepSeek official DSpark is the original target but the current Unsloth-derived GGUF has no `mtp.*`; both need separate adapters.
 - **Implementation status:** Audit/design; DeepSeek restoration blocked by missing tensors/converter/runtime; Qwen MTP is deliberately disabled during first gates.
@@ -724,7 +724,7 @@ A speed number never upgrades a correctness class. Logical bytes, cached bytes, 
 
 ## N19 — R4I8
 
-- **Original terminology / analogy:** Round-4-in-8: 4-bit values stored in 8-bit containers with a specialized cooperative-matrix-friendly format, plus distillation.
+- **Original working analogy:** Round-4-in-8: 4-bit values stored in 8-bit containers with a specialized cooperative-matrix-friendly format, plus distillation.
 - **Technical interpretation:** Custom GGML type and Vulkan shader with block scale/nibble layout, direct Qwen model conversion, and optional heterogeneous auxiliary models.
 - **Applicability:** Qwen primary; Laguna artifacts; future models only with format support.
 - **Implementation status:** Structural format path works after fixing block-byte order; model output is varied but quality at about 4.5 bpw is low/gibberish in the recorded checkpoint.
@@ -736,7 +736,7 @@ A speed number never upgrades a correctness class. Logical bytes, cached bytes, 
 
 ## N20 — R5I8
 
-- **Original terminology / analogy:** Preserve the distinct R5I8 name for a future round-5-in-8 format rather than assuming R4I8 generalizes.
+- **Original working analogy:** Preserve the distinct R5I8 name for a future round-5-in-8 format rather than assuming R4I8 generalizes.
 - **Technical interpretation:** A prospective higher-fidelity 5-bit-in-8 representation with its own scale/layout, converter, shader, and byte/quality point.
 - **Applicability:** Future Qwen/Laguna/DeepSeek model variants; not currently model-proven.
 - **Implementation status:** No durable implementation or result was located; research placeholder requiring an exact format definition.
@@ -748,7 +748,7 @@ A speed number never upgrades a correctness class. Logical bytes, cached bytes, 
 
 ## N21 — R6I8
 
-- **Original terminology / analogy:** Preserve the distinct R6I8 name for a still-higher-fidelity 6-bit-in-8 format.
+- **Original working analogy:** Preserve the distinct R6I8 name for a still-higher-fidelity 6-bit-in-8 format.
 - **Technical interpretation:** Prospective 6-bit-in-8 layout, likely a quality/control point between Q6-style values and R4I8, with custom converter/shader.
 - **Applicability:** Future Qwen/Laguna/DeepSeek variants.
 - **Implementation status:** No durable implementation or result located; placeholder, not an implied claim.
@@ -760,7 +760,7 @@ A speed number never upgrades a correctness class. Logical bytes, cached bytes, 
 
 ## N22 — RDNA4 cooperative-matrix kernels
 
-- **Original terminology / analogy:** Use RDNA4-native cooperative matrix hardware rather than generic shader paths.
+- **Original working analogy:** Use RDNA4-native cooperative matrix hardware rather than generic shader paths.
 - **Technical interpretation:** 16×16×16 fp16/bf16/int8/fp8 cooperative matrices, layout/packing, dispatch, and dequant integration for R4I8 or other supported forms.
 - **Applicability:** Qwen/R4I8 and future low-bit paths; DeepSeek IQ3 currently does not use coopmat in its MMID path.
 - **Implementation status:** Capability audited; R4I8 dispatch works structurally; HERMES IQ3/Qwen Q6 coopmat path is not validated.
@@ -772,7 +772,7 @@ A speed number never upgrades a correctness class. Logical bytes, cached bytes, 
 
 ## N23 — RDNA4 GEMV/GEMM kernels
 
-- **Original terminology / analogy:** Tune the actual GEMV/GEMM shapes—especially single-token MoE MMID and expert-major batches—for RDNA4.
+- **Original working analogy:** Tune the actual GEMV/GEMM shapes—especially single-token MoE MMID and expert-major batches—for RDNA4.
 - **Technical interpretation:** Wave choice, MMID tiling, fused dequant, launch batching, and separate GEMV versus GEMM paths for Q6_K/Q8_0/R4I8.
 - **Applicability:** Qwen and DeepSeek; future MARC-native.
 - **Implementation status:** Existing generic Q6/Q8 `MUL_MAT_ID` pipelines are present; custom shape work is unvalidated.
@@ -784,7 +784,7 @@ A speed number never upgrades a correctness class. Logical bytes, cached bytes, 
 
 ## N24 — context-only streaming
 
-- **Original terminology / analogy:** Separate context/KV streaming from parameter/expert streaming: keep model parameters/core resident while moving or compressing only the context state needed for the current phase.
+- **Original working analogy:** Separate context/KV streaming from parameter/expert streaming: keep model parameters/core resident while moving or compressing only the context state needed for the current phase.
 - **Technical interpretation:** A context-memory lane with exact recent KV, compressed segment checkpoints, selective retrieval, and exact fallback; it is distinct from routed expert weight I/O.
 - **Applicability:** DeepSeek context/MLA first; Qwen recurrent/delta/full-attention mix later; future MARC-native.
 - **Implementation status:** Research-only extension; no runtime modification.
@@ -796,7 +796,7 @@ A speed number never upgrades a correctness class. Logical bytes, cached bytes, 
 
 ## N25 — associative memory
 
-- **Original terminology / analogy:** A semantic/module bank and context memory retrieve relevant facts/states rather than replaying all history; HERMES's expert atlas is a separate physical associative map.
+- **Original working analogy:** A semantic/module bank and context memory retrieve relevant facts/states rather than replaying all history; HERMES's expert atlas is a separate physical associative map.
 - **Technical interpretation:** Explicit memory keys/references, stable constraints, segment checkpoints, sparse retrieval, and invalidation/refresh rules.
 - **Applicability:** Future MARC-Synapse and Symbiote; context-only experiments on Qwen/DeepSeek.
 - **Implementation status:** Historical MARC-Synapse design and HERMES context-memory proposal; no production memory executor.
@@ -808,7 +808,7 @@ A speed number never upgrades a correctness class. Logical bytes, cached bytes, 
 
 ## N26 — autonomous local self-experimentation
 
-- **Original terminology / analogy:** A bounded local loop should propose hypotheses, prepare experiments, run only authorized small tests, judge evidence, preserve failures, and update the queue without silently changing the program.
+- **Original working analogy:** A bounded local loop should propose hypotheses, prepare experiments, run only authorized small tests, judge evidence, preserve failures, and update the queue without silently changing the program.
 - **Technical interpretation:** Versioned experiment specs, dependency-aware scheduler, hardware lock, finite budgets, source/result hashes, Explorer/Verifier separation, rollback, and explicit UNKNOWN/FAILED outcomes.
 - **Applicability:** All current Qwen/DeepSeek/compression programs; future MARC-native research infrastructure.
 - **Implementation status:** Method/policy family; pieces exist in HERMES certificates, Qwen-first policy, and trace/twin plans, but no unified research daemon.

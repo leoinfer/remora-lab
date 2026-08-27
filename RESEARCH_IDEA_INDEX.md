@@ -40,34 +40,34 @@ using an item as a design claim.
 | `H03` | runtime | `PARTIALLY_IMPLEMENTED` | compact expert skeleton | [record](research/ideas/atlas/H03.md) |
 | `H04` | runtime | `DEFERRED` | P1/P2/P4/P6 progressive MoE | [record](research/ideas/atlas/H04.md) |
 | `H05` | runtime | `DEFERRED` | Q8 residual tiles | [record](research/ideas/atlas/H05.md) |
-| `H06` | runtime | `PROPOSED` | Route Scout | [record](research/ideas/atlas/H06.md) |
+| `H06` | runtime | `PROPOSED` | Predictive Expert Route Selection | [record](research/ideas/atlas/H06.md) |
 | `H07` | runtime | `DEFERRED` | margin-aware routing calibration | [record](research/ideas/atlas/H07.md) |
-| `H08` | runtime | `PROPOSED` | DSpark/MTP future-token canvas | [record](research/ideas/atlas/H08.md) |
+| `H08` | runtime | `PROPOSED` | Speculative Future-State Scheduling | [record](research/ideas/atlas/H08.md) |
 | `H09` | runtime | `PROPOSED` | expert-major multi-position batching | [record](research/ideas/atlas/H09.md) |
 | `H10` | runtime | `DEFERRED` | persistent expert atlas and stable slots | [record](research/ideas/atlas/H10.md) |
 | `H11` | runtime | `PROPOSED` | ExpertPack | [record](research/ideas/atlas/H11.md) |
 | `H12` | runtime | `PARTIALLY_IMPLEMENTED` | RDNA4-native execution | [record](research/ideas/atlas/H12.md) |
 | `H13` | runtime | `DEFERRED` | asynchronous three-lane pipeline | [record](research/ideas/atlas/H13.md) |
-| `H14` | runtime | `PROPOSED` | global telemetry satellite | [record](research/ideas/atlas/H14.md) |
-| `H15` | runtime | `DEFERRED` | dynamic MoE GPS | [record](research/ideas/atlas/H15.md) |
-| `H16` | runtime | `DEFERRED` | Safe/Balanced/Autobahn lanes | [record](research/ideas/atlas/H16.md) |
-| `H17` | runtime | `DEFERRED` | motorway merges and ramp metering | [record](research/ideas/atlas/H17.md) |
-| `H18` | runtime | `PROPOSED` | broadband/multi-source expert fabric | [record](research/ideas/atlas/H18.md) |
-| `H19` | runtime | `DEFERRED` | tailwind/headwind/sweet spot | [record](research/ideas/atlas/H19.md) |
-| `H20` | runtime | `DEFERRED` | fatigue/recovery/RIR | [record](research/ideas/atlas/H20.md) |
-| `H21` | runtime | `PROPOSED` | compound versus isolation | [record](research/ideas/atlas/H21.md) |
-| `H22` | runtime | `PROPOSED` | macro resource allocation/bodybuilding | [record](research/ideas/atlas/H22.md) |
-| `H23` | runtime | `DEFERRED` | water-purification cascade | [record](research/ideas/atlas/H23.md) |
-| `H24` | runtime | `DEFERRED` | sunscreen protection budget | [record](research/ideas/atlas/H24.md) |
-| `H25` | runtime | `PROPOSED` | behaviorism/consequence-driven learning | [record](research/ideas/atlas/H25.md) |
-| `H26` | runtime | `PROPOSED` | Id/Superego/Ego arbiter | [record](research/ideas/atlas/H26.md) |
-| `H27` | runtime | `PROPOSED` | investment/capital/salvage value | [record](research/ideas/atlas/H27.md) |
-| `H28` | runtime | `PROPOSED` | inference-IQ/ability per joule | [record](research/ideas/atlas/H28.md) |
-| `H29` | runtime | `DEFERRED` | Maturana viability governor | [record](research/ideas/atlas/H29.md) |
-| `H30` | runtime | `DEFERRED` | Wolff’s law/Inference Mechanostat | [record](research/ideas/atlas/H30.md) |
-| `H31` | runtime | `PROPOSED` | neuro-inspired modular control plane | [record](research/ideas/atlas/H31.md) |
+| `H14` | runtime | `PROPOSED` | Global Runtime Telemetry | [record](research/ideas/atlas/H14.md) |
+| `H15` | runtime | `DEFERRED` | Receding-Horizon MoE Route Control | [record](research/ideas/atlas/H15.md) |
+| `H16` | runtime | `DEFERRED` | Risk-Aware Operating Profiles | [record](research/ideas/atlas/H16.md) |
+| `H17` | runtime | `DEFERRED` | Admission Control and Queue Metering | [record](research/ideas/atlas/H17.md) |
+| `H18` | runtime | `PROPOSED` | Multi-Source Expert Placement | [record](research/ideas/atlas/H18.md) |
+| `H19` | runtime | `DEFERRED` | Sustainable Operating-Point Selection | [record](research/ideas/atlas/H19.md) |
+| `H20` | runtime | `DEFERRED` | Resource Fatigue and Recovery Control | [record](research/ideas/atlas/H20.md) |
+| `H21` | runtime | `PROPOSED` | Batched Work and Scoped Repair | [record](research/ideas/atlas/H21.md) |
+| `H22` | runtime | `PROPOSED` | Adaptive Resource Budgeting | [record](research/ideas/atlas/H22.md) |
+| `H23` | runtime | `DEFERRED` | Staged Uncertainty Filtering | [record](research/ideas/atlas/H23.md) |
+| `H24` | runtime | `DEFERRED` | Risk-Weighted Verification Budget | [record](research/ideas/atlas/H24.md) |
+| `H25` | runtime | `PROPOSED` | Outcome-Driven Policy Learning | [record](research/ideas/atlas/H25.md) |
+| `H26` | runtime | `PROPOSED` | Constraint-Gated Action Selection | [record](research/ideas/atlas/H26.md) |
+| `H27` | runtime | `PROPOSED` | Salvage-Aware Work Valuation | [record](research/ideas/atlas/H27.md) |
+| `H28` | runtime | `PROPOSED` | Energy-Normalized Capability Measurement | [record](research/ideas/atlas/H28.md) |
+| `H29` | runtime | `DEFERRED` | Viability-Region Runtime Control | [record](research/ideas/atlas/H29.md) |
+| `H30` | runtime | `DEFERRED` | Long-Horizon Structural Adaptation | [record](research/ideas/atlas/H30.md) |
+| `H31` | runtime | `PROPOSED` | Multi-Timescale Modular Control Plane | [record](research/ideas/atlas/H31.md) |
 | `H32` | runtime | `PROPOSED` | startup autotuner | [record](research/ideas/atlas/H32.md) |
-| `H33` | runtime | `DEFERRED` | Explorer-Verifier certificates | [record](research/ideas/atlas/H33.md) |
+| `H33` | runtime | `DEFERRED` | Evidence-Certified Exploration and Verification | [record](research/ideas/atlas/H33.md) |
 | `H34` | runtime | `DEFERRED` | reasoning-distilled inference controller | [record](research/ideas/atlas/H34.md) |
 | `H35` | runtime | `PROPOSED` | E1 compact-skeleton program | [record](research/ideas/atlas/H35.md) |
 | `H36` | runtime | `PROPOSED` | E2 non-MoE floor program | [record](research/ideas/atlas/H36.md) |
@@ -249,35 +249,35 @@ using an item as a design claim.
 | `E035` | experiment | `DEFERRED` | E1 compact-skeleton fidelity matrix | [record](research/experiments/E035.md) |
 | `E036` | experiment | `DEFERRED` | Q8 residual-tile recovery curve | [record](research/experiments/E036.md) |
 | `E037` | experiment | `DEFERRED` | P1/P2/P4/P6 incremental path test | [record](research/experiments/E037.md) |
-| `E038` | experiment | `EXPERIMENTAL` | Route Scout one-step shadow | [record](research/experiments/E038.md) |
+| `E038` | experiment | `EXPERIMENTAL` | Predictive Expert Route Selection Shadow Step | [record](research/experiments/E038.md) |
 | `E039` | experiment | `EXPERIMENTAL` | Margin-aware routing calibration | [record](research/experiments/E039.md) |
 | `E040` | experiment | `EXPERIMENTAL` | Persistent atlas policy replay | [record](research/experiments/E040.md) |
 | `E041` | experiment | `EXPERIMENTAL` | ExpertPack two-layer microprototype | [record](research/experiments/E041.md) |
 | `E042` | experiment | `DEFERRED` | RDNA4-native authority/compact baseline | [record](research/experiments/E042.md) |
 | `E043` | experiment | `DEFERRED` | Three-lane timestamp trace | [record](research/experiments/E043.md) |
-| `E044` | experiment | `EXPERIMENTAL` | Full telemetry satellite attribution | [record](research/experiments/E044.md) |
-| `E045` | experiment | `DEFERRED` | Dynamic MoE GPS replay | [record](research/experiments/E045.md) |
-| `E046` | experiment | `DEFERRED` | Safe/Balanced/Autobahn lane replay | [record](research/experiments/E046.md) |
-| `E047` | experiment | `DEFERRED` | Motorway ramp metering | [record](research/experiments/E047.md) |
+| `E044` | experiment | `EXPERIMENTAL` | Global Runtime Telemetry Attribution | [record](research/experiments/E044.md) |
+| `E045` | experiment | `DEFERRED` | Receding-Horizon MoE Route Control Replay | [record](research/experiments/E045.md) |
+| `E046` | experiment | `DEFERRED` | Risk-Aware Operating Profile Replay | [record](research/experiments/E046.md) |
+| `E047` | experiment | `DEFERRED` | Admission Control and Queue Metering | [record](research/experiments/E047.md) |
 | `E048` | experiment | `DEFERRED` | Local multi-source fabric | [record](research/experiments/E048.md) |
-| `E049` | experiment | `DEFERRED` | Tailwind/headwind/sweet-spot sweep | [record](research/experiments/E049.md) |
-| `E050` | experiment | `DEFERRED` | Fatigue/recovery/RIR soak | [record](research/experiments/E050.md) |
-| `E051` | experiment | `DEFERRED` | Compound versus isolation repair | [record](research/experiments/E051.md) |
-| `E052` | experiment | `DEFERRED` | Macro C/P/F reserve sweep | [record](research/experiments/E052.md) |
-| `E053` | experiment | `DEFERRED` | Water-purification cascade | [record](research/experiments/E053.md) |
-| `E054` | experiment | `DEFERRED` | Sunscreen protection budget | [record](research/experiments/E054.md) |
-| `E055` | experiment | `DEFERRED` | Behaviorism shadow bandit | [record](research/experiments/E055.md) |
-| `E056` | experiment | `DEFERRED` | Id/Superego/Ego arbiter ablation | [record](research/experiments/E056.md) |
-| `E057` | experiment | `EXPERIMENTAL` | Capital/salvage-value policy | [record](research/experiments/E057.md) |
-| `E058` | experiment | `EXPERIMENTAL` | Inference-IQ/ability-per-joule battery | [record](research/experiments/E058.md) |
-| `E059` | experiment | `DEFERRED` | Maturana viability governor | [record](research/experiments/E059.md) |
-| `E060` | experiment | `DEFERRED` | Wolff/Inference Mechanostat replay | [record](research/experiments/E060.md) |
-| `E061` | experiment | `DEFERRED` | Neuro-inspired control-plane ablation | [record](research/experiments/E061.md) |
+| `E049` | experiment | `DEFERRED` | Sustainable Operating-Point Sweep | [record](research/experiments/E049.md) |
+| `E050` | experiment | `DEFERRED` | Resource Fatigue and Recovery Control Soak | [record](research/experiments/E050.md) |
+| `E051` | experiment | `DEFERRED` | Batched Work and Scoped Repair | [record](research/experiments/E051.md) |
+| `E052` | experiment | `DEFERRED` | Adaptive Resource Budget Reserve Sweep | [record](research/experiments/E052.md) |
+| `E053` | experiment | `DEFERRED` | Staged Uncertainty Filtering | [record](research/experiments/E053.md) |
+| `E054` | experiment | `DEFERRED` | Risk-Weighted Verification Budget | [record](research/experiments/E054.md) |
+| `E055` | experiment | `DEFERRED` | Outcome-Driven Policy Shadow Bandit | [record](research/experiments/E055.md) |
+| `E056` | experiment | `DEFERRED` | Constraint-Gated Action Selection Ablation | [record](research/experiments/E056.md) |
+| `E057` | experiment | `EXPERIMENTAL` | Salvage-Aware Work Valuation Policy | [record](research/experiments/E057.md) |
+| `E058` | experiment | `EXPERIMENTAL` | Energy-Normalized Capability Battery | [record](research/experiments/E058.md) |
+| `E059` | experiment | `DEFERRED` | Viability-Region Runtime Control | [record](research/experiments/E059.md) |
+| `E060` | experiment | `DEFERRED` | Long-Horizon Structural Adaptation Replay | [record](research/experiments/E060.md) |
+| `E061` | experiment | `DEFERRED` | Multi-Timescale Control-Plane Ablation | [record](research/experiments/E061.md) |
 | `E062` | experiment | `EXPERIMENTAL` | Startup autotuner | [record](research/experiments/E062.md) |
-| `E063` | experiment | `EXPERIMENTAL` | Explorer-Verifier certificate replay | [record](research/experiments/E063.md) |
+| `E063` | experiment | `EXPERIMENTAL` | Evidence-Certified Exploration and Verification Replay | [record](research/experiments/E063.md) |
 | `E064` | experiment | `DEFERRED` | Reasoning-distilled controller | [record](research/experiments/E064.md) |
 | `E065` | experiment | `EXPERIMENTAL` | Integrated HERMES invariant dry-run | [record](research/experiments/E065.md) |
-| `E066` | experiment | `EXPERIMENTAL` | Trace-only future-token canvas economics | [record](research/experiments/E066.md) |
+| `E066` | experiment | `EXPERIMENTAL` | Trace-Only Speculative Future-State Economics | [record](research/experiments/E066.md) |
 | `E067` | experiment | `EXPERIMENTAL` | DSpark/MTP tensor and converter audit | [record](research/experiments/E067.md) |
 | `E068` | experiment | `EXPERIMENTAL` | Teacher-forced expert-major batching | [record](research/experiments/E068.md) |
 | `E069` | experiment | `DEFERRED` | True multi-position graph prototype | [record](research/experiments/E069.md) |

@@ -20,7 +20,7 @@
 
 ```mermaid
 flowchart TD
-    SRC[Source-of-truth modes H02] --> CERT[Explorer-Verifier certificates H33]
+    SRC[Source-of-truth modes H02] --> CERT[Evidence-Certified Exploration and Verification H33]
     CERT --> COMPOSE[Proof-carrying certificate composition OP-11]
     CERT --> STATE[Causal state closure OP-03/OP-05]
 
@@ -35,7 +35,7 @@ flowchart TD
     ROOF --> PHENO[Hardware phenotype compilation OP-10]
 
     RES --> ATLAS[Persistent expert atlas H10]
-    RES --> SCOUT[Route Scout H06]
+    RES --> SCOUT[Predictive Expert Route Selection H06]
     ATLAS --> PACK[ExpertPack H11 / LayerPack]
     PACK --> FLOW
     SCOUT --> PHASE
@@ -45,9 +45,9 @@ flowchart TD
     PHASE --> ELASTIC[Elastic horizon/TBEH OP-01]
     ELASTIC --> FLOW
     FLOW --> SHADOW[Shadow-price controller OP-12]
-    SHADOW --> GPS[Dynamic MoE GPS H15]
-    GPS --> LANES[Risk lanes / ramp metering H16/H17]
-    LANES --> VIABLE[Maturana viability H29]
+    SHADOW --> GPS[Receding-Horizon MoE Route Control H15]
+    GPS --> LANES[Risk-aware profiles / admission control H16/H17]
+    LANES --> VIABLE[Viability-region runtime control H29]
 
     SEM[N04 semantic fingerprint] --> BINDER[N09 MARC-Symbiote binder]
     HW[N05 hardware fingerprint] --> BINDER
@@ -86,7 +86,7 @@ flowchart TD
 | Verified-token state transition | `state + candidate work -> accepted prefix + state' + debt` | TBEH, PHASE, RSSO, Portion, Reclaim, H08/H15/H21/H25 | `DERIVED UNDER ASSUMPTIONS` |
 | Causal closure | Merkle root of transitive inputs/state/implementation | dependency-versioned cognition, ExpertPack, LayerPack, H10, H33, N09/N25 | `CONJECTURED` pending checker |
 | Accepted-token roofline | `T >= max(resource load, critical path)` | H38, DSpark/PHASE, RSSO, ExpertPack, N02/N23 | `PROVED` accounting inequality |
-| Value-weighted demand | cost-weighted miss/branch/route value | Route Scout, predictive residency, PHASE, salvage, Mechanostat | `DERIVED UNDER ASSUMPTIONS` |
+| Value-weighted demand | cost-weighted miss/branch/route value | Predictive expert route selection, predictive residency, PHASE, salvage, long-horizon structural adaptation | `DERIVED UNDER ASSUMPTIONS` |
 | Nested approximation lattice | exact authority, residual refinement, verified draft, approximate body | H03–H05/H07/H23/H24, delta skip, N17/N19–N21, Symbiote | `CONJECTURED` |
 | Resource-constrained DAG | precedence + resource vectors + capacity | H13/H17/H18/H22/H29/H37, REMORA Flow, hardware phenotype | `DERIVED UNDER ASSUMPTIONS` |
 | Certificate interface closure | Hoare-style `Pre/Post` state boundary | H02/H33/H39, Q2, RSSO, REMORA Verify | `CONJECTURED` |
@@ -96,7 +96,7 @@ flowchart TD
 
 ```text
 H02 source-of-truth correctness modes
-  -> H33 Explorer-Verifier certificates
+  -> H33 Evidence-Certified Exploration and Verification
   -> OP-11 proof-carrying composition
   -> OP-03 authoritative state boundary
   -> OP-04 delta bound + route/state condition
@@ -129,9 +129,9 @@ N01 Qwen compact transport
   -> N23 GEMV/GEMM shape path
   -> H10/H13
 
-H06 Route Scout + H07 MARC margin calibration
+H06 Predictive Expert Route Selection + H07 MARC margin calibration
   -> OP-08 predictive residency bounds
-  -> H15 GPS / H17 ramp metering
+  -> H15 route control / H17 admission control
 ```
 
 The central derived condition is:
@@ -151,9 +151,9 @@ manifest 1/2 Elastic MTP + manifest 5 PHASE
   -> TBEH conservative tail bound
   -> OP-06 branch-DAG economics
   -> OP-03 RSSO break-even
-  -> H21 compound/isolation
-  -> H24 protection budget
-  -> H29 viability / H34 bounded controller
+  -> H21 batched work/scoped repair
+  -> H24 risk-weighted verification
+  -> H29 viability control / H34 bounded controller
 ```
 
 `TBEH` is explicitly `THEORETICAL / OFFLINE-REPLAY ONLY`; no edge here authorizes a live controller while B0 is blocked.
@@ -203,34 +203,34 @@ These are model-production/approximation branches. They do not replace N01 Q2 ex
 | H03 | compact expert skeleton |
 | H04 | P1/P2/P4/P6 progressive MoE |
 | H05 | Q8 residual tiles |
-| H06 | Route Scout |
+| H06 | Predictive Expert Route Selection |
 | H07 | margin-aware routing calibration |
-| H08 | DSpark/MTP future-token canvas |
+| H08 | Speculative Future-State Scheduling |
 | H09 | expert-major multi-position batching |
 | H10 | persistent expert atlas and stable slots |
 | H11 | ExpertPack |
 | H12 | RDNA4-native execution |
 | H13 | asynchronous three-lane pipeline |
-| H14 | global telemetry satellite |
-| H15 | dynamic MoE GPS |
-| H16 | Safe/Balanced/Autobahn lanes |
-| H17 | motorway merges and ramp metering |
-| H18 | broadband/multi-source expert fabric |
-| H19 | tailwind/headwind/sweet spot |
-| H20 | fatigue/recovery/RIR |
-| H21 | compound versus isolation |
-| H22 | macro resource allocation/bodybuilding |
-| H23 | water-purification cascade |
-| H24 | sunscreen protection budget |
-| H25 | behaviorism/consequence-driven learning |
-| H26 | Id/Superego/Ego arbiter |
-| H27 | investment/capital/salvage value |
-| H28 | inference-IQ/ability per joule |
-| H29 | Maturana viability governor |
-| H30 | Wolff’s law/Inference Mechanostat |
-| H31 | neuro-inspired modular control plane |
+| H14 | Global Runtime Telemetry |
+| H15 | Receding-Horizon MoE Route Control |
+| H16 | Risk-Aware Operating Profiles |
+| H17 | Admission Control and Queue Metering |
+| H18 | Multi-Source Expert Placement |
+| H19 | Sustainable Operating-Point Selection |
+| H20 | Resource Fatigue and Recovery Control |
+| H21 | Batched Work and Scoped Repair |
+| H22 | Adaptive Resource Budgeting |
+| H23 | Staged Uncertainty Filtering |
+| H24 | Risk-Weighted Verification Budget |
+| H25 | Outcome-Driven Policy Learning |
+| H26 | Constraint-Gated Action Selection |
+| H27 | Salvage-Aware Work Valuation |
+| H28 | Energy-Normalized Capability Measurement |
+| H29 | Viability-Region Runtime Control |
+| H30 | Long-Horizon Structural Adaptation |
+| H31 | Multi-Timescale Modular Control Plane |
 | H32 | startup autotuner |
-| H33 | Explorer-Verifier certificates |
+| H33 | Evidence-Certified Exploration and Verification |
 | H34 | reasoning-distilled inference controller |
 | H35 | E1 compact-skeleton program |
 | H36 | E2 non-MoE floor program |

@@ -392,7 +392,7 @@ Requires ExpertPack metadata, kernel-native residual application, and a robust e
 
 ---
 
-## 6. Route Scout — the MoE branch predictor
+## 6. Predictive Expert Route Selection
 
 ### Your original idea — faithful reconstruction
 
@@ -514,7 +514,7 @@ If router margin is poorly calibrated or task-dependent, it must not be used as 
 
 ---
 
-## 8. DSpark / MTP future-token canvas
+## 8. Speculative Future-State Scheduling
 
 ### Your original idea — faithful reconstruction
 
@@ -870,7 +870,7 @@ Staging slices must be submission-owned or fence-protected. A slice cannot be re
 
 # Part III — Scheduling, control, and traffic metaphors made concrete
 
-## 14. Global telemetry “satellite”
+## 14. Global Runtime Telemetry
 
 ### Your original idea — faithful reconstruction
 
@@ -930,7 +930,7 @@ Verbose synchronous logging in the hot path is itself a performance bug.
 
 ---
 
-## 15. Dynamic MoE GPS / verified-token navigator
+## 15. Receding-Horizon MoE Route Control
 
 ### Your original idea — faithful reconstruction
 
@@ -1007,7 +1007,7 @@ If planning overhead approaches the savings, use simpler rules.
 
 ---
 
-## 16. Safe, Balanced, and Autobahn risk lanes
+## 16. Risk-Aware Operating Profiles
 
 ### Your original idea — faithful reconstruction
 
@@ -1073,7 +1073,7 @@ The lane selector improves the latency/energy frontier and can retreat safely fr
 
 ---
 
-## 17. Motorway merges, on-ramps, and ramp metering
+## 17. Admission Control and Queue Metering
 
 ### Your original idea — faithful reconstruction
 
@@ -1129,7 +1129,7 @@ If ramp control reacts too slowly, it may oscillate. Add hysteresis and predicte
 
 ---
 
-## 18. Broadband / multi-source expert fabric
+## 18. Multi-Source Expert Placement
 
 ### Your original idea — faithful reconstruction
 
@@ -1183,7 +1183,7 @@ Aggregate bandwidth that does not reduce the critical path is not a win. Ordinar
 
 ---
 
-## 19. Tailwind, headwind, and the throughput sweet spot
+## 19. Sustainable Operating-Point Selection
 
 ### Your original idea — faithful reconstruction
 
@@ -1247,7 +1247,7 @@ Do not invent a universal cubic or biological law. The curve must be measured on
 
 ---
 
-## 20. Fatigue, recovery, and RIR
+## 20. Resource Fatigue and Recovery Control
 
 ### Your original idea — faithful reconstruction
 
@@ -1305,7 +1305,7 @@ Do not force artificial “rest” when no measured resource is stressed.
 
 ---
 
-## 21. Compound versus isolation
+## 21. Batched Work and Scoped Repair
 
 ### Your original idea — faithful reconstruction
 
@@ -1353,7 +1353,7 @@ A giant block that produces impressive reuse but poor accepted-token economics s
 
 ---
 
-## 22. Macro resource allocation: carbs, protein, and fat
+## 22. Adaptive Resource Budgeting
 
 ### Your original idea — faithful reconstruction
 
@@ -1397,7 +1397,7 @@ No literal dietary percentages should be imposed. The analogy exists to define r
 
 ---
 
-## 23. Water-purification cascade
+## 23. Staged Uncertainty Filtering
 
 ### Your original idea — faithful reconstruction
 
@@ -1455,7 +1455,7 @@ If uncertainty signals are uncalibrated, early stopping may create silent qualit
 
 ---
 
-## 24. Sunscreen / protection-budget allocation
+## 24. Risk-Weighted Verification Budget
 
 ### Your original idea — faithful reconstruction
 
@@ -1511,7 +1511,7 @@ Do not let later high-confidence positions distract from a weak early prefix.
 
 # Part IV — Learning, arbitration, and adaptive structure
 
-## 25. Behaviorism / consequence-driven learning
+## 25. Outcome-Driven Policy Learning
 
 ### Your original idea — faithful reconstruction
 
@@ -1574,7 +1574,7 @@ Do not begin unrestricted online RL on an unverified runtime.
 
 ---
 
-## 26. Freud: Id, Superego, and Ego
+## 26. Constraint-Gated Action Selection
 
 ### Your original idea — faithful reconstruction
 
@@ -1628,7 +1628,7 @@ Do not extend the metaphor into claims about psychology or consciousness.
 
 ---
 
-## 27. Investment, capital allocation, compound interest, and salvage value
+## 27. Salvage-Aware Work Valuation
 
 ### Your original idea — faithful reconstruction
 
@@ -1680,7 +1680,7 @@ No subsystem may optimize its own hit rate, occupancy, or route score while wors
 
 ---
 
-## 28. Inference-IQ / ability retention per joule
+## 28. Energy-Normalized Capability Measurement
 
 ### Your original idea — faithful reconstruction
 
@@ -1751,7 +1751,7 @@ Do not present this as a psychometric measurement of human intelligence.
 
 ---
 
-## 29. Maturana / autopoiesis / viability governor
+## 29. Viability-Region Runtime Control
 
 ### Your original idea — faithful reconstruction
 
@@ -1812,7 +1812,7 @@ Do not anthropomorphize the mechanism as life or consciousness.
 
 ---
 
-## 30. Wolff’s law / Inference Mechanostat
+## 30. Long-Horizon Structural Adaptation
 
 ### Your original idea — faithful reconstruction
 
@@ -1867,7 +1867,7 @@ Rapid structural changes are not mechanostat behavior; they are instability. Rem
 
 ---
 
-## 31. Neuro-inspired modular inference control plane
+## 31. Multi-Timescale Modular Control Plane
 
 ### Your original idea — faithful reconstruction
 
@@ -1978,7 +1978,7 @@ An autotuner has little value before there are real alternative mechanisms to tu
 
 ---
 
-## 33. Empirical certificates and the Explorer/Verifier workflow
+## 33. Evidence-Certified Exploration and Verification
 
 ### Your original idea — faithful reconstruction
 
@@ -2287,9 +2287,9 @@ The full architecture is not 39 unrelated projects. It is a set of interacting l
 
 ### Prediction and speculation layer
 
-- Route Scout;
+- Predictive Expert Route Selection;
 - MARC;
-- DSpark/future-token canvas;
+- Speculative Future-State Scheduling;
 - confidence and route-union estimation.
 
 ### Execution layer
@@ -2302,22 +2302,22 @@ The full architecture is not 39 unrelated projects. It is a set of interacting l
 
 ### Control layer
 
-- telemetry satellite;
-- dynamic GPS;
-- risk lanes;
-- ramp metering;
-- tailwind/fatigue state;
-- capital allocation;
-- purification and protection budgets.
+- Global Runtime Telemetry;
+- Receding-Horizon MoE Route Control;
+- Risk-Aware Operating Profiles;
+- Admission Control and Queue Metering;
+- Sustainable Operating-Point Selection and Resource Fatigue state;
+- Salvage-Aware Work Valuation;
+- Staged Uncertainty Filtering and Risk-Weighted Verification Budget.
 
 ### Safety and learning layer
 
-- Id/Superego/Ego arbitration;
-- viability governor;
-- behaviorist learning;
-- mechanostat remodeling;
+- Constraint-Gated Action Selection;
+- Viability-Region Runtime Control;
+- Outcome-Driven Policy Learning;
+- Long-Horizon Structural Adaptation;
 - reasoning-distilled controller;
-- empirical certificates.
+- Evidence-Certified Exploration and Verification.
 
 ### Unified operating principle
 
@@ -2338,8 +2338,8 @@ This is the value-first order developed for Pi Agent.
 
 ## Phase 1 — measurement and quality
 
-5. Telemetry and empirical certificates.
-6. Ability-retention / Inference-IQ battery.
+5. Global Runtime Telemetry and empirical certificates.
+6. Energy-Normalized Capability Measurement.
 7. E2 non-MoE floor measurement.
 
 ## Phase 2 — highest-value architecture hypothesis
@@ -2356,8 +2356,8 @@ This is the value-first order developed for Pi Agent.
 
 ## Phase 4 — speculation and prediction
 
-14. DSpark/MTP restoration and true block verification.
-15. Route Scout in shadow mode.
+14. Speculative Future-State Scheduling restoration and true block verification.
+15. Predictive Expert Route Selection in shadow mode.
 16. MARC thresholds and confidence calibration.
 
 ## Phase 5 — hardware optimization
@@ -2368,18 +2368,19 @@ This is the value-first order developed for Pi Agent.
 
 ## Phase 6 — controller integration
 
-20. Capital allocation and purification/protection policies.
-21. Behaviorist bounded adaptation.
-22. Fatigue, GPS, risk lanes, and ramp metering.
-23. Id/Superego/Ego modular arbitration.
-24. Neuro-inspired control modules where ablations justify them.
-25. Maturana viability governor.
+20. Adaptive Resource Budgeting, staged filtering, and risk-weighted verification policies.
+21. Outcome-Driven Policy Learning with bounded adaptation.
+22. Resource Fatigue and Recovery Control, Receding-Horizon MoE Route Control,
+    Risk-Aware Operating Profiles, and Admission Control and Queue Metering.
+23. Constraint-Gated Action Selection.
+24. Multi-Timescale Modular Control Plane where ablations justify it.
+25. Viability-Region Runtime Control.
 
 ## Phase 7 — slow learning and scale-out
 
-26. Inference Mechanostat.
+26. Long-Horizon Structural Adaptation.
 27. Reasoning-distilled controller.
-28. LAN/multi-source expert fabric.
+28. Multi-Source Expert Placement.
 
 ---
 
@@ -2442,34 +2443,34 @@ A rigorous negative result is not failure. It tells the field which attractive i
 3. Resident compact expert skeleton
 4. Progressive Energy-Aware MoE Skipper P1/P2/P4/P6
 5. Canonical Q8 residual tiles
-6. Route Scout branch predictor
+6. Predictive Expert Route Selection
 7. MARC margin-aware routing calibration
-8. DSpark future-token canvas
+8. Speculative Future-State Scheduling
 9. Expert-major multi-position batching
 10. Persistent expert atlas and stable slots
 11. ExpertPack / physical aerodynamics
 12. RDNA4-native execution
 13. Asynchronous three-lane pipeline
-14. Global telemetry satellite
-15. Dynamic MoE GPS
-16. Safe/Balanced/Autobahn risk lanes
-17. Motorway merges and ramp metering
-18. Broadband / multi-source expert fabric
-19. Tailwind/headwind/sweet spot
-20. Fatigue/recovery/RIR
-21. Compound versus isolation
-22. Macro resource allocation / bodybuilding
-23. Water-purification cascade
-24. Sunscreen protection budget
-25. Behaviorism / consequence-driven learning
-26. Freud Id/Superego/Ego arbiter
-27. Investment/capital/salvage value
-28. Inference-IQ / ability per joule
-29. Maturana viability governor
-30. Wolff’s law / Inference Mechanostat
-31. Neuro-inspired modular control plane
+14. Global Runtime Telemetry
+15. Receding-Horizon MoE Route Control
+16. Risk-Aware Operating Profiles
+17. Admission Control and Queue Metering
+18. Multi-Source Expert Placement
+19. Sustainable Operating-Point Selection
+20. Resource Fatigue and Recovery Control
+21. Batched Work and Scoped Repair
+22. Adaptive Resource Budgeting
+23. Staged Uncertainty Filtering
+24. Risk-Weighted Verification Budget
+25. Outcome-Driven Policy Learning
+26. Constraint-Gated Action Selection
+27. Salvage-Aware Work Valuation
+28. Energy-Normalized Capability Measurement
+29. Viability-Region Runtime Control
+30. Long-Horizon Structural Adaptation
+31. Multi-Timescale Modular Control Plane
 32. Startup autotuner
-33. Empirical certificates / Explorer-Verifier chain
+33. Evidence-Certified Exploration and Verification
 34. Reasoning-distilled inference controller
 35. E1 compact-skeleton fidelity program
 36. E2 attention/non-MoE floor program

@@ -250,7 +250,7 @@
     },
     {
       "ID": "IDEA-H06",
-      "NAME": "Route Scout",
+      "NAME": "Predictive Expert Route Selection",
       "CATEGORY": "idea-index/runtime",
       "SOURCE LOCATION / SOURCE REGISTER ID": "research_idea_index.json:item:H06",
       "CURRENT STATUS": "PROPOSED",
@@ -282,7 +282,7 @@
     },
     {
       "ID": "IDEA-H08",
-      "NAME": "DSpark/MTP future-token canvas",
+      "NAME": "Speculative Future-State Scheduling",
       "CATEGORY": "idea-index/runtime",
       "SOURCE LOCATION / SOURCE REGISTER ID": "research_idea_index.json:item:H08",
       "CURRENT STATUS": "PROPOSED",
@@ -378,7 +378,7 @@
     },
     {
       "ID": "IDEA-H14",
-      "NAME": "global telemetry satellite",
+      "NAME": "Global Runtime Telemetry",
       "CATEGORY": "idea-index/runtime",
       "SOURCE LOCATION / SOURCE REGISTER ID": "research_idea_index.json:item:H14",
       "CURRENT STATUS": "PROPOSED",
@@ -394,7 +394,7 @@
     },
     {
       "ID": "IDEA-H15",
-      "NAME": "dynamic MoE GPS",
+      "NAME": "Receding-Horizon MoE Route Control",
       "CATEGORY": "idea-index/runtime",
       "SOURCE LOCATION / SOURCE REGISTER ID": "research_idea_index.json:item:H15",
       "CURRENT STATUS": "DEFERRED",
@@ -410,7 +410,7 @@
     },
     {
       "ID": "IDEA-H16",
-      "NAME": "Safe/Balanced/Autobahn lanes",
+      "NAME": "Risk-Aware Operating Profiles",
       "CATEGORY": "idea-index/runtime",
       "SOURCE LOCATION / SOURCE REGISTER ID": "research_idea_index.json:item:H16",
       "CURRENT STATUS": "DEFERRED",
@@ -426,7 +426,7 @@
     },
     {
       "ID": "IDEA-H17",
-      "NAME": "motorway merges and ramp metering",
+      "NAME": "Admission Control and Queue Metering",
       "CATEGORY": "idea-index/runtime",
       "SOURCE LOCATION / SOURCE REGISTER ID": "research_idea_index.json:item:H17",
       "CURRENT STATUS": "DEFERRED",
@@ -442,7 +442,7 @@
     },
     {
       "ID": "IDEA-H18",
-      "NAME": "broadband/multi-source expert fabric",
+      "NAME": "Multi-Source Expert Placement",
       "CATEGORY": "idea-index/runtime",
       "SOURCE LOCATION / SOURCE REGISTER ID": "research_idea_index.json:item:H18",
       "CURRENT STATUS": "PROPOSED",
@@ -458,7 +458,7 @@
     },
     {
       "ID": "IDEA-H19",
-      "NAME": "tailwind/headwind/sweet spot",
+      "NAME": "Sustainable Operating-Point Selection",
       "CATEGORY": "idea-index/runtime",
       "SOURCE LOCATION / SOURCE REGISTER ID": "research_idea_index.json:item:H19",
       "CURRENT STATUS": "DEFERRED",
@@ -474,7 +474,7 @@
     },
     {
       "ID": "IDEA-H20",
-      "NAME": "fatigue/recovery/RIR",
+      "NAME": "Resource Fatigue and Recovery Control",
       "CATEGORY": "idea-index/runtime",
       "SOURCE LOCATION / SOURCE REGISTER ID": "research_idea_index.json:item:H20",
       "CURRENT STATUS": "DEFERRED",
@@ -490,7 +490,7 @@
     },
     {
       "ID": "IDEA-H21",
-      "NAME": "compound versus isolation",
+      "NAME": "Batched Work and Scoped Repair",
       "CATEGORY": "idea-index/runtime",
       "SOURCE LOCATION / SOURCE REGISTER ID": "research_idea_index.json:item:H21",
       "CURRENT STATUS": "PROPOSED",
@@ -506,7 +506,7 @@
     },
     {
       "ID": "IDEA-H22",
-      "NAME": "macro resource allocation/bodybuilding",
+      "NAME": "Adaptive Resource Budgeting",
       "CATEGORY": "idea-index/runtime",
       "SOURCE LOCATION / SOURCE REGISTER ID": "research_idea_index.json:item:H22",
       "CURRENT STATUS": "PROPOSED",
@@ -522,7 +522,7 @@
     },
     {
       "ID": "IDEA-H23",
-      "NAME": "water-purification cascade",
+      "NAME": "Staged Uncertainty Filtering",
       "CATEGORY": "idea-index/runtime",
       "SOURCE LOCATION / SOURCE REGISTER ID": "research_idea_index.json:item:H23",
       "CURRENT STATUS": "DEFERRED",
@@ -538,7 +538,7 @@
     },
     {
       "ID": "IDEA-H24",
-      "NAME": "sunscreen protection budget",
+      "NAME": "Risk-Weighted Verification Budget",
       "CATEGORY": "idea-index/runtime",
       "SOURCE LOCATION / SOURCE REGISTER ID": "research_idea_index.json:item:H24",
       "CURRENT STATUS": "DEFERRED",
@@ -554,7 +554,7 @@
     },
     {
       "ID": "IDEA-H25",
-      "NAME": "behaviorism/consequence-driven learning",
+      "NAME": "Outcome-Driven Policy Learning",
       "CATEGORY": "idea-index/runtime",
       "SOURCE LOCATION / SOURCE REGISTER ID": "research_idea_index.json:item:H25",
       "CURRENT STATUS": "PROPOSED",
@@ -570,7 +570,7 @@
     },
     {
       "ID": "IDEA-H26",
-      "NAME": "Id/Superego/Ego arbiter",
+      "NAME": "Constraint-Gated Action Selection",
       "CATEGORY": "idea-index/runtime",
       "SOURCE LOCATION / SOURCE REGISTER ID": "research_idea_index.json:item:H26",
       "CURRENT STATUS": "PROPOSED",
@@ -586,7 +586,7 @@
     },
     {
       "ID": "IDEA-H27",
-      "NAME": "investment/capital/salvage value",
+      "NAME": "Salvage-Aware Work Valuation",
       "CATEGORY": "idea-index/runtime",
       "SOURCE LOCATION / SOURCE REGISTER ID": "research_idea_index.json:item:H27",
       "CURRENT STATUS": "PROPOSED",
@@ -602,7 +602,7 @@
     },
     {
       "ID": "IDEA-H28",
-      "NAME": "inference-IQ/ability per joule",
+      "NAME": "Energy-Normalized Capability Measurement",
       "CATEGORY": "idea-index/runtime",
       "SOURCE LOCATION / SOURCE REGISTER ID": "research_idea_index.json:item:H28",
       "CURRENT STATUS": "PROPOSED",
@@ -618,7 +618,7 @@
     },
     {
       "ID": "IDEA-H29",
-      "NAME": "Maturana viability governor",
+      "NAME": "Viability-Region Runtime Control",
       "CATEGORY": "idea-index/runtime",
       "SOURCE LOCATION / SOURCE REGISTER ID": "research_idea_index.json:item:H29",
       "CURRENT STATUS": "DEFERRED",
@@ -634,7 +634,7 @@
     },
     {
       "ID": "IDEA-H30",
-      "NAME": "Wolff’s law/Inference Mechanostat",
+      "NAME": "Long-Horizon Structural Adaptation",
       "CATEGORY": "idea-index/runtime",
       "SOURCE LOCATION / SOURCE REGISTER ID": "research_idea_index.json:item:H30",
       "CURRENT STATUS": "DEFERRED",
@@ -650,7 +650,7 @@
     },
     {
       "ID": "IDEA-H31",
-      "NAME": "neuro-inspired modular control plane",
+      "NAME": "Multi-Timescale Modular Control Plane",
       "CATEGORY": "idea-index/runtime",
       "SOURCE LOCATION / SOURCE REGISTER ID": "research_idea_index.json:item:H31",
       "CURRENT STATUS": "PROPOSED",
@@ -682,7 +682,7 @@
     },
     {
       "ID": "IDEA-H33",
-      "NAME": "Explorer-Verifier certificates",
+      "NAME": "Evidence-Certified Exploration and Verification",
       "CATEGORY": "idea-index/runtime",
       "SOURCE LOCATION / SOURCE REGISTER ID": "research_idea_index.json:item:H33",
       "CURRENT STATUS": "DEFERRED",
@@ -3594,7 +3594,7 @@
     },
     {
       "ID": "IDEA-E038",
-      "NAME": "Route Scout one-step shadow",
+      "NAME": "Predictive Expert Route Selection Shadow Step",
       "CATEGORY": "idea-index/experiment",
       "SOURCE LOCATION / SOURCE REGISTER ID": "research_idea_index.json:item:E038",
       "CURRENT STATUS": "EXPERIMENTAL",
@@ -3690,7 +3690,7 @@
     },
     {
       "ID": "IDEA-E044",
-      "NAME": "Full telemetry satellite attribution",
+      "NAME": "Global Runtime Telemetry Attribution",
       "CATEGORY": "idea-index/experiment",
       "SOURCE LOCATION / SOURCE REGISTER ID": "research_idea_index.json:item:E044",
       "CURRENT STATUS": "EXPERIMENTAL",
@@ -3706,7 +3706,7 @@
     },
     {
       "ID": "IDEA-E045",
-      "NAME": "Dynamic MoE GPS replay",
+      "NAME": "Receding-Horizon MoE Route Control Replay",
       "CATEGORY": "idea-index/experiment",
       "SOURCE LOCATION / SOURCE REGISTER ID": "research_idea_index.json:item:E045",
       "CURRENT STATUS": "DEFERRED",
@@ -3722,7 +3722,7 @@
     },
     {
       "ID": "IDEA-E046",
-      "NAME": "Safe/Balanced/Autobahn lane replay",
+      "NAME": "Risk-Aware Operating Profile Replay",
       "CATEGORY": "idea-index/experiment",
       "SOURCE LOCATION / SOURCE REGISTER ID": "research_idea_index.json:item:E046",
       "CURRENT STATUS": "DEFERRED",
@@ -3738,7 +3738,7 @@
     },
     {
       "ID": "IDEA-E047",
-      "NAME": "Motorway ramp metering",
+      "NAME": "Admission Control and Queue Metering",
       "CATEGORY": "idea-index/experiment",
       "SOURCE LOCATION / SOURCE REGISTER ID": "research_idea_index.json:item:E047",
       "CURRENT STATUS": "DEFERRED",
@@ -3770,7 +3770,7 @@
     },
     {
       "ID": "IDEA-E049",
-      "NAME": "Tailwind/headwind/sweet-spot sweep",
+      "NAME": "Sustainable Operating-Point Sweep",
       "CATEGORY": "idea-index/experiment",
       "SOURCE LOCATION / SOURCE REGISTER ID": "research_idea_index.json:item:E049",
       "CURRENT STATUS": "DEFERRED",
@@ -3786,7 +3786,7 @@
     },
     {
       "ID": "IDEA-E050",
-      "NAME": "Fatigue/recovery/RIR soak",
+      "NAME": "Resource Fatigue and Recovery Control Soak",
       "CATEGORY": "idea-index/experiment",
       "SOURCE LOCATION / SOURCE REGISTER ID": "research_idea_index.json:item:E050",
       "CURRENT STATUS": "DEFERRED",
@@ -3802,7 +3802,7 @@
     },
     {
       "ID": "IDEA-E051",
-      "NAME": "Compound versus isolation repair",
+      "NAME": "Batched Work and Scoped Repair",
       "CATEGORY": "idea-index/experiment",
       "SOURCE LOCATION / SOURCE REGISTER ID": "research_idea_index.json:item:E051",
       "CURRENT STATUS": "DEFERRED",
@@ -3818,7 +3818,7 @@
     },
     {
       "ID": "IDEA-E052",
-      "NAME": "Macro C/P/F reserve sweep",
+      "NAME": "Adaptive Resource Budget Reserve Sweep",
       "CATEGORY": "idea-index/experiment",
       "SOURCE LOCATION / SOURCE REGISTER ID": "research_idea_index.json:item:E052",
       "CURRENT STATUS": "DEFERRED",
@@ -3834,7 +3834,7 @@
     },
     {
       "ID": "IDEA-E053",
-      "NAME": "Water-purification cascade",
+      "NAME": "Staged Uncertainty Filtering",
       "CATEGORY": "idea-index/experiment",
       "SOURCE LOCATION / SOURCE REGISTER ID": "research_idea_index.json:item:E053",
       "CURRENT STATUS": "DEFERRED",
@@ -3850,7 +3850,7 @@
     },
     {
       "ID": "IDEA-E054",
-      "NAME": "Sunscreen protection budget",
+      "NAME": "Risk-Weighted Verification Budget",
       "CATEGORY": "idea-index/experiment",
       "SOURCE LOCATION / SOURCE REGISTER ID": "research_idea_index.json:item:E054",
       "CURRENT STATUS": "DEFERRED",
@@ -3866,7 +3866,7 @@
     },
     {
       "ID": "IDEA-E055",
-      "NAME": "Behaviorism shadow bandit",
+      "NAME": "Outcome-Driven Policy Shadow Bandit",
       "CATEGORY": "idea-index/experiment",
       "SOURCE LOCATION / SOURCE REGISTER ID": "research_idea_index.json:item:E055",
       "CURRENT STATUS": "DEFERRED",
@@ -3882,7 +3882,7 @@
     },
     {
       "ID": "IDEA-E056",
-      "NAME": "Id/Superego/Ego arbiter ablation",
+      "NAME": "Constraint-Gated Action Selection Ablation",
       "CATEGORY": "idea-index/experiment",
       "SOURCE LOCATION / SOURCE REGISTER ID": "research_idea_index.json:item:E056",
       "CURRENT STATUS": "DEFERRED",
@@ -3898,7 +3898,7 @@
     },
     {
       "ID": "IDEA-E057",
-      "NAME": "Capital/salvage-value policy",
+      "NAME": "Salvage-Aware Work Valuation Policy",
       "CATEGORY": "idea-index/experiment",
       "SOURCE LOCATION / SOURCE REGISTER ID": "research_idea_index.json:item:E057",
       "CURRENT STATUS": "EXPERIMENTAL",
@@ -3914,7 +3914,7 @@
     },
     {
       "ID": "IDEA-E058",
-      "NAME": "Inference-IQ/ability-per-joule battery",
+      "NAME": "Energy-Normalized Capability Battery",
       "CATEGORY": "idea-index/experiment",
       "SOURCE LOCATION / SOURCE REGISTER ID": "research_idea_index.json:item:E058",
       "CURRENT STATUS": "EXPERIMENTAL",
@@ -3930,7 +3930,7 @@
     },
     {
       "ID": "IDEA-E059",
-      "NAME": "Maturana viability governor",
+      "NAME": "Viability-Region Runtime Control",
       "CATEGORY": "idea-index/experiment",
       "SOURCE LOCATION / SOURCE REGISTER ID": "research_idea_index.json:item:E059",
       "CURRENT STATUS": "DEFERRED",
@@ -3946,7 +3946,7 @@
     },
     {
       "ID": "IDEA-E060",
-      "NAME": "Wolff/Inference Mechanostat replay",
+      "NAME": "Long-Horizon Structural Adaptation Replay",
       "CATEGORY": "idea-index/experiment",
       "SOURCE LOCATION / SOURCE REGISTER ID": "research_idea_index.json:item:E060",
       "CURRENT STATUS": "DEFERRED",
@@ -3962,7 +3962,7 @@
     },
     {
       "ID": "IDEA-E061",
-      "NAME": "Neuro-inspired control-plane ablation",
+      "NAME": "Multi-Timescale Control-Plane Ablation",
       "CATEGORY": "idea-index/experiment",
       "SOURCE LOCATION / SOURCE REGISTER ID": "research_idea_index.json:item:E061",
       "CURRENT STATUS": "DEFERRED",
@@ -3994,7 +3994,7 @@
     },
     {
       "ID": "IDEA-E063",
-      "NAME": "Explorer-Verifier certificate replay",
+      "NAME": "Evidence-Certified Exploration and Verification Replay",
       "CATEGORY": "idea-index/experiment",
       "SOURCE LOCATION / SOURCE REGISTER ID": "research_idea_index.json:item:E063",
       "CURRENT STATUS": "EXPERIMENTAL",
@@ -4042,7 +4042,7 @@
     },
     {
       "ID": "IDEA-E066",
-      "NAME": "Trace-only future-token canvas economics",
+      "NAME": "Trace-Only Speculative Future-State Economics",
       "CATEGORY": "idea-index/experiment",
       "SOURCE LOCATION / SOURCE REGISTER ID": "research_idea_index.json:item:E066",
       "CURRENT STATUS": "EXPERIMENTAL",

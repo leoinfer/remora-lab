@@ -79,35 +79,35 @@ This is a routing matrix, not an implementation claim. `PASSED` means the source
 | `E035` | E | E1 compact-skeleton fidelity matrix | agent-5 | compiler/quantization/sidecar | `READY_BUT_BLOCKED` | GATED | upstream dependency or authority gate remains open; see source status |
 | `E036` | E | Q8 residual-tile recovery curve | agent-3 | rust-core/ir/control-plane | `READY_BUT_BLOCKED` | GATED | upstream dependency or authority gate remains open; see source status |
 | `E037` | E | P1/P2/P4/P6 incremental path test | agent-3 | rust-core/ir/control-plane | `READY_BUT_BLOCKED` | GATED | upstream dependency or authority gate remains open; see source status |
-| `E038` | E | Route Scout one-step shadow | agent-6 | memory/residency/moe-streaming | `READY` | READY-STATIC | schema validation; CPU/static fixture |
+| `E038` | E | Predictive Expert Route Selection Shadow Step | agent-6 | memory/residency/moe-streaming | `READY` | READY-STATIC | schema validation; CPU/static fixture |
 | `E039` | E | Margin-aware routing calibration | agent-5 | compiler/quantization/sidecar | `READY` | READY-STATIC | schema validation; CPU/static fixture |
 | `E040` | E | Persistent atlas policy replay | agent-6 | memory/residency/moe-streaming | `READY` | READY-STATIC | schema validation; CPU/static fixture |
 | `E041` | E | ExpertPack two-layer microprototype | agent-6 | memory/residency/moe-streaming | `READY` | READY-STATIC | schema validation; CPU/static fixture |
 | `E042` | E | RDNA4-native authority/compact baseline | agent-4 | backend/vulkan/kernels | `READY_BUT_BLOCKED` | GATED | upstream dependency or authority gate remains open; see source status |
 | `E043` | E | Three-lane timestamp trace | agent-3 | rust-core/ir/control-plane | `READY_BUT_BLOCKED` | GATED | upstream dependency or authority gate remains open; see source status |
-| `E044` | E | Full telemetry satellite attribution | agent-8 | integration/provenance | `READY` | READY-STATIC | schema validation; CPU/static fixture |
-| `E045` | E | Dynamic MoE GPS replay | agent-6 | memory/residency/moe-streaming | `READY_BUT_BLOCKED` | DESIGN/GATED | upstream dependency or authority gate remains open; see source status |
-| `E046` | E | Safe/Balanced/Autobahn lane replay | agent-3 | rust-core/ir/control-plane | `READY_BUT_BLOCKED` | DESIGN/GATED | upstream dependency or authority gate remains open; see source status |
-| `E047` | E | Motorway ramp metering | agent-6 | memory/residency/moe-streaming | `READY_BUT_BLOCKED` | DESIGN/GATED | upstream dependency or authority gate remains open; see source status |
+| `E044` | E | Global Runtime Telemetry Attribution | agent-8 | integration/provenance | `READY` | READY-STATIC | schema validation; CPU/static fixture |
+| `E045` | E | Receding-Horizon MoE Route Control Replay | agent-6 | memory/residency/moe-streaming | `READY_BUT_BLOCKED` | DESIGN/GATED | upstream dependency or authority gate remains open; see source status |
+| `E046` | E | Risk-Aware Operating Profile Replay | agent-3 | rust-core/ir/control-plane | `READY_BUT_BLOCKED` | DESIGN/GATED | upstream dependency or authority gate remains open; see source status |
+| `E047` | E | Admission Control and Queue Metering | agent-6 | memory/residency/moe-streaming | `READY_BUT_BLOCKED` | DESIGN/GATED | upstream dependency or authority gate remains open; see source status |
 | `E048` | E | Local multi-source fabric | agent-8 | integration/provenance | `READY_BUT_BLOCKED` | DESIGN/GATED | upstream dependency or authority gate remains open; see source status |
-| `E049` | E | Tailwind/headwind/sweet-spot sweep | agent-3 | rust-core/ir/control-plane | `READY_BUT_BLOCKED` | DESIGN/GATED | upstream dependency or authority gate remains open; see source status |
-| `E050` | E | Fatigue/recovery/RIR soak | agent-3 | rust-core/ir/control-plane | `READY_BUT_BLOCKED` | DESIGN/GATED | upstream dependency or authority gate remains open; see source status |
-| `E051` | E | Compound versus isolation repair | agent-3 | rust-core/ir/control-plane | `READY_BUT_BLOCKED` | GATED | upstream dependency or authority gate remains open; see source status |
-| `E052` | E | Macro C/P/F reserve sweep | agent-3 | rust-core/ir/control-plane | `READY_BUT_BLOCKED` | DESIGN/GATED | upstream dependency or authority gate remains open; see source status |
-| `E053` | E | Water-purification cascade | agent-3 | rust-core/ir/control-plane | `READY_BUT_BLOCKED` | DESIGN/GATED | upstream dependency or authority gate remains open; see source status |
-| `E054` | E | Sunscreen protection budget | agent-3 | rust-core/ir/control-plane | `READY_BUT_BLOCKED` | DESIGN/GATED | upstream dependency or authority gate remains open; see source status |
-| `E055` | E | Behaviorism shadow bandit | agent-3 | rust-core/ir/control-plane | `READY_BUT_BLOCKED` | DESIGN/GATED | upstream dependency or authority gate remains open; see source status |
-| `E056` | E | Id/Superego/Ego arbiter ablation | agent-3 | rust-core/ir/control-plane | `READY_BUT_BLOCKED` | DESIGN/GATED | upstream dependency or authority gate remains open; see source status |
-| `E057` | E | Capital/salvage-value policy | agent-3 | rust-core/ir/control-plane | `READY` | READY-STATIC | schema validation; CPU/static fixture |
-| `E058` | E | Inference-IQ/ability-per-joule battery | agent-1 | external-oracle/evidence | `READY` | READY-STATIC | schema validation; CPU/static fixture |
-| `E059` | E | Maturana viability governor | agent-1 | external-oracle/evidence | `READY_BUT_BLOCKED` | DESIGN/GATED | upstream dependency or authority gate remains open; see source status |
-| `E060` | E | Wolff/Inference Mechanostat replay | agent-3 | rust-core/ir/control-plane | `READY_BUT_BLOCKED` | DESIGN/GATED | upstream dependency or authority gate remains open; see source status |
-| `E061` | E | Neuro-inspired control-plane ablation | agent-3 | rust-core/ir/control-plane | `READY_BUT_BLOCKED` | DESIGN/GATED | upstream dependency or authority gate remains open; see source status |
+| `E049` | E | Sustainable Operating-Point Sweep | agent-3 | rust-core/ir/control-plane | `READY_BUT_BLOCKED` | DESIGN/GATED | upstream dependency or authority gate remains open; see source status |
+| `E050` | E | Resource Fatigue and Recovery Control Soak | agent-3 | rust-core/ir/control-plane | `READY_BUT_BLOCKED` | DESIGN/GATED | upstream dependency or authority gate remains open; see source status |
+| `E051` | E | Batched Work and Scoped Repair | agent-3 | rust-core/ir/control-plane | `READY_BUT_BLOCKED` | GATED | upstream dependency or authority gate remains open; see source status |
+| `E052` | E | Adaptive Resource Budget Reserve Sweep | agent-3 | rust-core/ir/control-plane | `READY_BUT_BLOCKED` | DESIGN/GATED | upstream dependency or authority gate remains open; see source status |
+| `E053` | E | Staged Uncertainty Filtering | agent-3 | rust-core/ir/control-plane | `READY_BUT_BLOCKED` | DESIGN/GATED | upstream dependency or authority gate remains open; see source status |
+| `E054` | E | Risk-Weighted Verification Budget | agent-3 | rust-core/ir/control-plane | `READY_BUT_BLOCKED` | DESIGN/GATED | upstream dependency or authority gate remains open; see source status |
+| `E055` | E | Outcome-Driven Policy Shadow Bandit | agent-3 | rust-core/ir/control-plane | `READY_BUT_BLOCKED` | DESIGN/GATED | upstream dependency or authority gate remains open; see source status |
+| `E056` | E | Constraint-Gated Action Selection Ablation | agent-3 | rust-core/ir/control-plane | `READY_BUT_BLOCKED` | DESIGN/GATED | upstream dependency or authority gate remains open; see source status |
+| `E057` | E | Salvage-Aware Work Valuation Policy | agent-3 | rust-core/ir/control-plane | `READY` | READY-STATIC | schema validation; CPU/static fixture |
+| `E058` | E | Energy-Normalized Capability Battery | agent-1 | external-oracle/evidence | `READY` | READY-STATIC | schema validation; CPU/static fixture |
+| `E059` | E | Viability-Region Runtime Control | agent-1 | external-oracle/evidence | `READY_BUT_BLOCKED` | DESIGN/GATED | upstream dependency or authority gate remains open; see source status |
+| `E060` | E | Long-Horizon Structural Adaptation Replay | agent-3 | rust-core/ir/control-plane | `READY_BUT_BLOCKED` | DESIGN/GATED | upstream dependency or authority gate remains open; see source status |
+| `E061` | E | Multi-Timescale Control-Plane Ablation | agent-3 | rust-core/ir/control-plane | `READY_BUT_BLOCKED` | DESIGN/GATED | upstream dependency or authority gate remains open; see source status |
 | `E062` | E | Startup autotuner | agent-3 | rust-core/ir/control-plane | `READY` | READY-STATIC | schema validation; CPU/static fixture |
-| `E063` | E | Explorer-Verifier certificate replay | agent-8 | integration/provenance | `READY` | READY-STATIC | schema validation; CPU/static fixture |
+| `E063` | E | Evidence-Certified Exploration and Verification Replay | agent-8 | integration/provenance | `READY` | READY-STATIC | schema validation; CPU/static fixture |
 | `E064` | E | Reasoning-distilled controller | agent-3 | rust-core/ir/control-plane | `READY_BUT_BLOCKED` | DESIGN/GATED | upstream dependency or authority gate remains open; see source status |
 | `E065` | E | Integrated HERMES invariant dry-run | agent-8 | integration/provenance | `READY` | READY-STATIC | schema validation; CPU/static fixture |
-| `E066` | E | Trace-only future-token canvas economics | agent-3 | rust-core/ir/control-plane | `READY` | READY-STATIC | schema validation; CPU/static fixture |
+| `E066` | E | Trace-Only Speculative Future-State Economics | agent-3 | rust-core/ir/control-plane | `READY` | READY-STATIC | schema validation; CPU/static fixture |
 | `E067` | E | DSpark/MTP tensor and converter audit | agent-2 | language/decode/control | `READY` | READY-STATIC | schema validation; CPU/static fixture |
 | `E068` | E | Teacher-forced expert-major batching | agent-6 | memory/residency/moe-streaming | `READY` | READY-STATIC | schema validation; CPU/static fixture |
 | `E069` | E | True multi-position graph prototype | agent-3 | rust-core/ir/control-plane | `READY_BUT_BLOCKED` | GATED | upstream dependency or authority gate remains open; see source status |
@@ -171,34 +171,34 @@ This is a routing matrix, not an implementation claim. `PASSED` means the source
 | `H03` | HERMES | compact expert skeleton | agent-5 | compiler/quantization/sidecar | `READY` | E1 EVIDENCE | schema validation; CPU/static fixture |
 | `H04` | HERMES | P1/P2/P4/P6 progressive MoE | agent-6 | memory/residency/moe-streaming | `READY_BUT_BLOCKED` | DESIGN/GATED | upstream dependency or authority gate remains open; see source status |
 | `H05` | HERMES | Q8 residual tiles | agent-3 | rust-core/ir/control-plane | `READY_BUT_BLOCKED` | DESIGN/GATED | upstream dependency or authority gate remains open; see source status |
-| `H06` | HERMES | Route Scout | agent-6 | memory/residency/moe-streaming | `READY` | SHADOW READY | schema validation; CPU/static fixture |
+| `H06` | HERMES | Predictive Expert Route Selection | agent-6 | memory/residency/moe-streaming | `READY` | SHADOW READY | schema validation; CPU/static fixture |
 | `H07` | HERMES | margin-aware routing calibration | agent-5 | compiler/quantization/sidecar | `READY_BUT_BLOCKED` | DESIGN/GATED | upstream dependency or authority gate remains open; see source status |
-| `H08` | HERMES | DSpark/MTP future-token canvas | agent-2 | language/decode/control | `READY` | TRACE/SIM READY | schema validation; CPU/static fixture |
+| `H08` | HERMES | Speculative Future-State Scheduling | agent-2 | language/decode/control | `READY` | TRACE/SIM READY | schema validation; CPU/static fixture |
 | `H09` | HERMES | expert-major multi-position batching | agent-6 | memory/residency/moe-streaming | `READY` | TEACHER-FORCED READY | schema validation; CPU/static fixture |
 | `H10` | HERMES | persistent expert atlas and stable slots | agent-6 | memory/residency/moe-streaming | `READY_BUT_BLOCKED` | DEEPSEEK EVIDENCE; QWEN GATED | upstream dependency or authority gate remains open; see source status |
 | `H11` | HERMES | ExpertPack | agent-6 | memory/residency/moe-streaming | `NOT_STARTED` | WIP/DESIGN | schema validation; CPU/static fixture |
 | `H12` | HERMES | RDNA4-native execution | agent-4 | backend/vulkan/kernels | `READY` | CAPABILITY EVIDENCE | schema validation; CPU/static fixture |
 | `H13` | HERMES | asynchronous three-lane pipeline | agent-3 | rust-core/ir/control-plane | `READY_BUT_BLOCKED` | PARTIAL/GATED | upstream dependency or authority gate remains open; see source status |
-| `H14` | HERMES | global telemetry satellite | agent-8 | integration/provenance | `READY` | PARTIAL/READY STATIC | schema validation; CPU/static fixture |
-| `H15` | HERMES | dynamic MoE GPS | agent-2 | language/decode/control | `READY_BUT_BLOCKED` | DESIGN/GATED | upstream dependency or authority gate remains open; see source status |
-| `H16` | HERMES | Safe/Balanced/Autobahn lanes | agent-2 | language/decode/control | `READY_BUT_BLOCKED` | DESIGN/GATED | upstream dependency or authority gate remains open; see source status |
-| `H17` | HERMES | motorway merges and ramp metering | agent-2 | language/decode/control | `READY_BUT_BLOCKED` | DESIGN/GATED | upstream dependency or authority gate remains open; see source status |
-| `H18` | HERMES | broadband/multi-source expert fabric | agent-6 | memory/residency/moe-streaming | `READY` | LOCAL TIERS READY | schema validation; CPU/static fixture |
-| `H19` | HERMES | tailwind/headwind/sweet spot | agent-3 | rust-core/ir/control-plane | `READY_BUT_BLOCKED` | DESIGN/GATED | upstream dependency or authority gate remains open; see source status |
-| `H20` | HERMES | fatigue/recovery/RIR | agent-3 | rust-core/ir/control-plane | `READY_BUT_BLOCKED` | DESIGN/GATED | upstream dependency or authority gate remains open; see source status |
-| `H21` | HERMES | compound versus isolation | agent-3 | rust-core/ir/control-plane | `NOT_STARTED` | TRACE/DESIGN | schema validation; CPU/static fixture |
-| `H22` | HERMES | macro resource allocation/bodybuilding | agent-8 | integration/provenance | `NOT_STARTED` | DESIGN | schema validation; CPU/static fixture |
-| `H23` | HERMES | water-purification cascade | agent-2 | language/decode/control | `READY_BUT_BLOCKED` | DESIGN/GATED | upstream dependency or authority gate remains open; see source status |
-| `H24` | HERMES | sunscreen protection budget | agent-2 | language/decode/control | `READY_BUT_BLOCKED` | DESIGN/GATED | upstream dependency or authority gate remains open; see source status |
-| `H25` | HERMES | behaviorism/consequence-driven learning | agent-2 | language/decode/control | `NOT_STARTED` | SHADOW ONLY | schema validation; CPU/static fixture |
-| `H26` | HERMES | Id/Superego/Ego arbiter | agent-2 | language/decode/control | `NOT_STARTED` | DESIGN | schema validation; CPU/static fixture |
-| `H27` | HERMES | investment/capital/salvage value | agent-3 | rust-core/ir/control-plane | `NOT_STARTED` | TRACE/DESIGN | schema validation; CPU/static fixture |
-| `H28` | HERMES | inference-IQ/ability per joule | agent-1 | external-oracle/evidence | `READY` | BATTERY READY | schema validation; CPU/static fixture |
-| `H29` | HERMES | Maturana viability governor | agent-2 | language/decode/control | `READY_BUT_BLOCKED` | DESIGN/GATED | upstream dependency or authority gate remains open; see source status |
-| `H30` | HERMES | Wolff’s law/Inference Mechanostat | agent-3 | rust-core/ir/control-plane | `READY_BUT_BLOCKED` | SIMULATOR GATED | upstream dependency or authority gate remains open; see source status |
-| `H31` | HERMES | neuro-inspired modular control plane | agent-3 | rust-core/ir/control-plane | `READY` | STATIC DESIGN | schema validation; CPU/static fixture |
+| `H14` | HERMES | Global Runtime Telemetry | agent-8 | integration/provenance | `READY` | PARTIAL/READY STATIC | schema validation; CPU/static fixture |
+| `H15` | HERMES | Receding-Horizon MoE Route Control | agent-2 | language/decode/control | `READY_BUT_BLOCKED` | DESIGN/GATED | upstream dependency or authority gate remains open; see source status |
+| `H16` | HERMES | Risk-Aware Operating Profiles | agent-2 | language/decode/control | `READY_BUT_BLOCKED` | DESIGN/GATED | upstream dependency or authority gate remains open; see source status |
+| `H17` | HERMES | Admission Control and Queue Metering | agent-2 | language/decode/control | `READY_BUT_BLOCKED` | DESIGN/GATED | upstream dependency or authority gate remains open; see source status |
+| `H18` | HERMES | Multi-Source Expert Placement | agent-6 | memory/residency/moe-streaming | `READY` | LOCAL TIERS READY | schema validation; CPU/static fixture |
+| `H19` | HERMES | Sustainable Operating-Point Selection | agent-3 | rust-core/ir/control-plane | `READY_BUT_BLOCKED` | DESIGN/GATED | upstream dependency or authority gate remains open; see source status |
+| `H20` | HERMES | Resource Fatigue and Recovery Control | agent-3 | rust-core/ir/control-plane | `READY_BUT_BLOCKED` | DESIGN/GATED | upstream dependency or authority gate remains open; see source status |
+| `H21` | HERMES | Batched Work and Scoped Repair | agent-3 | rust-core/ir/control-plane | `NOT_STARTED` | TRACE/DESIGN | schema validation; CPU/static fixture |
+| `H22` | HERMES | Adaptive Resource Budgeting | agent-8 | integration/provenance | `NOT_STARTED` | DESIGN | schema validation; CPU/static fixture |
+| `H23` | HERMES | Staged Uncertainty Filtering | agent-2 | language/decode/control | `READY_BUT_BLOCKED` | DESIGN/GATED | upstream dependency or authority gate remains open; see source status |
+| `H24` | HERMES | Risk-Weighted Verification Budget | agent-2 | language/decode/control | `READY_BUT_BLOCKED` | DESIGN/GATED | upstream dependency or authority gate remains open; see source status |
+| `H25` | HERMES | Outcome-Driven Policy Learning | agent-2 | language/decode/control | `NOT_STARTED` | SHADOW ONLY | schema validation; CPU/static fixture |
+| `H26` | HERMES | Constraint-Gated Action Selection | agent-2 | language/decode/control | `NOT_STARTED` | DESIGN | schema validation; CPU/static fixture |
+| `H27` | HERMES | Salvage-Aware Work Valuation | agent-3 | rust-core/ir/control-plane | `NOT_STARTED` | TRACE/DESIGN | schema validation; CPU/static fixture |
+| `H28` | HERMES | Energy-Normalized Capability Measurement | agent-1 | external-oracle/evidence | `READY` | BATTERY READY | schema validation; CPU/static fixture |
+| `H29` | HERMES | Viability-Region Runtime Control | agent-2 | language/decode/control | `READY_BUT_BLOCKED` | DESIGN/GATED | upstream dependency or authority gate remains open; see source status |
+| `H30` | HERMES | Long-Horizon Structural Adaptation | agent-3 | rust-core/ir/control-plane | `READY_BUT_BLOCKED` | SIMULATOR GATED | upstream dependency or authority gate remains open; see source status |
+| `H31` | HERMES | Multi-Timescale Modular Control Plane | agent-3 | rust-core/ir/control-plane | `READY` | STATIC DESIGN | schema validation; CPU/static fixture |
 | `H32` | HERMES | startup autotuner | agent-3 | rust-core/ir/control-plane | `READY` | STATIC READY | schema validation; CPU/static fixture |
-| `H33` | HERMES | Explorer-Verifier certificates | agent-3 | rust-core/ir/reference-boundary | `PASSED` | DEEPSEEK DONE; QWEN Q2 EXACT PASS / RESIDENCY GATED | schema validation; CPU/static fixture |
+| `H33` | HERMES | Evidence-Certified Exploration and Verification | agent-3 | rust-core/ir/reference-boundary | `PASSED` | DEEPSEEK DONE; QWEN Q2 EXACT PASS / RESIDENCY GATED | schema validation; CPU/static fixture |
 | `H34` | HERMES | reasoning-distilled inference controller | agent-2 | language/decode/control | `READY_BUT_BLOCKED` | FUTURE/GATED | upstream dependency or authority gate remains open; see source status |
 | `H35` | HERMES | E1 compact-skeleton program | agent-5 | compiler/quantization/sidecar | `NOT_STARTED` | DEEPSEEK GO; QWEN PENDING | schema validation; CPU/static fixture |
 | `H36` | HERMES | E2 non-MoE floor program | agent-6 | memory/residency/moe-streaming | `NOT_STARTED` | DEEPSEEK LOW-CONFIDENCE | schema validation; CPU/static fixture |
