@@ -19,8 +19,10 @@ own acceptance rule.
 | C-009 | MTP/speculative decode can expose acceptance and resource telemetry. | EXPERIMENTAL | Rust scheduler contracts; no universal speedup claim. |
 | C-010 | Flash-Next/R4F is ready for full-model generation. | INVALIDATED | Bring-up exists, but full-model correctness and recovery gates are incomplete. |
 | C-011 | HAR loads and runs models without Python, C++, llama.cpp, GGML, CMake, or a foreign backend in its runtime path. | VERIFIED FOR THIS CANDIDATE | Dependency metadata, Rust-only source gate, linked-object inspection, and syscall trace are required release evidence. |
+| C-012 | The reference-machine hardware phenotype is recorded with factory, configured, observed, historical, and unknown fields. | VERIFIED FOR THIS CANDIDATE | Read-only PCI/sysfs/Vulkan/CPU/storage/software capture, official board/CPU specifications, and reconciled historical receipts in `HARDWARE_PROFILE.md` and `hardware_profile.json`. This is not a portability claim. |
 
 Claims C-001 through C-006 and C-009 are research statements, not a promise
-of production coverage. C-011 remains valid only while the release commands
-in `DEVELOPMENT.md` have passed on the final tree; regenerate evidence when
-that tree changes.
+of production coverage. C-011 and C-012 remain valid only while the release
+commands in `DEVELOPMENT.md` have passed on the final tree; regenerate
+evidence when that tree changes. C-012 describes one reference phenotype and
+does not generalize to other hardware.

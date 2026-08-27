@@ -12,6 +12,7 @@
     {"id":"C-008","status":"INVALIDATED","statement":"The proposed SWMMAC multi-POPS result is accepted.","evidence":["falsified-results record"]},
     {"id":"C-009","status":"EXPERIMENTAL","statement":"MTP and speculative decode can expose acceptance and resource telemetry.","evidence":["Rust scheduler contracts"],"caveat":"No universal speedup claim."},
     {"id":"C-010","status":"INVALIDATED","statement":"Flash-Next/R4F is ready for full-model generation.","evidence":["bring-up status record"]},
-    {"id":"C-011","status":"VERIFIED","statement":"The final HAR runtime path contains no Python, C++, llama.cpp, GGML, CMake, or foreign inference backend.","evidence":["Cargo metadata","Rust-only source gate","linked-object inspection","syscall trace"],"caveat":"Regenerate the release evidence whenever the release tree changes."}
+    {"id":"C-011","status":"VERIFIED","statement":"The final HAR runtime path contains no Python, C++, llama.cpp, GGML, CMake, or foreign inference backend.","evidence":["Cargo metadata","Rust-only source gate","linked-object inspection","syscall trace"],"caveat":"Regenerate the release evidence whenever the release tree changes."},
+    {"id":"C-012","status":"VERIFIED","statement":"The reference-machine hardware phenotype is recorded with factory, configured, observed, historical, and unknown fields.","evidence":["read-only PCI/sysfs/Vulkan/CPU/storage/software capture","official board and CPU specifications","HARDWARE_PROFILE.md","hardware_profile.json"],"caveat":"This documents one reference phenotype and is not a portability claim."}
   ]
 }

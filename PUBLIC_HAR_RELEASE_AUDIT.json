@@ -12,9 +12,64 @@
     "research_only_non_runtime": ["research/", "benchmarks/local-bench/"],
     "forbidden_runtime": ["Python", "C++", "llama.cpp", "GGML execution libraries", "subprocess inference helpers", "C ABI execution backends", "CMake-built HAR components", "foreign inference backends"]
   },
+  "hardware_phenotype": {
+    "status": "CAPTURED_WITH_EXPLICIT_UNKNOWNS",
+    "phenotype_id": "RX9060XT16-NITRO-GFX1200-RADV-2026.08.27-v1",
+    "public_profile": "HARDWARE_PROFILE.md",
+    "machine_readable_profile": "hardware_profile.json",
+    "reference_gpu": "Sapphire NITRO+ Radeon RX 9060 XT OC 16 GB / RDNA 4 / gfx1200",
+    "observed_pci_identity": "1002:7590, subsystem 1da2:e493, revision c0",
+    "factory_board_profile": {
+      "game_clock_mhz": 2780,
+      "boost_clock_mhz": 3320,
+      "vram": "16 GB GDDR6 / 128-bit / 20 Gbps",
+      "theoretical_bandwidth_gb_per_s": 320,
+      "typical_board_power_w": 182,
+      "source_urls": [
+        "https://www.sapphiretech.com/en/consumer/nitro-radeon-rx-9060-xt-16g-gddr6",
+        "https://www.amd.com/en/products/graphics/desktops/radeon/9000-series/amd-radeon-rx9060xt.html"
+      ]
+    },
+    "current_gpu_configuration": {
+      "performance_level": "auto",
+      "power_profile": "BOOTUP_DEFAULT",
+      "power_cap_w": 200,
+      "sclk_offset_mhz": 230,
+      "mclk_controller_mhz": 1450,
+      "vddgfx_offset_mv": -80,
+      "above_4g_and_resizable_bar": "active",
+      "boot_policy_flags": ["pci=realloc=on", "amdgpu.rebar=1"]
+    },
+    "current_bounded_rust_smoke": {
+      "result": "PASS",
+      "telemetry_samples": 40,
+      "sclk_mhz": [1554, 2354],
+      "mclk_mhz": [456, 456],
+      "graphics_package_power_w": [18, 19],
+      "junction_temperature_c_max": 36,
+      "representative_full_model_load": false,
+      "performance_claim": false
+    },
+    "historical_clock_evidence": {
+      "status": "HISTORICAL SETTING",
+      "full_workload_sclk_mhz": [3407, 3651],
+      "raw_samples_at_or_above_3300": 82,
+      "raw_samples_including_idle": 117,
+      "current_sustained_full_model_clock": "UNKNOWN"
+    },
+    "unknowns": [
+      "current full-model power, thermal, and sustained-clock envelope",
+      "DIMM identity, timings, channels, and XMP/DOCP",
+      "PBO/CPU overclock state",
+      "installed PSU, cooler, and chassis",
+      "per-receipt model streaming/residency",
+      "current wall/CPU energy"
+    ],
+    "portability_claim": false
+  },
   "privacy": {
-    "file_count": 615,
-    "tree_bytes": 3109081,
+    "file_count": 617,
+    "tree_bytes": 3151557,
     "model_payloads_present": false,
     "raw_receipts_present": false,
     "screenshots_present": false,

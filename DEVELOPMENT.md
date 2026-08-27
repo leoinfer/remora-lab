@@ -21,6 +21,12 @@ change copyright ownership, license obligations, or the standard for a claim.
 6. Run the publication audit, secret scan, license scan, and object scan.
 7. Perform a second adversarial review against the denylist and claims ledger.
 
+For any hardware result, also record the phenotype ID from
+[`HARDWARE_PROFILE.md`](HARDWARE_PROFILE.md), exact GPU/CPU/driver identity,
+factory-versus-configured clock state, observed telemetry, memory/storage
+residency, and all performance-affecting environment and boot flags. Do not
+reuse a historical receipt as a current result when those fields differ.
+
 For a model-free runtime trace, compile `tools/make_tiny_gguf.rs` with the
 Rust compiler, write the fixture outside the repository, and pass that path to
 `tools/trace_native_runtime.sh`. The fixture is synthetic and must not be

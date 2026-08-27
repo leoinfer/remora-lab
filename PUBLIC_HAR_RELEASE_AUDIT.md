@@ -20,10 +20,45 @@ dependency. `benchmarks/local-bench/` is a separately licensed, research-only
 Rust estimator. It is not a HAR runtime dependency and HAR never invokes its
 optional external measurement harness.
 
-The expanded publication audit passed:
+## Hardware phenotype publication pass
+
+The reference-machine phenotype is recorded in
+[`HARDWARE_PROFILE.md`](HARDWARE_PROFILE.md) and
+[`hardware_profile.json`](hardware_profile.json) as
+`RX9060XT16-NITRO-GFX1200-RADV-2026.08.27-v1`. The profile is intentionally
+machine-specific: the target is a Sapphire NITRO+ Radeon RX 9060 XT OC 16 GB
+(RDNA 4 / `gfx1200`) with a Ryzen 7 3700X, CachyOS, and Mesa RADV. It does not
+promise portability to another vendor, architecture, driver stack, memory
+system, or nominally identical card.
+
+The profile separates factory specifications from live controls, idle samples,
+bounded Rust workload telemetry, historical full-workload observations, and
+unknowns. Live checks established Sapphire PCI identity `1002:7590` with
+subsystem `1da2:e493`, active Above-4G/ReBAR with a full 16-GiB-class VRAM BAR,
+and the current GPU controls (`auto`/`BOOTUP_DEFAULT`, +230 MHz SCLK offset,
+1,450 MHz MCLK control, -80 mV VDDGFX offset, 200 W cap). A fresh bounded
+Rust Vulkan smoke passed; its small workload measured 1,554–2,354 MHz SCLK,
+456 MHz MCLK, 18–19 W, and at most 36 C junction temperature. That is a
+correctness/telemetry smoke, not a full-model performance result.
+
+Historical private full-workload samples include 3,407–3,651 MHz SCLK and
+separate approximately 3.72 GHz observations, but their phase timestamps or
+sensor source are not sufficient for a current sustained-clock claim. The
+current full-model sustained clock, power, and thermal envelope remain
+unknown. Current live GPU `auto`/CPU `schedutil` state also differs from the
+historical tuned preset that used GPU compute/high, CPU `performance`, PCIe
+ASPM performance, and `iommu=pt`.
+
+The mounted removable HDD was checked read-only during the broader corpus
+pass; no separately cleared idea manuscript was found and no HDD content was
+copied. The profile publishes no hostname, username, home path, serial,
+UUID, MAC/IP address, private repository, model path, token, or key.
+
+The expanded publication audit passed after the profile and documentation
+changes:
 
 ```text
-PUBLICATION_AUDIT PASS: 615 files, 3109081 bytes, no release-gate findings
+PUBLICATION_AUDIT PASS: 617 files, 3151557 bytes, no release-gate findings
 ```
 
 The tree contains no model weights, checkpoints, tokenizer payloads, datasets,

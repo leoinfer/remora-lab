@@ -45,6 +45,26 @@ request.
 | [ROCm documentation](https://rocm.docs.amd.com/en/latest/about/license.html) | hardware/software licensing and capability reference | component-specific terms; no ROCm source copied | hardware notes only | confirmed |
 | [Mesa RADV documentation](https://docs.mesa3d.org/drivers/radv.html) | Vulkan driver capability reference | Mesa licensing applies to Mesa source; no Mesa source copied | driver-boundary notes only | confirmed |
 
+## Hardware-profile provenance
+
+`HARDWARE_PROFILE.md` and `hardware_profile.json` combine three deliberately
+separate evidence classes:
+
+- live, identity-checked, read-only PCI/sysfs, Vulkan, CPU, storage, firmware,
+  operating-system, compiler, and shader-tool observations from the reference
+  machine;
+- board and processor factory specifications from the
+  [Sapphire NITRO+ product page](https://www.sapphiretech.com/en/consumer/nitro-radeon-rx-9060-xt-16g-gddr6),
+  [AMD Radeon RX 9060 XT specifications](https://www.amd.com/en/products/graphics/desktops/radeon/9000-series/amd-radeon-rx9060xt.html),
+  and the [AMD Ryzen 7 3700X specification](https://www.amd.com/en/support/downloads/drivers.html/processors/ryzen/ryzen-3000-series/amd-ryzen-7-3700x.html);
+- sanitized historical workload receipts and configuration records, which
+  remain labeled historical and are not bundled as raw public receipts.
+
+The public profile intentionally withholds hostnames, user and home-directory
+paths, serials, UUIDs, network identifiers, private repositories, model paths,
+and credentials. It records unknowns instead of inferring DIMM, PSU, cooler,
+full-load, or residency details.
+
 ## Local research inputs that are not copied
 
 | Source ID | Category | Decision | Reason |

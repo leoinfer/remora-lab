@@ -1,0 +1,331 @@
+{
+  "schema": "har.hardware_phenotype.v1",
+  "phenotype_id": "RX9060XT16-NITRO-GFX1200-RADV-2026.08.27-v1",
+  "profile_version": 1,
+  "capture": {
+    "date_utc": "2026-08-27",
+    "hardware_capture_utc": "2026-08-27T11:29:40.301210924Z",
+    "execution_context": "RESEARCH_PC",
+    "har_runtime_commit_at_measurement": "c035aedab138a57b9078321f3914973105d3be4c",
+    "fresh_identity_checked_bridge": true,
+    "gpu_ledger_at_bounded_test": "FREE",
+    "raw_private_receipt_published": false
+  },
+  "status_vocabulary": [
+    "FACTORY SPECIFICATION",
+    "CONFIGURED SETTING",
+    "OBSERVED IDLE",
+    "OBSERVED UNDER LOAD",
+    "HISTORICAL SETTING",
+    "UNKNOWN"
+  ],
+  "scope": {
+    "reference_machine_only": true,
+    "hardware_specialization_intentional": true,
+    "portability_claim": false,
+    "full_model_current_sustained_envelope_claim": false
+  },
+  "gpu": {
+    "identity": {
+      "status": "OBSERVED IDLE",
+      "board": "Sapphire NITRO+ Radeon RX 9060 XT OC 16 GB",
+      "gpu": "AMD Navi 44 / Radeon RX 9060 XT",
+      "architecture": "RDNA 4 / gfx1200",
+      "pci_vendor_device": "1002:7590",
+      "subsystem": "1da2:e493",
+      "pci_revision": "c0",
+      "vbios": "113-P816G493-N07",
+      "device_type": "discrete GPU"
+    },
+    "factory_specification": {
+      "status": "FACTORY SPECIFICATION",
+      "sapphire_sku": "11350-01-20G",
+      "compute_units": 32,
+      "stream_processors": 2048,
+      "ray_accelerators": 32,
+      "ai_accelerators": 64,
+      "rops": 64,
+      "texture_units": 128,
+      "infinity_cache_mb": 32,
+      "vram": "16 GB GDDR6",
+      "memory_bus_bits": 128,
+      "effective_memory_rate_gbps": 20,
+      "theoretical_memory_bandwidth_gb_per_s": 320,
+      "pcie_max": "PCIe 5.0 x16",
+      "game_clock_mhz": 2780,
+      "boost_clock_mhz": 3320,
+      "typical_board_power_w": 182,
+      "vendor_minimum_psu_w": 450,
+      "source_urls": [
+        "https://www.sapphiretech.com/en/consumer/nitro-radeon-rx-9060-xt-16g-gddr6",
+        "https://www.amd.com/en/products/graphics/desktops/radeon/9000-series/amd-radeon-rx9060xt.html"
+      ]
+    },
+    "configured_setting": {
+      "status": "CONFIGURED SETTING",
+      "performance_level": "auto",
+      "power_profile": "BOOTUP_DEFAULT",
+      "power_cap_w": 200,
+      "sclk_offset_mhz": 230,
+      "mclk_controller_mhz": 1450,
+      "vddgfx_offset_mv": -80,
+      "dpm_sclk_endpoints_mhz": [500, 2780],
+      "dpm_sclk_active_snapshot_mhz": 1402,
+      "dpm_sclk_active_snapshot_utc": "2026-08-27T11:29:40.301210924Z",
+      "dpm_sclk_intermediate_is_elastic": true,
+      "dpm_mclk_mhz": [96, 456, 772, 875, 1124, 1258],
+      "kernel_policy_flags": ["pci=realloc=on", "amdgpu.rebar=1"]
+    },
+    "observed_idle": {
+      "status": "OBSERVED IDLE",
+      "power_w_approx": 18,
+      "edge_temperature_c": 34,
+      "junction_temperature_c": 36,
+      "memory_temperature_c": 36,
+      "mclk_mhz": 456,
+      "pcie_sample": "8.0 GT/s x16",
+      "note": "Point-in-time low-power sample; not a persistent clock or link claim."
+    },
+    "observed_under_load": {
+      "status": "OBSERVED UNDER LOAD",
+      "workload": "600 repetitions of the tiny Rust Vulkan synthetic sampler/Q4_K smoke",
+      "start_utc": "2026-08-27T11:09:42.458Z",
+      "end_utc": "2026-08-27T11:09:51.436Z",
+      "telemetry_samples": 40,
+      "sclk_mhz": {"min": 1554, "max": 2354, "mean": 2030},
+      "mclk_mhz": {"min": 456, "max": 456, "mean": 456},
+      "graphics_package_power_w": {"min": 18, "max": 19, "mean": 18.5},
+      "gpu_busy_percent_max": 23,
+      "junction_temperature_c_max": 36,
+      "representative_full_model_load": false,
+      "performance_claim": false
+    },
+    "historical_observations": {
+      "status": "HISTORICAL SETTING",
+      "full_model_window_date": "2026-08-24",
+      "sampled_sclk_mhz": {"min": 3407, "max": 3651},
+      "samples_at_or_above_3300_mhz": 82,
+      "raw_samples_including_idle": 117,
+      "mclk_values_seen_in_window_mhz": [1449],
+      "separate_decode_observation": {"sclk_mhz_approx": 3720, "mclk_mhz": 456},
+      "limitations": [
+        "The historical clock file does not timestamp every phase row.",
+        "A separate profiler reported a sensor-source discrepancy against DPM caps.",
+        "These observations are not current settings and are not universal sustained-clock claims."
+      ]
+    },
+    "pcie_and_memory_visibility": {
+      "status": "CONFIGURED SETTING",
+      "maximum_link": "PCIe 5.0 x16 / 32.0 GT/s x16",
+      "live_sysfs_link_sample": "32.0 GT/s x16",
+      "low_power_telemetry_link_sample": "8.0 GT/s x16",
+      "above_4g_decoding": "active in a firmware-safe read-only check",
+      "resizable_bar": "active; full 16-GiB-class VRAM BAR visible",
+      "driver_reported_vram_total_bytes": 17095983104,
+      "driver_reported_visible_vram_total_bytes": 17095983104,
+      "transfer_bandwidth_measurement": null,
+      "transfer_bandwidth_status": "UNKNOWN"
+    },
+    "vulkan": {
+      "status": "OBSERVED UNDER LOAD",
+      "device_name": "AMD Radeon RX 9060 XT (RADV GFX1200)",
+      "instance_api_version": "1.4.357",
+      "device_api_version": "1.4.354",
+      "driver_name": "radv",
+      "driver_id": "Mesa RADV",
+      "driver_version": "26.2.1",
+      "driver_info": "Mesa 26.2.1-arch3.1",
+      "conformance_version": "1.4.5.3",
+      "smoke_warning": "RADV reported a non-conformant implementation for testing use only; no conformance or performance certification is claimed.",
+      "instance_extension_count": 26,
+      "relevant_device_extensions_observed": [
+        "VK_KHR_cooperative_matrix",
+        "VK_KHR_shader_bfloat16"
+      ],
+      "full_device_extension_manifest_published": false,
+      "capabilities": {
+        "subgroup_reported_size": 64,
+        "subgroup_min_size": 32,
+        "subgroup_max_size": 64,
+        "wave32_supported": true,
+        "wave64_supported": true,
+        "integer_dot_product": true,
+        "fp16_type": true,
+        "bfloat16_extension": true,
+        "cooperative_matrix": true,
+        "timeline_semaphore": true,
+        "synchronization2": true,
+        "subgroup_size_control": true,
+        "timestamp_period_ns": 10
+      }
+    }
+  },
+  "cpu": {
+    "identity": {
+      "status": "OBSERVED IDLE",
+      "model": "AMD Ryzen 7 3700X",
+      "cores": 8,
+      "threads": 16,
+      "sockets": 1,
+      "numa_nodes": 1,
+      "smt": "on"
+    },
+    "factory_specification": {
+      "status": "FACTORY SPECIFICATION",
+      "base_clock_ghz": 3.6,
+      "max_boost_clock_ghz": 4.4,
+      "default_tdp_w": 65,
+      "max_temperature_c": 95,
+      "source_url": "https://www.amd.com/en/support/downloads/drivers.html/processors/ryzen/ryzen-3000-series/amd-ryzen-7-3700x.html"
+    },
+    "configured_setting": {
+      "status": "CONFIGURED SETTING",
+      "frequency_policy_ghz": {"min": 2.2, "max": 4.4},
+      "scaling_driver": "acpi-cpufreq",
+      "governor": "schedutil",
+      "boost": "enabled",
+      "microcode": "0x8701034"
+    },
+    "isa_observed": {
+      "status": "OBSERVED IDLE",
+      "subset": ["AVX2", "FMA", "F16C", "BMI1", "BMI2", "AES", "SHA"]
+    },
+    "pbo_or_cpu_overclock": {
+      "status": "UNKNOWN",
+      "value": null
+    }
+  },
+  "memory": {
+    "os_total_bytes": 33575051264,
+    "status": "OBSERVED IDLE",
+    "dimm_manufacturer": null,
+    "dimm_part_numbers": null,
+    "dimm_count": null,
+    "rated_speed": null,
+    "actual_speed": null,
+    "timings": null,
+    "channel_mode": null,
+    "xmp_or_docp": null,
+    "module_detail_status": "UNKNOWN",
+    "note": "Unprivileged DMI did not expose DIMM details; historical 32 GB DDR4 notes are not promoted to an exact live specification."
+  },
+  "storage": {
+    "primary": {
+      "status": "OBSERVED IDLE",
+      "model": "SK hynix HFS001TDE9X081N",
+      "capacity_approx": "953.9 GB",
+      "firmware": "41720C20",
+      "link": "PCIe 8.0 GT/s x4 (Gen3 x4)",
+      "filesystem": "Btrfs user-data subvolume",
+      "mount_path": null,
+      "mount_path_status": "WITHHELD FOR PRIVACY",
+      "mount_options_observed": ["noatime", "compress=zstd:1", "ssd", "discard=async", "space_cache=v2"]
+    },
+    "removable_hdd": {
+      "status": "OBSERVED IDLE",
+      "model": "Toshiba MQ01UBD050",
+      "capacity_approx": "465.8 GB",
+      "interface": "USB",
+      "rotational": true,
+      "read_only_archaeology": "checked for idea-bearing documentation, manifests, and archive member names; no cleared manuscript found and no content copied"
+    },
+    "swap": {
+      "status": "CONFIGURED SETTING",
+      "type": "zram",
+      "capacity_approx": "31.3 GB"
+    },
+    "model_streaming_location": {
+      "status": "UNKNOWN",
+      "value": null,
+      "note": "Must be recorded by each future benchmark receipt; it is not inferred from the mount table."
+    }
+  },
+  "platform": {
+    "board": {
+      "status": "OBSERVED IDLE",
+      "vendor": "ASUSTeK COMPUTER INC.",
+      "model": "GA15DH",
+      "product": "ROG Strix GA15DH_G15DH",
+      "revision": "1.0"
+    },
+    "firmware": {
+      "status": "OBSERVED IDLE",
+      "vendor": "American Megatrends Inc.",
+      "version": "GA15DH.303",
+      "date": "2020-11-18"
+    },
+    "psu": {"status": "UNKNOWN", "value": null},
+    "cooler": {"status": "UNKNOWN", "value": null},
+    "chassis_and_airflow": {"status": "UNKNOWN", "value": null}
+  },
+  "software": {
+    "os": {"status": "OBSERVED IDLE", "distribution": "CachyOS", "release": "rolling", "architecture": "x86_64"},
+    "kernel": {"status": "OBSERVED IDLE", "release": "7.2.0-rc7-1-cachyos-rc", "build": "#1 SMP PREEMPT_DYNAMIC Tue, 11 Aug 2026 08:04:41 +0000"},
+    "mesa": "26.2.1",
+    "llvm_package": "22.1.8-2",
+    "vulkan_loader": "1.4.357.0",
+    "rustc": "1.97.1",
+    "cargo": "1.97.1",
+    "rust_host": "x86_64-unknown-linux-gnu",
+    "rust_llvm": "22.1.6",
+    "glslc": "2026.3 / target SPIR-V 1.0",
+    "glslang_validator": "11:16.4.0 / GLSL 4.60",
+    "spirv_tools": "2026.3 / Vulkan SDK 1.4.357.0",
+    "har_workspace_version": "0.1.0",
+    "r4kv_public_crate_version": "0.1.0",
+    "r4x_r4f_execution_version": {"status": "UNKNOWN", "value": null, "note": "No separate canonical production binary was used by the bounded smoke; historical external versions are not asserted."}
+  },
+  "benchmark_environment": {
+    "status": "OBSERVED UNDER LOAD",
+    "binary": "har-rust-vulkan-smoke",
+    "build": "cargo build --release --locked --offline",
+    "release_profile": ["thin LTO", "one codegen unit", "panic abort", "stripped symbols"],
+    "shader_input": "checked-in har/shaders SPIR-V",
+    "model_input": "none; tiny synthetic sampler/Q4_K fixtures",
+    "current_override_environment": "No AMD/RADV/Mesa/Vulkan/Rust/Cargo/LD/HAR override variables were observed in the capture shell.",
+    "boot_policy_flags": ["pci=realloc=on", "amdgpu.rebar=1"],
+    "current_iommu_pt": false,
+    "current_pcie_aspm_performance_flag": false,
+    "rust_vulkan_result": {"sampler_token": 777, "q4k_value": 256, "performance_claim": false},
+    "future_receipt_requirement": "Record this phenotype_id, exact binary/source identity, model location and hash, command, environment, residency, warm-up, correctness, and raw output digest."
+  },
+  "historical_environment": {
+    "status": "HISTORICAL SETTING",
+    "tuned_preset": ["GPU compute/high", "CPU governor performance", "PCIe ASPM performance", "iommu=pt", "full 16-GiB-class ReBAR"],
+    "current_conflict": "The live profile uses GPU auto/BOOTUP_DEFAULT, CPU schedutil, and no current iommu=pt or PCIe-ASPM-performance boot flag.",
+    "historical_voltage_conflict": "Earlier records include -50 mV VDDGFX; the current live setting is -80 mV.",
+    "comparability": "Historical receipts require their own phenotype and must not be compared as if they used the current profile."
+  },
+  "unknowns": [
+    "current full-model sustained SCLK/MCLK",
+    "current full-model power and thermal envelope",
+    "DIMM identity, module count, rated/actual speed, timings, channels, and XMP/DOCP",
+    "PBO and CPU overclock state",
+    "installed PSU capacity/model",
+    "cooler and chassis/airflow",
+    "per-receipt model streaming and residency placement",
+    "full device-extension manifest as a frozen public receipt",
+    "current wall/CPU energy measurement",
+    "fan curve and fan telemetry"
+  ],
+  "privacy": {
+    "hostname_published": false,
+    "username_or_home_path_published": false,
+    "legal_name_or_email_published": false,
+    "mac_or_ip_published": false,
+    "serials_published": false,
+    "system_or_device_uuids_published": false,
+    "machine_id_published": false,
+    "ssh_router_or_location_data_published": false,
+    "private_repositories_or_tokens_published": false,
+    "mount_paths_published": false
+  },
+  "public_evidence": [
+    "HARDWARE_PROFILE.md",
+    "docs/benchmarks.md",
+    "PUBLIC_HAR_RELEASE_AUDIT.md",
+    "docs/architecture/hardware-support.md",
+    "docs/methodology.md",
+    "CLAIMS.md"
+  ]
+}

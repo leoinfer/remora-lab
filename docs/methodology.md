@@ -15,6 +15,36 @@ prompt, token count, and resource accounting are fixed. Narrow-kernel wins,
 synthetic models, and reduced byte counts are not silently promoted to
 end-to-end generation claims.
 
+## Hardware specialization
+
+Much of this research was designed, tuned, and measured around one specific
+workstation, particularly its AMD Radeon RX 9060 XT configuration. Hardware
+specialization is intentional. Results should not be assumed to reproduce on
+different GPUs, vendors, driver stacks, memory systems, or even another
+nominally identical graphics card without retuning.
+
+The reference phenotype is
+`RX9060XT16-NITRO-GFX1200-RADV-2026.08.27-v1`. The exact public-safe system
+description is [HARDWARE_PROFILE.md](../HARDWARE_PROFILE.md), and its
+machine-readable form is [hardware_profile.json](../hardware_profile.json).
+Where a hardware-specific execution strategy materially outperforms a
+generic one on the target machine, this project generally prefers the
+specialized strategy. Portability and generalization are separate research
+problems and should not be inferred from a result obtained on the reference
+machine.
+
+Examples of intentional specialization include gfx1200-specific kernels,
+RDNA4 subgroup and data layouts, sparse-instruction experiments, workgroup
+widths, register-pressure choices, cache layouts, VRAM-driven quantization,
+and residency policies spanning VRAM, system RAM, and NVMe. Scheduler choices
+also depend on the observed CPU policy, PCIe/BAR state, driver behavior, and
+the resident/warm/streamed/cold memory phenotype.
+
+A reference-machine result is valid only within the exact environment recorded
+by its receipt. A cross-hardware result is a separate experiment requiring a
+new device identity, driver and shader capability probe, memory/PCIe state,
+retuning, and matched correctness and workload evidence.
+
 ## Moonshots and anomalous results
 
 This project deliberately investigates results that appear implausible,

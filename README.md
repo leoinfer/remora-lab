@@ -4,7 +4,8 @@ This is the expanded local release candidate for an open-source local-AI
 research stack. It is prepared as a fresh repository and is not published by
 this workspace. The tree contains both the Rust runtime and a first-class,
 public-safe research archive; no model weights, private experiment receipts,
-machine identifiers, or copied upstream execution backends are included.
+private machine identifiers, or copied upstream execution backends are
+included.
 
 ## HAR
 
@@ -39,6 +40,26 @@ measurement harness is outside the production boundary.
 Research-only Python may be used in a separate offline workspace, but it is
 not an inference dependency and no Python source is currently required to
 build or run HAR from this tree.
+
+## Hardware-specific research
+
+This project was built primarily around my own workstation rather than around
+a promise of portable peak performance.
+The reference GPU is a Sapphire NITRO+ Radeon RX 9060 XT OC 16 GB (RDNA 4 /
+gfx1200), and many kernels, quantization decisions, memory policies, and
+benchmarks were designed around that machine.
+Some ideas are architecture-independent, but measured performance is not.
+Do not assume a result reported here will reproduce on NVIDIA, Intel, another
+AMD architecture, or even another RX 9060 XT without retuning.
+Exact public-safe reference-system specifications, software versions,
+overclock configuration, and benchmark environment are recorded in
+[HARDWARE_PROFILE.md](HARDWARE_PROFILE.md).
+
+The profile is a phenotype, not a portability guarantee. Factory
+specifications, live configuration, idle samples, bounded workload samples,
+and historical workload observations are labeled separately. Future receipts
+must identify the phenotype and preserve their own command, environment,
+residency, correctness, and raw-output evidence.
 
 ## Status and honesty
 

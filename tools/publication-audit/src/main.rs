@@ -212,13 +212,14 @@ fn check_text(path: &Path, relative: &str, text: &str, audit: &mut Audit) {
     }
 
     let lower = text.to_ascii_lowercase();
+    // Public operating-system names are not private identifiers. Private
+    // paths, hostnames, and credentials remain denylisted below.
     let sensitive_markers = [
         "/home/",
         "/users/",
         "c:\\users\\",
         "/mnt/",
         "$home",
-        "cachyos",
         "ghp_",
         "github_pat_",
         "glpat-",
