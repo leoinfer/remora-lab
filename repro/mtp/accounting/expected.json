@@ -1,0 +1,12 @@
+{
+  "schema": "remora.repro.expected.mtp_accounting.v1",
+  "command": "./repro/mtp/accounting/run.sh",
+  "expected_status": "FULLY_REPRODUCIBLE",
+  "expected_gates": {
+    "rounds": 263,
+    "maximum_draft_depth": 3,
+    "accepted_prefix_rule": true,
+    "trace_present": true
+  },
+  "historical_boundary": "Synthetic acceptance accounting is not a reproduction of a neural MTP run or of historical 240/263 acceptance."
+}

@@ -15,3 +15,13 @@ The included [`local-bench`](local-bench/) tool estimates configurations from
 model metadata and user-supplied hardware profiles. It does not belong to the
 HAR runtime. Its optional measurement command may invoke an external serving
 binary for research calibration and is not used by any HAR executable.
+
+The recovered R4X width result is documented in the
+[R4X width-sweep lane](../repro/r4x/width-sweep/). Its unit is
+kernel/prefill diagnostic rows/s, not generation tokens/s. The lane links the
+sanitized receipt, full width-by-ubatch status matrix, exact historical source
+commit, and the Rust-only public validation command.
+
+The artifact-level crosswalk for benchmark implementations, receipts, and
+unreproduced historical results is
+[`TECHNICAL_ARTIFACT_INDEX.md`](../TECHNICAL_ARTIFACT_INDEX.md).

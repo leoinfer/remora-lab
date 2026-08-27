@@ -1,0 +1,12 @@
+{
+  "schema": "remora.repro.expected.swmmac_falsifier.v1",
+  "command": "./repro/swmmac/falsifier/run.sh",
+  "expected_status": "FALSIFIED_REPRODUCIBLE",
+  "expected_gates": {
+    "expected_committed_value": 4,
+    "replayed_accumulator_value": 1,
+    "observed_over_expected": 0.25,
+    "useful_claim_survives": false
+  },
+  "interpretation": "The falsifier is reproducible; the historical multi-POPS/useful-throughput claim is rejected."
+}

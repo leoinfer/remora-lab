@@ -1,0 +1,22 @@
+{
+  "schema": "remora.repro.blocked_receipt.v1",
+  "status": "BLOCKED_PROVENANCE",
+  "lane": "r4kv/quality-frontier",
+  "claim_id": "C-005",
+  "disposition": "The public R4KV storage/profile KAT is not a model-quality frontier, and no cleared model-quality receipt is published.",
+  "profiles_in_scope": ["K6V4", "K4V4", "K4V3"],
+  "evidence_available": [
+    "Public R4KV format and profile definitions",
+    "Model-free storage, codec, page-identity, and corruption-rejection receipt at ../storage/sanitized_receipt.json"
+  ],
+  "evidence_missing": [
+    "Cleared model weights and tokenizer",
+    "Evaluation dataset/prompt protocol",
+    "Perplexity or attention-quality metrics",
+    "End-to-end numerical parity receipt"
+  ],
+  "quality_metrics": null,
+  "reproduction_status": "blocked",
+  "runtime_boundary": "The command is a Rust-only disposition check and performs no model inference.",
+  "privacy": "No private path, username, hostname, serial, model payload, or raw quality receipt is included."
+}

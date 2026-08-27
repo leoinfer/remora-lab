@@ -1,0 +1,29 @@
+{
+  "addressable_positions": 10000000,
+  "claim_boundary": "addressable compressed/effective-context hierarchy; not dense transformer attention or a dense 10M-token KV cache",
+  "compressed_bytes": 46827,
+  "lane": "effective-context",
+  "lexical_retrieval": {
+    "queries": 512,
+    "r1": 1.0
+  },
+  "records": 4096,
+  "recovered_digest": "d4a8e4b0726b66a1c33ed60ccdae4f42791e2ba1d4b47ed389cc17761ef74153",
+  "recovery_exact": true,
+  "schema": "remora.repro_harness.v1.context",
+  "seed": 2779096485,
+  "semantic_retrieval": {
+    "r10": null,
+    "status": "NOT_IMPLEMENTED_IN_THIS_MODEL_FREE_FIXTURE"
+  },
+  "shortcut_probe": {
+    "is_benchmark_failure_fixture": true,
+    "meaning": "A shortcut that ignores the payload solves 47% of this intentionally weak probe; benchmark quality must be tested adversarially.",
+    "queries": 100,
+    "solved_by_two_character_prefix": 47,
+    "solved_fraction": 0.47
+  },
+  "status": "FULLY_REPRODUCIBLE",
+  "stored_representation": "sorted address deltas + unsigned LEB128 values",
+  "uncompressed_pair_bytes": 65536
+}

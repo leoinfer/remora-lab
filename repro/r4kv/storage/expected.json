@@ -1,0 +1,13 @@
+{
+  "schema": "remora.repro.expected.r4kv_storage.v1",
+  "command": "./repro/r4kv/storage/run.sh",
+  "expected_status": "FULLY_REPRODUCIBLE",
+  "expected_gates": {
+    "profile_count": 5,
+    "page_restore_gate": true,
+    "payload_corruption_rejected": true,
+    "fail_closed": true
+  },
+  "interpretation": "The lane reproduces storage arithmetic and structural codec/page behavior. It does not reproduce model-quality or GPU-throughput claims.",
+  "unreproduced_related_result": "R4KV model-quality frontier and full-model parity remain unmeasured in this public lane."
+}

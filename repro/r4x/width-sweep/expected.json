@@ -1,0 +1,24 @@
+{
+  "schema": "remora.repro.expected.r4x_width_sweep.v1",
+  "public_validation": {
+    "command": "./repro/r4x/width-sweep/run_width_sweep.sh",
+    "runner_scope": "Rust-only D32A geometry and known-answer validation",
+    "expected_status": "PASS",
+    "historical_throughput_reproduced": false,
+    "reason": "The exact historical model executor and weights are excluded from the Rust-only public runtime."
+  },
+  "historical_reference": {
+    "source_commit": "5181a189ed65ad98b069c6dbdd20d486091d7d60",
+    "clean_ubatch": 512,
+    "clean_widths": [64, 128, 256, 384, 512, 768, 1024, 1536, 2048],
+    "peak_width": 512,
+    "peak_rows_per_s": 699.677849,
+    "metric": "kernel/prefill diagnostic rows/s, not generation tokens/s"
+  },
+  "excluded_or_invalid": {
+    "ubatch_4096_series": "MALFORMED",
+    "ubatch_4096_w2048": "DEVICE_LOST",
+    "kernel_width_4096": "NOT_RUN",
+    "ubatch_values_without_recovered_cells": [32, 64, 128, 256, 1024, 2048]
+  }
+}

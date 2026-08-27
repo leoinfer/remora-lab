@@ -1,0 +1,23 @@
+{
+  "schema": "remora.repro.blocked_receipt.v1",
+  "status": "BLOCKED_PROVENANCE",
+  "lane": "flash-next/full-model",
+  "claim_id": "C-010",
+  "disposition": "R4F/Flash-Next format and bring-up work is public, but full-model first-token and generation evidence remains incomplete.",
+  "evidence_available": [
+    "Public R4F format documentation",
+    "Public Flash-Next campaign status and implementation map",
+    "A machine-readable record of the remaining gate"
+  ],
+  "evidence_missing": [
+    "Cleared full-model artifact and SHA-256",
+    "First-token numerical correctness receipt",
+    "Generation timing receipt and correctness gate",
+    "Publicly cleared executor/runtime boundary for the complete path"
+  ],
+  "first_token_gate": null,
+  "generation": null,
+  "reproduction_status": "blocked",
+  "runtime_boundary": "The command is a Rust-only disposition check and performs no model inference.",
+  "privacy": "No private path, username, hostname, serial, model payload, or raw campaign receipt is included."
+}

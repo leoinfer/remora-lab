@@ -67,7 +67,7 @@ The expanded publication audit passed after the profile and documentation
 changes:
 
 ```text
-PUBLICATION_AUDIT PASS: 623 files, 4519194 bytes, no release-gate findings
+PUBLICATION_AUDIT PASS: 684 files, 4678930 bytes, no release-gate findings
 ```
 
 The tree contains no model weights, checkpoints, tokenizer payloads, datasets,

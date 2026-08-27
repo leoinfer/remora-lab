@@ -1,0 +1,72 @@
+{
+  "schema": "remora.repro.experiment.v1",
+  "claim_id": "C-008",
+  "experiment_id": "gfx1200-swmmac-falsifier-2026-08-27",
+  "status": "FALSIFIED_REPRODUCIBLE",
+  "description": "Rust known-answer reproduction of the accumulator-replay falsifier for the historical gfx1200 sparse-matrix anomaly.",
+  "source_commit": "147c6f1b3ed60babe01b84a3820d14407fccc26a",
+  "source_paths": [
+    "research/falsified/GFX1200_SPARSE_MATRIX_ANOMALY.md",
+    "repro/swmmac/falsifier/run.sh",
+    "tools/repro-harness/src/main.rs"
+  ],
+  "model_name": "none; deterministic known-answer fixture",
+  "model_revision": "not applicable",
+  "model_download_source": "not applicable",
+  "model_hashes": {},
+  "quant_name": "sparse INT4 accounting context only",
+  "quant_format_version": "not applicable",
+  "quant_hash": null,
+  "hardware_phenotype": "historical gfx1200 context; public fixture is CPU deterministic",
+  "os": "not required for the result; Cargo/Rust host",
+  "kernel": "not required",
+  "mesa": "not required",
+  "radv": "not required",
+  "vulkan": "not required",
+  "rust": "workspace Rust implementation; no foreign inference runtime",
+  "compiler": "workspace rustc/Cargo toolchain",
+  "gpu_configuration": "none for the public falsifier fixture",
+  "power_limit": "not applicable",
+  "clock_configuration": "not applicable",
+  "memory_clock": "not applicable",
+  "voltage_offset": "not applicable",
+  "command": "./repro/swmmac/falsifier/run.sh",
+  "environment_variables": {},
+  "prompt": "none",
+  "prompt_hash": null,
+  "context_size": "not applicable",
+  "batch_size": "not applicable",
+  "ubatch_size": "not applicable",
+  "kv_format": "not applicable",
+  "mtp_enabled": false,
+  "ngram_enabled": false,
+  "warmup": "not applicable; deterministic CPU fixture",
+  "measurement_start": null,
+  "measurement_end": null,
+  "tokens_generated": 0,
+  "prefill_tokens": 0,
+  "decode_tokens": 0,
+  "ttft_ms": null,
+  "prefill_tps": null,
+  "decode_tps": null,
+  "acceptance_metrics": {
+    "expected_committed_value": 4,
+    "replayed_accumulator_value": 1,
+    "useful_claim_survives": false
+  },
+  "raw_output_digest": "historical corrected values and known-answer fields are recorded in sanitized_receipt.json",
+  "expected_range": {
+    "observed_over_expected": 0.25,
+    "smoking_gun_quarter_result": true
+  },
+  "tolerance": {
+    "known_answer": "exact integer equality",
+    "historical_instruction_rate": "context only; not a fresh device measurement"
+  },
+  "known_limitations": [
+    "The public fixture does not execute GPU ISA.",
+    "Instruction activity is not useful committed work.",
+    "No multi-POPS, TOPS, or end-to-end LLM throughput claim survives."
+  ],
+  "receipt_path": "repro/swmmac/falsifier/sanitized_receipt.json"
+}

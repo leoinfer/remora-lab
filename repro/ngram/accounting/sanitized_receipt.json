@@ -1,0 +1,27 @@
+{
+  "caveat": "These are exact synthetic shell/template sequences. They are not generic 27B neural decode and do not reproduce historical t/s values.",
+  "lane": "ngram-speculation",
+  "mechanism": "workload_shaped_token_replay",
+  "schema": "remora.repro_harness.v1.ngram",
+  "status": "FULLY_REPRODUCIBLE",
+  "workloads": [
+    {
+      "acceptance_ratio": 0.9666666666666667,
+      "accepted": 290,
+      "throughput": null,
+      "throughput_status": "NOT_MEASURED_BY_THIS_ACCOUNTING_FIXTURE",
+      "tokens": 300,
+      "trace_sha256": "ba55e7699a4470a7e00cdd82388301f13d9cc7044dacd4a5d2240aac2a336a31",
+      "workload": "warm-shell"
+    },
+    {
+      "acceptance_ratio": 0.8333333333333334,
+      "accepted": 250,
+      "throughput": null,
+      "throughput_status": "NOT_MEASURED_BY_THIS_ACCOUNTING_FIXTURE",
+      "tokens": 300,
+      "trace_sha256": "94684617140692f718f3d57d6a1d77b54ebe5e2c4e76490ff6608228d00efcba",
+      "workload": "template"
+    }
+  ]
+}

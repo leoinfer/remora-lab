@@ -1,0 +1,23 @@
+{
+  "schema": "remora.repro.blocked_receipt.v1",
+  "status": "UNRECOVERABLE_HISTORICAL_RESULT",
+  "lane": "qwen27b/historical-baseline",
+  "claim_id": "C-007",
+  "disposition": "No exact public receipt, cleared model identity, and executor identity were recovered for the historical decode anchors.",
+  "historical_search_locators": ["20.6", "33.8"],
+  "historical_search_locator_scope": "These labels identify material to investigate; they are not asserted throughput values in this receipt.",
+  "evidence_available": [
+    "Public historical benchmark summaries and caveats",
+    "A machine-readable record of the missing authority"
+  ],
+  "evidence_missing": [
+    "Cleared model file and SHA-256",
+    "Exact executor/build identity",
+    "Prompt and generation configuration",
+    "Raw timing samples and correctness gate"
+  ],
+  "throughput": null,
+  "reproduction_status": "blocked",
+  "runtime_boundary": "No model runtime is invoked by this lane.",
+  "privacy": "No private path, username, hostname, model payload, or raw receipt is included."
+}

@@ -1,0 +1,13 @@
+{
+  "schema": "remora.repro.expected.effective_context.v1",
+  "command": "./repro/context/effective-context/run.sh",
+  "expected_status": "FULLY_REPRODUCIBLE",
+  "expected_gates": {
+    "addressable_positions": 10000000,
+    "recovery_exact": true,
+    "lexical_r1": 1.0,
+    "shortcut_probe_solved": 47,
+    "semantic_r10": null
+  },
+  "interpretation": "Exact representation and adversarial accounting are reproduced; semantic retrieval and dense 10M attention remain unmeasured."
+}

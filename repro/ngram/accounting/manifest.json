@@ -1,0 +1,71 @@
+{
+  "schema": "remora.repro.experiment.v1",
+  "claim_id": "C-009",
+  "experiment_id": "ngram-replay-accounting-2026-08-27",
+  "status": "FULLY_REPRODUCIBLE",
+  "description": "Model-free Rust workload-shaped token replay for n-gram acceptance accounting.",
+  "source_commit": "147c6f1b3ed60babe01b84a3820d14407fccc26a",
+  "source_paths": [
+    "har/crates/har-execution/src/speculation.rs",
+    "repro/ngram/accounting/run.sh",
+    "tools/repro-harness/src/main.rs"
+  ],
+  "model_name": "none; deterministic token replay fixture",
+  "model_revision": "not applicable",
+  "model_download_source": "not applicable",
+  "model_hashes": {},
+  "quant_name": "not applicable",
+  "quant_format_version": "not applicable",
+  "quant_hash": null,
+  "hardware_phenotype": "not required; CPU deterministic fixture",
+  "os": "not required for the result; Cargo/Rust host",
+  "kernel": "not required",
+  "mesa": "not required",
+  "radv": "not required",
+  "vulkan": "not required",
+  "rust": "workspace Rust implementation; no foreign inference runtime",
+  "compiler": "workspace rustc/Cargo toolchain",
+  "gpu_configuration": "none",
+  "power_limit": "not applicable",
+  "clock_configuration": "not applicable",
+  "memory_clock": "not applicable",
+  "voltage_offset": "not applicable",
+  "command": "./repro/ngram/accounting/run.sh",
+  "environment_variables": {},
+  "prompt": "synthetic warm-shell and template token sequences",
+  "prompt_hash": null,
+  "context_size": "not applicable",
+  "batch_size": "not applicable",
+  "ubatch_size": "not applicable",
+  "kv_format": "not applicable",
+  "mtp_enabled": false,
+  "ngram_enabled": true,
+  "warmup": "not applicable; deterministic CPU fixture",
+  "measurement_start": null,
+  "measurement_end": null,
+  "tokens_generated": 600,
+  "prefill_tokens": 0,
+  "decode_tokens": 600,
+  "ttft_ms": null,
+  "prefill_tps": null,
+  "decode_tps": null,
+  "acceptance_metrics": {
+    "workloads": ["warm-shell", "template"],
+    "throughput": null
+  },
+  "raw_output_digest": "per-workload trace_sha256 values are recorded in sanitized_receipt.json",
+  "expected_range": {
+    "warm_shell_accepted": 290,
+    "template_accepted": 250
+  },
+  "tolerance": {
+    "replay": "exact deterministic token comparisons",
+    "throughput": "not measured"
+  },
+  "known_limitations": [
+    "No neural model or tokenizer is used.",
+    "Throughput is explicitly null.",
+    "Historical n-gram t/s anchors are not reproduced."
+  ],
+  "receipt_path": "repro/ngram/accounting/sanitized_receipt.json"
+}

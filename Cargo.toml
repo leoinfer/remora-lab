@@ -32,6 +32,8 @@ members = [
     "har/crates/har-serve",
     "har/crates/r4kv",
     "tools/publication-audit",
+    "tools/repro-audit",
+    "tools/repro-harness",
 ]
 
 [workspace.package]

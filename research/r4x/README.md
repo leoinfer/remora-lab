@@ -12,3 +12,12 @@ learning, and kernel-width research, is in the
 [`implementation map`](../implementation-map.md). D32A geometry is the
 bounded public representation; the other tracks remain research descriptions
 until independent vectors, quality evidence, and provenance are cleared.
+
+The recovered full-model diagnostic is documented in the
+[R4X width-sweep reproduction lane](../../repro/r4x/width-sweep/). Its clean
+`ubatch=512` slice contains W64 through W2048 and peaks at 699.677849
+kernel/prefill rows/s at W512. This is not generation tokens/s. The historical
+`ubatch=4096` attempt is retained as a malformed-prefix diagnostic, and no
+authoritative W4096 width measurement was found. The exact historical runtime
+was a foreign research implementation; the public validation command remains
+Rust-only and does not make that implementation an active HAR alternative.

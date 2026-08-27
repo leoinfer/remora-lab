@@ -21,5 +21,18 @@ jobs:
         run: |
           rustc tools/check_rust_only_runtime.rs -o /tmp/har-rust-only-runtime
           /tmp/har-rust-only-runtime har
+      - name: reproducibility and claim-index audit
+        run: cargo run --locked -p repro-audit -- .
+      - name: model-free reproduction lanes
+        run: |
+          ./repro/r4x/width-sweep/run_width_sweep.sh >/tmp/r4x-width-kat.json
+          ./repro/r4kv/storage/run.sh >/tmp/r4kv-storage-kat.json
+          ./repro/r4kv/quality-frontier/run.sh >/tmp/r4kv-quality-frontier.json
+          ./repro/context/effective-context/run.sh >/tmp/effective-context-kat.json
+          ./repro/mtp/accounting/run.sh >/tmp/mtp-accounting.json
+          ./repro/ngram/accounting/run.sh >/tmp/ngram-accounting.json
+          ./repro/qwen27b/historical-baseline/run.sh >/tmp/qwen-historical-baseline.json
+          ./repro/flash-next/full-model/run.sh >/tmp/flash-next-full-model.json
+          ./repro/swmmac/falsifier/run.sh >/tmp/swmmac-falsifier.json
       - name: publication audit
         run: cargo run -p publication-audit -- .

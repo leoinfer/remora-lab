@@ -1,0 +1,8 @@
+{
+  "schema": "remora.repro.expected.v1",
+  "status": "UNRECOVERABLE_HISTORICAL_RESULT",
+  "exact_public_model_receipt": false,
+  "expected_command_exit": 0,
+  "interpretation": "The command must report the evidence gap without presenting 20.6 or 33.8 as a public benchmark result.",
+  "throughput_tokens_per_s": null
+}
