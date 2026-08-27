@@ -1,0 +1,8 @@
+/target/
+*.gguf
+*.safetensors
+*.npz
+*.onnx
+*.harpkg
+captures/
+models/

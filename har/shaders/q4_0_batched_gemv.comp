@@ -1,0 +1,101 @@
+#version 450
+
+// Batched Q4_0 GEMV — compact format used by the synthetic serving path,
+// one dispatch serving the whole batch.
+//
+// Q4_0 super-block: 32 values, 18 bytes = fp16 scale `d` (2 bytes) + 16
+// packed 4-bit codes; canonical dequant is signed-nibble:
+//   x = (nibble - 8) * d        (nibble 0..15 → -8..7)
+// with byte index `j/2` and low nibble for even j (ggml layout).
+//
+// Same structure as q4k_batched_gemv.comp: cooperative raw staging in
+// shared memory (5 words per 18-byte block, padded), ONE barrier, then a
+// fully lane-local dequant + per-batch accumulation into registers, then
+// a tree-reduce per batch column.
+//
+// Bindings: (0) weights storage rows×blocks_per_row×18 bytes,
+// (1) activations storage batch×blocks_per_row×32 f32,
+// (2) output storage rows×batch f32.
+// Push constants: rows, blocks_per_row, batch (12 bytes).
+// MAX_BLOCKS bounds blocks_per_row (256-wide rows → 8); pipeline
+// creation must reject larger values (fail-closed).
+
+#define MAX_BLOCKS 8u
+#define MAX_BATCH 8u
+
+layout(local_size_x = 256, local_size_y = 1, local_size_z = 1) in;
+
+layout(set = 0, binding = 0, std430) readonly buffer QuantizedWeights {
+    uint weight_words[];
+};
+layout(set = 0, binding = 1, std430) readonly buffer Activations {
+    float input_values[];
+};
+layout(set = 0, binding = 2, std430) buffer Output {
+    float output_values[];
+};
+layout(push_constant) uniform Params {
+    uint rows;
+    uint blocks_per_row;
+    uint batch;
+} params;
+
+shared uint raw_words[5 * MAX_BLOCKS];
+shared float partial[256];
+
+uint byte_at_shared(uint base_word, uint byte_offset) {
+    uint word = raw_words[base_word + (byte_offset >> 2u)];
+    return (word >> (((byte_offset) & 3u) * 8u)) & 0xffu;
+}
+
+// Dequantize value `index` (0..31) of the Q4_0 block at `base_word`.
+float dequant_q40(uint base_word, uint index) {
+    uint q_byte = byte_at_shared(base_word, 2u + (index >> 1u));
+    uint nibble = ((index & 1u) == 0u) ? (q_byte & 15u) : (q_byte >> 4u);
+    float d = unpackHalf2x16(raw_words[base_word]).x;
+    return d * (float(int(nibble)) - 8.0);
+}
+
+void main() {
+    uint lane = gl_LocalInvocationIndex;
+    uint row = gl_WorkGroupID.x;
+
+    if (params.blocks_per_row > MAX_BLOCKS || params.batch > MAX_BATCH) {
+        return; // contract violation; pipeline creation must have rejected it
+    }
+
+    float acc[MAX_BATCH];
+    for (uint n = 0u; n < MAX_BATCH; ++n) acc[n] = 0.0;
+
+    // 1. Cooperative load of the row's raw blocks (5 words each).
+    uint base = row * params.blocks_per_row * 5u;
+    if (lane < 5u * params.blocks_per_row) {
+        raw_words[lane] = weight_words[base + lane];
+    }
+    barrier();
+
+    // 2. Lane-local dequant + batched accumulate (no barriers here).
+    // Lane `i` owns absolute activation index `i` (block = i/32,
+    // in-block index = i%32); lanes beyond the row's width stay idle.
+    if (lane < params.blocks_per_row * 32u) {
+        uint block = lane / 32u;
+        float qv = dequant_q40(block * 5u, lane & 31u);
+        for (uint n = 0u; n < params.batch; ++n) {
+            acc[n] += qv * input_values[(n * params.blocks_per_row + block) * 32u + (lane & 31u)];
+        }
+    }
+
+    // 3. Tree-reduce per batch column.
+    for (uint n = 0u; n < params.batch; ++n) {
+        partial[lane] = acc[n];
+        barrier();
+        for (uint stride = 128u; stride > 0u; stride >>= 1u) {
+            if (lane < stride) partial[lane] += partial[lane + stride];
+            barrier();
+        }
+        if (lane == 0u && row < params.rows) {
+            output_values[row * params.batch + n] = partial[0];
+        }
+        barrier();
+    }
+}

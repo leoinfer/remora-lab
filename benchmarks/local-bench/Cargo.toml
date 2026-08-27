@@ -1,0 +1,22 @@
+[workspace]
+resolver = "3"
+members = [
+    "crates/lb-model",
+    "crates/lb-hardware",
+    "crates/lb-sim",
+    "crates/lb-search",
+    "crates/lb-cli",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+license = "MIT"
+
+[workspace.dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+[profile.release]
+lto = true
+codegen-units = 1

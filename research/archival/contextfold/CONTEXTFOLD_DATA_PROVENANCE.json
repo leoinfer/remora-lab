@@ -1,0 +1,50 @@
+{
+  "schema": "contextfold-data-provenance-v1",
+  "scope": "static search only",
+  "search_roots": [
+    "[local path omitted]",
+    "[local path omitted]",
+    "[local path omitted]"
+  ],
+  "authoritative_metadata": {
+    "path": "[local path omitted]",
+    "model_sha256": "3d6ff16be3258f910eac4dcec7142edc7a7100d840fe363035c8cfedc151164",
+    "geometry_used": "64 main layers; 48 recurrent; 16 full-attention; 24 Q heads; 4 KV heads; head dimension 256; context 262144",
+    "loaded_into_ram": false
+  },
+  "real_kv_fixture_available": false,
+  "real_recurrent_state_fixture_available": false,
+  "real_activation_fixture_available": false,
+  "candidate_artifacts": [
+    {
+      "path": "[archival master prompt omitted]",
+      "classification": "model_weight_file_only",
+      "action": "not opened or loaded"
+    },
+    {
+      "path": "[archival master prompt omitted]",
+      "classification": "model_weight_file_only",
+      "action": "not opened or loaded"
+    },
+    {
+      "path": "[local path omitted]",
+      "classification": "large runtime log; not a KV fixture",
+      "action": "not read into memory"
+    },
+    {
+      "path": "[local path omitted]",
+      "classification": "cache builder source; no bounded authority dump identified",
+      "action": "source reference only"
+    }
+  ],
+  "synthetic_inputs": [
+    "contextfold_codec_bench.py deterministic byte patterns",
+    "online softmax randomized scalar lists",
+    "ContextPack bounded 4096-byte payload"
+  ],
+  "compression_ratios_on_real_kv": "UNMEASURED",
+  "total_memory_saving_on_real_kv": "UNMEASURED",
+  "gpu_used": false,
+  "inference_launched": false,
+  "main_qwen_lane_interfered": false
+}

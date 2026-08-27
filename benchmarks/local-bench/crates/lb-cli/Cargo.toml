@@ -1,0 +1,18 @@
+[package]
+name = "lb-cli"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "local-bench CLI: synthetic model benchmarking without running models."
+
+[[bin]]
+name = "lb"
+path = "src/main.rs"
+
+[dependencies]
+serde.workspace = true
+serde_json.workspace = true
+lb-model = { path = "../lb-model" }
+lb-hardware = { path = "../lb-hardware" }
+lb-sim = { path = "../lb-sim" }
+lb-search = { path = "../lb-search" }

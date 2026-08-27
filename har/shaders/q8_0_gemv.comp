@@ -1,0 +1,56 @@
+#version 450
+
+// Q8_0 representative GEMV.  The layout is the canonical GGML Q8_0 block:
+// fp16 d followed by 32 signed int8 quants (34 bytes per block).
+layout(local_size_x = 256, local_size_y = 1, local_size_z = 1) in;
+
+layout(set = 0, binding = 0, std430) readonly buffer QuantizedWeights {
+    uint weight_words[];
+};
+layout(set = 0, binding = 1, std430) readonly buffer Activations {
+    float input_values[];
+};
+layout(set = 0, binding = 2, std430) buffer Output {
+    float output_values[];
+};
+layout(push_constant) uniform Params {
+    uint rows;
+    uint blocks_per_row;
+} params;
+
+shared float partial[256];
+
+uint byte_at(uint base, uint byte_offset) {
+    uint word = weight_words[(base + byte_offset) >> 2u];
+    return (word >> (((base + byte_offset) & 3u) * 8u)) & 0xffu;
+}
+
+float half_at(uint base) {
+    uint word = weight_words[base >> 2u];
+    return unpackHalf2x16(word).x;
+}
+
+int signed_byte(uint value) {
+    return value < 128u ? int(value) : int(value) - 256;
+}
+
+void main() {
+    uint lane = gl_LocalInvocationIndex;
+    uint row = gl_WorkGroupID.x;
+    float sum = 0.0;
+    if (row < params.rows && lane < 32u) {
+        for (uint block = 0u; block < params.blocks_per_row; ++block) {
+            uint base = (row * params.blocks_per_row + block) * 34u;
+            float d = half_at(base);
+            int q = signed_byte(byte_at(base, 2u + lane));
+            sum += d * float(q) * input_values[block * 32u + lane];
+        }
+    }
+    partial[lane] = sum;
+    barrier();
+    for (uint stride = 128u; stride > 0u; stride >>= 1u) {
+        if (lane < stride) partial[lane] += partial[lane + stride];
+        barrier();
+    }
+    if (lane == 0u && row < params.rows) output_values[row] = partial[0];
+}

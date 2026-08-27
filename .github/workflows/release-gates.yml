@@ -1,0 +1,25 @@
+name: release-gates
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  rust-and-publication-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - name: format check
+        run: cargo fmt --all -- --check
+      - name: workspace tests
+        run: cargo test --workspace --locked
+      - name: HAR Rust-only gate
+        run: |
+          rustc tools/check_rust_only_runtime.rs -o /tmp/har-rust-only-runtime
+          /tmp/har-rust-only-runtime har
+      - name: publication audit
+        run: cargo run -p publication-audit -- .

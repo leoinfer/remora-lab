@@ -1,0 +1,32 @@
+{
+ "phase": "FT2",
+ "repo_head": "0ab982f",
+ "date": "2026-08-22",
+ "updated_crosswalk": [
+  [
+   "global LRU",
+   "NEAR-PRACTICAL-FRONTIER on real traces; oracle gap large but causally unreachable with simple predictors -> predictive residency DEMOTED to research lane",
+   "external evidence"
+  ],
+  [
+   "q* static split",
+   "validated optimal-in-model; INAPPLICABLE on our box (threshold fails)",
+   "confirmed"
+  ],
+  [
+   "two-tier RAM pinning",
+   "VALIDATED as the dominant placement lever",
+   "confirmed"
+  ],
+  [
+   "third tier",
+   "absent in FreeToken; our kill-rule shows naive NVMe tier FAILS interactivity at 32GB -> must be prediction-driven with hard miss budgets",
+   "new quantitative design rule"
+  ],
+  [
+   "semantic anchors",
+   "exact mechanics validated; coverage thin (tool-call openers only)",
+   "confirmed"
+  ]
+ ]
+}

@@ -1,0 +1,19 @@
+[package]
+name = "har-execution"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+description = "HAR-owned indexed operation ordering and differential execution"
+
+[dependencies]
+har-core = { path = "../har-core" }
+har-events = { path = "../har-events" }
+har-ir = { path = "../har-ir" }
+har-memory = { path = "../har-memory" }
+har-plan = { path = "../har-plan" }
+har-telemetry = { path = "../har-telemetry" }
+serde.workspace = true
+
+[dev-dependencies]
+serde_json.workspace = true

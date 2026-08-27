@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/qwen-expertpack-v1.schema.json",
+  "title": "Qwen ExpertPack v1 metadata",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["magic", "format_version", "model_sha256", "layer", "expert_id", "geometry_class", "layout", "header_bytes", "record_bytes", "metadata_bytes", "projections", "destination_slot_layout", "whole_record_sha256", "flags"],
+  "properties": {
+    "magic": {"const": "QWENEXPK"},
+    "format_version": {"const": 1},
+    "model_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "layer": {"type": "integer", "minimum": 0, "maximum": 39},
+    "expert_id": {"type": "integer", "minimum": 0, "maximum": 255},
+    "geometry_class": {"enum": ["ordinary-mixed-q6k-q8_0", "exceptional-all-q8_0"]},
+    "layout": {"enum": ["source-faithful", "gpu-native-slot"]},
+    "header_bytes": {"type": "integer", "const": 256},
+    "record_bytes": {"type": "integer", "minimum": 256},
+    "metadata_bytes": {"type": "integer", "minimum": 2},
+    "alignment": {"type": "integer", "minimum": 1},
+    "projections": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["gate", "up", "down"],
+      "properties": {
+        "gate": {"$ref": "#/$defs/projection"},
+        "up": {"$ref": "#/$defs/projection"},
+        "down": {"$ref": "#/$defs/projection"}
+      }
+    },
+    "destination_slot_layout": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["record_base", "gate_offset", "up_offset", "down_offset", "view_alignment"],
+      "properties": {
+        "record_base": {"const": 0},
+        "gate_offset": {"type": "integer", "minimum": 0},
+        "up_offset": {"type": "integer", "minimum": 0},
+        "down_offset": {"type": "integer", "minimum": 0},
+        "view_alignment": {"type": "integer", "minimum": 1},
+        "tensor_views": {"type": "boolean"}
+      }
+    },
+    "whole_record_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "flags": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["canonical_bytes", "compressed", "dequantized", "requantized"],
+      "properties": {
+        "canonical_bytes": {"const": true},
+        "compressed": {"const": false},
+        "dequantized": {"const": false},
+        "requantized": {"const": false},
+        "coactivation": {"type": "boolean"}
+      }
+    }
+  },
+  "$defs": {
+    "projection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["tensor", "type", "shape", "source_offset", "source_bytes", "stored_offset", "stored_bytes", "alignment", "sha256"],
+      "properties": {
+        "tensor": {"type": "string", "minLength": 1},
+        "type": {"enum": ["Q6_K", "Q8_0"]},
+        "shape": {"type": "array", "minItems": 3, "maxItems": 3, "items": {"type": "integer", "minimum": 1}},
+        "source_offset": {"type": "integer", "minimum": 0},
+        "source_bytes": {"type": "integer", "minimum": 1},
+        "stored_offset": {"type": "integer", "minimum": 0},
+        "stored_bytes": {"type": "integer", "minimum": 1},
+        "alignment": {"type": "integer", "minimum": 1},
+        "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+      }
+    }
+  }
+}

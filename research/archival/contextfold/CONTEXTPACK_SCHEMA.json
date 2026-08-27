@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.invalid/remora/contextpack.schema.json",
+  "title": "REMORA ContextPack",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contextpack_id", "model_root", "runtime_root", "prefix_root", "parent_root",
+    "layer", "state_kind", "kv_head_begin", "kv_head_end", "token_begin",
+    "token_end", "position_contract", "authority_type", "base_codec",
+    "residual_codec", "base_offset", "residual_offsets", "raw_bytes",
+    "compressed_bytes", "exact_payload_hash", "creation_epoch", "state_generation",
+    "dependencies", "expiry"
+  ],
+  "properties": {
+    "contextpack_id": {"type": "string", "minLength": 1},
+    "model_root": {"type": "string", "minLength": 1},
+    "runtime_root": {"type": "string", "minLength": 1},
+    "prefix_root": {"type": "string", "minLength": 1},
+    "parent_root": {"type": ["string", "null"]},
+    "layer": {"type": "integer", "minimum": 0},
+    "state_kind": {"enum": ["K", "V", "KV", "RECURRENT", "GDN", "SSM", "CHECKPOINT"]},
+    "kv_head_begin": {"type": "integer", "minimum": 0},
+    "kv_head_end": {"type": "integer", "minimum": 0},
+    "token_begin": {"type": "integer", "minimum": 0},
+    "token_end": {"type": "integer", "minimum": 0},
+    "position_contract": {"type": "string", "minLength": 1},
+    "authority_type": {"type": "string", "minLength": 1},
+    "base_codec": {"type": "string", "minLength": 1},
+    "residual_codec": {"type": "string", "minLength": 1},
+    "base_offset": {"type": "integer", "minimum": 0},
+    "residual_offsets": {"type": "array", "items": {"type": "integer", "minimum": 0}},
+    "raw_bytes": {"type": "integer", "minimum": 0},
+    "compressed_bytes": {"type": "integer", "minimum": 0},
+    "exact_payload_hash": {"type": "string", "minLength": 1},
+    "creation_epoch": {"type": "integer", "minimum": 0},
+    "state_generation": {"type": "integer", "minimum": 0},
+    "dependencies": {"type": "array", "items": {"type": "string"}},
+    "expiry": {"type": ["integer", "null"], "minimum": 0}
+  }
+}

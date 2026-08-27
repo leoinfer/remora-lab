@@ -1,0 +1,85 @@
+#version 450
+
+// Scalar-reference-matched Q6_K expert GEMV.
+//
+// One workgroup computes one output row.  The 256 invocations each own one
+// Q6_K lane and accumulate across the row's super-blocks before a shared
+// reduction. The slot buffer contains caller-provided GGUF Q6_K payload; the
+// activation buffer contains one FP32 input vector per block.
+layout(local_size_x = 256, local_size_y = 1, local_size_z = 1) in;
+
+layout(set = 0, binding = 0, std430) readonly buffer QuantizedWeights {
+    uint weight_words[];
+};
+layout(set = 0, binding = 1, std430) readonly buffer Activations {
+    float input_values[];
+};
+layout(set = 0, binding = 2, std430) buffer Output {
+    float output_values[];
+};
+layout(push_constant) uniform Params {
+    uint rows;
+    uint blocks_per_row;
+} params;
+
+shared float partial[256];
+
+uint byte_at(uint base, uint byte_offset) {
+    uint word = weight_words[(base + byte_offset) >> 2u];
+    return (word >> (((base + byte_offset) & 3u) * 8u)) & 0xffu;
+}
+
+float q6k_lane(uint base, uint lane) {
+    uint half_idx = lane >> 7u;
+    uint within = lane & 127u;
+    uint group = within >> 5u;
+    uint l = within & 31u;
+    uint ql_base = base + half_idx * 64u;
+    uint qh_base = base + 128u + half_idx * 32u;
+    uint scale_base = base + 192u + half_idx * 8u;
+    uint low_0 = byte_at(ql_base, l);
+    uint low_1 = byte_at(ql_base, 32u + l);
+    uint high = byte_at(qh_base, l);
+    uint q;
+    uint scale_offset;
+    if (group == 0u) {
+        q = (low_0 & 15u) | ((high & 3u) << 4u);
+        scale_offset = 0u;
+    } else if (group == 1u) {
+        q = (low_1 & 15u) | (((high >> 2u) & 3u) << 4u);
+        scale_offset = 2u;
+    } else if (group == 2u) {
+        q = (low_0 >> 4u) | (((high >> 4u) & 3u) << 4u);
+        scale_offset = 4u;
+    } else {
+        q = (low_1 >> 4u) | (((high >> 6u) & 3u) << 4u);
+        scale_offset = 6u;
+    }
+    // Q6_K stores one signed scale per 16 values, not one per 32-value
+    // unpacking group.  l is the lane within that group.
+    scale_offset += l >> 4u;
+    int signed_q = int(q) - 32;
+    int signed_scale = int(byte_at(scale_base, scale_offset));
+    if (signed_scale >= 128) signed_scale -= 256;
+    uint d_bits = byte_at(base, 208u) | (byte_at(base, 209u) << 8u);
+    return unpackHalf2x16(d_bits).x * float(signed_scale * signed_q);
+}
+
+void main() {
+    uint lane = gl_LocalInvocationIndex;
+    uint row = gl_WorkGroupID.x;
+    float sum = 0.0;
+    if (row < params.rows) {
+        for (uint block = 0u; block < params.blocks_per_row; ++block) {
+            uint base = (row * params.blocks_per_row + block) * 210u;
+            sum += q6k_lane(base, lane) * input_values[block * 256u + lane];
+        }
+    }
+    partial[lane] = sum;
+    barrier();
+    for (uint stride = 128u; stride > 0u; stride >>= 1u) {
+        if (lane < stride) partial[lane] += partial[lane + stride];
+        barrier();
+    }
+    if (lane == 0u && row < params.rows) output_values[row] = partial[0];
+}

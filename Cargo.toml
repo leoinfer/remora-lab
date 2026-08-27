@@ -1,0 +1,58 @@
+[workspace]
+resolver = "2"
+members = [
+    "har/crates/har-core",
+    "har/crates/har-model",
+    "har/crates/har-ir",
+    "har/crates/har-memory",
+    "har/crates/har-events",
+    "har/crates/har-plan",
+    "har/crates/har-telemetry",
+    "har/crates/har-execution",
+    "har/crates/har-certificates",
+    "har/crates/har-runtime",
+    "har/crates/har-contextfold",
+    "har/crates/har-kv",
+    "har/crates/har-lang-diagnostics",
+    "har/crates/har-lang-lexer",
+    "har/crates/har-lang-ast",
+    "har/crates/har-lang-parser",
+    "har/crates/har-lang-format",
+    "har/crates/har-lang-semantics",
+    "har/crates/har-lang-compiler",
+    "har/crates/har-decode-control",
+    "har/crates/har-model-package",
+    "har/crates/har-model-compiler",
+    "har/crates/har-package-slice",
+    "har/crates/har-residency",
+    "har/crates/har-storage",
+    "har/crates/har-metabolism",
+    "har/crates/har-demo",
+    "har/crates/har-vulkan",
+    "har/crates/har-serve",
+    "har/crates/r4kv",
+    "tools/publication-audit",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.80"
+license = "Apache-2.0"
+authors = ["Local AI Research contributors"]
+
+[workspace.dependencies]
+har-model = { path = "har/crates/har-model" }
+har-residency = { path = "har/crates/har-residency" }
+har-storage = { path = "har/crates/har-storage" }
+hex = "0.4.3"
+serde = { version = "1.0.228", features = ["derive"] }
+serde_json = "1.0.150"
+sha2 = "0.10.9"
+thiserror = "2.0.18"
+
+[profile.release]
+lto = "thin"
+codegen-units = 1
+panic = "abort"
+strip = "symbols"

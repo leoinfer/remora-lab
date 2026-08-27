@@ -1,0 +1,38 @@
+{
+  "interface": "har.model_phenotype.v1",
+  "model_id": "fixture-hybrid-moe-mtp",
+  "architecture": "hybrid-moe-mtp",
+  "quant_format": "Q4_K_S",
+  "source_sha256": "fixture-source-not-a-real-model",
+  "metadata": {
+    "fixture": true,
+    "source": "bounded compiler integration fixture",
+    "layers": 1,
+    "experts": 2,
+    "active_experts": 1,
+    "full_model_capture": false
+  },
+  "tensors": [
+    {"tensor_id": "token_embd.weight", "name": "token_embd.weight", "dimensions": [128, 64], "bytes": 4608, "quant_format": "Q4_K_S", "alignment": 256},
+    {"tensor_id": "blk.0.attn_q.weight", "name": "blk.0.attn_q.weight", "dimensions": [128, 128], "bytes": 9216, "quant_format": "Q4_K_S", "layer": 0, "projection": "q", "alignment": 256},
+    {"tensor_id": "blk.0.attn_k.weight", "name": "blk.0.attn_k.weight", "dimensions": [128, 128], "bytes": 9216, "quant_format": "Q4_K_S", "layer": 0, "projection": "k", "alignment": 256},
+    {"tensor_id": "blk.0.attn_v.weight", "name": "blk.0.attn_v.weight", "dimensions": [128, 128], "bytes": 9216, "quant_format": "Q4_K_S", "layer": 0, "projection": "v", "alignment": 256},
+    {"tensor_id": "blk.0.attn_output.weight", "name": "blk.0.attn_output.weight", "dimensions": [128, 128], "bytes": 9216, "quant_format": "Q4_K_S", "layer": 0, "projection": "o", "alignment": 256},
+    {"tensor_id": "blk.0.attn_norm.weight", "name": "blk.0.attn_norm.weight", "dimensions": [128], "bytes": 256, "quant_format": "F16", "layer": 0, "alignment": 256},
+    {"tensor_id": "blk.0.ffn_gate.weight", "name": "blk.0.ffn_gate.weight", "dimensions": [128, 256], "bytes": 18432, "quant_format": "Q4_K_S", "layer": 0, "projection": "gate", "alignment": 256},
+    {"tensor_id": "blk.0.ffn_up.weight", "name": "blk.0.ffn_up.weight", "dimensions": [128, 256], "bytes": 18432, "quant_format": "Q4_K_S", "layer": 0, "projection": "up", "alignment": 256},
+    {"tensor_id": "blk.0.ffn_down.weight", "name": "blk.0.ffn_down.weight", "dimensions": [256, 128], "bytes": 18432, "quant_format": "Q4_K_S", "layer": 0, "projection": "down", "alignment": 256},
+    {"tensor_id": "blk.0.router.weight", "name": "blk.0.router.weight", "dimensions": [2, 128], "bytes": 144, "quant_format": "Q4_K_S", "layer": 0, "alignment": 256},
+    {"tensor_id": "blk.0.experts.0.ffn_gate.weight", "name": "blk.0.experts.0.ffn_gate.weight", "dimensions": [128, 256], "bytes": 18432, "quant_format": "Q4_K_S", "layer": 0, "expert_id": 0, "projection": "gate", "alignment": 4096},
+    {"tensor_id": "blk.0.experts.0.ffn_up.weight", "name": "blk.0.experts.0.ffn_up.weight", "dimensions": [128, 256], "bytes": 18432, "quant_format": "Q4_K_S", "layer": 0, "expert_id": 0, "projection": "up", "alignment": 4096},
+    {"tensor_id": "blk.0.experts.0.ffn_down.weight", "name": "blk.0.experts.0.ffn_down.weight", "dimensions": [256, 128], "bytes": 18432, "quant_format": "Q4_K_S", "layer": 0, "expert_id": 0, "projection": "down", "alignment": 4096},
+    {"tensor_id": "blk.0.experts.1.ffn_gate.weight", "name": "blk.0.experts.1.ffn_gate.weight", "dimensions": [128, 256], "bytes": 18432, "quant_format": "Q4_K_S", "layer": 0, "expert_id": 1, "projection": "gate", "alignment": 4096},
+    {"tensor_id": "blk.0.experts.1.ffn_up.weight", "name": "blk.0.experts.1.ffn_up.weight", "dimensions": [128, 256], "bytes": 18432, "quant_format": "Q4_K_S", "layer": 0, "expert_id": 1, "projection": "up", "alignment": 4096},
+    {"tensor_id": "blk.0.experts.1.ffn_down.weight", "name": "blk.0.experts.1.ffn_down.weight", "dimensions": [256, 128], "bytes": 18432, "quant_format": "Q4_K_S", "layer": 0, "expert_id": 1, "projection": "down", "alignment": 4096},
+    {"tensor_id": "blk.0.shared_expert.ffn_gate.weight", "name": "blk.0.shared_expert.ffn_gate.weight", "dimensions": [128, 256], "bytes": 18432, "quant_format": "Q4_K_S", "layer": 0, "projection": "gate", "alignment": 256},
+    {"tensor_id": "blk.0.post_norm.weight", "name": "blk.0.post_norm.weight", "dimensions": [128], "bytes": 256, "quant_format": "F16", "layer": 0, "alignment": 256},
+    {"tensor_id": "output.weight", "name": "output.weight", "dimensions": [64, 128], "bytes": 4608, "quant_format": "Q4_K_S", "alignment": 256},
+    {"tensor_id": "mtp.0.proj.weight", "name": "mtp.0.proj.weight", "dimensions": [128, 128], "bytes": 9216, "quant_format": "Q4_K_S", "layer": 0, "alignment": 256},
+    {"tensor_id": "general.metadata", "name": "general.metadata", "dimensions": [], "bytes": 128, "quant_format": "metadata", "alignment": 32, "storage_location": "metadata", "planned_memory_tier": "ram"}
+  ]
+}

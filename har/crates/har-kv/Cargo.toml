@@ -1,0 +1,10 @@
+[package]
+name = "har-kv"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "HAR logical prefix identities, KV page representations, certificates, and ownership"
+
+[lib]
+name = "har_kv"
+path = "src/lib.rs"

@@ -1,0 +1,128 @@
+#version 450
+
+// Batched Q4_K GEMV — one dispatch serves the whole batch.
+//
+// Compared to q4k_gemv.comp (one workgroup per row, one dispatch per
+// sequence), this kernel adds a batch dimension so a single dispatch
+// computes W·X for every sequence in the batch: the weight set is read
+// from VRAM exactly once per step instead of once per sequence.  That is
+// the bandwidth amortization continuous batching exists for (decode is
+// bandwidth-bound: N sequences currently cost N full weight-set reads).
+//
+// Structure per workgroup (one per row):
+//   1. cooperatively load ALL of the row's raw blocks into shared memory
+//      (36 words per 144-byte Q4_K super-block; MAX_BLOCKS=8 → 288 words)
+//   2. one barrier (cross-lane raw bytes), then dequant + accumulate is
+//      fully lane-local: lane `i` owns activation index `i`, dequantizes
+//      its own value from shared raw bytes and accumulates over the batch
+//      into MAX_BATCH registers (no barriers in the hot loop)
+//   3. tree-reduce per batch column through shared `partial`
+//
+// Bindings: (0) weights storage rows×blocks_per_row×144 bytes,
+// (1) activations storage batch×blocks_per_row×256 f32,
+// (2) output storage rows×batch f32.
+// Push constants: rows, blocks_per_row, batch (12 bytes).
+//
+// MAX_BLOCKS=8 bounds blocks_per_row (256-wide rows here → 1); the
+// pipeline contract must reject larger values (fail-closed).
+
+#define MAX_BLOCKS 8u
+#define MAX_BATCH 8u
+
+layout(local_size_x = 256, local_size_y = 1, local_size_z = 1) in;
+
+layout(set = 0, binding = 0, std430) readonly buffer QuantizedWeights {
+    uint weight_words[];
+};
+layout(set = 0, binding = 1, std430) readonly buffer Activations {
+    float input_values[];
+};
+layout(set = 0, binding = 2, std430) buffer Output {
+    float output_values[];
+};
+layout(push_constant) uniform Params {
+    uint rows;
+    uint blocks_per_row;
+    uint batch;
+} params;
+
+shared uint raw_words[36 * MAX_BLOCKS];
+shared float partial[256];
+
+uint byte_at_shared(uint base_word, uint byte_offset) {
+    uint word = raw_words[base_word + (byte_offset >> 2u)];
+    return (word >> (((byte_offset) & 3u) * 8u)) & 0xffu;
+}
+
+float half_at_shared(uint base_word, uint byte_offset) {
+    uint word = raw_words[base_word + (byte_offset >> 2u)];
+    vec2 values = unpackHalf2x16(word);
+    return ((byte_offset & 2u) == 0u) ? values.x : values.y;
+}
+
+uint scale_at_shared(uint base_word, uint index) {
+    if (index < 4u) return byte_at_shared(base_word, 4u + index) & 63u;
+    return (byte_at_shared(base_word, 4u + index + 4u) & 15u) |
+           ((byte_at_shared(base_word, 4u + index - 4u) >> 6u) << 4u);
+}
+
+uint min_at_shared(uint base_word, uint index) {
+    if (index < 4u) return byte_at_shared(base_word, 4u + index + 4u) & 63u;
+    return (byte_at_shared(base_word, 4u + index + 4u) >> 4u) |
+           ((byte_at_shared(base_word, 4u + index) >> 6u) << 4u);
+}
+
+float dequant_value_shared(uint base_word, uint index) {
+    uint group = index / 32u;
+    uint lane_in_64 = index & 63u;
+    uint q_byte = byte_at_shared(
+        base_word, 16u + (index / 64u) * 32u + (lane_in_64 & 31u));
+    uint q = (lane_in_64 < 32u) ? (q_byte & 15u) : (q_byte >> 4u);
+    float d = half_at_shared(base_word, 0u) * float(scale_at_shared(base_word, group));
+    float dm = half_at_shared(base_word, 2u) * float(min_at_shared(base_word, group));
+    return d * float(q) - dm;
+}
+
+void main() {
+    uint lane = gl_LocalInvocationIndex;
+    uint row = gl_WorkGroupID.x;
+
+    if (params.blocks_per_row > MAX_BLOCKS || params.batch > MAX_BATCH) {
+        return; // contract violation; pipeline creation must have rejected it
+    }
+
+    float acc[MAX_BATCH];
+    for (uint n = 0u; n < MAX_BATCH; ++n) acc[n] = 0.0;
+
+    // 1. Cooperative load of the row's raw blocks.
+    uint base = row * params.blocks_per_row * 36u;
+    if (lane < 36u * params.blocks_per_row) {
+        raw_words[lane] = weight_words[base + lane];
+    }
+    barrier();
+
+    // 2. Lane-local dequant + batched accumulate (no barriers here).
+    // Lane `i` owns activation index `i` within each block (blocks are
+    // 256-wide), so absolute index = block*256 + lane — a complete,
+    // non-overlapping strided partition of the row.
+    for (uint block = 0u; block < params.blocks_per_row; ++block) {
+        float qv = dequant_value_shared(block * 36u, lane);
+        for (uint n = 0u; n < params.batch; ++n) {
+            acc[n] += qv * input_values[(n * params.blocks_per_row + block) * 256u + lane];
+        }
+    }
+
+    // 3. Tree-reduce per batch column.
+    for (uint n = 0u; n < params.batch; ++n) {
+        partial[lane] = acc[n];
+        barrier();
+        for (uint stride = 128u; stride > 0u; stride >>= 1u) {
+            if (lane < stride) partial[lane] += partial[lane + stride];
+            barrier();
+        }
+        if (lane == 0u && row < params.rows) {
+            output_values[row * params.batch + n] = partial[0];
+        }
+        barrier();
+    }
+}

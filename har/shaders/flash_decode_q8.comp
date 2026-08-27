@@ -1,0 +1,149 @@
+#version 450
+
+// Flash-decode attention over a q8_0 KV cache — the decode hot path for
+// the target model's verification pass and any draft model.
+//
+// Decode-phase GQA: one query token attends over all cached positions.
+// One workgroup per query head (256 lanes = HEAD_DIM).  Chunked
+// two-pass online softmax (flash-attention decode semantics):
+//   pass A: per-position scores, tree-reduced into shared `scores`,
+//           tracking the chunk max;
+//   pass B: lane-local exp-weighted accumulation of V (no barriers);
+//   combine: online (m, l) update with rescale factors.
+// The only cross-lane ops are the per-position dot reductions and the
+// chunk-max broadcast — everything else is lane-local.
+//
+// KV layout (mirrors the live server's -ctk/-ctv q8_0): per
+// (kv_head, position) row of HEAD_DIM=256 values = 8 q8_0 blocks
+// (34 bytes each: fp16 scale + 32 int8) = 272 bytes = 68 words.
+//
+// Bindings: (0) K words [kv_heads][seq][68], (1) V words [kv_heads][seq][68],
+// (2) query f32 [q_heads][256], (3) output f32 [q_heads][256].
+// Push constants: q_heads, kv_heads, seq_len (12 bytes).
+//
+// Correctness-first v1: per-position shared-memory reductions; the
+// wave-level (subgroup dot + cross-wave combine) rewrite is the next
+// iteration, exactly like the GEMV v1 → v2 story.
+
+#define HEAD_DIM 256u
+#define Q8_BLOCK_BYTES 34u
+#define BLOCKS_PER_HEAD 8u
+#define ROW_WORDS 68u
+#define CHUNK 1024u
+
+layout(local_size_x = 256, local_size_y = 1, local_size_z = 1) in;
+
+layout(set = 0, binding = 0, std430) readonly buffer KCache {
+    uint k_words[];
+};
+layout(set = 0, binding = 1, std430) readonly buffer VCache {
+    uint v_words[];
+};
+layout(set = 0, binding = 2, std430) readonly buffer Query {
+    float q_values[];
+};
+layout(set = 0, binding = 3, std430) buffer Output {
+    float o_values[];
+};
+layout(push_constant) uniform Params {
+    uint q_heads;
+    uint kv_heads;
+    uint seq_len;
+} params;
+
+shared float q_shared[HEAD_DIM];
+shared float scores[CHUNK];
+shared float partial[256];
+shared float chunk_max_s;
+
+uint byte_at(uint base_word, uint byte_offset) {
+    uint word = k_words[base_word + (byte_offset >> 2u)];
+    return (word >> (((byte_offset) & 3u) * 8u)) & 0xffu;
+}
+
+// One q8_0 KV value: row base word (68 words per (head, position)),
+// value index 0..255.  Reads through the K or V binding per `which`.
+float kv_value(bool is_k, uint base_word, uint index) {
+    uint block_off = (index / 32u) * Q8_BLOCK_BYTES;
+    uint byte_off = block_off + 2u + (index % 32u);
+    uint scale_word;
+    if (is_k) {
+        scale_word = k_words[base_word + (block_off >> 2u)];
+    } else {
+        scale_word = v_words[base_word + (block_off >> 2u)];
+    }
+    vec2 halves = unpackHalf2x16(scale_word);
+    float d = ((block_off & 3u) == 0u) ? halves.x : halves.y;
+    uint q_byte;
+    if (is_k) {
+        q_byte = byte_at(base_word, byte_off);
+    } else {
+        uint w = v_words[base_word + (byte_off >> 2u)];
+        q_byte = (w >> (((byte_off) & 3u) * 8u)) & 0xffu;
+    }
+    return d * float(int(q_byte) - 256 * int(q_byte >> 7u)); // int8 sign
+}
+
+void main() {
+    uint lane = gl_LocalInvocationIndex;
+    uint wg = gl_WorkGroupID.x;
+    uint q_per_kv = params.q_heads / params.kv_heads;
+    uint kvh = wg / q_per_kv;
+
+    // Cooperative load of this head's query vector.
+    q_shared[lane] = q_values[wg * HEAD_DIM + lane];
+    barrier();
+
+    float m = -1e30;
+    float l = 0.0;
+    float o_acc = 0.0;
+
+    for (uint c = 0u; c < params.seq_len; c += CHUNK) {
+        uint n = min(CHUNK, params.seq_len - c);
+        float chunk_max = -1e30;
+
+        // Pass A: scores for the chunk.
+        for (uint p = 0u; p < n; ++p) {
+            uint pos = c + p;
+            uint base = (kvh * params.seq_len + pos) * ROW_WORDS;
+            float dot = q_shared[lane] * kv_value(true, base, lane);
+            partial[lane] = dot;
+            barrier();
+            for (uint stride = 128u; stride > 0u; stride >>= 1u) {
+                if (lane < stride) partial[lane] += partial[lane + stride];
+                barrier();
+            }
+            if (lane == 0u) {
+                scores[p] = partial[0];
+                chunk_max = max(chunk_max, partial[0]);
+                chunk_max_s = chunk_max;
+            }
+            barrier();
+        }
+
+        // Pass B: exp-weighted V accumulation (lane-local, no barriers).
+        float o_c = 0.0;
+        float l_c = 0.0;
+        for (uint p = 0u; p < n; ++p) {
+            float e = exp(scores[p] - chunk_max_s);
+            uint pos = c + p;
+            uint base = (kvh * params.seq_len + pos) * ROW_WORDS;
+            o_c += e * kv_value(false, base, lane);
+            l_c += e;
+        }
+
+        // Online combine with the running (m, l).
+        float m_new = max(m, chunk_max_s);
+        float a = exp(m - m_new);
+        float b = exp(chunk_max_s - m_new);
+        o_acc = o_acc * a + o_c * b;
+        l = l * a + l_c * b;
+        m = m_new;
+    }
+
+    if (l > 0.0) {
+        o_values[wg * HEAD_DIM + lane] = o_acc / l;
+    } else {
+        o_values[wg * HEAD_DIM + lane] = 0.0;
+    }
+}

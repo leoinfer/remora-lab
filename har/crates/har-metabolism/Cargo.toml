@@ -1,0 +1,16 @@
+[package]
+name = "har-metabolism"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+description = "REMORA metabolism: Portion, Reserve, Reclaim, Refrigerator, Salvage, Waste Ledger, setpoint, safe surplus, fast/slow clocks."
+
+[dependencies]
+har-core = { path = "../har-core" }
+har-events = { path = "../har-events" }
+har-telemetry = { path = "../har-telemetry" }
+serde.workspace = true
+serde_json.workspace = true
+sha2.workspace = true
+thiserror.workspace = true

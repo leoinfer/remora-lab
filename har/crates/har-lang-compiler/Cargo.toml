@@ -1,0 +1,27 @@
+[package]
+name = "har-lang-compiler"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+har-decode-control = { path = "../har-decode-control" }
+har-lang-ast = { path = "../har-lang-ast" }
+har-lang-diagnostics = { path = "../har-lang-diagnostics" }
+har-lang-format = { path = "../har-lang-format" }
+har-lang-lexer = { path = "../har-lang-lexer" }
+har-lang-parser = { path = "../har-lang-parser" }
+har-lang-semantics = { path = "../har-lang-semantics" }
+har-core = { path = "../har-core" }
+har-ir = { path = "../har-ir" }
+serde.workspace = true
+serde_json.workspace = true
+
+[dev-dependencies]
+# compiler's loader is consumed read-only to prove the emitted package loads
+# without parsing HAR source.  No compiler crate is modified by this lane.
+har-plan = { path = "../har-plan" }
+
+[[bin]]
+name = "har-compile"
+path = "src/main.rs"

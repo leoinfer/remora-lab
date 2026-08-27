@@ -1,0 +1,52 @@
+{
+ "kind": "warm-negative-result-ledger/v1",
+ "entries": [
+  {
+   "id": "N1",
+   "finding": "Reader cannot scan summary index; noisy 8K task fails across full/value-masked/hybrid objectives and summary-index scales 2-32",
+   "commit": "77ac689",
+   "rule": "reader receives RETRIEVED SPAN ONLY; do not resurrect summary-scanning readers without new evidence"
+  },
+  {
+   "id": "N2",
+   "finding": "stateful-lambda label bug contaminated early 8K measurement",
+   "fix_commit": "6798da0",
+   "rule": "dataset label provenance must be receipt-checked before measurement"
+  },
+  {
+   "id": "N3",
+   "finding": "learned semantic retrieval COLLAPSES at 81920 candidates: top1/top5/top10 = 0/0/0 dev, 0/0/0.02 holdout; target cosine rank 27; embeddings format-dominated (template/structure dominates semantic identity)",
+   "commit": "b925be6",
+   "classification": "retrieval collapse of WARM representation; hierarchy mechanism NOT falsified"
+  },
+  {
+   "id": "N4",
+   "finding": "L1 region-pooling hierarchical retrieval DILUTES localization; two-stage region->section averaging dropped",
+   "source": "LONG_CONTEXT_SCALING_RUNG.md Decisions",
+   "rule": "do not promote hierarchy without beating flat retrieval empirically"
+  },
+  {
+   "id": "N5",
+   "finding": "early reader gate: n=42 exposure fails; n=300/1000 reaches EM 1.0 on direct copy; distractors ~0.5, near-confounders ~0.0",
+   "commit": "c0822e5",
+   "rule": "near-confounders are the real failure class, not copying"
+  },
+  {
+   "id": "N6",
+   "finding": "WARM embeddings do NOT tolerate Q4/Q6 quantization despite weight quantization tolerance",
+   "commit": "ebe00d5",
+   "rule": "see WARM_PRECISION_AUTHORITY.json"
+  },
+  {
+   "id": "N7",
+   "finding": "multiple same-type facts indistinguishable at summary level",
+   "rule": "unique per-instance fact codes required (multiple-needle design)"
+  },
+  {
+   "id": "N8",
+   "finding": "HN-1: sibling negatives do NOT improve instance discrimination at 8K (dev@10 A=0.370/B=0.347; holdout A=0.353/B=0.300; sibling_top1 pinned 0.042 all runs); H2 WEAKENED/FALSIFIED (reconstructed trainer)",
+   "date": "2026-08-23",
+   "rule": "instance information must exist in representation; negative sampling cannot create it"
+  }
+ ]
+}

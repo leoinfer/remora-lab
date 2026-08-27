@@ -1,0 +1,11 @@
+[package]
+name = "har-ir"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+description = "Versioned typed logical and physical HAR IR"
+
+[dependencies]
+har-core = { path = "../har-core" }
+serde.workspace = true

@@ -1,0 +1,10 @@
+[package]
+name = "lb-hardware"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "Hardware phenotype profiles for caller-supplied or illustrative simulation inputs."
+
+[dependencies]
+serde.workspace = true
+serde_json.workspace = true

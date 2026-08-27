@@ -1,0 +1,13 @@
+[package]
+name = "har-residency"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+description = "HAR typed page ownership, residency state machine, slots and wavefront scheduler"
+
+[dependencies]
+har-memory = { path = "../har-memory" }
+har-core = { path = "../har-core" }
+har-metabolism = { path = "../har-metabolism" }
+sha2.workspace = true

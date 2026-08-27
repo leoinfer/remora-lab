@@ -1,0 +1,54 @@
+#version 450
+
+// HAR backend sampling: one workgroup scans the complete logits vector and
+// writes only the winning token ID.  The host never maps or copies logits.
+layout(local_size_x = 256, local_size_y = 1, local_size_z = 1) in;
+
+layout(set = 0, binding = 0, std430) readonly buffer Logits {
+    float values[];
+};
+layout(set = 0, binding = 1, std430) buffer Selected {
+    uint token_id;
+};
+layout(push_constant) uniform Params {
+    uint vocabulary;
+    uint reserved0;
+    uint reserved1;
+    uint reserved2;
+} params;
+
+shared float shared_values[256];
+shared uint shared_ids[256];
+
+void main() {
+    uint lane = gl_LocalInvocationIndex;
+    float best_value = -3.402823466e+38;
+    uint best_id = 0xffffffffu;
+
+    for (uint index = lane; index < params.vocabulary; index += 256u) {
+        float value = values[index];
+        // NaN logits are not candidates.  Tie-breaking is lowest token ID,
+        // matching HAR's deterministic greedy sampler contract.
+        if (!isnan(value) && (value > best_value || (value == best_value && index < best_id))) {
+            best_value = value;
+            best_id = index;
+        }
+    }
+    shared_values[lane] = best_value;
+    shared_ids[lane] = best_id;
+    barrier();
+
+    for (uint stride = 128u; stride > 0u; stride >>= 1u) {
+        if (lane < stride) {
+            float other_value = shared_values[lane + stride];
+            uint other_id = shared_ids[lane + stride];
+            if (other_value > shared_values[lane] ||
+                (other_value == shared_values[lane] && other_id < shared_ids[lane])) {
+                shared_values[lane] = other_value;
+                shared_ids[lane] = other_id;
+            }
+        }
+        barrier();
+    }
+    if (lane == 0u) token_id = shared_ids[0] == 0xffffffffu ? 0u : shared_ids[0];
+}

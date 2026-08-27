@@ -1,0 +1,5 @@
+{
+ "kind": "hn1-negative-manifest/v1",
+ "A": "48 random(randperm64) + <=16 other-fact-sections [historical recipe]",
+ "B": "64 same-type siblings != target (random fallback if <64)"
+}

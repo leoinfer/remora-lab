@@ -1,0 +1,20 @@
+{
+ "repo_head": "0ab982f10905fa775962a4eddcb44caa50065251",
+ "arxiv": "2608.16157v1",
+ "container": "directory: freetoken_weight.json index + N opaque shards (default 8GiB, 4096-multiple cuts) of ONE logical contiguous byte region; every tensor start 4096-aligned+padded => any slice O_DIRECT-readable; no magic/version check on read",
+ "index_fields": "format,version(never checked),align,shard_limit,total_bytes,tensors[{name,kind:weight|experts_bank,dtype,shape,global_off,nbytes}],shards[],source_model_path,fingerprint(sha256 quant/arch/cc/files),quant_format,expert_bank_num_layers(cross-checked loudly)",
+ "bank_concept": "one named tensor family holding ALL routed experts; runtime = per-layer [num_experts,...] pinned HostBank list; flat region layout layer-major OR streaming per-layer entries {bank}#L{layer:05d}; flattened lE+e identity enables scalar feat_bytes descriptors and single-launch gather src_base+e*feat_bytes",
+ "formats": {
+  "bf16": null,
+  "fp8_block_128x128": null,
+  "q4_0_gguf_18B_blocks": null,
+  "nvfp4_e2m1+e4m3/16+fp16_global": null,
+  "nvfp4_marlin_b12x_tiled+folding_globals_to_[L,E]_alphas": null,
+  "mxfp4_triton_transposed_splitK": null,
+  "ds_fp4_e2m1+e8m0_per32_no_global": null
+ },
+ "load_path": "O_DIRECT probe->mmap(MADV_SEQUENTIAL) fallback; <=8MiB chunks ThreadPoolExecutor(8) os.preadv (~7x scaling); pin-AFTER-fill cudaHostRegister (skips ~47s fault+zero for 137GiB); PinPipeline overlaps pin with reads => load~=max(read,pin); low-RAM fallback drops parallel reader",
+ "conversion": "ft checkpoint CLI drives real loaders once, streams completed layers through provider sinks (RAM peak ~in-flight layers); byte-deterministic given source+backend pick; fingerprint includes compute-capability because nvfp4 bytes are PHYSICALLY repacked per backend",
+ "gguf_comparison": "+alignment/O_DIRECT friendliness, bank semantics matching runtime movement machinery, post-fusion storage; -ecosystem/quants (consumes ONLY Q4_0), single-file portability, version negotiation",
+ "R4X_FTW_verdict": "RIDE UNCHANGED. Constraints: fixed uniform expert stride per bank; per-expert self-contained scales; row bytes %16==0 + 16B bases (aim >=256KiB rows for D2D path); implement layer_sink for streaming conversion; scales-as-banks vs folded alphas tradeoff; keep CPU-dequant-friendly tile order if hybrid wanted"
+}

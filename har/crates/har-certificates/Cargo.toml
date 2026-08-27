@@ -1,0 +1,14 @@
+[package]
+name = "har-certificates"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+description = "Fail-closed HAR identity, composition and runtime manifest certificates"
+
+[dependencies]
+har-core = { path = "../har-core" }
+har-ir = { path = "../har-ir" }
+har-plan = { path = "../har-plan" }
+har-telemetry = { path = "../har-telemetry" }
+serde.workspace = true

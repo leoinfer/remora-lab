@@ -1,0 +1,19 @@
+[package]
+name = "har-demo"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+ash = "0.38"
+har-metabolism = { path = "../har-metabolism" }
+har-model.workspace = true
+har-residency.workspace = true
+har-storage.workspace = true
+har-vulkan = { path = "../har-vulkan" }
+libc = "0.2"
+regex = "1"
+serde = { workspace = true }
+serde_json = "1"
+sha2 = "0.10"

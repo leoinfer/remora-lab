@@ -1,0 +1,14 @@
+[package]
+name = "har-telemetry"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+description = "Bounded HAR telemetry and deterministic manifests"
+
+[dependencies]
+har-core = { path = "../har-core" }
+har-events = { path = "../har-events" }
+har-ir = { path = "../har-ir" }
+serde.workspace = true
+serde_json.workspace = true

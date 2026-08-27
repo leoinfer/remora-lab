@@ -1,0 +1,12 @@
+{
+ "repo_head": "0ab982f10905fa775962a4eddcb44caa50065251",
+ "arxiv": "2608.16157v1",
+ "objective_NEW_CONJECTURE": "maximize useful_accepted_tokens / external_expert_bytes_moved; select speculation structure (width, candidates, grouping) jointly on acceptance value AND predicted expert overlap AND residency state",
+ "components": [
+  "lightweight router-head predicting next-layer expert sets for draft candidates (router inputs known one token ahead - same signal their absent prefetch needs)",
+  "overlap-greedy candidate selection",
+  "miss-conditioned width throttle",
+  "joint objective shares machinery with cache prefetch: one predictor serves both"
+ ],
+ "status": "NEW_CONJECTURE - no FreeToken or public prior art found in audit; highest-originality lane; requires our routing-trace logging first"
+}

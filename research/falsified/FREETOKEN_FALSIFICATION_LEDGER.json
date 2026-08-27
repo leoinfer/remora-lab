@@ -1,0 +1,51 @@
+{
+ "repo_head": "0ab982f10905fa775962a4eddcb44caa50065251",
+ "arxiv": "2608.16157v1",
+ "ledger": [
+  [
+   "IMPLICATION: 'personal machine' serves 284B interactively",
+   "FALSIFIED_FOR_OUR_CLASS: requires pool-sized pinned host RAM (192GiB on their gaming desktop row); 32GB fails; SOURCE_CONFIRMED no runtime storage tier",
+   "CONFIRMED"
+  ],
+  [
+   "IMPLICATION: 'bandwidth-adaptive execution' implies runtime adaptation",
+   "PARTIALLY_MARKETING: q static per session, profile keyed GPU-name+format only; adaptation happens at deployment-time profiling",
+   "CONFIRMED"
+  ],
+  [
+   "CLAIM: headline tok/s",
+   "SURVIVES_WITH_CAVEATS: careful harness but single-measured-request, sampled decoding variance unreported, baselines uncommitted",
+   "PARTIAL"
+  ],
+  [
+   "CLAIM: edge-native across five systems",
+   "WEAKENED: 3/6 were servers capped to emulate edge (disclosed honestly)",
+   "PARTIAL"
+  ],
+  [
+   "CLAIM: LRU near-optimal placement (Fig4b)",
+   "UNTESTED_against_oracle; repo instrumentation capable but unused; our hypothesis says capacity not policy binds",
+   "OPEN"
+  ],
+  [
+   "CLAIM: semantic anchors headline feature",
+   "OVERSTATED_vs_code: tool-call-opener-only, off by default, zero quantitative evaluation",
+   "CONFIRMED"
+  ],
+  [
+   "CLAIM: >20 models supported",
+   "OVERSTATED: ~17 strictly-MoE checkpoints listed",
+   "CONFIRMED"
+  ],
+  [
+   "ASSUMPTION DSV4=GDN-recurrent",
+   "FALSE for this repo: DSV4 is SWA+owned-KV; GDN anchors apply to Qwen3.5/3.6 hybrids",
+   "CONFIRMED"
+  ],
+  [
+   "64.4GB DSV4 expert pool figure",
+   "INCONSISTENT with repo default schema 147GB; different quant/config assumed; UNKNOWN resolution",
+   "FLAGGED"
+  ]
+ ]
+}

@@ -1,0 +1,7 @@
+{
+ "phase": "FT2",
+ "repo_head": "0ab982f",
+ "date": "2026-08-22",
+ "model": "U(K)=accepted*K / external_bytes(K); external_bytes(K)=E[unique_experts(K)]*slot*miss_rate(cap); E[unique] grows ~min(K*touches, pool) minus overlap J; J unknown UNKNOWN -> measure before designing",
+ "status": "NEW_CONJECTURE stands; FreeToken has nothing adjacent; priority BELOW capacity levers given predictor-capture result"
+}

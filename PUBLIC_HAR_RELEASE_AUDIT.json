@@ -1,0 +1,108 @@
+{
+  "schema": "har.public_release_audit.v2",
+  "status": "LOCAL_ONLY_RELEASE_CANDIDATE_PENDING_REVIEW",
+  "audit_date": "2026-08-27",
+  "published": false,
+  "pushed": false,
+  "remote_configured": false,
+  "candidate": "local-ai-research-expanded/",
+  "scope": {
+    "har_production_host_runtime": "Rust",
+    "allowed_non_rust": ["SPIR-V", "GPU shader source", "OS/Vulkan driver libraries"],
+    "research_only_non_runtime": ["research/", "benchmarks/local-bench/"],
+    "forbidden_runtime": ["Python", "C++", "llama.cpp", "GGML execution libraries", "subprocess inference helpers", "C ABI execution backends", "CMake-built HAR components", "foreign inference backends"]
+  },
+  "privacy": {
+    "file_count": 614,
+    "tree_bytes": 3105496,
+    "model_payloads_present": false,
+    "raw_receipts_present": false,
+    "screenshots_present": false,
+    "symlinks_present": false,
+    "private_paths_published": false,
+    "hostnames_published": false,
+    "publication_audit": "PASS"
+  },
+  "research_corpus": {
+    "index": "research_idea_index.json",
+    "human_index": "RESEARCH_IDEA_INDEX.md",
+    "distinct_records": 280,
+    "hermes_families": 39,
+    "broader_families": 26,
+    "manifest_ideas": 30,
+    "open_problems": 12,
+    "conjectures": 10,
+    "formal_checkers": 16,
+    "counterexamples": 28,
+    "experiments": 96,
+    "registry_records": 88,
+    "runtime_dependency": false
+  },
+  "hdd": {
+    "read_only_checked": true,
+    "content_copied": false,
+    "unique_cleared_idea_documents_found": 0,
+    "excluded_categories": ["private local-AI archive", "model payloads", "raw receipts/media", "opaque source bundle", "model-derived plan", "unrelated system backup"],
+    "register": "research/SOURCE_REGISTER.md"
+  },
+  "rust_only": {
+    "source_gate": "PASS",
+    "production_files_scanned": 147,
+    "publication_gate": "PASS",
+    "resolved_forbidden_runtime_dependencies": [],
+    "resolved_vulkan_loader_chain": ["ash", "libloading", "libvulkan.so.1", "OS Vulkan driver"]
+  },
+  "validation": {
+    "format": "PASS",
+    "workspace_check": "PASS",
+    "workspace_clippy_warnings_as_errors": "PASS",
+    "workspace_tests": "PASS",
+    "workspace_release_build": "PASS",
+    "local_bench_format": "PASS",
+    "local_bench_check": "PASS",
+    "local_bench_clippy": "PASS",
+    "local_bench_tests": "PASS",
+    "local_bench_release_build": "PASS"
+  },
+  "linked_objects": {
+    "direct_needed_baseline": ["libc.so.6", "libm.so.6 when needed", "libgcc_s.so.1", "ELF loader"],
+    "direct_libvulkan": false,
+    "direct_libstdcxx": false,
+    "driver_owned_libstdcxx_observed": true,
+    "interpretation": "OS/Vulkan driver dependency, not a HAR-linked C++ execution backend"
+  },
+  "runtime_trace": {
+    "result": "PASS",
+    "method": "GDB execve and execveat catchpoints plus dynamic-loader trace",
+    "model_fixture": "synthetic caller-supplied GGUF generated outside the repository",
+    "served_tokens": [1, 2, 3, 0],
+    "helper_process_exec_observed": false,
+    "strace_available": false,
+    "full_syscall_trace": "NOT_AVAILABLE"
+  },
+  "gpu_smoke": {
+    "result": "PASS",
+    "driver_boundary": "Rust ash loader -> libvulkan.so.1 -> RADV OS driver",
+    "checks": [
+      {"name": "greedy_sampler", "selected_token": 777},
+      {"name": "q4k_gemv", "value": 256.0}
+    ],
+    "performance_claim": false
+  },
+  "claims": {
+    "faster_than_llama_cpp": false,
+    "full_model_end_to_end": false,
+    "effective_context_10m": "research target only",
+    "flash_next_full_model_ready": false
+  },
+  "review": {
+    "second_human_reviewer": "PENDING",
+    "owner_approval": "PENDING",
+    "release_allowed": false
+  },
+  "provenance": {
+    "public_files_have_known_provenance": true,
+    "upstream_execution_code_copied": false,
+    "reports": ["PROVENANCE.md", "provenance.json", "THIRD_PARTY.md", "docs/ACKNOWLEDGEMENTS.md", "research/SOURCE_REGISTER.md"]
+  }
+}

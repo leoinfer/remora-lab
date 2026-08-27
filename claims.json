@@ -1,0 +1,17 @@
+{
+  "schema": "local-ai-research.claims.v1",
+  "status_vocabulary": ["VERIFIED", "EXPERIMENTAL", "HISTORICAL", "INVALIDATED"],
+  "claims": [
+    {"id":"C-001","status":"EXPERIMENTAL","statement":"HAR has native Rust CPU paths for bounded dense and routed-MoE model operations.","evidence":["har source","unit tests"],"caveat":"No full model payload is shipped."},
+    {"id":"C-002","status":"VERIFIED","statement":"The HAR production policy rejects fallback and foreign adapter invocation.","evidence":["har-runtime policy tests","Rust-only gate"]},
+    {"id":"C-003","status":"EXPERIMENTAL","statement":"HAR can build a Vulkan resource and dispatch layer through Rust bindings.","evidence":["har-vulkan source","shader fixtures"],"caveat":"Device-specific execution remains required."},
+    {"id":"C-004","status":"EXPERIMENTAL","statement":"R4X D32A uses 256 values in a 144-byte block in the represented experimental profile.","evidence":["row-window tests"],"caveat":"No ecosystem standardization is claimed."},
+    {"id":"C-005","status":"EXPERIMENTAL","statement":"R4KV profiles reduce KV storage accounting relative to the F16 reference profile.","evidence":["Rust profile arithmetic","codec tests"],"caveat":"Model-quality impact is not measured here."},
+    {"id":"C-006","status":"EXPERIMENTAL","statement":"A 10M effective-context target is a memory and accounting hypothesis.","evidence":["effective-context notes"],"caveat":"This is not dense attention at 10M tokens."},
+    {"id":"C-007","status":"HISTORICAL","statement":"Historical comparable paths sometimes trailed llama.cpp by several tokens per second.","evidence":["sanitized historical summary"],"caveat":"No private receipt is presented as public proof."},
+    {"id":"C-008","status":"INVALIDATED","statement":"The proposed SWMMAC multi-POPS result is accepted.","evidence":["falsified-results record"]},
+    {"id":"C-009","status":"EXPERIMENTAL","statement":"MTP and speculative decode can expose acceptance and resource telemetry.","evidence":["Rust scheduler contracts"],"caveat":"No universal speedup claim."},
+    {"id":"C-010","status":"INVALIDATED","statement":"Flash-Next/R4F is ready for full-model generation.","evidence":["bring-up status record"]},
+    {"id":"C-011","status":"VERIFIED","statement":"The final HAR runtime path contains no Python, C++, llama.cpp, GGML, CMake, or foreign inference backend.","evidence":["Cargo metadata","Rust-only source gate","linked-object inspection","syscall trace"],"caveat":"Regenerate the release evidence whenever the release tree changes."}
+  ]
+}

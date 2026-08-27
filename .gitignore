@@ -1,0 +1,19 @@
+/target/
+*.swp
+*.tmp
+*.log
+.env
+.env.*
+
+# Model payloads and experiment outputs never belong in source control.
+*.gguf
+*.safetensors
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.npz
+*.npy
+*.parquet
+*.sqlite
+*.db

@@ -1,0 +1,19 @@
+[package]
+name = "har-runtime"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+description = "HAR runtime authority over validated plans and operation epochs"
+
+[dependencies]
+har-certificates = { path = "../har-certificates" }
+har-core = { path = "../har-core" }
+har-events = { path = "../har-events" }
+har-execution = { path = "../har-execution" }
+har-plan = { path = "../har-plan" }
+har-model = { path = "../har-model" }
+har-metabolism = { path = "../har-metabolism" }
+har-telemetry = { path = "../har-telemetry" }
+serde.workspace = true
+serde_json.workspace = true

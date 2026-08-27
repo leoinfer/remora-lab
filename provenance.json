@@ -1,0 +1,35 @@
+{
+  "schema": "local-ai-research.provenance.v1",
+  "publication_tree": "fresh-clean-room-candidate",
+  "unknown_provenance_files_remaining": 0,
+  "included_relationships": [
+    {"source_id":"har-runtime-private","relationship":"derived_code","license":"Apache-2.0 for this candidate","copied_paths":["har/crates"],"upstream_code_copied":false,"confidence":"confirmed"},
+    {"source_id":"r4kv-local","relationship":"derived_code","license":"Apache-2.0 for this candidate","copied_paths":["har/crates/r4kv"],"upstream_code_copied":false,"confidence":"confirmed"},
+    {"source_id":"local-bench","relationship":"adapted_implementation","license":"MIT; notice at benchmarks/local-bench/LICENSE","copied_paths":["benchmarks/local-bench"],"git_history_copied":false,"machine_data_copied":false,"raw_receipts_copied":false,"confidence":"confirmed"},
+    {"source_id":"qwen3","relationship":"technical_reference","url":"https://github.com/QwenLM/Qwen3","license":"upstream model/code terms; no model files copied","copied_paths":[],"model_architecture_credit_only":true,"confidence":"confirmed"},
+    {"source_id":"llama.cpp","relationship":"technical_reference","url":"https://github.com/ggml-org/llama.cpp","license":"MIT","copied_paths":[],"linked_at_runtime":false,"confidence":"confirmed"},
+    {"source_id":"vulkan","relationship":"technical_reference","url":"https://registry.khronos.org/vulkan/","license":"Khronos specification terms","copied_paths":[],"confidence":"confirmed"},
+    {"source_id":"ash","relationship":"upstream_dependency","url":"https://github.com/ash-rs/ash","license":"MIT OR Apache-2.0","copied_paths":[],"confidence":"confirmed"},
+    {"source_id":"freetoken","relationship":"inspiration","url":"https://github.com/FlashML-org/FreeToken","license":"Apache-2.0","copied_paths":[],"confidence":"confirmed"},
+    {"source_id":"colibri","relationship":"inspiration","url":"https://github.com/JustVugg/colibri","license":"Apache-2.0","copied_paths":[],"confidence":"confirmed"},
+    {"source_id":"dflash","relationship":"technical_reference","url":"https://github.com/z-lab/dflash","license":"MIT","copied_paths":[],"confidence":"confirmed"},
+    {"source_id":"medusa","relationship":"technical_reference","url":"https://github.com/FasterDecoding/Medusa","license":"Apache-2.0","copied_paths":[],"confidence":"confirmed"},
+    {"source_id":"layerskip","relationship":"technical_reference","url":"https://github.com/facebookresearch/LayerSkip","license":"CC BY-NC","copied_paths":[],"redistribution":"blocked_for_derived_material","confidence":"confirmed"},
+    {"source_id":"safetensors","relationship":"technical_reference","url":"https://github.com/huggingface/safetensors","license":"Apache-2.0","copied_paths":[],"confidence":"confirmed"},
+    {"source_id":"transformers","relationship":"technical_reference","url":"https://github.com/huggingface/transformers","license":"Apache-2.0","copied_paths":[],"confidence":"confirmed"},
+    {"source_id":"rocm","relationship":"technical_reference","url":"https://rocm.docs.amd.com/en/latest/about/license.html","license":"component-specific","copied_paths":[],"confidence":"confirmed"},
+    {"source_id":"radv","relationship":"technical_reference","url":"https://docs.mesa3d.org/drivers/radv.html","license":"no Mesa source copied","copied_paths":[],"confidence":"confirmed"}
+  ],
+  "omitted_relationships": [
+    {"source_id":"contextfold-codec-v0","relationship":"technical_reference","decision":"summarize_only","reason":"mixed historical and third-party artifacts"},
+    {"source_id":"warm-10m","relationship":"technical_reference","decision":"summarize_only","reason":"raw checkpoints, datasets, and receipts"},
+    {"source_id":"laguna-s-compression","relationship":"derived_code","decision":"blocked","reason":"license not confirmed"},
+    {"source_id":"har-x","relationship":"derived_code","decision":"blocked","reason":"model/data/training redistribution terms not confirmed"},
+    {"source_id":"v4-flash-hardware-aware","relationship":"technical_reference","decision":"summarize_only","reason":"private metadata and unverified receipts"},
+    {"source_id":"upstream-inference-clones","relationship":"derived_code","decision":"excluded","reason":"foreign implementations are outside HAR production"},
+    {"source_id":"external-hdd-local-ai-archive","relationship":"technical_reference","decision":"excluded","reason":"model payloads, private paths, raw receipts, internal metadata, and generated reports"},
+    {"source_id":"external-hdd-source-small","relationship":"derived_code","decision":"excluded","reason":"opaque source archive without file-level legacy-boundary or license clearance"},
+    {"source_id":"external-hdd-r4x-plan","relationship":"technical_reference","decision":"excluded","reason":"model-derived plan and evidence are not standalone public source"},
+    {"source_id":"external-hdd-container-dump","relationship":"technical_reference","decision":"excluded","reason":"unrelated system backup"}
+  ]
+}

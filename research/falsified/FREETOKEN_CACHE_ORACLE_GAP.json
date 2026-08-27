@@ -1,0 +1,8 @@
+{
+ "repo_head": "0ab982f10905fa775962a4eddcb44caa50065251",
+ "arxiv": "2608.16157v1",
+ "experiment_design_zero_gpu": "instrument ft serve (or replay from logged topk_ids) -> traces -> offline replay LRU(current)/LFU/ARC/Belady/predictors at equal capacities",
+ "prior_belief": "OPT vs LRU gap 1.5-2x on MISS RATE at 6-11% capacities HYPOTHETICAL; end-to-end throughput translation bounded ~1.2-1.4x because resident-compute and shared weights amortize; capacity (RAM) remains dominant lever",
+ "decision_rule": "if oracle_hit-realized_hit small => drop prediction research, spend on capacity/layout; if large AND layer-concentrated => pursue predictive residency + per-layer partitioning",
+ "immediate_action": "spec logging: (step, layer, topk_ids) jsonl ring; enable collect_decode_freq path as reference impl"
+}

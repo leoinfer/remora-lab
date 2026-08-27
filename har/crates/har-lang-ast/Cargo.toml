@@ -1,0 +1,9 @@
+[package]
+name = "har-lang-ast"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+har-lang-diagnostics = { path = "../har-lang-diagnostics" }
+har-lang-lexer = { path = "../har-lang-lexer" }

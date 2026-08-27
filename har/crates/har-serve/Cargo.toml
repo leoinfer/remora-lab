@@ -1,0 +1,32 @@
+[package]
+name = "har-serve"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+description = "HAR continuous-batching decode scheduler with prefix reuse (serving layer)"
+
+[features]
+default = []
+# Real-kernel seam: Vulkan q4k_gemv BatchStepModel (hardware-locked tests only).
+vulkan = ["dep:har-vulkan", "dep:ash"]
+
+[dependencies]
+har-kv = { path = "../har-kv" }
+har-model = { path = "../har-model" }
+serde = { workspace = true }
+serde_json = "1"
+ash = { version = "0.38", optional = true }
+har-vulkan = { path = "../har-vulkan", optional = true }
+
+[[bin]]
+name = "har-serve-vulkan-smoke"
+required-features = ["vulkan"]
+
+[[bin]]
+name = "har-serve-vulkan-batched-smoke"
+required-features = ["vulkan"]
+
+[[bin]]
+name = "har-serve-vulkan-attn-smoke"
+required-features = ["vulkan"]

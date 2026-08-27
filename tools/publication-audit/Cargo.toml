@@ -1,0 +1,10 @@
+[package]
+name = "publication-audit"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.80"
+license = "Apache-2.0"
+publish = false
+description = "Local clean-room publication tree audit"
+
+[dependencies]

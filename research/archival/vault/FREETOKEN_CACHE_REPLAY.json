@@ -1,0 +1,98 @@
+{
+ "phase": "FT2",
+ "repo_head": "0ab982f",
+ "date": "2026-08-22",
+ "results": {
+  "flame_L02_300k_pretraining": {
+   "cap_frac": {
+    "0.094": [
+     0.059,
+     0.06,
+     0.106,
+     0.299
+    ],
+    "0.188": [
+     0.162,
+     0.162,
+     0.211,
+     0.474
+    ],
+    "0.281": [
+     0.263,
+     0.261,
+     0.312,
+     0.596
+    ],
+    "0.375": [
+     0.362,
+     0.357,
+     0.41,
+     0.69
+    ],
+    "0.562": [
+     0.567,
+     0.558,
+     0.599,
+     0.828
+    ],
+    "0.750": [
+     0.761,
+     0.752,
+     0.78,
+     0.923
+    ]
+   },
+   "cols": [
+    "LRU",
+    "FIFO",
+    "LFU",
+    "BELADY"
+   ],
+   "burst_p50_p99_max_per_token": {
+    "0.094": [
+     6,
+     6,
+     6
+    ],
+    "0.188": [
+     5,
+     6,
+     6
+    ],
+    "0.375": [
+     4,
+     6,
+     6
+    ],
+    "0.562": [
+     3,
+     5,
+     6
+    ]
+   },
+   "gptoss_decode_322tok": {
+    "0.125": {
+     "LRU": 0.415,
+     "FIFO": 0.312,
+     "LFU": 0.492,
+     "PERSIST_EVICT": 0.417,
+     "BELADY": 0.669
+    },
+    "0.25": {
+     "LRU": 0.684,
+     "BELADY": 0.847
+    },
+    "0.375": {
+     "LRU": 0.828,
+     "BELADY": 0.921
+    }
+   }
+  },
+  "verdict": {
+   "oracle_gap": "LARGE: Belady 2.9x LRU hit rate at 9-19% cap; 1.9x at 37.5%; converges near pool size",
+   "predictor_capture": "<10% of gap: persist_evict ~= LRU+0-0.3pp; hotsplit50 +2pp; LFU +4-5pp (best simple causal)",
+   "bursts": "at <=20% capacity p50 misses/token == k (FULL-footprint bursts every token)",
+   "caveats": "FLAME=early-checkpoint PRETRAINING traces (no decode autocorrelation); gptoss=real decode but 322 tokens; geometry transfer to 256E/43L UNKNOWN; paper Fig4b real-serving anchor: 39% MISS at 11% cap (hit 61%) vs our pretraining-curve 84% miss at same fraction"
+  }
+ }
+}

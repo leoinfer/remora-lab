@@ -1,0 +1,18 @@
+[package]
+name = "har-package-slice"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "Deterministic, git-safe bounded package slices: extract/verify/inspect/reconstruct exact row ranges of GGUF tensors"
+
+[dependencies]
+har-model-compiler = { path = "../har-model-compiler" }
+har-model-package = { path = "../har-model-package" }
+serde.workspace = true
+serde_json.workspace = true
+sha2.workspace = true
+hex.workspace = true
+
+[[bin]]
+name = "har-package-slice"
+path = "src/main.rs"

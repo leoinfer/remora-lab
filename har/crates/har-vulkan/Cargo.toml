@@ -1,0 +1,17 @@
+[package]
+name = "har-vulkan"
+version = "0.1.0"
+edition = "2021"
+license = "Apache-2.0"
+publish = false
+
+[lib]
+name = "har_vulkan"
+path = "src/lib.rs"
+
+[[bin]]
+name = "har-rust-vulkan-smoke"
+path = "src/bin/smoke.rs"
+
+[dependencies]
+ash = "0.38"
