@@ -13,8 +13,8 @@
     "forbidden_runtime": ["Python", "C++", "llama.cpp", "GGML execution libraries", "subprocess inference helpers", "C ABI execution backends", "CMake-built HAR components", "foreign inference backends"]
   },
   "privacy": {
-    "file_count": 614,
-    "tree_bytes": 3105496,
+    "file_count": 615,
+    "tree_bytes": 3109081,
     "model_payloads_present": false,
     "raw_receipts_present": false,
     "screenshots_present": false,

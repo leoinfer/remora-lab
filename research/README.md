@@ -29,6 +29,11 @@ Start with:
 - [`theory/`](theory/) and [`roadmap/`](roadmap/) — checkers, equations,
   formal boundaries, and staged research plans.
 
+The governing measurement rule for implausible results is in
+[`docs/methodology.md`](../docs/methodology.md): preserve the anomaly, build
+stronger known-answer tests, and try to falsify the claim before publishing
+either a breakthrough or a dismissal.
+
 ## Reading rules
 
 The archival documents retain original names and equations. A source's

@@ -6,9 +6,12 @@ This record prevents attractive but unsupported numbers from becoming folklore.
 
 The proposed multi-POPS result is invalidated. The acceptance contract did not
 establish a valid end-to-end measurement, and the accounting was not strong
-enough to support the headline. The result is retained only as a research
-question: define the unit, publish the kernel, publish the exact hardware
-configuration, and compare against a public baseline under identical work.
+enough to support the headline. Stronger known-answer tests found that
+repeated accumulator behavior caused the benchmark to overcount useful
+committed work. The detailed record is the
+[`gfx1200 sparse-matrix anomaly`](../../research/falsified/GFX1200_SPARSE_MATRIX_ANOMALY.md).
+The failed result remains useful because it exposed instruction-level behavior
+and improved the benchmark methodology.
 
 ## Faster-than-baseline claims
 

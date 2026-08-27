@@ -23,7 +23,7 @@ optional external measurement harness.
 The expanded publication audit passed:
 
 ```text
-PUBLICATION_AUDIT PASS: 614 files, 3105496 bytes, no release-gate findings
+PUBLICATION_AUDIT PASS: 615 files, 3109081 bytes, no release-gate findings
 ```
 
 The tree contains no model weights, checkpoints, tokenizer payloads, datasets,
@@ -122,7 +122,10 @@ The canonical map is [`research_idea_index.json`](research_idea_index.json),
 with a human-readable view in [`RESEARCH_IDEA_INDEX.md`](RESEARCH_IDEA_INDEX.md).
 Source, license, originality, and exclusion decisions are recorded in
 [`PROVENANCE.md`](PROVENANCE.md), [`PUBLIC_RESEARCH_INVENTORY.md`](PUBLIC_RESEARCH_INVENTORY.md),
-and [`research/SOURCE_REGISTER.md`](research/SOURCE_REGISTER.md).
+and [`research/SOURCE_REGISTER.md`](research/SOURCE_REGISTER.md). The
+moonshot/anomaly policy and the invalidated gfx1200 sparse-matrix result are
+preserved in [`docs/methodology.md`](docs/methodology.md) and
+[`research/falsified/GFX1200_SPARSE_MATRIX_ANOMALY.md`](research/falsified/GFX1200_SPARSE_MATRIX_ANOMALY.md).
 
 ## Claims and review state
 
