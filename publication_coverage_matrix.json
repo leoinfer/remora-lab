@@ -16298,10 +16298,10 @@
     },
     {
       "ID": "FAM-013",
-      "NAME": "kernel-width research",
+      "NAME": "kernel-shape / logical-prefill-row research",
       "CATEGORY": "mandatory-family/kernel research",
       "SOURCE LOCATION / SOURCE REGISTER ID": "mandatory-family-crosswalk:FAM-013",
-      "CURRENT STATUS": "tile/kernel shape study",
+      "CURRENT STATUS": "tile/kernel shape study plus llama-bench logical-prefill-row evidence",
       "PUBLIC DISPOSITION": "PUBLIC",
       "PUBLIC PATH": "research/falsified/README.md; HARDWARE_PROFILE.md",
       "IMPLEMENTATION PATH": "har/crates/har-vulkan/src/; har/shaders/; benchmarks/local-bench/",

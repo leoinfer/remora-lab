@@ -26,10 +26,10 @@ nearest-even representation of `max(abs(group)) / 7`; a zero group uses a zero
 scale. The public geometry/encoding known-answer test is available through
 [`repro/r4x/width-sweep/run_width_sweep.sh`](../../repro/r4x/width-sweep/run_width_sweep.sh).
 
-The recovered full-model width receipt is a separate historical execution
-record. In that receipt, `W` means `n_prompt` (logical prefill rows), not a
-shader workgroup or local size. See the
-[`R4X width-sweep lane`](../../repro/r4x/width-sweep/) for the exact source
+The recovered full-model logical-prefill-row receipt is a separate historical
+execution record. In that receipt, `W` means `n_prompt` (logical prefill rows),
+not a shader workgroup or local size. See the
+[`R4X logical-prefill-row lane`](../../repro/r4x/width-sweep/) for the exact source
 commit, configuration, sanitized rows, malformed `ubatch=4096` boundary, and
 the explicit distinction between diagnostic rows/s and generation tokens/s.
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Rust-only public validation for the recovered R4X width evidence lane.
+# Rust-only public validation for the recovered R4X logical-prefill-row evidence lane.
 # Historical throughput is data in sanitized_receipt.json; it is not rerun by
 # this script because the original foreign runtime is intentionally excluded.
 
@@ -10,6 +10,6 @@ cd "$repo_root"
 
 cargo run --quiet --release -p repro-harness -- r4x-d32a
 
-echo "R4X_WIDTH_EVIDENCE=RECOVERED_RECEIPT_ONLY"
-echo "R4X_WIDTH_RECEIPT=repro/r4x/width-sweep/sanitized_receipt.json"
-echo "R4X_WIDTH_METRIC=kernel_prefill_rows_per_second_not_generation_tokens_per_second"
+echo "R4X_LOGICAL_PREFILL_EVIDENCE=RECOVERED_RECEIPT_ONLY"
+echo "R4X_LOGICAL_PREFILL_RECEIPT=repro/r4x/width-sweep/sanitized_receipt.json"
+echo "R4X_LOGICAL_PREFILL_METRIC=logical_prefill_rows_per_second_not_generation_tokens_per_second"

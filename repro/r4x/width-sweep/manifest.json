@@ -3,7 +3,7 @@
   "claim_id": "C-013",
   "experiment_id": "r4x-width-sweep-2026-08-25",
   "status": "HISTORICAL_RECONSTRUCTION_AVAILABLE",
-  "description": "Recovered full-model R4X-D32A prefill width receipt with a clean ubatch=512 slice and a malformed ubatch=4096 attempt. Historical throughput is not currently rerunnable from the Rust-only public tree.",
+  "description": "Recovered full-model R4X-D32A llama-bench -p W logical-prefill-row receipt with a clean ubatch=512 slice and a malformed ubatch=4096 attempt. Historical throughput is not currently rerunnable from the Rust-only public tree.",
   "source_commit": "5181a189ed65ad98b069c6dbdd20d486091d7d60",
   "source_paths": [
     "research/archival/r4x/width-sweep/historical_command.sh",
@@ -57,7 +57,8 @@
   "measurement_start": "2026-08-25T15:13:20Z",
   "measurement_end": "2026-08-25T15:13:47Z",
   "tokens_generated": 0,
-  "prefill_tokens": "W per cell: 64, 128, 256, 384, 512, 768, 1024, 1536, 2048",
+  "prefill_tokens": "n_prompt W logical prefill rows per cell: 64, 128, 256, 384, 512, 768, 1024, 1536, 2048",
+  "prefill_row_semantics": "llama-bench -p W = n_prompt = logical prefill rows; not shader or workgroup width",
   "decode_tokens": 0,
   "ttft_ms": null,
   "prefill_tps": null,
@@ -69,8 +70,8 @@
   },
   "expected_range": {
     "clean_ubatch": 512,
-    "valid_widths": [64, 128, 256, 384, 512, 768, 1024, 1536, 2048],
-    "historical_peak_width": 512,
+    "valid_logical_prefill_rows": [64, 128, 256, 384, 512, 768, 1024, 1536, 2048],
+    "historical_peak_logical_prefill_rows": 512,
     "historical_peak_rows_per_s": 699.677849
   },
   "tolerance": {

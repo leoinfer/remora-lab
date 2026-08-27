@@ -8,8 +8,9 @@ an explicit blocked disposition.
 The recovered lanes are listed in [`repro/README.md`](repro/README.md). The
 R4X receipt is authoritative historical evidence, while its public command is
 Rust-only and validates the D32A representation without loading excluded model
-weights. The historical rows are kernel/prefill diagnostic rows/s; they are not
-generation tokens/s.
+weights. The historical metric is logical-prefill diagnostic rows/s from
+`llama-bench -p W`; it is not generation tokens/s and `W` is not a kernel or
+workgroup-width selector.
 
 Run the environment check and the lane validation from the repository root:
 

@@ -1,13 +1,13 @@
-# R4X width sweep
+# R4X logical-prefill-row sweep
 
 This lane is the recovered, sanitized record of the 2026-08-25 R4X-D32A
-full-model prefill width campaign. The authoritative clean receipt was found
+full-model logical-prefill-row campaign. The authoritative clean receipt was found
 locally and is published as [`sanitized_receipt.json`](sanitized_receipt.json).
 The raw files and model weights remain outside the public repository.
 
-The measured quantity is **kernel/prefill diagnostic rows per second**. It is
+The measured quantity is **logical prefill diagnostic rows per second**. It is
 not generation tokens per second. At `ubatch=512`, the controlled sweep peaked
-at approximately 700 kernel rows/s in the tested range. It must not be
+at approximately 700 logical prefill rows/s in the tested range. It must not be
 reported as “R4X does 700 t/s”.
 
 ## Reproduction boundary
@@ -66,12 +66,12 @@ reported a 3,202 MHz core sample for the broader width-roofline analysis, but
 it is not phase-addressable enough to serve as the exact clock context for each
 cell.
 
-## What “width” means here
+## What “W” means here
 
 The recovered script passes `-p 64,128,...` to `llama-bench`. In that program,
 `-p` is `n_prompt`, and each prompt is processed in batches of at most
 `n_batch`. Thus `W` is the logical number of prefill rows supplied to the
-model. For `ubatch=512`, widths above 512 are processed as multiple internal
+model. For `ubatch=512`, logical prefill-row values above 512 are processed as multiple internal
 microbatches and the reported value is the aggregate rows/s for the whole
 prompt.
 
@@ -79,6 +79,19 @@ This is not a shader local size, subgroup width, workgroup width, or compile-
 time tile parameter. The separate `test-r4x-widem` correctness source used in
 the historical tree is a matrix-shape probe; it is not the source of the
 full-model `llama-bench -p W` numbers published here.
+
+### Terminology correction
+
+Some older private notes called the `W64`–`W2048` labels “kernel width” or
+“workgroup width.” That was a mistaken interpretation of the `llama-bench`
+CLI. In this receipt, `W` is exactly `-p W`/`n_prompt`: logical prefill rows.
+The old wording is retained here only as a corrected historical note; it is
+not an alternate semantic definition. Actual shader/workgroup dimensions
+belong to separate operator experiments and must not be merged into this
+receipt.
+
+The durable correction record is
+[`SEMANTICS_CORRECTION.md`](../../../research/archival/r4x/width-sweep/SEMANTICS_CORRECTION.md).
 
 ## Metric and gate
 
@@ -109,9 +122,9 @@ that raw trace was not preserved in this lane.
   appended to the JSON file. The series is `MALFORMED`; its prefix cells are
   retained as individually complete observations but are not a clean comparison
   series.
-- W4096 kernel/prefill width: no authoritative run was found. The recovered
-  script requests only W64 through W2048. Other local documents contain W4096
-  predictions or preregistration, not a W4096 measurement.
+- W4096 logical prefill-row point: no authoritative run was found. The
+  recovered script requests only W64 through W2048. Other local documents
+  contain W4096 predictions or preregistration, not a W4096 measurement.
 - `ubatch=4096` is not W4096. The former is the microbatch setting; the latter
   would be a prompt-row width. They are kept separate in [`matrix.csv`](matrix.csv).
 - W32 and other ubatch values are `NOT_RUN` in this recovered series. Related

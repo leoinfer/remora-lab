@@ -8,8 +8,8 @@ declared disposition are required to remain zero.
 | Lane | Status | Public command | Evidence | Boundary |
 | --- | --- | --- | --- | --- |
 | R4X D32A geometry | `FULLY_REPRODUCIBLE` | `./repro/r4x/width-sweep/run_width_sweep.sh` | Rust known-answer output | Synthetic/model-free geometry only |
-| R4X full-model width sweep | `HISTORICAL_RECONSTRUCTION_AVAILABLE` | `./repro/r4x/width-sweep/run_width_sweep.sh` | [`sanitized_receipt.json`](repro/r4x/width-sweep/sanitized_receipt.json) | Exact historical throughput awaits Rust-only model executor |
-| R4X W4096 width | `NOT_RUN` | — | No authoritative receipt found | Predictions/preregistration are not measurements |
+| R4X full-model logical-prefill-row sweep | `HISTORICAL_RECONSTRUCTION_AVAILABLE` | `./repro/r4x/width-sweep/run_width_sweep.sh` | [`sanitized_receipt.json`](repro/r4x/width-sweep/sanitized_receipt.json) | Exact historical throughput awaits Rust-only model executor |
+| R4X `llama-bench -p 4096` logical prefill-row point | `NOT_RUN` | — | No authoritative receipt found | Predictions/preregistration are not measurements |
 | R4X ubatch=4096 series | `MALFORMED` | — | Malformed receipt prefix retained | W2048 aborted during Vulkan submission |
 | R4KV storage/page KAT | `FULLY_REPRODUCIBLE` | `./repro/r4kv/storage/run.sh` | Rust receipt | Codec/profile/page correctness only; no model-quality frontier |
 | R4KV model-quality frontier | `BLOCKED_PROVENANCE` | `./repro/r4kv/quality-frontier/run.sh` | [bounded receipt](repro/r4kv/quality-frontier/sanitized_receipt.json) | No cleared model-quality receipt; storage KAT remains separate |

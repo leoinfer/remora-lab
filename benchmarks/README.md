@@ -16,10 +16,11 @@ model metadata and user-supplied hardware profiles. It does not belong to the
 HAR runtime. Its optional measurement command may invoke an external serving
 binary for research calibration and is not used by any HAR executable.
 
-The recovered R4X width result is documented in the
-[R4X width-sweep lane](../repro/r4x/width-sweep/). Its unit is
-kernel/prefill diagnostic rows/s, not generation tokens/s. The lane links the
-sanitized receipt, full width-by-ubatch status matrix, exact historical source
+The recovered R4X logical-prefill-row result is documented in the
+[R4X logical-prefill-row lane](../repro/r4x/width-sweep/). Its unit is logical-prefill
+diagnostic rows/s from `llama-bench -p W`, not generation tokens/s; `W` is not
+a kernel or workgroup-width selector. The lane links the sanitized receipt,
+full logical-prefill-row-by-ubatch status matrix, exact historical source
 commit, and the Rust-only public validation command.
 
 The artifact-level crosswalk for benchmark implementations, receipts, and

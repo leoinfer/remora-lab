@@ -1,4 +1,4 @@
-width,ubatch,status,series_status,avg_rows_per_s,stddev_rows_per_s,sample1_rows_per_s,sample2_rows_per_s,sample3_rows_per_s,avg_ns,stddev_ns,error
+logical_prefill_rows,ubatch,status,series_status,avg_rows_per_s,stddev_rows_per_s,sample1_rows_per_s,sample2_rows_per_s,sample3_rows_per_s,avg_ns,stddev_ns,error
 64,512,VALID,CLEAN,441.056190,0.369598,440.664,441.399,441.106,145106295,122804,
 128,512,VALID,CLEAN,571.452541,1.560446,570.203,570.953,573.202,223991716,611294,
 256,512,VALID,CLEAN,661.587407,6.572781,655.844,660.162,668.756,386973500,3832913,

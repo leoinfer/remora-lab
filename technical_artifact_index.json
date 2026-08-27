@@ -78,16 +78,16 @@
       "artifact_id": "R4X-WIDTH-SWEEP-RECEIPT",
       "artifact_type": "benchmark-series-and-receipt",
       "research_family": "R4X/D32A",
-      "experiment_series": "native-prefill-width-sweep",
+      "experiment_series": "native-prefill-logical-row-sweep",
       "experiment_id": "r4x-width-sweep-2026-08-25",
       "claim_ids": ["C-013"],
       "implementation_path": ["research/archival/r4x/width-sweep/historical_command.sh", "repro/r4x/width-sweep/run_width_sweep.sh"],
       "repro_path": "repro/r4x/width-sweep/",
       "receipt_path": "repro/r4x/width-sweep/sanitized_receipt.json",
       "status": "HISTORICAL_RECONSTRUCTION_AVAILABLE",
-      "metric_boundary": "kernel/prefill diagnostic rows/s; not generation tokens/s",
-      "keywords": ["R4X width", "W512", "W1024", "W2048", "ubatch512", "699.677849", "rows/s"],
-      "notes": "The clean ubatch=512 nine-point series and malformed ubatch=4096 boundary are published. No measured W4096 width point was found."
+      "metric_boundary": "logical prefill diagnostic rows/s; not generation tokens/s",
+      "keywords": ["R4X logical prefill rows", "llama-bench -p W", "W512", "W1024", "W2048", "ubatch512", "699.677849", "rows/s"],
+      "notes": "The clean ubatch=512 nine-point logical-prefill-row series and malformed ubatch=4096 boundary are published. No measured logical prefill-row W4096 point was found."
     },
     {
       "artifact_id": "R4KV-STORAGE-KAT",

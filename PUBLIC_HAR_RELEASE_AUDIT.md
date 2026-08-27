@@ -67,7 +67,7 @@ The expanded publication audit passed after the profile and documentation
 changes:
 
 ```text
-PUBLICATION_AUDIT PASS: 684 files, 4678930 bytes, no release-gate findings
+PUBLICATION_AUDIT PASS: 685 files, 4688792 bytes, no release-gate findings
 ```
 
 The tree contains no model weights, checkpoints, tokenizer payloads, datasets,
@@ -202,3 +202,12 @@ preserved in [`docs/methodology.md`](docs/methodology.md) and
 The repository is public. No versioned release or Pages deployment has been
 created, and the runtime/model work remains experimental rather than a claim
 of completion.
+## R4X receipt semantic boundary
+
+The recovered R4X lane is a `llama-bench -p W` logical-prefill-row sweep:
+`W` is `n_prompt`, not a shader or workgroup-width selector. Its clean
+`ubatch=512` receipt peaks at 699.677849 logical prefill rows/s at W512;
+that value is not generation tokens/s. The durable correction and the
+separate physical-M operator-shape boundary are recorded in
+[`repro/r4x/width-sweep/README.md`](repro/r4x/width-sweep/README.md) and
+[`SEMANTICS_CORRECTION.md`](research/archival/r4x/width-sweep/SEMANTICS_CORRECTION.md).

@@ -1,13 +1,13 @@
-# R4X width-sweep analysis
+# R4X logical-prefill-row sweep analysis
 
 The clean comparison is the `ubatch=512` slice in
 [`sanitized_receipt.json`](sanitized_receipt.json). The companion
 `ubatch=4096` attempt is shown only as a malformed-prefix diagnostic; it is not
 used to select the peak.
 
-## Clean kernel/prefill rows/s table
+## Clean logical-prefill-row table
 
-| Kernel/prefill width W | Mean rows/s | Sample stddev rows/s | Delta from W64 |
+| Logical prefill rows W (`llama-bench -p W`) | Mean rows/s | Sample stddev rows/s | Delta from W64 |
 | ---: | ---: | ---: | ---: |
 | 64 | 441.056190 | 0.369598 | 0.000000 |
 | 128 | 571.452541 | 1.560446 | +130.396351 |
@@ -19,7 +19,7 @@ used to select the peak.
 | 1536 | 696.165057 | 0.155833 | +255.108867 |
 | 2048 | 694.516269 | 0.088739 | +253.460079 |
 
-Peak width: **W512** at **699.677849 kernel/prefill rows/s**.
+Peak logical prefill-row request: **W512** at **699.677849 logical prefill rows/s**.
 
 Relative to W64, the peak delta is **+258.621659 rows/s**, or
 **+58.636896%**. This is a diagnostic prefill rate, not a generation rate.
@@ -50,7 +50,7 @@ differences are causally meaningful.
 The complete prefix observations are retained in `results.csv` and the
 receipt. They are:
 
-| W | rows/s | sample stddev rows/s |
+| Logical prefill rows W | rows/s | sample stddev rows/s |
 | ---: | ---: | ---: |
 | 64 | 442.027216 | 0.982925 |
 | 128 | 573.336955 | 3.174368 |
@@ -83,8 +83,8 @@ combination in the audit scope without filling missing cells with estimates.
 
 The defensible statement is:
 
-> At ubatch 512, the controlled R4X native width campaign peaked around 700
-> kernel/prefill diagnostic rows/s at W512, with an approximately flat
+> At ubatch 512, the controlled R4X native `llama-bench -p W` campaign peaked
+> around 700 logical prefill diagnostic rows/s at W512, with an approximately flat
 > W512–W2048 region in this receipt.
 
 It is not defensible to convert this table into an autoregressive generation

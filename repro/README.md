@@ -3,8 +3,8 @@
 Each lane contains its own README, manifest, expected outcome, runnable
 command, and receipt or explicit limitation. Current lanes are:
 
-- [R4X width sweep](r4x/width-sweep/) — historical full-model receipt plus a
-  Rust-only D32A known-answer validation path.
+- [R4X logical-prefill-row sweep](r4x/width-sweep/) — historical full-model
+  receipt plus a Rust-only D32A known-answer validation path.
 - [R4KV storage](r4kv/storage/) — Rust codec, profile, page, and fail-closed
   known-answer receipt; no model-quality claim.
 - [R4KV quality frontier](r4kv/quality-frontier/) — explicit blocked

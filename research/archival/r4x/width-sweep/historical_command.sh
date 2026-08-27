@@ -7,6 +7,8 @@ set -u
 # recovered receipt. It is not part of HAR, is not called by the public Rust
 # runner, and must never become a production dependency. The referenced legacy
 # executable and model are intentionally not included in this repository.
+# In the historical llama-bench CLI, each -p value is n_prompt: logical
+# prefill rows. It is not a shader or workgroup-width selector.
 
 legacy_bin="${R4X_LEGACY_BENCH_BIN:?set R4X_LEGACY_BENCH_BIN to an approved historical binary}"
 model="${R4X_MODEL_PATH:?set R4X_MODEL_PATH to the identity-matched local model}"

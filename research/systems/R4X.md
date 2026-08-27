@@ -13,12 +13,17 @@ with research notes in [`research/r4x`](../r4x/). The source register explains
 why model-derived plans, weights, checkpoints, and raw benchmark receipts are
 not included. R4X is not a hidden fallback backend for HAR.
 
-The recovered [width-sweep receipt](../../repro/r4x/width-sweep/) is a
+The recovered [logical-prefill-row receipt](../../repro/r4x/width-sweep/) is a
 historical diagnostic evidence lane. Its W values are prompt-prefill rows
 submitted through `n_prompt`; they are not shader workgroup widths and its
 rows/s values are not generation tokens/s. The public Rust command validates
 the D32A format contract while the exact historical full-model throughput
 rerun awaits a Rust-only model executor.
+
+The historical series title “width sweep” is shorthand for a
+`llama-bench -p W` logical-prefill-row sweep. It is not a workgroup/kernel
+width sweep. Older notes using the latter label are corrected historical
+wording only.
 
 ## Questions retained
 

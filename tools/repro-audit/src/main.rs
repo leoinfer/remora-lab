@@ -140,6 +140,7 @@ fn main() {
                 .push(format!("missing required reproducibility file: {relative}"));
         }
     }
+    audit_r4x_width_semantics(&root, &mut audit);
     if audit.findings.is_empty() {
         let counts = audit
             .status_counts
@@ -453,5 +454,138 @@ fn audit_lane(root: &Path, lane: &Path, relative: &str, declared_status: &str, a
         audit
             .findings
             .push(format!("{relative}: model_hashes must be an object"));
+    }
+}
+
+fn audit_r4x_width_semantics(root: &Path, audit: &mut Audit) {
+    let lane = root.join("repro/r4x/width-sweep");
+    let required_markers = [
+        (
+            "README.md",
+            "llama-bench -p W",
+            "R4X width README must state that W comes from llama-bench -p W",
+        ),
+        (
+            "README.md",
+            "n_prompt",
+            "R4X width README must state the n_prompt meaning",
+        ),
+        (
+            "README.md",
+            "SEMANTICS_CORRECTION.md",
+            "R4X width README must link the durable semantics correction",
+        ),
+        (
+            "manifest.json",
+            "prefill_row_semantics",
+            "R4X width manifest must carry machine-readable prefill-row semantics",
+        ),
+    ];
+    for (relative, marker, message) in required_markers {
+        match fs::read_to_string(lane.join(relative)) {
+            Ok(text) if text.contains(marker) => {}
+            Ok(_) => audit.findings.push(message.into()),
+            Err(error) => audit
+                .findings
+                .push(format!("repro/r4x/width-sweep/{relative}: {error}")),
+        }
+    }
+
+    let machine_files = [
+        "results.csv",
+        "matrix.csv",
+        "expected.json",
+        "sanitized_receipt.json",
+    ];
+    let forbidden_markers = [
+        "kernel_width",
+        "\"width\":",
+        "\"requested_widths\"",
+        "\"clean_widths\"",
+        "\"peak_width\"",
+        "kernel/prefill",
+    ];
+    for relative in machine_files {
+        let path = lane.join(relative);
+        let text = match fs::read_to_string(&path) {
+            Ok(text) => text,
+            Err(error) => {
+                audit.findings.push(format!("{}: {error}", path.display()));
+                continue;
+            }
+        };
+        for marker in forbidden_markers {
+            if text.contains(marker) {
+                audit.findings.push(format!(
+                    "R4X width semantics regression in {relative}: stale marker {marker:?}"
+                ));
+            }
+        }
+    }
+
+    let expected = read_json(&lane.join("expected.json"), audit);
+    if let Some(expected) = expected {
+        if expected
+            .pointer("/historical_reference/clean_logical_prefill_rows")
+            .and_then(Value::as_array)
+            .is_none()
+        {
+            audit
+                .findings
+                .push("R4X expected record lacks clean_logical_prefill_rows".into());
+        }
+        if expected
+            .pointer("/excluded_or_invalid/logical_prefill_rows_4096")
+            .and_then(Value::as_str)
+            != Some("NOT_RUN")
+        {
+            audit
+                .findings
+                .push("R4X expected record lacks logical_prefill_rows_4096=NOT_RUN".into());
+        }
+    }
+
+    let receipt = read_json(&lane.join("sanitized_receipt.json"), audit);
+    if let Some(receipt) = receipt {
+        if receipt
+            .pointer("/configuration/prefill_row_parameter")
+            .and_then(Value::as_str)
+            != Some("llama-bench -p W = n_prompt: logical prefill rows; not shader workgroup width")
+        {
+            audit.findings.push(
+                "R4X receipt lacks the authoritative prefill-row parameter declaration".into(),
+            );
+        }
+        if receipt
+            .pointer("/excluded/logical_prefill_rows_4096/status")
+            .and_then(Value::as_str)
+            != Some("NOT_RUN")
+        {
+            audit
+                .findings
+                .push("R4X receipt lacks logical_prefill_rows_4096=NOT_RUN".into());
+        }
+    }
+
+    for (relative, header) in [
+        (
+            "results.csv",
+            "logical_prefill_rows,ubatch,status,series_status,avg_rows_per_s,stddev_rows_per_s,sample1_rows_per_s,sample2_rows_per_s,sample3_rows_per_s,avg_ns,stddev_ns,error",
+        ),
+        (
+            "matrix.csv",
+            "logical_prefill_rows,ubatch,status,evidence,notes",
+        ),
+    ] {
+        let path = lane.join(relative);
+        match fs::read_to_string(&path) {
+            Ok(text) if text.lines().next() == Some(header) => {}
+            Ok(_) => audit
+                .findings
+                .push(format!("R4X {relative} has an unexpected first-column schema")),
+            Err(error) => audit
+                .findings
+                .push(format!("{}: {error}", path.display())),
+        }
     }
 }

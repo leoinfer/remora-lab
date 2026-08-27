@@ -21,8 +21,8 @@
       "id": "r4x-width-sweep-2026-08-25",
       "path": "repro/r4x/width-sweep",
       "status": "HISTORICAL_RECONSTRUCTION_AVAILABLE",
-      "claim": "Recovered R4X-D32A full-model prefill width receipt; W512 peaked at 699.677849 diagnostic rows/s at ubatch 512.",
-      "metric_boundary": "kernel/prefill rows/s, not generation tokens/s"
+      "claim": "Recovered R4X-D32A full-model llama-bench -p W logical-prefill-row receipt; W512 peaked at 699.677849 diagnostic rows/s at ubatch 512.",
+      "metric_boundary": "logical prefill rows/s, not generation tokens/s"
     },
     {
       "id": "r4kv-storage-kat-2026-08-27",
