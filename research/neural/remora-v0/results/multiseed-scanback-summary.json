@@ -1,0 +1,144 @@
+{
+  "aggregate": {
+    "baseline": {
+      "elapsed_seconds": {
+        "max": 10.886454991999926,
+        "mean": 10.841781612999815,
+        "min": 10.765877810001257,
+        "std_population": 0.05395194616216127
+      },
+      "eval_tokens_per_second": {
+        "max": 1040683.8842718957,
+        "mean": 1036678.516672211,
+        "min": 1029593.8341594544,
+        "std_population": 5023.872220012146
+      },
+      "final_loss": {
+        "max": 0.30999448785075434,
+        "mean": 0.30637271647100095,
+        "min": 0.3030650394934195,
+        "std_population": 0.002837640463994622
+      },
+      "n": 3,
+      "parameters": 1675008,
+      "perplexity": {
+        "max": 1.3634175987501764,
+        "mean": 1.3584940135268715,
+        "min": 1.3540025252168721,
+        "std_population": 0.00385581234123652
+      }
+    },
+    "remora": {
+      "elapsed_seconds": {
+        "max": 25.78709924099894,
+        "mean": 25.47688834699996,
+        "min": 25.18432917500104,
+        "std_population": 0.24639619258821652
+      },
+      "eval_tokens_per_second": {
+        "max": 224010.62611536286,
+        "mean": 221205.09128931913,
+        "min": 217736.7719748089,
+        "std_population": 2603.8143690683783
+      },
+      "final_loss": {
+        "max": 0.2834942721658283,
+        "mean": 0.2823428296380573,
+        "min": 0.2815136992269092,
+        "std_population": 0.0008400718687454029
+      },
+      "n": 3,
+      "parameters": 1682137,
+      "perplexity": {
+        "max": 1.3277612750956784,
+        "mean": 1.3262337821884702,
+        "min": 1.3251341495105784,
+        "std_population": 0.001114374411002189
+      }
+    }
+  },
+  "interpretation": "MEASURED: across three matched scratch seeds, Remora's final synthetic held-out loss was lower on every paired seed, while its wall time remained substantially higher.",
+  "paired_loss_comparison": [
+    {
+      "baseline_final_loss": 0.306058622068829,
+      "remora_final_loss": 0.2815136992269092,
+      "remora_minus_baseline": -0.02454492284191978,
+      "seed": 7
+    },
+    {
+      "baseline_final_loss": 0.30999448785075434,
+      "remora_final_loss": 0.2834942721658283,
+      "remora_minus_baseline": -0.026500215684926054,
+      "seed": 19
+    },
+    {
+      "baseline_final_loss": 0.3030650394934195,
+      "remora_final_loss": 0.28202051752143437,
+      "remora_minus_baseline": -0.021044521971985142,
+      "seed": 31
+    }
+  ],
+  "schema": "remora-v0-multiseed-summary",
+  "source_records": [
+    {
+      "elapsed_seconds": 10.886454991999926,
+      "eval_tokens_per_second": 1029593.8341594544,
+      "final_loss": 0.306058622068829,
+      "model_type": "baseline",
+      "parameters": 1675008,
+      "path": "/home/leo/research/remora-v0/results/baseline-v0-scanback-seed7.json",
+      "perplexity": 1.3580619166135661,
+      "seed": 7
+    },
+    {
+      "elapsed_seconds": 10.873012036998261,
+      "eval_tokens_per_second": 1040683.8842718957,
+      "final_loss": 0.30999448785075434,
+      "model_type": "baseline",
+      "parameters": 1675008,
+      "path": "/home/leo/research/remora-v0/results/baseline-v0-scanback-seed19.json",
+      "perplexity": 1.3634175987501764,
+      "seed": 19
+    },
+    {
+      "elapsed_seconds": 10.765877810001257,
+      "eval_tokens_per_second": 1039757.8315852828,
+      "final_loss": 0.3030650394934195,
+      "model_type": "baseline",
+      "parameters": 1675008,
+      "path": "/home/leo/research/remora-v0/results/baseline-v0-scanback-seed31.json",
+      "perplexity": 1.3540025252168721,
+      "seed": 31
+    },
+    {
+      "elapsed_seconds": 25.78709924099894,
+      "eval_tokens_per_second": 217736.7719748089,
+      "final_loss": 0.2815136992269092,
+      "model_type": "remora",
+      "parameters": 1682137,
+      "path": "/home/leo/research/remora-v0/results/remora-v0-scanback-seed7.json",
+      "perplexity": 1.3251341495105784,
+      "seed": 7
+    },
+    {
+      "elapsed_seconds": 25.459236624999903,
+      "eval_tokens_per_second": 224010.62611536286,
+      "final_loss": 0.2834942721658283,
+      "model_type": "remora",
+      "parameters": 1682137,
+      "path": "/home/leo/research/remora-v0/results/remora-v0-scanback-seed19.json",
+      "perplexity": 1.3277612750956784,
+      "seed": 19
+    },
+    {
+      "elapsed_seconds": 25.18432917500104,
+      "eval_tokens_per_second": 221867.87577778567,
+      "final_loss": 0.28202051752143437,
+      "model_type": "remora",
+      "parameters": 1682137,
+      "path": "/home/leo/research/remora-v0/results/remora-v0-scanback-seed31.json",
+      "perplexity": 1.325805921959154,
+      "seed": 31
+    }
+  ]
+}

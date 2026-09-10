@@ -1,0 +1,2841 @@
+{
+  "controls": {
+    "adapter_rehearsal": {
+      "mode": "adapter_rehearsal",
+      "old": {
+        "loss": 0.4342682569765197,
+        "perplexity": 1.5438329565341218,
+        "tokens": 94560,
+        "tokens_per_second": 217325.34021819223,
+        "wall_seconds": 0.43510802700257045
+      },
+      "same_interface": {
+        "accuracy": 1.0,
+        "count": 64,
+        "predictions": [
+          {
+            "prediction": "G",
+            "record_id": "lookup-test-208-0000",
+            "verified": true
+          },
+          {
+            "prediction": "G",
+            "record_id": "lookup-test-208-0001",
+            "verified": true
+          },
+          {
+            "prediction": "G",
+            "record_id": "lookup-test-208-0002",
+            "verified": true
+          },
+          {
+            "prediction": "H",
+            "record_id": "lookup-test-208-0003",
+            "verified": true
+          },
+          {
+            "prediction": "E",
+            "record_id": "lookup-test-208-0004",
+            "verified": true
+          },
+          {
+            "prediction": "F",
+            "record_id": "lookup-test-208-0005",
+            "verified": true
+          },
+          {
+            "prediction": "A",
+            "record_id": "lookup-test-208-0006",
+            "verified": true
+          },
+          {
+            "prediction": "D",
+            "record_id": "lookup-test-208-0007",
+            "verified": true
+          },
+          {
+            "prediction": "C",
+            "record_id": "lookup-test-208-0008",
+            "verified": true
+          },
+          {
+            "prediction": "B",
+            "record_id": "lookup-test-208-0009",
+            "verified": true
+          },
+          {
+            "prediction": "C",
+            "record_id": "lookup-test-208-0010",
+            "verified": true
+          },
+          {
+            "prediction": "D",
+            "record_id": "lookup-test-208-0011",
+            "verified": true
+          },
+          {
+            "prediction": "C",
+            "record_id": "lookup-test-208-0012",
+            "verified": true
+          },
+          {
+            "prediction": "F",
+            "record_id": "lookup-test-208-0013",
+            "verified": true
+          },
+          {
+            "prediction": "A",
+            "record_id": "lookup-test-208-0014",
+            "verified": true
+          },
+          {
+            "prediction": "H",
+            "record_id": "lookup-test-208-0015",
+            "verified": true
+          },
+          {
+            "prediction": "F",
+            "record_id": "lookup-test-208-0016",
+            "verified": true
+          },
+          {
+            "prediction": "F",
+            "record_id": "lookup-test-208-0017",
+            "verified": true
+          },
+          {
+            "prediction": "A",
+            "record_id": "lookup-test-208-0018",
+            "verified": true
+          },
+          {
+            "prediction": "B",
+            "record_id": "lookup-test-208-0019",
+            "verified": true
+          },
+          {
+            "prediction": "B",
+            "record_id": "lookup-test-208-0020",
+            "verified": true
+          },
+          {
+            "prediction": "F",
+            "record_id": "lookup-test-208-0021",
+            "verified": true
+          },
+          {
+            "prediction": "A",
+            "record_id": "lookup-test-208-0022",
+            "verified": true
+          },
+          {
+            "prediction": "D",
+            "record_id": "lookup-test-208-0023",
+            "verified": true
+          },
+          {
+            "prediction": "H",
+            "record_id": "lookup-test-208-0024",
+            "verified": true
+          },
+          {
+            "prediction": "B",
+            "record_id": "lookup-test-208-0025",
+            "verified": true
+          },
+          {
+            "prediction": "B",
+            "record_id": "lookup-test-208-0026",
+            "verified": true
+          },
+          {
+            "prediction": "G",
+            "record_id": "lookup-test-208-0027",
+            "verified": true
+          },
+          {
+            "prediction": "G",
+            "record_id": "lookup-test-208-0028",
+            "verified": true
+          },
+          {
+            "prediction": "B",
+            "record_id": "lookup-test-208-0029",
+            "verified": true
+          },
+          {
+            "prediction": "C",
+            "record_id": "lookup-test-208-0030",
+            "verified": true
+          },
+          {
+            "prediction": "A",
+            "record_id": "lookup-test-208-0031",
+            "verified": true
+          },
+          {
+            "prediction": "C",
+            "record_id": "lookup-test-208-0032",
+            "verified": true
+          },
+          {
+            "prediction": "H",
+            "record_id": "lookup-test-208-0033",
+            "verified": true
+          },
+          {
+            "prediction": "A",
+            "record_id": "lookup-test-208-0034",
+            "verified": true
+          },
+          {
+            "prediction": "D",
+            "record_id": "lookup-test-208-0035",
+            "verified": true
+          },
+          {
+            "prediction": "A",
+            "record_id": "lookup-test-208-0036",
+            "verified": true
+          },
+          {
+            "prediction": "D",
+            "record_id": "lookup-test-208-0037",
+            "verified": true
+          },
+          {
+            "prediction": "F",
+            "record_id": "lookup-test-208-0038",
+            "verified": true
+          },
+          {
+            "prediction": "H",
+            "record_id": "lookup-test-208-0039",
+            "verified": true
+          },
+          {
+            "prediction": "F",
+            "record_id": "lookup-test-208-0040",
+            "verified": true
+          },
+          {
+            "prediction": "D",
+            "record_id": "lookup-test-208-0041",
+            "verified": true
+          },
+          {
+            "prediction": "C",
+            "record_id": "lookup-test-208-0042",
+            "verified": true
+          },
+          {
+            "prediction": "B",
+            "record_id": "lookup-test-208-0043",
+            "verified": true
+          },
+          {
+            "prediction": "G",
+            "record_id": "lookup-test-208-0044",
+            "verified": true
+          },
+          {
+            "prediction": "D",
+            "record_id": "lookup-test-208-0045",
+            "verified": true
+          },
+          {
+            "prediction": "A",
+            "record_id": "lookup-test-208-0046",
+            "verified": true
+          },
+          {
+            "prediction": "D",
+            "record_id": "lookup-test-208-0047",
+            "verified": true
+          },
+          {
+            "prediction": "B",
+            "record_id": "lookup-test-208-0048",
+            "verified": true
+          },
+          {
+            "prediction": "G",
+            "record_id": "lookup-test-208-0049",
+            "verified": true
+          },
+          {
+            "prediction": "B",
+            "record_id": "lookup-test-208-0050",
+            "verified": true
+          },
+          {
+            "prediction": "B",
+            "record_id": "lookup-test-208-0051",
+            "verified": true
+          },
+          {
+            "prediction": "F",
+            "record_id": "lookup-test-208-0052",
+            "verified": true
+          },
+          {
+            "prediction": "G",
+            "record_id": "lookup-test-208-0053",
+            "verified": true
+          },
+          {
+            "prediction": "E",
+            "record_id": "lookup-test-208-0054",
+            "verified": true
+          },
+          {
+            "prediction": "E",
+            "record_id": "lookup-test-208-0055",
+            "verified": true
+          },
+          {
+            "prediction": "A",
+            "record_id": "lookup-test-208-0056",
+            "verified": true
+          },
+          {
+            "prediction": "A",
+            "record_id": "lookup-test-208-0057",
+            "verified": true
+          },
+          {
+            "prediction": "D",
+            "record_id": "lookup-test-208-0058",
+            "verified": true
+          },
+          {
+            "prediction": "G",
+            "record_id": "lookup-test-208-0059",
+            "verified": true
+          },
+          {
+            "prediction": "H",
+            "record_id": "lookup-test-208-0060",
+            "verified": true
+          },
+          {
+            "prediction": "F",
+            "record_id": "lookup-test-208-0061",
+            "verified": true
+          },
+          {
+            "prediction": "A",
+            "record_id": "lookup-test-208-0062",
+            "verified": true
+          },
+          {
+            "prediction": "H",
+            "record_id": "lookup-test-208-0063",
+            "verified": true
+          }
+        ],
+        "verified_count": 64,
+        "verifier": "external-lookup-verifier-v1"
+      },
+      "shifted_interface": {
+        "accuracy": 0.0,
+        "count": 64,
+        "predictions": [
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0000",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0001",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0002",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0003",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0004",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0005",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0006",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0007",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0008",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0009",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0010",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0011",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0012",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0013",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0014",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0015",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0016",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0017",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0018",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0019",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0020",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0021",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0022",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0023",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0024",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0025",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0026",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0027",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0028",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0029",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0030",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0031",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0032",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0033",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0034",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0035",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0036",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0037",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0038",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0039",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0040",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0041",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0042",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0043",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0044",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0045",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0046",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0047",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0048",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0049",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0050",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0051",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0052",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0053",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0054",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0055",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0056",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0057",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0058",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0059",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0060",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0061",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0062",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0063",
+            "verified": false
+          }
+        ],
+        "verified_count": 0,
+        "verifier": "external-lookup-verifier-v1"
+      },
+      "train_loss_first_last": [
+        11.28692626953125,
+        0.7375760674476624
+      ],
+      "trainable_parameters": 36864,
+      "update": {
+        "changed_fraction": 0.021914980765538123,
+        "changed_parameters": 36864,
+        "per_top_level_module": {
+          "blocks": {
+            "changed": 36864,
+            "l1": 1279.5642547607422,
+            "total": 1596696
+          },
+          "bus": {
+            "changed": 0,
+            "l1": 0.0,
+            "total": 42049
+          },
+          "final_norm": {
+            "changed": 0,
+            "l1": 0.0,
+            "total": 384
+          },
+          "position_embedding": {
+            "changed": 0,
+            "l1": 0.0,
+            "total": 18432
+          },
+          "token_embedding": {
+            "changed": 0,
+            "l1": 0.0,
+            "total": 24576
+          }
+        },
+        "total_parameters": 1682137
+      }
+    },
+    "adapter_target_only": {
+      "mode": "adapter_target_only",
+      "old": {
+        "loss": 2.3350061094700383,
+        "perplexity": 10.32952303708826,
+        "tokens": 94560,
+        "tokens_per_second": 218234.2659074064,
+        "wall_seconds": 0.4332958420018258
+      },
+      "same_interface": {
+        "accuracy": 1.0,
+        "count": 64,
+        "predictions": [
+          {
+            "prediction": "G",
+            "record_id": "lookup-test-208-0000",
+            "verified": true
+          },
+          {
+            "prediction": "G",
+            "record_id": "lookup-test-208-0001",
+            "verified": true
+          },
+          {
+            "prediction": "G",
+            "record_id": "lookup-test-208-0002",
+            "verified": true
+          },
+          {
+            "prediction": "H",
+            "record_id": "lookup-test-208-0003",
+            "verified": true
+          },
+          {
+            "prediction": "E",
+            "record_id": "lookup-test-208-0004",
+            "verified": true
+          },
+          {
+            "prediction": "F",
+            "record_id": "lookup-test-208-0005",
+            "verified": true
+          },
+          {
+            "prediction": "A",
+            "record_id": "lookup-test-208-0006",
+            "verified": true
+          },
+          {
+            "prediction": "D",
+            "record_id": "lookup-test-208-0007",
+            "verified": true
+          },
+          {
+            "prediction": "C",
+            "record_id": "lookup-test-208-0008",
+            "verified": true
+          },
+          {
+            "prediction": "B",
+            "record_id": "lookup-test-208-0009",
+            "verified": true
+          },
+          {
+            "prediction": "C",
+            "record_id": "lookup-test-208-0010",
+            "verified": true
+          },
+          {
+            "prediction": "D",
+            "record_id": "lookup-test-208-0011",
+            "verified": true
+          },
+          {
+            "prediction": "C",
+            "record_id": "lookup-test-208-0012",
+            "verified": true
+          },
+          {
+            "prediction": "F",
+            "record_id": "lookup-test-208-0013",
+            "verified": true
+          },
+          {
+            "prediction": "A",
+            "record_id": "lookup-test-208-0014",
+            "verified": true
+          },
+          {
+            "prediction": "H",
+            "record_id": "lookup-test-208-0015",
+            "verified": true
+          },
+          {
+            "prediction": "F",
+            "record_id": "lookup-test-208-0016",
+            "verified": true
+          },
+          {
+            "prediction": "F",
+            "record_id": "lookup-test-208-0017",
+            "verified": true
+          },
+          {
+            "prediction": "A",
+            "record_id": "lookup-test-208-0018",
+            "verified": true
+          },
+          {
+            "prediction": "B",
+            "record_id": "lookup-test-208-0019",
+            "verified": true
+          },
+          {
+            "prediction": "B",
+            "record_id": "lookup-test-208-0020",
+            "verified": true
+          },
+          {
+            "prediction": "F",
+            "record_id": "lookup-test-208-0021",
+            "verified": true
+          },
+          {
+            "prediction": "A",
+            "record_id": "lookup-test-208-0022",
+            "verified": true
+          },
+          {
+            "prediction": "D",
+            "record_id": "lookup-test-208-0023",
+            "verified": true
+          },
+          {
+            "prediction": "H",
+            "record_id": "lookup-test-208-0024",
+            "verified": true
+          },
+          {
+            "prediction": "B",
+            "record_id": "lookup-test-208-0025",
+            "verified": true
+          },
+          {
+            "prediction": "B",
+            "record_id": "lookup-test-208-0026",
+            "verified": true
+          },
+          {
+            "prediction": "G",
+            "record_id": "lookup-test-208-0027",
+            "verified": true
+          },
+          {
+            "prediction": "G",
+            "record_id": "lookup-test-208-0028",
+            "verified": true
+          },
+          {
+            "prediction": "B",
+            "record_id": "lookup-test-208-0029",
+            "verified": true
+          },
+          {
+            "prediction": "C",
+            "record_id": "lookup-test-208-0030",
+            "verified": true
+          },
+          {
+            "prediction": "A",
+            "record_id": "lookup-test-208-0031",
+            "verified": true
+          },
+          {
+            "prediction": "C",
+            "record_id": "lookup-test-208-0032",
+            "verified": true
+          },
+          {
+            "prediction": "H",
+            "record_id": "lookup-test-208-0033",
+            "verified": true
+          },
+          {
+            "prediction": "A",
+            "record_id": "lookup-test-208-0034",
+            "verified": true
+          },
+          {
+            "prediction": "D",
+            "record_id": "lookup-test-208-0035",
+            "verified": true
+          },
+          {
+            "prediction": "A",
+            "record_id": "lookup-test-208-0036",
+            "verified": true
+          },
+          {
+            "prediction": "D",
+            "record_id": "lookup-test-208-0037",
+            "verified": true
+          },
+          {
+            "prediction": "F",
+            "record_id": "lookup-test-208-0038",
+            "verified": true
+          },
+          {
+            "prediction": "H",
+            "record_id": "lookup-test-208-0039",
+            "verified": true
+          },
+          {
+            "prediction": "F",
+            "record_id": "lookup-test-208-0040",
+            "verified": true
+          },
+          {
+            "prediction": "D",
+            "record_id": "lookup-test-208-0041",
+            "verified": true
+          },
+          {
+            "prediction": "C",
+            "record_id": "lookup-test-208-0042",
+            "verified": true
+          },
+          {
+            "prediction": "B",
+            "record_id": "lookup-test-208-0043",
+            "verified": true
+          },
+          {
+            "prediction": "G",
+            "record_id": "lookup-test-208-0044",
+            "verified": true
+          },
+          {
+            "prediction": "D",
+            "record_id": "lookup-test-208-0045",
+            "verified": true
+          },
+          {
+            "prediction": "A",
+            "record_id": "lookup-test-208-0046",
+            "verified": true
+          },
+          {
+            "prediction": "D",
+            "record_id": "lookup-test-208-0047",
+            "verified": true
+          },
+          {
+            "prediction": "B",
+            "record_id": "lookup-test-208-0048",
+            "verified": true
+          },
+          {
+            "prediction": "G",
+            "record_id": "lookup-test-208-0049",
+            "verified": true
+          },
+          {
+            "prediction": "B",
+            "record_id": "lookup-test-208-0050",
+            "verified": true
+          },
+          {
+            "prediction": "B",
+            "record_id": "lookup-test-208-0051",
+            "verified": true
+          },
+          {
+            "prediction": "F",
+            "record_id": "lookup-test-208-0052",
+            "verified": true
+          },
+          {
+            "prediction": "G",
+            "record_id": "lookup-test-208-0053",
+            "verified": true
+          },
+          {
+            "prediction": "E",
+            "record_id": "lookup-test-208-0054",
+            "verified": true
+          },
+          {
+            "prediction": "E",
+            "record_id": "lookup-test-208-0055",
+            "verified": true
+          },
+          {
+            "prediction": "A",
+            "record_id": "lookup-test-208-0056",
+            "verified": true
+          },
+          {
+            "prediction": "A",
+            "record_id": "lookup-test-208-0057",
+            "verified": true
+          },
+          {
+            "prediction": "D",
+            "record_id": "lookup-test-208-0058",
+            "verified": true
+          },
+          {
+            "prediction": "G",
+            "record_id": "lookup-test-208-0059",
+            "verified": true
+          },
+          {
+            "prediction": "H",
+            "record_id": "lookup-test-208-0060",
+            "verified": true
+          },
+          {
+            "prediction": "F",
+            "record_id": "lookup-test-208-0061",
+            "verified": true
+          },
+          {
+            "prediction": "A",
+            "record_id": "lookup-test-208-0062",
+            "verified": true
+          },
+          {
+            "prediction": "H",
+            "record_id": "lookup-test-208-0063",
+            "verified": true
+          }
+        ],
+        "verified_count": 64,
+        "verifier": "external-lookup-verifier-v1"
+      },
+      "shifted_interface": {
+        "accuracy": 0.0,
+        "count": 64,
+        "predictions": [
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0000",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0001",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0002",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0003",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0004",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0005",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0006",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0007",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0008",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0009",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0010",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0011",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0012",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0013",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0014",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0015",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0016",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0017",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0018",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0019",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0020",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0021",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0022",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0023",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0024",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0025",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0026",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0027",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0028",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0029",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0030",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0031",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0032",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0033",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0034",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0035",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0036",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0037",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0038",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0039",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0040",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0041",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0042",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0043",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0044",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0045",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0046",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0047",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0048",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0049",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0050",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0051",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0052",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0053",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0054",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0055",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0056",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0057",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0058",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0059",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0060",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0061",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0062",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0063",
+            "verified": false
+          }
+        ],
+        "verified_count": 0,
+        "verifier": "external-lookup-verifier-v1"
+      },
+      "train_loss_first_last": [
+        11.009264945983887,
+        0.6881332397460938
+      ],
+      "trainable_parameters": 36864,
+      "update": {
+        "changed_fraction": 0.021914980765538123,
+        "changed_parameters": 36864,
+        "per_top_level_module": {
+          "blocks": {
+            "changed": 36864,
+            "l1": 896.7680358886719,
+            "total": 1596696
+          },
+          "bus": {
+            "changed": 0,
+            "l1": 0.0,
+            "total": 42049
+          },
+          "final_norm": {
+            "changed": 0,
+            "l1": 0.0,
+            "total": 384
+          },
+          "position_embedding": {
+            "changed": 0,
+            "l1": 0.0,
+            "total": 18432
+          },
+          "token_embedding": {
+            "changed": 0,
+            "l1": 0.0,
+            "total": 24576
+          }
+        },
+        "total_parameters": 1682137
+      }
+    },
+    "frozen": {
+      "mode": "frozen",
+      "old": {
+        "loss": 0.2794892645729375,
+        "perplexity": 1.3224542156079515,
+        "tokens": 94560,
+        "tokens_per_second": 18532.484154115093,
+        "wall_seconds": 5.1023920599982375
+      },
+      "same_interface": {
+        "accuracy": 0.0,
+        "count": 64,
+        "predictions": [
+          {
+            "prediction": "1",
+            "record_id": "lookup-test-208-0000",
+            "verified": false
+          },
+          {
+            "prediction": "1",
+            "record_id": "lookup-test-208-0001",
+            "verified": false
+          },
+          {
+            "prediction": "1",
+            "record_id": "lookup-test-208-0002",
+            "verified": false
+          },
+          {
+            "prediction": "1",
+            "record_id": "lookup-test-208-0003",
+            "verified": false
+          },
+          {
+            "prediction": "1",
+            "record_id": "lookup-test-208-0004",
+            "verified": false
+          },
+          {
+            "prediction": "0",
+            "record_id": "lookup-test-208-0005",
+            "verified": false
+          },
+          {
+            "prediction": "0",
+            "record_id": "lookup-test-208-0006",
+            "verified": false
+          },
+          {
+            "prediction": "0",
+            "record_id": "lookup-test-208-0007",
+            "verified": false
+          },
+          {
+            "prediction": "1",
+            "record_id": "lookup-test-208-0008",
+            "verified": false
+          },
+          {
+            "prediction": "o",
+            "record_id": "lookup-test-208-0009",
+            "verified": false
+          },
+          {
+            "prediction": "1",
+            "record_id": "lookup-test-208-0010",
+            "verified": false
+          },
+          {
+            "prediction": "0",
+            "record_id": "lookup-test-208-0011",
+            "verified": false
+          },
+          {
+            "prediction": "1",
+            "record_id": "lookup-test-208-0012",
+            "verified": false
+          },
+          {
+            "prediction": "0",
+            "record_id": "lookup-test-208-0013",
+            "verified": false
+          },
+          {
+            "prediction": "0",
+            "record_id": "lookup-test-208-0014",
+            "verified": false
+          },
+          {
+            "prediction": "1",
+            "record_id": "lookup-test-208-0015",
+            "verified": false
+          },
+          {
+            "prediction": "0",
+            "record_id": "lookup-test-208-0016",
+            "verified": false
+          },
+          {
+            "prediction": "0",
+            "record_id": "lookup-test-208-0017",
+            "verified": false
+          },
+          {
+            "prediction": "0",
+            "record_id": "lookup-test-208-0018",
+            "verified": false
+          },
+          {
+            "prediction": "o",
+            "record_id": "lookup-test-208-0019",
+            "verified": false
+          },
+          {
+            "prediction": "o",
+            "record_id": "lookup-test-208-0020",
+            "verified": false
+          },
+          {
+            "prediction": "0",
+            "record_id": "lookup-test-208-0021",
+            "verified": false
+          },
+          {
+            "prediction": "0",
+            "record_id": "lookup-test-208-0022",
+            "verified": false
+          },
+          {
+            "prediction": "0",
+            "record_id": "lookup-test-208-0023",
+            "verified": false
+          },
+          {
+            "prediction": "1",
+            "record_id": "lookup-test-208-0024",
+            "verified": false
+          },
+          {
+            "prediction": "o",
+            "record_id": "lookup-test-208-0025",
+            "verified": false
+          },
+          {
+            "prediction": "o",
+            "record_id": "lookup-test-208-0026",
+            "verified": false
+          },
+          {
+            "prediction": "1",
+            "record_id": "lookup-test-208-0027",
+            "verified": false
+          },
+          {
+            "prediction": "1",
+            "record_id": "lookup-test-208-0028",
+            "verified": false
+          },
+          {
+            "prediction": "o",
+            "record_id": "lookup-test-208-0029",
+            "verified": false
+          },
+          {
+            "prediction": "1",
+            "record_id": "lookup-test-208-0030",
+            "verified": false
+          },
+          {
+            "prediction": "0",
+            "record_id": "lookup-test-208-0031",
+            "verified": false
+          },
+          {
+            "prediction": "1",
+            "record_id": "lookup-test-208-0032",
+            "verified": false
+          },
+          {
+            "prediction": "1",
+            "record_id": "lookup-test-208-0033",
+            "verified": false
+          },
+          {
+            "prediction": "0",
+            "record_id": "lookup-test-208-0034",
+            "verified": false
+          },
+          {
+            "prediction": "0",
+            "record_id": "lookup-test-208-0035",
+            "verified": false
+          },
+          {
+            "prediction": "0",
+            "record_id": "lookup-test-208-0036",
+            "verified": false
+          },
+          {
+            "prediction": "0",
+            "record_id": "lookup-test-208-0037",
+            "verified": false
+          },
+          {
+            "prediction": "0",
+            "record_id": "lookup-test-208-0038",
+            "verified": false
+          },
+          {
+            "prediction": "1",
+            "record_id": "lookup-test-208-0039",
+            "verified": false
+          },
+          {
+            "prediction": "0",
+            "record_id": "lookup-test-208-0040",
+            "verified": false
+          },
+          {
+            "prediction": "0",
+            "record_id": "lookup-test-208-0041",
+            "verified": false
+          },
+          {
+            "prediction": "1",
+            "record_id": "lookup-test-208-0042",
+            "verified": false
+          },
+          {
+            "prediction": "o",
+            "record_id": "lookup-test-208-0043",
+            "verified": false
+          },
+          {
+            "prediction": "1",
+            "record_id": "lookup-test-208-0044",
+            "verified": false
+          },
+          {
+            "prediction": "0",
+            "record_id": "lookup-test-208-0045",
+            "verified": false
+          },
+          {
+            "prediction": "0",
+            "record_id": "lookup-test-208-0046",
+            "verified": false
+          },
+          {
+            "prediction": "0",
+            "record_id": "lookup-test-208-0047",
+            "verified": false
+          },
+          {
+            "prediction": "o",
+            "record_id": "lookup-test-208-0048",
+            "verified": false
+          },
+          {
+            "prediction": "1",
+            "record_id": "lookup-test-208-0049",
+            "verified": false
+          },
+          {
+            "prediction": "o",
+            "record_id": "lookup-test-208-0050",
+            "verified": false
+          },
+          {
+            "prediction": "o",
+            "record_id": "lookup-test-208-0051",
+            "verified": false
+          },
+          {
+            "prediction": "0",
+            "record_id": "lookup-test-208-0052",
+            "verified": false
+          },
+          {
+            "prediction": "1",
+            "record_id": "lookup-test-208-0053",
+            "verified": false
+          },
+          {
+            "prediction": "1",
+            "record_id": "lookup-test-208-0054",
+            "verified": false
+          },
+          {
+            "prediction": "1",
+            "record_id": "lookup-test-208-0055",
+            "verified": false
+          },
+          {
+            "prediction": "0",
+            "record_id": "lookup-test-208-0056",
+            "verified": false
+          },
+          {
+            "prediction": "0",
+            "record_id": "lookup-test-208-0057",
+            "verified": false
+          },
+          {
+            "prediction": "0",
+            "record_id": "lookup-test-208-0058",
+            "verified": false
+          },
+          {
+            "prediction": "1",
+            "record_id": "lookup-test-208-0059",
+            "verified": false
+          },
+          {
+            "prediction": "1",
+            "record_id": "lookup-test-208-0060",
+            "verified": false
+          },
+          {
+            "prediction": "0",
+            "record_id": "lookup-test-208-0061",
+            "verified": false
+          },
+          {
+            "prediction": "0",
+            "record_id": "lookup-test-208-0062",
+            "verified": false
+          },
+          {
+            "prediction": "1",
+            "record_id": "lookup-test-208-0063",
+            "verified": false
+          }
+        ],
+        "verified_count": 0,
+        "verifier": "external-lookup-verifier-v1"
+      },
+      "shifted_interface": {
+        "accuracy": 0.0,
+        "count": 64,
+        "predictions": [
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0000",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0001",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0002",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0003",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0004",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0005",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0006",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0007",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0008",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0009",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0010",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0011",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0012",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0013",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0014",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0015",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0016",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0017",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0018",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0019",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0020",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0021",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0022",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0023",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0024",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0025",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0026",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0027",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0028",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0029",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0030",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0031",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0032",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0033",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0034",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0035",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0036",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0037",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0038",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0039",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0040",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0041",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0042",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0043",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0044",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0045",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0046",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0047",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0048",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0049",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0050",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0051",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0052",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0053",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0054",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0055",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0056",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0057",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0058",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0059",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0060",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0061",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0062",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0063",
+            "verified": false
+          }
+        ],
+        "verified_count": 0,
+        "verifier": "external-lookup-verifier-v1"
+      },
+      "train_loss_first_last": null,
+      "trainable_parameters": 1682137,
+      "update": {
+        "changed_fraction": 0.0,
+        "changed_parameters": 0,
+        "per_top_level_module": {
+          "blocks": {
+            "changed": 0,
+            "l1": 0.0,
+            "total": 1596696
+          },
+          "bus": {
+            "changed": 0,
+            "l1": 0.0,
+            "total": 42049
+          },
+          "final_norm": {
+            "changed": 0,
+            "l1": 0.0,
+            "total": 384
+          },
+          "position_embedding": {
+            "changed": 0,
+            "l1": 0.0,
+            "total": 18432
+          },
+          "token_embedding": {
+            "changed": 0,
+            "l1": 0.0,
+            "total": 24576
+          }
+        },
+        "total_parameters": 1682137
+      }
+    },
+    "full_rehearsal": {
+      "mode": "full_rehearsal",
+      "old": {
+        "loss": 1.0982179299072565,
+        "perplexity": 2.998817156965027,
+        "tokens": 94560,
+        "tokens_per_second": 210233.38807433192,
+        "wall_seconds": 0.4497858350005117
+      },
+      "same_interface": {
+        "accuracy": 1.0,
+        "count": 64,
+        "predictions": [
+          {
+            "prediction": "G",
+            "record_id": "lookup-test-208-0000",
+            "verified": true
+          },
+          {
+            "prediction": "G",
+            "record_id": "lookup-test-208-0001",
+            "verified": true
+          },
+          {
+            "prediction": "G",
+            "record_id": "lookup-test-208-0002",
+            "verified": true
+          },
+          {
+            "prediction": "H",
+            "record_id": "lookup-test-208-0003",
+            "verified": true
+          },
+          {
+            "prediction": "E",
+            "record_id": "lookup-test-208-0004",
+            "verified": true
+          },
+          {
+            "prediction": "F",
+            "record_id": "lookup-test-208-0005",
+            "verified": true
+          },
+          {
+            "prediction": "A",
+            "record_id": "lookup-test-208-0006",
+            "verified": true
+          },
+          {
+            "prediction": "D",
+            "record_id": "lookup-test-208-0007",
+            "verified": true
+          },
+          {
+            "prediction": "C",
+            "record_id": "lookup-test-208-0008",
+            "verified": true
+          },
+          {
+            "prediction": "B",
+            "record_id": "lookup-test-208-0009",
+            "verified": true
+          },
+          {
+            "prediction": "C",
+            "record_id": "lookup-test-208-0010",
+            "verified": true
+          },
+          {
+            "prediction": "D",
+            "record_id": "lookup-test-208-0011",
+            "verified": true
+          },
+          {
+            "prediction": "C",
+            "record_id": "lookup-test-208-0012",
+            "verified": true
+          },
+          {
+            "prediction": "F",
+            "record_id": "lookup-test-208-0013",
+            "verified": true
+          },
+          {
+            "prediction": "A",
+            "record_id": "lookup-test-208-0014",
+            "verified": true
+          },
+          {
+            "prediction": "H",
+            "record_id": "lookup-test-208-0015",
+            "verified": true
+          },
+          {
+            "prediction": "F",
+            "record_id": "lookup-test-208-0016",
+            "verified": true
+          },
+          {
+            "prediction": "F",
+            "record_id": "lookup-test-208-0017",
+            "verified": true
+          },
+          {
+            "prediction": "A",
+            "record_id": "lookup-test-208-0018",
+            "verified": true
+          },
+          {
+            "prediction": "B",
+            "record_id": "lookup-test-208-0019",
+            "verified": true
+          },
+          {
+            "prediction": "B",
+            "record_id": "lookup-test-208-0020",
+            "verified": true
+          },
+          {
+            "prediction": "F",
+            "record_id": "lookup-test-208-0021",
+            "verified": true
+          },
+          {
+            "prediction": "A",
+            "record_id": "lookup-test-208-0022",
+            "verified": true
+          },
+          {
+            "prediction": "D",
+            "record_id": "lookup-test-208-0023",
+            "verified": true
+          },
+          {
+            "prediction": "H",
+            "record_id": "lookup-test-208-0024",
+            "verified": true
+          },
+          {
+            "prediction": "B",
+            "record_id": "lookup-test-208-0025",
+            "verified": true
+          },
+          {
+            "prediction": "B",
+            "record_id": "lookup-test-208-0026",
+            "verified": true
+          },
+          {
+            "prediction": "G",
+            "record_id": "lookup-test-208-0027",
+            "verified": true
+          },
+          {
+            "prediction": "G",
+            "record_id": "lookup-test-208-0028",
+            "verified": true
+          },
+          {
+            "prediction": "B",
+            "record_id": "lookup-test-208-0029",
+            "verified": true
+          },
+          {
+            "prediction": "C",
+            "record_id": "lookup-test-208-0030",
+            "verified": true
+          },
+          {
+            "prediction": "A",
+            "record_id": "lookup-test-208-0031",
+            "verified": true
+          },
+          {
+            "prediction": "C",
+            "record_id": "lookup-test-208-0032",
+            "verified": true
+          },
+          {
+            "prediction": "H",
+            "record_id": "lookup-test-208-0033",
+            "verified": true
+          },
+          {
+            "prediction": "A",
+            "record_id": "lookup-test-208-0034",
+            "verified": true
+          },
+          {
+            "prediction": "D",
+            "record_id": "lookup-test-208-0035",
+            "verified": true
+          },
+          {
+            "prediction": "A",
+            "record_id": "lookup-test-208-0036",
+            "verified": true
+          },
+          {
+            "prediction": "D",
+            "record_id": "lookup-test-208-0037",
+            "verified": true
+          },
+          {
+            "prediction": "F",
+            "record_id": "lookup-test-208-0038",
+            "verified": true
+          },
+          {
+            "prediction": "H",
+            "record_id": "lookup-test-208-0039",
+            "verified": true
+          },
+          {
+            "prediction": "F",
+            "record_id": "lookup-test-208-0040",
+            "verified": true
+          },
+          {
+            "prediction": "D",
+            "record_id": "lookup-test-208-0041",
+            "verified": true
+          },
+          {
+            "prediction": "C",
+            "record_id": "lookup-test-208-0042",
+            "verified": true
+          },
+          {
+            "prediction": "B",
+            "record_id": "lookup-test-208-0043",
+            "verified": true
+          },
+          {
+            "prediction": "G",
+            "record_id": "lookup-test-208-0044",
+            "verified": true
+          },
+          {
+            "prediction": "D",
+            "record_id": "lookup-test-208-0045",
+            "verified": true
+          },
+          {
+            "prediction": "A",
+            "record_id": "lookup-test-208-0046",
+            "verified": true
+          },
+          {
+            "prediction": "D",
+            "record_id": "lookup-test-208-0047",
+            "verified": true
+          },
+          {
+            "prediction": "B",
+            "record_id": "lookup-test-208-0048",
+            "verified": true
+          },
+          {
+            "prediction": "G",
+            "record_id": "lookup-test-208-0049",
+            "verified": true
+          },
+          {
+            "prediction": "B",
+            "record_id": "lookup-test-208-0050",
+            "verified": true
+          },
+          {
+            "prediction": "B",
+            "record_id": "lookup-test-208-0051",
+            "verified": true
+          },
+          {
+            "prediction": "F",
+            "record_id": "lookup-test-208-0052",
+            "verified": true
+          },
+          {
+            "prediction": "G",
+            "record_id": "lookup-test-208-0053",
+            "verified": true
+          },
+          {
+            "prediction": "E",
+            "record_id": "lookup-test-208-0054",
+            "verified": true
+          },
+          {
+            "prediction": "E",
+            "record_id": "lookup-test-208-0055",
+            "verified": true
+          },
+          {
+            "prediction": "A",
+            "record_id": "lookup-test-208-0056",
+            "verified": true
+          },
+          {
+            "prediction": "A",
+            "record_id": "lookup-test-208-0057",
+            "verified": true
+          },
+          {
+            "prediction": "D",
+            "record_id": "lookup-test-208-0058",
+            "verified": true
+          },
+          {
+            "prediction": "G",
+            "record_id": "lookup-test-208-0059",
+            "verified": true
+          },
+          {
+            "prediction": "H",
+            "record_id": "lookup-test-208-0060",
+            "verified": true
+          },
+          {
+            "prediction": "F",
+            "record_id": "lookup-test-208-0061",
+            "verified": true
+          },
+          {
+            "prediction": "A",
+            "record_id": "lookup-test-208-0062",
+            "verified": true
+          },
+          {
+            "prediction": "H",
+            "record_id": "lookup-test-208-0063",
+            "verified": true
+          }
+        ],
+        "verified_count": 64,
+        "verifier": "external-lookup-verifier-v1"
+      },
+      "shifted_interface": {
+        "accuracy": 0.0,
+        "count": 64,
+        "predictions": [
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0000",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0001",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0002",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0003",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0004",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0005",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0006",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0007",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0008",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0009",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0010",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0011",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0012",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0013",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0014",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0015",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0016",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0017",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0018",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0019",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0020",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0021",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0022",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0023",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0024",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0025",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0026",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0027",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0028",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0029",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0030",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0031",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0032",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0033",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0034",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0035",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0036",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0037",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0038",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0039",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0040",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0041",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0042",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0043",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0044",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0045",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0046",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0047",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0048",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0049",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0050",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0051",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0052",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0053",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0054",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0055",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0056",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0057",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0058",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0059",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0060",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0061",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0062",
+            "verified": false
+          },
+          {
+            "prediction": " ",
+            "record_id": "lookup-shifted-209-0063",
+            "verified": false
+          }
+        ],
+        "verified_count": 0,
+        "verifier": "external-lookup-verifier-v1"
+      },
+      "train_loss_first_last": [
+        11.28692626953125,
+        0.0069145942106842995
+      ],
+      "trainable_parameters": 1682137,
+      "update": {
+        "changed_fraction": 0.9972029626599974,
+        "changed_parameters": 1677432,
+        "per_top_level_module": {
+          "blocks": {
+            "changed": 1596696,
+            "l1": 21785.602804714814,
+            "total": 1596696
+          },
+          "bus": {
+            "changed": 37344,
+            "l1": 414.7340527176857,
+            "total": 42049
+          },
+          "final_norm": {
+            "changed": 384,
+            "l1": 24.23101043701172,
+            "total": 384
+          },
+          "position_embedding": {
+            "changed": 18432,
+            "l1": 435.64117431640625,
+            "total": 18432
+          },
+          "token_embedding": {
+            "changed": 24576,
+            "l1": 849.140380859375,
+            "total": 24576
+          }
+        },
+        "total_parameters": 1682137
+      }
+    }
+  },
+  "device": "cuda",
+  "interpretation": "MEASURED CONDITIONAL PASS: verified lookup responses entered plastic islands with old-stream rehearsal and a bounded update; shifted-template transfer is reported separately.",
+  "mode": "MECHANISM_ONLY_SYNTHETIC_BLACKBOX_LOOKUP_DONOR",
+  "promotion": {
+    "decision_authority": "external held-out verifier",
+    "promoted": false,
+    "state": "CANDIDATE"
+  },
+  "records": {
+    "accepted": 320,
+    "donor_id": "synthetic-lookup-donor-v1",
+    "records_path": "results/donor-response-lookup-records.jsonl",
+    "same_interface_test": 64,
+    "shifted_interface_test": 64,
+    "train": 192,
+    "train_lineage_key": "synthetic-lookup-lineage-207",
+    "verifier": "external-lookup-verifier-v1"
+  },
+  "response_contract": "donor-response-v1",
+  "schema": "remora-v0-donor-response-lookup-result",
+  "seed": 207,
+  "source_checkpoint": "checkpoints/remora-v0-scratch-seed7.pt",
+  "training": {
+    "adapter_lr": 0.003,
+    "full_lr": 0.003,
+    "retention_weight": 1.0,
+    "steps": 500
+  }
+}

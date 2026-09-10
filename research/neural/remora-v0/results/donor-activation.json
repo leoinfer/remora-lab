@@ -1,0 +1,34 @@
+{
+  "accepted_records_loaded": 12,
+  "bundle_path": "results/donor-activation-bundle.safetensors",
+  "contract": {
+    "policy": "read only listed accepted tensors under a byte budget; donor remains external and frozen; verify headers and content hashes before port training",
+    "required_record_fields": [
+      "record_id",
+      "donor_id",
+      "layer_name",
+      "prompt_sha256",
+      "shape",
+      "dtype",
+      "activation_sha256",
+      "lineage_key",
+      "runtime",
+      "accepted"
+    ],
+    "version": "donor-activation-v1"
+  },
+  "interpretation": "MEASURED MECHANISM TEST: accepted donor activations round-tripped through a hash-checked safetensors bundle under a byte budget and remained compatible with donor-port-v1; no donor model loader ran.",
+  "max_activation_roundtrip_delta": 0.0,
+  "max_port_roundtrip_delta": 0.0,
+  "mode": "MECHANISM_ONLY_GUARDED_ACTIVATION_BUNDLE",
+  "payload_bytes_loaded": 2304,
+  "payload_bytes_written": 3072,
+  "promotion": {
+    "promoted": false,
+    "state": "CANDIDATE_ACTIVATION_CAPTURED"
+  },
+  "records": 16,
+  "records_path": "results/donor-activation-records.jsonl",
+  "schema": "remora-v0-donor-activation-result",
+  "seed": 71
+}

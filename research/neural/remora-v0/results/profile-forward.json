@@ -1,0 +1,99 @@
+{
+  "batch_size": 32,
+  "config": {
+    "adapter_dim": 24,
+    "baseline_d_ff": 672,
+    "bus_dim": 96,
+    "d_ff": 384,
+    "d_model": 192,
+    "dropout": 0.0,
+    "max_seq_len": 96,
+    "n_experts": 2,
+    "n_heads": 4,
+    "n_layers": 4,
+    "tie_embeddings": true,
+    "vocab_size": 128
+  },
+  "device": "cuda",
+  "interpretation": "MEASURED: the CUDA associative scan removes the token-time Python loop with near-equivalent logits; SDPA is reported separately because its performance is runtime/driver dependent on this AMD setup.",
+  "parallel_scan_equivalence": {
+    "max_abs_logit_delta": 1.1920928955078125e-06,
+    "mean_abs_logit_delta": 4.854606672211048e-08
+  },
+  "runtime": {
+    "device": "cuda",
+    "gpu_name": "AMD Radeon RX 9060 XT",
+    "hip_version": "7.15.26333",
+    "hostname": "cachyos-x8664",
+    "pid": 108641,
+    "platform": "Linux-7.2.3-1-cachyos-x86_64-with-glibc2.44",
+    "python": "3.14.7",
+    "timestamp_utc": "2026-09-10T10:39:33.689010+00:00",
+    "torch": "2.13.0+rocm10.0.0",
+    "vram_allocated_bytes": 107913216,
+    "vram_reserved_bytes": 148897792
+  },
+  "schema": "remora-v0-forward-profile-result",
+  "seed": 22,
+  "seq_len": 96,
+  "variants": {
+    "baseline_manual_attention": {
+      "sdpa": false,
+      "timing": {
+        "mean_ms": 3.0480830996869677,
+        "p50_ms": 3.041536001546774,
+        "p95_ms": 3.084287000092445,
+        "steps": 30,
+        "tokens_per_second": 1007846.5381457247,
+        "warmup": 10
+      }
+    },
+    "baseline_sdpa": {
+      "sdpa": true,
+      "timing": {
+        "mean_ms": 3.3043213003111305,
+        "p50_ms": 3.3048770019377116,
+        "p95_ms": 3.351758001372218,
+        "steps": 30,
+        "tokens_per_second": 929691.6736610162,
+        "warmup": 10
+      }
+    },
+    "remora_parallel_scan": {
+      "scan": true,
+      "sdpa": false,
+      "timing": {
+        "mean_ms": 13.00946206659622,
+        "p50_ms": 12.974548000784125,
+        "p95_ms": 13.360280001506908,
+        "steps": 30,
+        "tokens_per_second": 236135.82054924694,
+        "warmup": 10
+      }
+    },
+    "remora_parallel_scan_sdpa": {
+      "scan": true,
+      "sdpa": true,
+      "timing": {
+        "mean_ms": 13.10615473339567,
+        "p50_ms": 13.09963899984723,
+        "p95_ms": 13.269738999952096,
+        "steps": 30,
+        "tokens_per_second": 234393.69231405956,
+        "warmup": 10
+      }
+    },
+    "remora_reference": {
+      "scan": false,
+      "sdpa": false,
+      "timing": {
+        "mean_ms": 18.53313079979368,
+        "p50_ms": 18.23016100024688,
+        "p95_ms": 19.26230200115242,
+        "steps": 30,
+        "tokens_per_second": 165757.2070895976,
+        "warmup": 10
+      }
+    }
+  }
+}

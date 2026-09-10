@@ -34,6 +34,12 @@ class TeacherPortAdapter(nn.Module):
     def forward(self, teacher_features: torch.Tensor, producer: str = "donor") -> BusPacket:
         if teacher_features.size(-1) != self.teacher_dim:
             raise ValueError(f"expected donor feature width {self.teacher_dim}, got {teacher_features.size(-1)}")
+        # Donor runtimes commonly expose BF16/FP16 activations while the
+        # trainable port is kept in FP32 for stable local adaptation. Make the
+        # conversion an explicit interface operation rather than relying on a
+        # backend-specific matmul cast.
+        if teacher_features.dtype != self.down.weight.dtype:
+            teacher_features = teacher_features.to(dtype=self.down.weight.dtype)
         latent = self.up(torch.tanh(self.norm(self.down(teacher_features))))
         latent = torch.sigmoid(self.gate) * latent
         confidence = torch.sigmoid(self.confidence(latent))

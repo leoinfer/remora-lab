@@ -199,6 +199,18 @@ python -m experiments.donor_port --output results/donor-port.json
 This validates the port and promotion accounting before paying for a large
 donor query. It is deliberately labelled `MECHANISM_ONLY_SYNTHETIC_FROZEN_TEACHER`.
 
+The activation interchange is now explicit as `donor-activation-v1`. Each
+record carries a prompt hash, donor/layer identity, shape/dtype, activation
+content hash, runtime identity, and lineage key. A separate safetensors bundle
+can be loaded only for listed accepted records and only under a caller-supplied
+payload ceiling. The bundle loader performs header checks before calling
+`get_tensor`; it does not construct a donor model.
+
+The synthetic round-trip in `experiments.donor_activation` loaded 12 accepted
+records (2,304 bytes) from a 3,072-byte bundle with zero activation and port
+round-trip delta. This is an interchange/control result, not evidence that a
+Qwen representation is semantically compatible with the v0 bus.
+
 ### D3: Qwen response distillation
 
 Use an explicitly launched local Qwen runtime, fixed prompt set, deterministic
@@ -214,6 +226,38 @@ activations for the same text examples, and learn a low-rank projection into
 the Remora bus. Test whether the projection transfers beyond the collection
 prompts. Store activation statistics and hashes, not the full donor state, by
 default.
+
+The response path now has two falsifiable synthetic controls. The first,
+`DONOR-RESPONSE-001`, used sparse random arithmetic responses and failed:
+adapter-only accuracy was 0%, full-model control was 4.6875%, and old-stream
+loss rose sharply. The second, `DONOR-RESPONSE-002`, used a fixed eight-key
+lookup skill with an external verifier and old-stream rehearsal. The adapter
+reached 100% on 64 same-interface held-out queries while changing 36,864 of
+1,682,137 parameters (2.19%); old loss moved from 0.2795 to 0.4343. The
+full-model rehearsal control also reached 100% but changed 99.72% of
+parameters and ended at old loss 1.0982. A shifted prompt template scored 0%,
+so the current response protocol does not yet provide robust semantic
+interface transfer.
+
+The first explicit resident-runtime probe used the local Nanbeige 3B artifact,
+not Qwen3.8. It loaded approximately 8.4 GB of VRAM and generated eight
+bounded greedy responses through the manual `use_cache=False` compatibility
+path; the installed Transformers 5 cache API was incompatible with the
+model's custom `generate` helper. None of the eight strict integer-addition
+responses passed the external verifier, so zero records were eligible for
+distillation. This is measured runtime feasibility with zero accepted donor
+evidence, not a capability claim.
+
+The corresponding activation probe then captured the final-token output of the
+declared `model.layers.0` module. Nanbeige executes that layer twice because
+its configuration has two internal loops; the runtime records this and selects
+the last invocation rather than concatenating unlabelled states. Four BF16
+vectors of width 3,072 round-tripped through a 24,576-byte
+`donor-activation-v1` bundle, an explicit FP32 cast at the trainable port
+produced finite 96-wide bus packets, and promotion remained false. This is
+evidence that a resident model can be surgically observed through a named
+activation boundary; it is not evidence that the layer is useful to Remora on
+a held-out task.
 
 ### D5: compatible tensor surgery
 
