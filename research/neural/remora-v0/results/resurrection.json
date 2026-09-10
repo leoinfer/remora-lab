@@ -1,0 +1,77 @@
+{
+  "interpretation": "MODELED/SYNTHETIC: mechanism test; candidate quality is a controlled environment signal, not a neural benchmark.",
+  "queue": {
+    "candidates": [
+      {
+        "candidate_id": "expert-small-bus",
+        "expected_upside": 0.8,
+        "failure_reason": "capacity bottleneck in language-v1",
+        "failure_state": {
+          "bus_dim": 32,
+          "router": "dense",
+          "task": "conditional"
+        },
+        "history": [],
+        "novelty": 0.9,
+        "status": "REJECTED_UNDER_CONDITIONS_X",
+        "test_cost": 1.0,
+        "uncertainty": 0.8
+      },
+      {
+        "candidate_id": "safe-baseline",
+        "expected_upside": 0.35,
+        "failure_reason": "none",
+        "failure_state": {
+          "bus_dim": 96,
+          "router": "dense",
+          "task": "conditional"
+        },
+        "history": [],
+        "novelty": 0.1,
+        "status": "ACTIVE",
+        "test_cost": 1.0,
+        "uncertainty": 0.2
+      }
+    ]
+  },
+  "queue_after_context_change": [
+    {
+      "candidate_id": "expert-small-bus",
+      "context_change": 0.6666666666666666,
+      "priority": 1.0133333333333334,
+      "status": "REJECTED_UNDER_CONDITIONS_X"
+    },
+    {
+      "candidate_id": "safe-baseline",
+      "context_change": 0.3333333333333333,
+      "priority": 0.05133333333333333,
+      "status": "ACTIVE"
+    }
+  ],
+  "queue_before_context_change": [
+    {
+      "candidate_id": "expert-small-bus",
+      "context_change": 0.0,
+      "priority": 0.6080000000000001,
+      "status": "REJECTED_UNDER_CONDITIONS_X"
+    },
+    {
+      "candidate_id": "safe-baseline",
+      "context_change": 0.3333333333333333,
+      "priority": 0.05133333333333333,
+      "status": "ACTIVE"
+    }
+  ],
+  "schema": "remora-v0-resurrection-result",
+  "success": true,
+  "synthetic_candidate_trial": {
+    "new_state_quality": {
+      "expert-small-bus": 0.76,
+      "safe-baseline": 0.61
+    },
+    "old_state_quality": {
+      "expert-small-bus": 0.41,
+      "safe-baseline": 0.58
+    }
+  }
+}

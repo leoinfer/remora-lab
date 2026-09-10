@@ -1,0 +1,275 @@
+{
+  "checkpoint": "/home/leo/research/remora-v0/checkpoints/gpu-smoke-remora.pt",
+  "config": {
+    "adapter_dim": 24,
+    "baseline_d_ff": 1056,
+    "bus_dim": 96,
+    "d_ff": 384,
+    "d_model": 192,
+    "dropout": 0.0,
+    "max_seq_len": 96,
+    "n_experts": 2,
+    "n_heads": 4,
+    "n_layers": 4,
+    "tie_embeddings": true,
+    "vocab_size": 128
+  },
+  "elapsed_seconds": 17.06316012299976,
+  "eval_history": [
+    {
+      "loss": 4.682700467978412,
+      "perplexity": 108.06149551347153,
+      "step": 1,
+      "tokens": 47424,
+      "tokens_per_second": 32700.062103846627,
+      "wall_seconds": 1.4502724750000198
+    },
+    {
+      "loss": 4.115643605529538,
+      "perplexity": 61.29164921546348,
+      "step": 5,
+      "tokens": 47424,
+      "tokens_per_second": 32249.241373686727,
+      "wall_seconds": 1.4705462200017791
+    },
+    {
+      "loss": 3.8400989283434295,
+      "perplexity": 46.53007735557847,
+      "step": 10,
+      "tokens": 47424,
+      "tokens_per_second": 32173.236073203425,
+      "wall_seconds": 1.4740202040011354
+    },
+    {
+      "loss": 3.5533016731864526,
+      "perplexity": 34.9284496442712,
+      "step": 15,
+      "tokens": 47424,
+      "tokens_per_second": 31767.319666913423,
+      "wall_seconds": 1.49285493699972
+    },
+    {
+      "loss": 3.2861343376067005,
+      "perplexity": 26.73929851024734,
+      "step": 20,
+      "tokens": 47424,
+      "tokens_per_second": 30748.851495462215,
+      "wall_seconds": 1.542301507000957
+    },
+    {
+      "loss": 3.0602102993953566,
+      "perplexity": 21.33204280605009,
+      "step": 25,
+      "tokens": 47424,
+      "tokens_per_second": 31659.067222166937,
+      "wall_seconds": 1.497959483998784
+    }
+  ],
+  "final_eval": {
+    "loss": 3.0602102993953566,
+    "perplexity": 21.33204280605009,
+    "step": 25,
+    "tokens": 47424,
+    "tokens_per_second": 31659.067222166937,
+    "wall_seconds": 1.497959483998784
+  },
+  "git_hash": "UNCOMMITTED_OR_UNKNOWN",
+  "history": [
+    {
+      "grad_norm": 3.3559255599975586,
+      "step": 1,
+      "step_seconds": 5.602253499000653,
+      "train_loss": 4.9452362060546875
+    },
+    {
+      "grad_norm": 3.2129147052764893,
+      "step": 2,
+      "step_seconds": 0.09947509999983595,
+      "train_loss": 4.685796737670898
+    },
+    {
+      "grad_norm": 2.8087427616119385,
+      "step": 3,
+      "step_seconds": 0.09971621099975891,
+      "train_loss": 4.444484233856201
+    },
+    {
+      "grad_norm": 2.3385441303253174,
+      "step": 4,
+      "step_seconds": 0.09941197999978613,
+      "train_loss": 4.2998833656311035
+    },
+    {
+      "grad_norm": 2.085742712020874,
+      "step": 5,
+      "step_seconds": 0.10115118300018366,
+      "train_loss": 4.198387145996094
+    },
+    {
+      "grad_norm": 1.857291579246521,
+      "step": 6,
+      "step_seconds": 0.10033983199900831,
+      "train_loss": 4.139288902282715
+    },
+    {
+      "grad_norm": 1.8166215419769287,
+      "step": 7,
+      "step_seconds": 0.10043353100081731,
+      "train_loss": 4.063477039337158
+    },
+    {
+      "grad_norm": 1.8280086517333984,
+      "step": 8,
+      "step_seconds": 0.09963491100097599,
+      "train_loss": 3.969027519226074
+    },
+    {
+      "grad_norm": 1.728914737701416,
+      "step": 9,
+      "step_seconds": 0.0999493210001674,
+      "train_loss": 3.940477132797241
+    },
+    {
+      "grad_norm": 1.773945689201355,
+      "step": 10,
+      "step_seconds": 0.09934630000134348,
+      "train_loss": 3.854505777359009
+    },
+    {
+      "grad_norm": 1.5226541757583618,
+      "step": 11,
+      "step_seconds": 0.10063408200039703,
+      "train_loss": 3.8886184692382812
+    },
+    {
+      "grad_norm": 1.536482572555542,
+      "step": 12,
+      "step_seconds": 0.10012310099955357,
+      "train_loss": 3.814183473587036
+    },
+    {
+      "grad_norm": 1.4839301109313965,
+      "step": 13,
+      "step_seconds": 0.10016546199949516,
+      "train_loss": 3.763822555541992
+    },
+    {
+      "grad_norm": 1.4080827236175537,
+      "step": 14,
+      "step_seconds": 0.09987216999979864,
+      "train_loss": 3.7053089141845703
+    },
+    {
+      "grad_norm": 1.6327462196350098,
+      "step": 15,
+      "step_seconds": 0.10085289200105763,
+      "train_loss": 3.562354326248169
+    },
+    {
+      "grad_norm": 1.3792768716812134,
+      "step": 16,
+      "step_seconds": 0.10223598400079936,
+      "train_loss": 3.603192090988159
+    },
+    {
+      "grad_norm": 1.4954800605773926,
+      "step": 17,
+      "step_seconds": 0.10083150200080127,
+      "train_loss": 3.521430015563965
+    },
+    {
+      "grad_norm": 1.615537166595459,
+      "step": 18,
+      "step_seconds": 0.16719190300136688,
+      "train_loss": 3.3795106410980225
+    },
+    {
+      "grad_norm": 1.4378000497817993,
+      "step": 19,
+      "step_seconds": 0.10233442399839987,
+      "train_loss": 3.427190065383911
+    },
+    {
+      "grad_norm": 1.6376512050628662,
+      "step": 20,
+      "step_seconds": 0.10121106199949281,
+      "train_loss": 3.308788299560547
+    },
+    {
+      "grad_norm": 1.6895583868026733,
+      "step": 21,
+      "step_seconds": 0.10376645599899348,
+      "train_loss": 3.362009048461914
+    },
+    {
+      "grad_norm": 1.440102458000183,
+      "step": 22,
+      "step_seconds": 0.10055777199886506,
+      "train_loss": 3.2535171508789062
+    },
+    {
+      "grad_norm": 1.6617177724838257,
+      "step": 23,
+      "step_seconds": 0.10072787200078892,
+      "train_loss": 3.1654675006866455
+    },
+    {
+      "grad_norm": 1.6000288724899292,
+      "step": 24,
+      "step_seconds": 0.10038129199892865,
+      "train_loss": 3.0728790760040283
+    },
+    {
+      "grad_norm": 1.3879116773605347,
+      "step": 25,
+      "step_seconds": 0.10057975200106739,
+      "train_loss": 3.0957705974578857
+    }
+  ],
+  "model_type": "remora",
+  "route_summary": {
+    "load_entropy": 0.685065746307373,
+    "mean_load": [
+      0.45481806993484497,
+      0.5451819896697998
+    ],
+    "per_layer_load": [
+      [
+        0.4938424527645111,
+        0.5061575770378113
+      ],
+      [
+        0.43183633685112,
+        0.5681636929512024
+      ],
+      [
+        0.393340528011322,
+        0.6066595315933228
+      ],
+      [
+        0.500252902507782,
+        0.4997471570968628
+      ]
+    ]
+  },
+  "run_id": "gpu-smoke-remora",
+  "runtime": {
+    "device": "cuda",
+    "gpu_name": "AMD Radeon RX 9060 XT",
+    "hip_version": "7.15.26333",
+    "hostname": "cachyos-x8664",
+    "pid": 82126,
+    "platform": "Linux-7.2.3-1-cachyos-x86_64-with-glibc2.44",
+    "python": "3.14.7",
+    "timestamp_utc": "2026-09-10T09:39:00.403131+00:00",
+    "torch": "2.13.0+rocm10.0.0",
+    "vram_allocated_bytes": 186323968,
+    "vram_reserved_bytes": 266338304
+  },
+  "schema": "remora-v0-training-result",
+  "seed": 7,
+  "summary": {
+    "parameters": 1682137,
+    "trainable_parameters": 1682137
+  }
+}

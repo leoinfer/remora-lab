@@ -1,0 +1,93 @@
+{
+  "hypothesis": "Persistent high surprise across independent clusters should allocate more compute than a duplicate or isolated anomaly.",
+  "interpretation": "MEASURED MECHANISM TEST: cluster-aware surprise distinguishes repeated correlated failure from persistent independent contradiction; this allocator is a toy policy, not a calibrated world model.",
+  "scenarios": {
+    "duplicate": {
+      "cluster_mean_nll": {
+        "same-broken-program": 2.995732307434082
+      },
+      "compute_allocation": 4,
+      "effective_independent_clusters": 1,
+      "level": "ISOLATED_OR_CORRELATED_HIGH",
+      "max_surprise": 2.995732307434082,
+      "mean_surprise": 2.995732307434082,
+      "raw_observations": 24,
+      "thresholds": {
+        "high": 1.5,
+        "low": 0.25
+      }
+    },
+    "independent": {
+      "cluster_mean_nll": {
+        "run-0": 2.995732307434082,
+        "run-1": 2.995732307434082,
+        "run-10": 2.995732307434082,
+        "run-11": 2.995732307434082,
+        "run-12": 2.995732307434082,
+        "run-13": 2.995732307434082,
+        "run-14": 2.995732307434082,
+        "run-15": 2.995732307434082,
+        "run-16": 2.995732307434082,
+        "run-17": 2.995732307434082,
+        "run-18": 2.995732307434082,
+        "run-19": 2.995732307434082,
+        "run-2": 2.995732307434082,
+        "run-20": 2.995732307434082,
+        "run-21": 2.995732307434082,
+        "run-22": 2.995732307434082,
+        "run-23": 2.995732307434082,
+        "run-3": 2.995732307434082,
+        "run-4": 2.995732307434082,
+        "run-5": 2.995732307434082,
+        "run-6": 2.995732307434082,
+        "run-7": 2.995732307434082,
+        "run-8": 2.995732307434082,
+        "run-9": 2.995732307434082
+      },
+      "compute_allocation": 8,
+      "effective_independent_clusters": 24,
+      "level": "PERSISTENT_HIGH",
+      "max_surprise": 2.995732307434082,
+      "mean_surprise": 2.995732307434082,
+      "raw_observations": 24,
+      "thresholds": {
+        "high": 1.5,
+        "low": 0.25
+      }
+    },
+    "isolated": {
+      "cluster_mean_nll": {
+        "one-run": 2.995732307434082
+      },
+      "compute_allocation": 4,
+      "effective_independent_clusters": 1,
+      "level": "ISOLATED_OR_CORRELATED_HIGH",
+      "max_surprise": 2.995732307434082,
+      "mean_surprise": 2.995732307434082,
+      "raw_observations": 1,
+      "thresholds": {
+        "high": 1.5,
+        "low": 0.25
+      }
+    },
+    "low": {
+      "cluster_mean_nll": {
+        "low-0": 0.051293306052684784,
+        "low-1": 0.051293306052684784,
+        "low-2": 0.051293306052684784,
+        "low-3": 0.051293306052684784
+      },
+      "compute_allocation": 1,
+      "effective_independent_clusters": 4,
+      "level": "LOW",
+      "max_surprise": 0.051293306052684784,
+      "mean_surprise": 0.051293306052684784,
+      "raw_observations": 4,
+      "thresholds": {
+        "high": 1.5,
+        "low": 0.25
+      }
+    }
+  },
+  "schema": "remora-v0-surprise-allocation-result"
+}

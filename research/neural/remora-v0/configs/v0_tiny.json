@@ -1,0 +1,14 @@
+{
+  "vocab_size": 128,
+  "max_seq_len": 96,
+  "d_model": 192,
+  "n_layers": 4,
+  "n_heads": 4,
+  "d_ff": 384,
+  "bus_dim": 96,
+  "n_experts": 2,
+  "adapter_dim": 24,
+  "dropout": 0.0,
+  "baseline_d_ff": 672,
+  "tie_embeddings": true
+}

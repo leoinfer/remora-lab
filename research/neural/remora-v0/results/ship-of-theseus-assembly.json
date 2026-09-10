@@ -1,0 +1,335 @@
+{
+  "edges": [
+    {
+      "downstream": "expert-layer0-g0",
+      "kind": "data",
+      "upstream": "language-v1"
+    },
+    {
+      "downstream": "lm-head",
+      "kind": "data",
+      "upstream": "expert-layer0-g0"
+    },
+    {
+      "downstream": "expert-layer1-g0",
+      "kind": "data",
+      "upstream": "language-v1"
+    },
+    {
+      "downstream": "lm-head",
+      "kind": "data",
+      "upstream": "expert-layer1-g0"
+    },
+    {
+      "downstream": "expert-layer2-g0",
+      "kind": "data",
+      "upstream": "language-v1"
+    },
+    {
+      "downstream": "lm-head",
+      "kind": "data",
+      "upstream": "expert-layer2-g0"
+    },
+    {
+      "downstream": "expert-layer3-g0",
+      "kind": "data",
+      "upstream": "language-v1"
+    },
+    {
+      "downstream": "lm-head",
+      "kind": "data",
+      "upstream": "expert-layer3-g0"
+    },
+    {
+      "downstream": "expert-layer0-g1",
+      "kind": "data",
+      "upstream": "language-v1"
+    },
+    {
+      "downstream": "lm-head",
+      "kind": "data",
+      "upstream": "expert-layer0-g1"
+    },
+    {
+      "downstream": "expert-layer1-g2",
+      "kind": "data",
+      "upstream": "language-v1"
+    },
+    {
+      "downstream": "lm-head",
+      "kind": "data",
+      "upstream": "expert-layer1-g2"
+    },
+    {
+      "downstream": "expert-layer2-g3",
+      "kind": "data",
+      "upstream": "language-v1"
+    },
+    {
+      "downstream": "lm-head",
+      "kind": "data",
+      "upstream": "expert-layer2-g3"
+    },
+    {
+      "downstream": "expert-layer3-g4",
+      "kind": "data",
+      "upstream": "language-v1"
+    },
+    {
+      "downstream": "lm-head",
+      "kind": "data",
+      "upstream": "expert-layer3-g4"
+    }
+  ],
+  "experiments": {},
+  "generation": 4,
+  "modules": {
+    "expert-layer0-g0": {
+      "ancestry": [
+        "expert-layer0-g0@g0"
+      ],
+      "benchmarks": {},
+      "content_hash": "75734212f998ceaa3a8b32aec8271e0b1c915b1f969d619c0b49fa0186e407dd",
+      "dependencies": [
+        "language-v1"
+      ],
+      "failures": [],
+      "inputs": [
+        "language-v1"
+      ],
+      "module_id": "expert-layer0-g0",
+      "outputs": [
+        "language-v1"
+      ],
+      "parameter_count": 74208,
+      "replacements": [
+        "expert-layer0-g1"
+      ],
+      "state_owner": "expert-layer0-g0",
+      "status": "DORMANT",
+      "version": "expert-v1"
+    },
+    "expert-layer0-g1": {
+      "ancestry": [
+        "expert-layer0-g0",
+        "expert-layer0-g1@g1"
+      ],
+      "benchmarks": {},
+      "content_hash": "2510b0eccca5afbbb6dafcebdd0e0c6fba4eb1be72e0c9c52a00f0ae9478aaf1",
+      "dependencies": [
+        "language-v1"
+      ],
+      "failures": [],
+      "inputs": [
+        "language-v1"
+      ],
+      "module_id": "expert-layer0-g1",
+      "outputs": [
+        "language-v1"
+      ],
+      "parameter_count": 111456,
+      "replacements": [],
+      "state_owner": "expert-layer0-g1",
+      "status": "ACTIVE",
+      "version": "expert-v1"
+    },
+    "expert-layer1-g0": {
+      "ancestry": [
+        "expert-layer1-g0@g0"
+      ],
+      "benchmarks": {},
+      "content_hash": "adef68258c21726531a03cdf3edf440fd96ec82139d24b7c5aaa8d2146ecaff0",
+      "dependencies": [
+        "language-v1"
+      ],
+      "failures": [],
+      "inputs": [
+        "language-v1"
+      ],
+      "module_id": "expert-layer1-g0",
+      "outputs": [
+        "language-v1"
+      ],
+      "parameter_count": 74208,
+      "replacements": [
+        "expert-layer1-g2"
+      ],
+      "state_owner": "expert-layer1-g0",
+      "status": "DORMANT",
+      "version": "expert-v1"
+    },
+    "expert-layer1-g2": {
+      "ancestry": [
+        "expert-layer1-g0",
+        "expert-layer1-g2@g2"
+      ],
+      "benchmarks": {},
+      "content_hash": "6b1b36440e457178d57a33275aa197585d14135066ca2408e3974e36feb401e0",
+      "dependencies": [
+        "language-v1"
+      ],
+      "failures": [],
+      "inputs": [
+        "language-v1"
+      ],
+      "module_id": "expert-layer1-g2",
+      "outputs": [
+        "language-v1"
+      ],
+      "parameter_count": 111456,
+      "replacements": [],
+      "state_owner": "expert-layer1-g2",
+      "status": "ACTIVE",
+      "version": "expert-v1"
+    },
+    "expert-layer2-g0": {
+      "ancestry": [
+        "expert-layer2-g0@g0"
+      ],
+      "benchmarks": {},
+      "content_hash": "35d98863780683cfa5abe5583b065ae2e66efa8ded4b09195e4506b7427a47b5",
+      "dependencies": [
+        "language-v1"
+      ],
+      "failures": [],
+      "inputs": [
+        "language-v1"
+      ],
+      "module_id": "expert-layer2-g0",
+      "outputs": [
+        "language-v1"
+      ],
+      "parameter_count": 74208,
+      "replacements": [
+        "expert-layer2-g3"
+      ],
+      "state_owner": "expert-layer2-g0",
+      "status": "DORMANT",
+      "version": "expert-v1"
+    },
+    "expert-layer2-g3": {
+      "ancestry": [
+        "expert-layer2-g0",
+        "expert-layer2-g3@g3"
+      ],
+      "benchmarks": {},
+      "content_hash": "fa95e71019ba8b0ff37a4a14310674a3dda9f0aec33ceebf38a67023f166f77d",
+      "dependencies": [
+        "language-v1"
+      ],
+      "failures": [],
+      "inputs": [
+        "language-v1"
+      ],
+      "module_id": "expert-layer2-g3",
+      "outputs": [
+        "language-v1"
+      ],
+      "parameter_count": 111456,
+      "replacements": [],
+      "state_owner": "expert-layer2-g3",
+      "status": "ACTIVE",
+      "version": "expert-v1"
+    },
+    "expert-layer3-g0": {
+      "ancestry": [
+        "expert-layer3-g0@g0"
+      ],
+      "benchmarks": {},
+      "content_hash": "3361eb8f5b4a576897d1ff56548b22fbd82152303a8b01d3d3f145cf66a58f17",
+      "dependencies": [
+        "language-v1"
+      ],
+      "failures": [],
+      "inputs": [
+        "language-v1"
+      ],
+      "module_id": "expert-layer3-g0",
+      "outputs": [
+        "language-v1"
+      ],
+      "parameter_count": 74208,
+      "replacements": [
+        "expert-layer3-g4"
+      ],
+      "state_owner": "expert-layer3-g0",
+      "status": "DORMANT",
+      "version": "expert-v1"
+    },
+    "expert-layer3-g4": {
+      "ancestry": [
+        "expert-layer3-g0",
+        "expert-layer3-g4@g4"
+      ],
+      "benchmarks": {},
+      "content_hash": "b0b6d89f7fd846e94f0829e6e059a6acc51fcd368e3c3b66c8155719df7c5e2f",
+      "dependencies": [
+        "language-v1"
+      ],
+      "failures": [],
+      "inputs": [
+        "language-v1"
+      ],
+      "module_id": "expert-layer3-g4",
+      "outputs": [
+        "language-v1"
+      ],
+      "parameter_count": 111456,
+      "replacements": [],
+      "state_owner": "expert-layer3-g4",
+      "status": "ACTIVE",
+      "version": "expert-v1"
+    },
+    "language-v1": {
+      "ancestry": [
+        "language-v1@g0"
+      ],
+      "benchmarks": {},
+      "content_hash": "a84c4e6fbe5e5574520dfef2de6f13aa621643437c71b61f89f7c54d214cafbe",
+      "dependencies": [],
+      "failures": [],
+      "inputs": [
+        "language-v1"
+      ],
+      "module_id": "language-v1",
+      "outputs": [
+        "language-v1"
+      ],
+      "parameter_count": 42049,
+      "replacements": [],
+      "state_owner": "language-v1",
+      "status": "ACTIVE",
+      "version": "v1"
+    },
+    "lm-head": {
+      "ancestry": [
+        "lm-head@g0"
+      ],
+      "benchmarks": {},
+      "content_hash": "8ec6f8abb874835c43ab52d80187972c3e05095bc0a4315fbc8b779845fc34bc",
+      "dependencies": [
+        "expert-layer0-g0",
+        "expert-layer1-g0",
+        "expert-layer2-g0",
+        "expert-layer3-g0",
+        "expert-layer0-g1",
+        "expert-layer1-g2",
+        "expert-layer2-g3",
+        "expert-layer3-g4"
+      ],
+      "failures": [],
+      "inputs": [
+        "language-v1"
+      ],
+      "module_id": "lm-head",
+      "outputs": [
+        "language-v1"
+      ],
+      "parameter_count": 24576,
+      "replacements": [],
+      "state_owner": "lm-head",
+      "status": "ACTIVE",
+      "version": "v1"
+    }
+  }
+}

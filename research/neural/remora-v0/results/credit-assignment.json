@@ -1,0 +1,230 @@
+{
+  "checkpoint": "checkpoints/remora-v0-scratch-seed7.pt",
+  "device": "cuda",
+  "interpretation": "MEASURED INTERVENTION TEST: responsibility is ranked by replace/ablate changes in held-out loss; learned self-attribution is not used.",
+  "original": {
+    "old": {
+      "loss": 0.27362650632858276,
+      "perplexity": 1.3147236695567177,
+      "tokens": 672,
+      "tokens_per_second": 184.192978551673,
+      "wall_seconds": 3.6483475389995874
+    },
+    "target": {
+      "loss": 5.061598777770996,
+      "perplexity": 157.84267005296277,
+      "tokens": 672,
+      "tokens_per_second": 28137.28886669019,
+      "wall_seconds": 0.023882898000010755
+    }
+  },
+  "schema": "remora-v0-credit-assignment-result",
+  "single_module_ablations": [
+    {
+      "expert": 1,
+      "layer": 1,
+      "old_loss_delta": 0.006218224763870239,
+      "scores": {
+        "old": {
+          "loss": 0.279844731092453,
+          "perplexity": 1.3229243873654006,
+          "tokens": 672,
+          "tokens_per_second": 28674.18015557637,
+          "wall_seconds": 0.023435717999745975
+        },
+        "target": {
+          "loss": 5.0928544998168945,
+          "perplexity": 162.85406610497532,
+          "tokens": 672,
+          "tokens_per_second": 28387.29975886887,
+          "wall_seconds": 0.02367255799981649
+        }
+      },
+      "target_loss_delta": 0.03125572204589844
+    },
+    {
+      "expert": 0,
+      "layer": 0,
+      "old_loss_delta": 0.003542095422744751,
+      "scores": {
+        "old": {
+          "loss": 0.2771686017513275,
+          "perplexity": 1.3193888035461363,
+          "tokens": 672,
+          "tokens_per_second": 28201.0274992207,
+          "wall_seconds": 0.023828919000152382
+        },
+        "target": {
+          "loss": 5.042232990264893,
+          "perplexity": 154.81533046518297,
+          "tokens": 672,
+          "tokens_per_second": 28381.150575839823,
+          "wall_seconds": 0.0236776869987807
+        }
+      },
+      "target_loss_delta": -0.019365787506103516
+    },
+    {
+      "expert": 0,
+      "layer": 2,
+      "old_loss_delta": 0.004801660776138306,
+      "scores": {
+        "old": {
+          "loss": 0.27842816710472107,
+          "perplexity": 1.321051707018688,
+          "tokens": 672,
+          "tokens_per_second": 28665.018881269996,
+          "wall_seconds": 0.023443208001481253
+        },
+        "target": {
+          "loss": 5.007010459899902,
+          "perplexity": 149.45725913764082,
+          "tokens": 672,
+          "tokens_per_second": 28461.398403701194,
+          "wall_seconds": 0.02361092699902656
+        }
+      },
+      "target_loss_delta": -0.05458831787109375
+    },
+    {
+      "expert": 0,
+      "layer": 1,
+      "old_loss_delta": 0.011476755142211914,
+      "scores": {
+        "old": {
+          "loss": 0.2851032614707947,
+          "perplexity": 1.329899348394129,
+          "tokens": 672,
+          "tokens_per_second": 28486.299105942693,
+          "wall_seconds": 0.023590288001287263
+        },
+        "target": {
+          "loss": 4.977986812591553,
+          "perplexity": 145.1818090607578,
+          "tokens": 672,
+          "tokens_per_second": 28559.458368677744,
+          "wall_seconds": 0.02352985800098395
+        }
+      },
+      "target_loss_delta": -0.08361196517944336
+    },
+    {
+      "expert": 1,
+      "layer": 0,
+      "old_loss_delta": 0.00417250394821167,
+      "scores": {
+        "old": {
+          "loss": 0.27779901027679443,
+          "perplexity": 1.3202208197237886,
+          "tokens": 672,
+          "tokens_per_second": 28635.057569818637,
+          "wall_seconds": 0.023467736999009503
+        },
+        "target": {
+          "loss": 4.959898471832275,
+          "perplexity": 142.5793193450641,
+          "tokens": 672,
+          "tokens_per_second": 28493.668236421327,
+          "wall_seconds": 0.023584186999869416
+        }
+      },
+      "target_loss_delta": -0.1017003059387207
+    },
+    {
+      "expert": 0,
+      "layer": 3,
+      "old_loss_delta": 0.0008158087730407715,
+      "scores": {
+        "old": {
+          "loss": 0.27444231510162354,
+          "perplexity": 1.3157966702826585,
+          "tokens": 672,
+          "tokens_per_second": 28155.82135347137,
+          "wall_seconds": 0.023867178000728018
+        },
+        "target": {
+          "loss": 4.943782329559326,
+          "perplexity": 140.29990774589314,
+          "tokens": 672,
+          "tokens_per_second": 28378.78824177231,
+          "wall_seconds": 0.02367965799930971
+        }
+      },
+      "target_loss_delta": -0.11781644821166992
+    },
+    {
+      "expert": 1,
+      "layer": 2,
+      "old_loss_delta": 0.011993944644927979,
+      "scores": {
+        "old": {
+          "loss": 0.28562045097351074,
+          "perplexity": 1.3305873362715062,
+          "tokens": 672,
+          "tokens_per_second": 28615.913421992555,
+          "wall_seconds": 0.02348343699850375
+        },
+        "target": {
+          "loss": 4.938127040863037,
+          "perplexity": 139.5087105963658,
+          "tokens": 672,
+          "tokens_per_second": 28476.100225553917,
+          "wall_seconds": 0.02359873699970194
+        }
+      },
+      "target_loss_delta": -0.12347173690795898
+    },
+    {
+      "expert": 1,
+      "layer": 3,
+      "old_loss_delta": 0.010758280754089355,
+      "scores": {
+        "old": {
+          "loss": 0.2843847870826721,
+          "perplexity": 1.3289441929419796,
+          "tokens": 672,
+          "tokens_per_second": 28531.520835411964,
+          "wall_seconds": 0.02355289799925231
+        },
+        "target": {
+          "loss": 4.8598809242248535,
+          "perplexity": 129.00883936518298,
+          "tokens": 672,
+          "tokens_per_second": 28483.075331899505,
+          "wall_seconds": 0.02359295799942629
+        }
+      },
+      "target_loss_delta": -0.20171785354614258
+    }
+  ],
+  "top_pair_intervention": {
+    "interaction_delta": -0.006202220916748047,
+    "members": [
+      [
+        1,
+        1
+      ],
+      [
+        0,
+        0
+      ]
+    ],
+    "scores": {
+      "old": {
+        "loss": 0.2881101369857788,
+        "perplexity": 1.3339042082222599,
+        "tokens": 672,
+        "tokens_per_second": 28694.223253873,
+        "wall_seconds": 0.023419348000970786
+      },
+      "target": {
+        "loss": 5.067286491394043,
+        "perplexity": 158.74299191706405,
+        "tokens": 672,
+        "tokens_per_second": 28625.433518586397,
+        "wall_seconds": 0.0234756270001526
+      }
+    },
+    "target_loss_delta": 0.005687713623046875
+  }
+}
