@@ -8,6 +8,8 @@ The returned donor is an external, frozen query service; it cannot promote a
 Remora candidate or write model weights.
 """
 
+import hashlib
+import json
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Callable, Iterable
@@ -27,6 +29,7 @@ class DonorRuntimeSpec:
     max_new_tokens: int = 32
     dtype: str = "bfloat16"
     trust_remote_code: bool = False
+    prompt_format: str = "raw"
     allow_model_load: bool = False
 
     def validate(self) -> Path:
@@ -41,6 +44,8 @@ class DonorRuntimeSpec:
             raise ValueError("prompt and generation limits must be positive")
         if self.dtype not in {"float32", "float16", "bfloat16"}:
             raise ValueError(f"unsupported runtime dtype {self.dtype}")
+        if self.prompt_format not in {"raw", "chat_template"}:
+            raise ValueError(f"unsupported prompt format {self.prompt_format}")
         if not (path / "config.json").is_file():
             raise FileNotFoundError(path / "config.json")
         return path
@@ -52,6 +57,16 @@ def _torch_dtype(name: str) -> torch.dtype:
         "float16": torch.float16,
         "bfloat16": torch.bfloat16,
     }[name]
+
+
+def _sha256_template(template: object) -> str | None:
+    if template is None:
+        return None
+    if isinstance(template, str):
+        value = template
+    else:
+        value = json.dumps(template, sort_keys=True, separators=(",", ":"))
+    return hashlib.sha256(value.encode("utf-8")).hexdigest()
 
 
 class LocalTransformersDonor:
@@ -73,6 +88,11 @@ class LocalTransformersDonor:
             local_files_only=True,
             trust_remote_code=spec.trust_remote_code,
         )
+        self.chat_template_sha256 = _sha256_template(getattr(self.tokenizer, "chat_template", None))
+        if spec.prompt_format == "chat_template":
+            apply_chat_template = getattr(self.tokenizer, "apply_chat_template", None)
+            if not callable(apply_chat_template) or self.chat_template_sha256 is None:
+                raise RuntimeError("chat_template prompt format requested but the local tokenizer has no chat template")
         config = AutoConfig.from_pretrained(
             str(path),
             local_files_only=True,
@@ -109,13 +129,40 @@ class LocalTransformersDonor:
         self.model.eval()
         self.device = next(self.model.parameters()).device
 
+    def _tokenize_prompt(self, prompt: str) -> dict[str, torch.Tensor]:
+        if self.spec.prompt_format == "chat_template":
+            encoded = self.tokenizer.apply_chat_template(
+                [{"role": "user", "content": prompt}],
+                tokenize=True,
+                add_generation_prompt=True,
+                return_tensors="pt",
+            )
+            if isinstance(encoded, torch.Tensor):
+                inputs = {"input_ids": encoded}
+            elif hasattr(encoded, "items"):
+                inputs = dict(encoded.items())
+            else:
+                raise TypeError("chat template did not return tensor inputs")
+        else:
+            inputs = dict(self.tokenizer(prompt, return_tensors="pt").items())
+        input_ids = inputs.get("input_ids")
+        if not isinstance(input_ids, torch.Tensor):
+            raise TypeError("donor tokenizer did not return input_ids")
+        if input_ids.ndim == 1:
+            input_ids = input_ids.unsqueeze(0)
+            inputs["input_ids"] = input_ids
+        if input_ids.ndim != 2 or input_ids.shape[-1] == 0:
+            raise ValueError("donor tokenizer returned an empty or malformed input sequence")
+        if "attention_mask" not in inputs:
+            inputs["attention_mask"] = torch.ones_like(input_ids)
+        return {name: value.to(self.device) for name, value in inputs.items() if isinstance(value, torch.Tensor)}
+
     def generate(self, prompt: str) -> str:
         if not isinstance(prompt, str):
             raise TypeError("donor prompt must be text")
         if not prompt or len(prompt) > self.spec.max_prompt_chars:
             raise ValueError("donor prompt is empty or exceeds the configured limit")
-        inputs = self.tokenizer(prompt, return_tensors="pt")
-        inputs = {name: value.to(self.device) for name, value in inputs.items()}
+        inputs = self._tokenize_prompt(prompt)
         input_length = int(inputs["input_ids"].shape[-1])
         input_ids = inputs["input_ids"]
         attention_mask = inputs.get("attention_mask")
@@ -160,8 +207,7 @@ class LocalTransformersDonor:
 
         handle = modules[layer_name].register_forward_hook(hook)
         try:
-            inputs = self.tokenizer(prompt, return_tensors="pt")
-            inputs = {name: value.to(self.device) for name, value in inputs.items()}
+            inputs = self._tokenize_prompt(prompt)
             with torch.inference_mode():
                 self.model(
                     **inputs,
@@ -207,6 +253,8 @@ class LocalTransformersDonor:
                     "device": str(self.device),
                     "pooling": "final_token",
                     "loop_capture_count": self.last_activation_capture_count,
+                    "prompt_format": self.spec.prompt_format,
+                    "chat_template_sha256": self.chat_template_sha256,
                     "config_repairs": list(self.config_repairs),
                 },
                 accepted=True,
@@ -242,6 +290,8 @@ class LocalTransformersDonor:
                         "device": str(self.device),
                         "sampling": "greedy",
                         "max_new_tokens": self.spec.max_new_tokens,
+                        "prompt_format": self.spec.prompt_format,
+                        "chat_template_sha256": self.chat_template_sha256,
                         "config_repairs": list(self.config_repairs),
                     },
                     verifier={"verifier_id": verifier_id, "passed": passed},

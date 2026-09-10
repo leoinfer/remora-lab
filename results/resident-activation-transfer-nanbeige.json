@@ -1,0 +1,111 @@
+{
+  "activation_dtype": "BF16",
+  "activation_shape": [
+    3072
+  ],
+  "candidate": {
+    "accuracy": {
+      "shifted": 0.4375,
+      "train": 0.5625,
+      "valid": 0.53125
+    },
+    "changed_parameters": {
+      "changed_fraction": 0.9847937377994389,
+      "changed_parameters": 304707,
+      "per_top_level_module": {
+        "head": {
+          "changed": 194,
+          "l1": 10.88702741265297,
+          "total": 194
+        },
+        "port": {
+          "changed": 304513,
+          "l1": 78759.65657925606,
+          "total": 309218
+        }
+      },
+      "total_parameters": 309412
+    },
+    "loss_first_last": [
+      0.697309672832489,
+      0.6079455614089966
+    ],
+    "parameters": 309412
+  },
+  "chat_template_sha256": "4819d36ae9e1491c0f323a3767fa1f86b34070b2849c720381e0657dd10ab21b",
+  "config_repairs": [
+    "nanbeige_rope_scaling_default_to_legacy_linear_factor_1"
+  ],
+  "derived": {
+    "shifted_utility_over_prompt_control": -0.125,
+    "useful_gate": "valid utility >= 0.05 and shifted utility >= 0.0",
+    "valid_utility_over_prompt_control": 0.03125
+  },
+  "device": "cuda",
+  "interpretation": "MEASURED FAILURE OR INCONCLUSIVE: the selected resident donor layer did not clear the predeclared held-out utility gate; no donor-derived module was promoted.",
+  "layer_name": "model.layers.0",
+  "loaded_record_count": 96,
+  "mode": "EXPLICIT_LOCAL_DONOR_ACTIVATION_TRANSFER_WITH_EXTERNAL_PARITY_ORACLE",
+  "model_path": "/home/leo/models/nanbeige4.2-3b",
+  "payload_bytes_loaded": 589824,
+  "payload_bytes_written": 589824,
+  "records_path": "results/resident-activation-transfer-records-nanbeige.jsonl",
+  "bundle_path": "results/resident-activation-transfer-nanbeige.safetensors",
+  "promotion": {
+    "decision_authority": "external held-out evaluator",
+    "promoted": false,
+    "state": "CANDIDATE_REJECTED_UNDER_THIS_TASK"
+  },
+  "prompt_byte_control": {
+    "accuracy": {
+      "shifted": 0.5625,
+      "train": 0.6875,
+      "valid": 0.5
+    },
+    "loss_first_last": [
+      0.6880416870117188,
+      0.6416648030281067
+    ],
+    "parameters": 6290
+  },
+  "prompt_format": "chat_template",
+  "records": 96,
+  "runtime_id": "nanbeige4.2-chat-template-transfer-20260910",
+  "schema": "remora-v0-resident-activation-transfer-result",
+  "seed": 931,
+  "shuffled_activation_control": {
+    "accuracy": {
+      "shifted": 0.5,
+      "train": 0.9375,
+      "valid": 0.375
+    },
+    "changed_parameters": {
+      "changed_fraction": 0.9847937377994389,
+      "changed_parameters": 304707,
+      "per_top_level_module": {
+        "head": {
+          "changed": 194,
+          "l1": 48.544570446014404,
+          "total": 194
+        },
+        "port": {
+          "changed": 304513,
+          "l1": 71577.76998186111,
+          "total": 309218
+        }
+      },
+      "total_parameters": 309412
+    },
+    "loss_first_last": [
+      0.6901753544807434,
+      0.13971830904483795
+    ],
+    "parameters": 309412
+  },
+  "split_policy": {
+    "label_source": "external parity oracle; donor responses never used as labels",
+    "shifted": "calculate[parity] v2 pairs [24,32)",
+    "train": "math-parity-v1 pairs [0,16)",
+    "valid": "math-parity-v1 pairs [16,24)"
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "accepted_count": 0,
+  "chat_template_sha256": "4819d36ae9e1491c0f323a3767fa1f86b34070b2849c720381e0657dd10ab21b",
+  "config_repairs": [
+    "nanbeige_rope_scaling_default_to_legacy_linear_factor_1"
+  ],
+  "device": "cuda",
+  "experiment_id": "DONOR-RUNTIME-CHAT-001",
+  "interpretation": "MEASURED NEGATIVE RUNTIME PROBE: the explicitly selected resident open-weight model was queryable with bounded greedy generation, but zero responses passed the external verifier; no donor evidence was eligible for distillation or promotion.",
+  "mode": "EXPLICIT_LOCAL_TRANSFORMERS_DONOR_QUERY",
+  "model_path": "/home/leo/models/nanbeige4.2-3b",
+  "promotion": {
+    "decision_authority": "external Remora experiment harness",
+    "promoted": false,
+    "state": "CANDIDATE_RESPONSE_CAPTURED"
+  },
+  "prompt_count": 8,
+  "prompt_format": "chat_template",
+  "records_path": "results/resident-donor-response-records-chat-nanbeige.jsonl",
+  "responses": [
+    {
+      "accepted": false,
+      "prompt": "Compute 2 + 3. Answer with only the integer.",
+      "record_id": "nanbeige4.2-chat-template-probe-20260910-response-0000",
+      "response": "\n\n\n\n\n\n\n\n"
+    },
+    {
+      "accepted": false,
+      "prompt": "Compute 7 + 8. Answer with only the integer.",
+      "record_id": "nanbeige4.2-chat-template-probe-20260910-response-0001",
+      "response": "\n\n\n\n\n\n7 +"
+    },
+    {
+      "accepted": false,
+      "prompt": "Compute 12 + 30. Answer with only the integer.",
+      "record_id": "nanbeige4.2-chat-template-probe-20260910-response-0002",
+      "response": "\n\n\n\n\n\n\n\n"
+    },
+    {
+      "accepted": false,
+      "prompt": "Compute 19 + 6. Answer with only the integer.",
+      "record_id": "nanbeige4.2-chat-template-probe-20260910-response-0003",
+      "response": "\n\n\n\n\n\n\n\n"
+    },
+    {
+      "accepted": false,
+      "prompt": "Compute 40 + 2. Answer with only the integer.",
+      "record_id": "nanbeige4.2-chat-template-probe-20260910-response-0004",
+      "response": "\n\n\n\n\n\n\n\n"
+    },
+    {
+      "accepted": false,
+      "prompt": "Compute 55 + 14. Answer with only the integer.",
+      "record_id": "nanbeige4.2-chat-template-probe-20260910-response-0005",
+      "response": "\n\n\n\n\n\n\n\n"
+    },
+    {
+      "accepted": false,
+      "prompt": "Compute 81 + 9. Answer with only the integer.",
+      "record_id": "nanbeige4.2-chat-template-probe-20260910-response-0006",
+      "response": "\n\n\n\n\n\n\n\n"
+    },
+    {
+      "accepted": false,
+      "prompt": "Compute 100 + 23. Answer with only the integer.",
+      "record_id": "nanbeige4.2-chat-template-probe-20260910-response-0007",
+      "response": "\n\n\n\n\n\n\n\n"
+    }
+  ],
+  "runtime": {
+    "device": "cuda",
+    "gpu_name": "AMD Radeon RX 9060 XT",
+    "hip_version": "7.15.26333",
+    "hostname": "cachyos-x8664",
+    "pid": 161585,
+    "platform": "Linux-7.2.3-1-cachyos-x86_64-with-glibc2.44",
+    "python": "3.14.7",
+    "timestamp_utc": "2026-09-10T12:54:23.876034+00:00",
+    "torch": "2.13.0+rocm10.0.0",
+    "vram_allocated_bytes": 8420353024,
+    "vram_reserved_bytes": 8482979840
+  },
+  "runtime_id": "nanbeige4.2-chat-template-probe-20260910",
+  "schema": "remora-v0-resident-donor-query-result",
+  "verifier": "external-integer-addition-v1"
+}

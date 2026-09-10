@@ -1,0 +1,48 @@
+{
+  "activation_dtype": "BF16",
+  "activation_shape": [
+    3072
+  ],
+  "bundle_path": "results/resident-donor-activation-chat-nanbeige.safetensors",
+  "chat_template_sha256": "4819d36ae9e1491c0f323a3767fa1f86b34070b2849c720381e0657dd10ab21b",
+  "config_repairs": [
+    "nanbeige_rope_scaling_default_to_legacy_linear_factor_1"
+  ],
+  "device": "cuda",
+  "interpretation": "MEASURED RUNTIME PROBE: one explicitly selected donor layer emitted final-token activations through a bounded hook, the records round-tripped through donor-activation-v1, and the port produced a finite language-bus packet; no donor module was grafted or promoted.",
+  "layer_name": "model.layers.0",
+  "loaded_record_count": 4,
+  "mode": "EXPLICIT_LOCAL_DONOR_ACTIVATION_CAPTURE",
+  "model_path": "/home/leo/models/nanbeige4.2-3b",
+  "payload_bytes_loaded": 24576,
+  "payload_bytes_written": 24576,
+  "port_output_finite": true,
+  "port_output_shape": [
+    4,
+    1,
+    96
+  ],
+  "promotion": {
+    "decision_authority": "external Remora experiment harness",
+    "promoted": false,
+    "state": "CANDIDATE_ACTIVATION_CAPTURED"
+  },
+  "prompt_format": "chat_template",
+  "record_count": 4,
+  "records_path": "results/resident-donor-activation-records-chat-nanbeige.jsonl",
+  "runtime": {
+    "device": "cuda",
+    "gpu_name": "AMD Radeon RX 9060 XT",
+    "hip_version": "7.15.26333",
+    "hostname": "cachyos-x8664",
+    "pid": 162190,
+    "platform": "Linux-7.2.3-1-cachyos-x86_64-with-glibc2.44",
+    "python": "3.14.7",
+    "timestamp_utc": "2026-09-10T12:55:32.603508+00:00",
+    "torch": "2.13.0+rocm10.0.0",
+    "vram_allocated_bytes": 8420353024,
+    "vram_reserved_bytes": 8445231104
+  },
+  "runtime_id": "nanbeige4.2-chat-template-activation-20260910",
+  "schema": "remora-v0-resident-donor-activation-result"
+}

@@ -74,6 +74,53 @@ the detailed artifacts are `results/*scanback*.json` and
 reasoning, or coding ability. Loss curves are in
 `remora-v0-scratch-seed7-loss.svg` and `baseline-v0-scratch-seed7-loss.svg`.
 
+## Real local text/code and continual parity transfer
+
+The next run used local Wikitext-2 raw train/validation/test files plus
+Remora's own Python source as the real code stream. The code and math task
+splits are deterministic, disjoint, and externally verifiable; personal data
+and resident model weights were not read. The benchmark used three paired
+seeds (7, 19, 31), 240 scratch-training steps, 120 adaptation steps, batch 16,
+sequence 96, and one fixed 1,536-token evaluation window per stream. Exact
+task metrics use the first 16 examples of each predeclared split, with a
+four-example free-running audit on parity.
+
+| Base result, mean over seeds | Remora-v0 | Monolithic baseline |
+| --- | ---: | ---: |
+| Final Wikitext-2 validation loss | **2.4682** | 2.5911 |
+| Final repository-code validation loss | **2.4184** | 2.6125 |
+| Text loss gain / million training tokens | **6.6875** | 6.1925 |
+| Code loss gain / million training tokens | **5.9942** | 5.9811 |
+
+**MEASURED:** both scratch-trained models reduced held-out real-stream loss.
+Remora was lower on the final text and code windows in this run, and its
+loss-gain-per-token was slightly higher on both domains. This is a small local
+corpus result, not evidence of broad language or coding competence.
+
+| Continual adaptation arm, mean over seeds | New parity teacher-forced accuracy | New parity free-running audit | Old text loss | Old code loss | Changed fraction |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Frozen Remora control | 43.75% | 50.00% | 2.4682 | 2.4184 | 0.00% |
+| Remora local adapter + rehearsal | **58.33%** | 50.00% | **2.9960** | **2.9047** | **2.19%** |
+| Remora local adapter, target only | 62.50% | 50.00% | 3.1327 | 3.0537 | 2.19% |
+| Frozen baseline control | 43.75% | 50.00% | 2.5911 | 2.6125 | 0.00% |
+| Baseline full model + rehearsal | 52.08% | 50.00% | 4.4523 | 4.6225 | 100.00% |
+| Baseline full model, target only | 56.25% | 50.00% | 12.5040 | 12.8709 | 99.29% |
+
+**MEASURED CONDITIONAL PASS:** local Remora adaptation cleared the declared
+nonzero-parity/update gate and changed 2.19% of the model parameters, while
+the matched full-model controls changed approximately all parameters. Rehearsal
+substantially reduced—but did not eliminate—old-stream loss. The target-only
+local arm learned more on this tiny teacher-forced subset but retained less;
+that tradeoff is why the rehearsal arm is the declared comparison.
+
+**MEASURED LIMITATION:** free-running parity was only a four-example audit and
+did not separate the arms. Exact code/math task accuracy remained zero at this
+training budget. The result supports a surgical-update mechanism under a
+controlled gate, not a claim of general reasoning or robust continual
+learning. Full JSON, split hashes, per-seed histories, checkpoints, and the
+append-only ledger entry are in `results/transfer-benchmark.json` and
+`ledger/experiments.jsonl`.
+
 ## Lifetime evidence and three timescales
 
 The controlled world encodes inherited rule Y as the default and experience
@@ -233,6 +280,25 @@ cast produced finite `[4, 1, 96]` bus packets. No donor graph was imported and
 no candidate was promoted. This validates surgical observation, not transfer
 utility.
 
+**MEASURED CHAT-TEMPLATE PROBE:** the resident runtime now applies the
+donor tokenizer's own chat template when requested and records its template
+hash. On Nanbeige the template hash was
+`4819d36ae9e1491c0f323a3767fa1f86b34070b2849c720381e0657dd10ab21b`; the
+bounded strict-integer probe still passed 0/8 responses. A chat-template
+activation capture produced four finite layer-0 records and the same 24,576
+payload bytes.
+
+**MEASURED ACTIVATION-TRANSFER FAILURE:** `DONOR-ACTIVATION-TRANSFER-001`
+captured 96 BF16 final-token records (589,824 payload bytes), trained only a
+`TeacherPortAdapter(3072 -> 96)` plus a classifier, and used externally
+computed parity labels. The candidate reached 53.125% on disjoint validation
+pairs versus 50.0% for a prompt-byte control, but reached only 43.75% on the
+shifted interface versus 56.25% for that control. The predeclared utility gate
+failed; no donor-derived module was promoted. The port itself changed
+304,707/309,412 parameters (98.48%), so the experiment does not yet support a
+cheap-import claim. Records, bundle, result, and failure history are retained
+in `results/resident-activation-transfer-*`.
+
 ## Reproduction
 
 From the repository root:
@@ -258,14 +324,14 @@ remain local because they are generated artifacts.
 
 1. Profile and optimize the Remora forward path before increasing model size;
    rerun the matched scratch comparison over at least three seeds.
-2. Add a small real text/code/math corpus and held-out transfer tasks while
+2. Expand the real text/code/math curriculum and repeat the transfer result
+   with more seeds, larger held-out task sets, and a second local corpus while
    preserving the synthetic causal tests.
-3. Add a guarded donor-runtime client that can request only selected Qwen
-   responses or activations, records prompt/runtime hashes, uses a separate
-   GPU lock, and cannot promote candidates.
-4. Run response distillation, then hidden-state port transfer, against fixed
-   controls and an external verifier; measure latency, retention, transfer,
-   and changed-parameter fraction.
+3. Retest the resident donor across layers, pooling choices, and a task where
+   the donor is actually strong; retain chat-template and response failures as
+   resurrection conditions rather than promoting them.
+4. Connect a useful donor port to a Remora specialist, then measure local
+   replacement, rehearsal, provenance recovery, and old-capability retention.
 5. Run direct tensor surgery only with a deliberately compatible small donor;
-   keep Qwen as a frozen teacher/representation source until compatibility is
-   demonstrated.
+   keep Qwen as a frozen teacher/representation source until a safe serving
+   path and held-out utility are demonstrated.

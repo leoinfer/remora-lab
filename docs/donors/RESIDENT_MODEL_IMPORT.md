@@ -17,8 +17,8 @@ The import ladder is:
 | Level | Mechanism | v0 decision |
 | --- | --- | --- |
 | 0 | Inspect config, license, index, shard headers, and tensor names | Implemented and safe by default |
-| 1 | Query a frozen donor for checked responses or logits | Synthetic mechanism control implemented; Qwen response distillation remains a separate runtime-gated test |
-| 2 | Read donor hidden states and learn a `donor-port-v1` adapter into `language-v1` | Adapter implemented; requires an explicit donor runtime |
+| 1 | Query a frozen donor for checked responses or logits | Synthetic mechanism control implemented; Nanbeige raw/chat-template probes are runtime-gated and currently yield zero accepted integer responses |
+| 2 | Read donor hidden states and learn a `donor-port-v1` adapter into `language-v1` | Adapter and resident activation-transfer utility gate implemented; first Nanbeige layer-0 task failed and remains unpromoted |
 | 3 | Graft named tensors or an expert | Only for a shape/semantics-compatible model and only with A/B tests |
 | 4 | Keep a donor resident as an optional specialist at inference | Long-term; must be budgeted as a serving dependency, not hidden state |
 
@@ -211,21 +211,33 @@ records (2,304 bytes) from a 3,072-byte bundle with zero activation and port
 round-trip delta. This is an interchange/control result, not evidence that a
 Qwen representation is semantically compatible with the v0 bus.
 
-### D3: Qwen response distillation
+### D3: response distillation
 
-Use an explicitly launched local Qwen runtime, fixed prompt set, deterministic
+Use an explicitly launched local donor runtime, fixed prompt set, deterministic
 sampling, and an external verifier. Distill only accepted responses into a
 candidate expert or adapter. Do not compare Qwen logits with Remora logits:
 their vocabularies and token positions are not aligned. A failed verifier or
-retention gate leaves the candidate dormant with a failure record.
+retention gate leaves the candidate dormant with a failure record. The runtime
+supports both `prompt_format=raw` and `prompt_format=chat_template`; the
+selected tokenizer template is hashed into each record.
 
-### D4: Qwen representation distillation
+### D4: representation distillation
 
 If the runtime can expose hidden states, choose a small layer subset, collect
 activations for the same text examples, and learn a low-rank projection into
 the Remora bus. Test whether the projection transfers beyond the collection
 prompts. Store activation statistics and hashes, not the full donor state, by
-default.
+default. The concrete resident utility test uses an external parity oracle,
+not donor-generated text, as labels:
+
+```bash
+flock -n /tmp/remora-v0-gpu.lock \
+  python -m experiments.resident_activation_transfer \
+  --model-path /home/leo/models/nanbeige4.2-3b \
+  --runtime-id nanbeige4.2-chat-template-transfer \
+  --layer-name model.layers.0 --device cuda --trust-remote-code \
+  --chat-template --allow-model-load
+```
 
 The response path now has two falsifiable synthetic controls. The first,
 `DONOR-RESPONSE-001`, used sparse random arithmetic responses and failed:
@@ -258,6 +270,25 @@ produced finite 96-wide bus packets, and promotion remained false. This is
 evidence that a resident model can be surgically observed through a named
 activation boundary; it is not evidence that the layer is useful to Remora on
 a held-out task.
+
+The chat-template rerun is a measured negative: the Nanbeige tokenizer's
+98-character template hashed to
+`4819d36ae9e1491c0f323a3767fa1f86b34070b2849c720381e0657dd10ab21b`, rendered
+the prompt through the donor's own conversation format, and still produced
+0/8 verifier-passing integer responses. The failure is retained as
+`DONOR-RUNTIME-CHAT-001`; it prevents prompt formatting from being mistaken
+for usable transferred behavior.
+
+The first actual utility test is `DONOR-ACTIVATION-TRANSFER-001`. It captured
+96 final-token activations from that layer (589,824 BF16 payload bytes), trained
+only a `TeacherPortAdapter(3072 -> 96)` and a two-class head, and compared it
+with prompt-byte and shuffled-activation controls. The activation candidate
+reached 53.125% on disjoint parity validation pairs versus 50.0% for the
+prompt control, but fell to 43.75% on the shifted interface versus 56.25% for
+the control. The predeclared utility gate therefore failed; no donor-derived
+module was promoted. The candidate port changed 304,707/309,412 parameters
+(98.48% of the port), which is another reason not to call this a cheap import.
+The records, bundle, result, and failure entry are retained under `results/`.
 
 ### D5: compatible tensor surgery
 

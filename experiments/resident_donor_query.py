@@ -48,6 +48,7 @@ def run(
     device_name: str = "auto",
     max_new_tokens: int = 8,
     trust_remote_code: bool = False,
+    prompt_format: str = "raw",
     output: str | Path | None = None,
     records_output: str | Path | None = None,
 ) -> dict:
@@ -58,6 +59,7 @@ def run(
         device=str(device),
         max_new_tokens=max_new_tokens,
         trust_remote_code=trust_remote_code,
+        prompt_format=prompt_format,
         allow_model_load=True,
     )
     donor = LocalTransformersDonor(spec)
@@ -67,7 +69,7 @@ def run(
         donor_id=f"resident-{Path(model_path).name}",
         verifier_id="external-integer-addition-v1",
         verifier=_verify_math,
-        lineage_key=f"{runtime_id}:math-probe-v1",
+        lineage_key=f"{runtime_id}:math-probe-v1:{prompt_format}",
     )
     if records_output:
         write_response_records(records_output, records)
@@ -84,6 +86,8 @@ def run(
         "model_path": str(Path(model_path).expanduser().resolve()),
         "runtime_id": runtime_id,
         "experiment_id": experiment_id,
+        "prompt_format": prompt_format,
+        "chat_template_sha256": donor.chat_template_sha256,
         "config_repairs": list(donor.config_repairs),
         "device": str(device),
         "prompt_count": len(records),
@@ -113,7 +117,7 @@ def run(
         ROOT,
         experiment_id,
         "A resident open-weight model can provide bounded, provenance-rich responses to Remora without being silently loaded by inspection or allowed to promote a candidate.",
-        "Explicitly load the user-selected local Transformers model with local_files_only, bounded greedy generation, and an external integer-addition verifier; write donor-response-v1 records.",
+        f"Explicitly load the user-selected local Transformers model with local_files_only, prompt_format={prompt_format}, bounded greedy generation, and an external integer-addition verifier; write donor-response-v1 records.",
         "The runtime loads only after explicit opt-in, respects the generation bound, records hashes/runtime lineage, and leaves promotion false; verifier-passing responses are reusable evidence.",
         "A model loads without explicit opt-in, network files are fetched, generation exceeds the bound, records lack runtime/hash lineage, or the donor/candidate self-promotes.",
         "python -m experiments.resident_donor_query --model-path <local-model> --runtime-id <id> --allow-model-load",
@@ -140,7 +144,7 @@ def run(
             "zero of the strict integer-addition probe responses passed the external verifier",
             "The resident model is executable through the bounded runtime boundary, but the selected prompt/verifier pair did not yield reusable behavior; this may reflect prompt format, model family, or runtime compatibility.",
             "Retest with the donor's documented chat template and a separately validated task before distillation; do not accept unverified text as training evidence.",
-            runtime={"device": str(device), "accepted_count": accepted, "runtime_id": runtime_id},
+            runtime={"device": str(device), "accepted_count": accepted, "runtime_id": runtime_id, "prompt_format": prompt_format},
         )
     return result
 
@@ -153,6 +157,8 @@ def main() -> None:
     parser.add_argument("--device", default="auto", choices=["auto", "cpu", "cuda"])
     parser.add_argument("--max-new-tokens", type=int, default=8)
     parser.add_argument("--trust-remote-code", action="store_true")
+    parser.add_argument("--prompt-format", choices=["raw", "chat_template"], default="raw")
+    parser.add_argument("--chat-template", action="store_const", const="chat_template", dest="prompt_format")
     parser.add_argument("--allow-model-load", action="store_true", help="required safety acknowledgment")
     parser.add_argument("--output", default=str(ROOT / "results" / "resident-donor-query.json"))
     parser.add_argument("--records-output", default=str(ROOT / "results" / "resident-donor-response-records.jsonl"))
@@ -165,6 +171,7 @@ def main() -> None:
         device_name=args.device,
         max_new_tokens=args.max_new_tokens,
         trust_remote_code=args.trust_remote_code,
+        prompt_format=args.prompt_format,
         output=args.output,
         records_output=args.records_output,
         experiment_id=args.experiment_id,

@@ -60,6 +60,13 @@ cd /home/leo/research/remora-v0
   --device auto
 /home/leo/.venvs/remora-rocm10/bin/python -m experiments.aggregate_multiseed \
   --glob 'results/*multi*.json'
+# Matched local Wikitext-2/repository-code training plus held-out verified
+# parity adaptation; use a fresh resource check and legitimate GPU lock.
+flock -n /tmp/remora-v0-gpu.lock \
+  /home/leo/.venvs/remora-rocm10/bin/python -m experiments.transfer_benchmark \
+  --wiki-root /home/leo/tmp/wikitext-2-raw \
+  --device cuda --seeds 7 19 31 --steps 240 --adaptation-steps 120 \
+  --batch-size 16 --seq-len 96 --max-eval-tokens 1536 --task-eval-count 16
 ```
 
 For a longer bounded run, use `scripts/run_v0.sh`. It records the exact
@@ -119,15 +126,33 @@ flock -n /tmp/remora-v0-gpu.lock \
   --model-path /home/leo/models/nanbeige4.2-3b \
   --runtime-id nanbeige4.2-3b-local \
   --device cuda --max-new-tokens 8 --trust-remote-code --allow-model-load
+# Chat-template-aware variant; raw prompting remains the default.
+flock -n /tmp/remora-v0-gpu.lock \
+  /home/leo/.venvs/remora-rocm10/bin/python -m experiments.resident_donor_query \
+  --model-path /home/leo/models/nanbeige4.2-3b \
+  --runtime-id nanbeige4.2-chat-template-local \
+  --device cuda --max-new-tokens 8 --trust-remote-code \
+  --chat-template --allow-model-load
 flock -n /tmp/remora-v0-gpu.lock \
   /home/leo/.venvs/remora-rocm10/bin/python -m experiments.resident_donor_activation \
   --model-path /home/leo/models/nanbeige4.2-3b \
   --runtime-id nanbeige4.2-3b-local-activation \
   --layer-name model.layers.0 \
   --device cuda --trust-remote-code --allow-model-load
+# Candidate utility test: donor labels are never trusted; the external parity
+# oracle supplies labels and promotion remains false.
+flock -n /tmp/remora-v0-gpu.lock \
+  /home/leo/.venvs/remora-rocm10/bin/python -m experiments.resident_activation_transfer \
+  --model-path /home/leo/models/nanbeige4.2-3b \
+  --runtime-id nanbeige4.2-chat-template-transfer \
+  --layer-name model.layers.0 --device cuda --trust-remote-code \
+  --chat-template --allow-model-load
 ```
 
 This path uses local-only files, manual bounded greedy decoding, external
 verifier-gated response records, layer-scoped activation hooks, and never
-promotes a Remora candidate. The Qwen3.8 source remains inspection/selection-
-only until a runtime can expose a safe, budgeted query or activation hook.
+promotes a Remora candidate. `--chat-template` applies the donor tokenizer's
+versioned conversation template and records its SHA-256 in every response or
+activation record. The Qwen3.8 source remains inspection/selection-only until a
+runtime can expose a safe, budgeted query or activation hook; the new
+activation-transfer experiment is the first real resident-donor utility gate.
