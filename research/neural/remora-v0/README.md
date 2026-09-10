@@ -40,6 +40,15 @@ cd /home/leo/research/remora-v0
   --checkpoint checkpoints/remora-v0-scratch-seed7.pt
 /home/leo/.venvs/remora-rocm10/bin/python -m experiments.ship_of_theseus \
   --checkpoint checkpoints/remora-v0-scratch-seed7.pt
+/home/leo/.venvs/remora-rocm10/bin/python -m experiments.donor_selection \
+  --manifest results/donor-inspection.json
+# Explicit payload extraction is opt-in and should write to /tmp, never the
+# donor tree; this reads only the selected tensor names.
+/home/leo/.venvs/remora-rocm10/bin/python -m experiments.donor_extract \
+  --manifest results/donor-inspection.json \
+  --selection results/donor-selection.json \
+  --output /tmp/remora-v0-donor-candidate.safetensors \
+  --allow-payload
 ```
 
 For a longer bounded run, use `scripts/run_v0.sh`. It records the exact
@@ -52,16 +61,18 @@ The authoritative experiment record is the append-only JSONL ledger at
 `ledger/experiments.jsonl`. Claims in reports are labelled `MEASURED`,
 `DERIVED`, `ESTIMATED`, `MODELED`, `HYPOTHESIS`, or `EXTERNAL`. Failed trials
 are retained with the conditions under which resurrection could be sensible.
+The first measured snapshot is `results/RESULTS_SUMMARY.md`.
 
 The initial falsification criteria and the v0 architecture contract are in
 `docs/architecture/V0_HYPOTHESIS.md` and
 `docs/architecture/V0_CONTRACT.md`.
+The working prior-art classifications are in `docs/prior_art/README.md`.
 
 The existing GitHub-backed symbolic/control lab and its boundary are described
 in `docs/PRIOR_LAB.md`; it is evidence context, not a source of pretrained
 weights for this neural run.
 
-Large temporary files should be redirected with `--artifact-dir` to `/tmp` on
+Large temporary files can be redirected with `--output-root /tmp/remora-v0` on
 the audited machine. No pretrained weights are used by the training scripts.
 
 ## Resident donor models

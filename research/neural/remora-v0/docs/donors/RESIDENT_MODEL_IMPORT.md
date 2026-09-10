@@ -17,7 +17,7 @@ The import ladder is:
 | Level | Mechanism | v0 decision |
 | --- | --- | --- |
 | 0 | Inspect config, license, index, shard headers, and tensor names | Implemented and safe by default |
-| 1 | Query a frozen donor for checked responses or logits | Planned; response distillation is the first real transfer test |
+| 1 | Query a frozen donor for checked responses or logits | Synthetic mechanism control implemented; Qwen response distillation remains a separate runtime-gated test |
 | 2 | Read donor hidden states and learn a `donor-port-v1` adapter into `language-v1` | Adapter implemented; requires an explicit donor runtime |
 | 3 | Graft named tensors or an expert | Only for a shape/semantics-compatible model and only with A/B tests |
 | 4 | Keep a donor resident as an optional specialist at inference | Long-term; must be budgeted as a serving dependency, not hidden state |
@@ -128,6 +128,61 @@ Run `experiments.donor_inspection` against the local Qwen source. Falsify the
 header-only claim if any tensor is materialized or if index/header mismatches
 are silently ignored. This experiment is already implemented and is not a
 knowledge-transfer result.
+
+### D1b: bounded component selection
+
+After D1, select complete architectural namespaces from the parsed header
+inventory without reading tensor values:
+
+```bash
+python -m experiments.donor_selection \
+  --manifest results/donor-inspection.json \
+  --output results/donor-selection.json
+```
+
+The measured Qwen selection used a 256 MiB payload budget and four components.
+It selected two complete `linear_attn` namespaces and two residual
+hyperconnection namespaces (258,171,776 payload bytes total). The result is a
+selection plan, not an extraction: the Qwen source remains unopened, and the
+candidate is registered as `CANDIDATE_EXTRACTED` with
+`frozen_teacher_or_activation_distillation` as its import mode because direct
+grafting is incompatible. A future extractor must explicitly request the
+selected names through a launched donor runtime and write a new receipt.
+
+The first selector implementation was intentionally retained as a negative
+instrumentation finding: it selected parameter leaves rather than complete
+components. The corrected selector groups by layer/component path and its
+regression test rejects arbitrary fragments. The final corrected rerun is
+`DONOR-SELECTION-003`; the intermediate attempts remain as negative ledger
+evidence.
+
+### D1c: explicit bounded payload extraction
+
+The code also contains a separate payload path for a deliberate surgical
+read. It refuses to run without `--allow-payload`, checks the selection's
+header byte accounting, reads only the selected names with `safe_open`, refuses
+to write inside the donor tree, and writes a standalone safetensors candidate
+plus a receipt. The intended command is:
+
+```bash
+python -m experiments.donor_extract \
+  --manifest results/donor-inspection.json \
+  --selection results/donor-selection.json \
+  --output /tmp/remora-v0-donor-candidate.safetensors \
+  --allow-payload
+```
+
+The command was run once against the pinned local Qwen source after a fresh
+resource check. It materialized 25 tensors from two of 131 shards, with
+258,171,776 expected and observed payload bytes, into a 258,175,320-byte
+standalone candidate in `/tmp`. The receipt records SHA-256
+`b20a37abc72f7285e565821278012095d48aa66da0e11f636acc9cb4d707d141` and
+confirms the candidate is still `CANDIDATE_EXTRACTED`. Extraction is not
+promotion and does not make the incompatible Qwen tensors usable inside the v0
+computation graph. The command is deliberately not part of the default
+training suite. Any real donor extraction must also record a license review,
+runtime provenance, and a held-out external evaluator. The extracted payload
+is not copied into GitHub.
 
 ### D2: mechanism-only port transfer
 

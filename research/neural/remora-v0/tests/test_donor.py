@@ -8,6 +8,8 @@ from remora.config import ModelConfig
 from remora.donors.manifest import inspect_resident_model
 from remora.donors.port import TeacherPortAdapter, teacher_logit_distillation_loss
 from remora.donors.registry import DonorRegistry
+from remora.donors.selection import select_components
+from remora.donors.extract import extract_selected_tensors
 
 
 class DonorTests(unittest.TestCase):
@@ -48,6 +50,57 @@ class DonorTests(unittest.TestCase):
             registry.decide("candidate", "PROMOTED", {"score": 1.0})
         candidate = registry.decide("candidate", "FROZEN_EVALUATED", {"score": 1.0}, external_decision=True)
         self.assertEqual(candidate.state, "FROZEN_EVALUATED")
+
+    def test_component_selection_is_bounded_and_value_free(self):
+        manifest = {
+            "headers": {"tensor_inventory": [
+                {"name": "model.layers.0.linear_attn.a", "tensor_class": "recurrent_or_gated_linear_attention", "nbytes": 40},
+                {"name": "model.layers.0.linear_attn.b", "tensor_class": "recurrent_or_gated_linear_attention", "nbytes": 40},
+                {"name": "model.layers.1.linear_attn.a", "tensor_class": "recurrent_or_gated_linear_attention", "nbytes": 40},
+                {"name": "model.layers.0.mlp.experts.a", "tensor_class": "expert_or_mlp", "nbytes": 1000},
+            ]},
+            "compatibility": {"status": "INCOMPATIBLE_FOR_DIRECT_GRAFT"},
+        }
+        result = select_components(manifest, ["recurrent_or_gated_linear_attention"], 100)
+        self.assertEqual(result["selected_payload_bytes"], 80)
+        self.assertEqual(result["selected"][0]["component_key"], "model.layers.0.linear_attn")
+        self.assertEqual(len(result["selected"][0]["tensor_names"]), 2)
+        self.assertTrue(result["selection_is_value_free"])
+        self.assertEqual(result["recommended_import"], "frozen_teacher_or_activation_distillation")
+
+    def test_payload_extraction_requires_opt_in_and_reads_only_selection(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp) / "donor"
+            root.mkdir()
+            (root / "config.json").write_text('{"model_type":"foreign"}\n')
+            from safetensors.torch import save_file
+
+            save_file(
+                {"layer.0.weight": torch.arange(8, dtype=torch.float32), "unused": torch.ones(4)},
+                str(root / "model.safetensors"),
+            )
+            manifest = inspect_resident_model(root, ModelConfig(vocab_size=128, d_model=32).to_dict())
+            selected = select_components(
+                manifest,
+                ["other"],
+                max_payload_bytes=64,
+                max_components=1,
+            )
+            with self.assertRaises(PermissionError):
+                extract_selected_tensors(root, manifest, selected, Path(tmp) / "candidate.safetensors")
+            output = Path(tmp) / "candidate.safetensors"
+            receipt = extract_selected_tensors(
+                root,
+                manifest,
+                selected,
+                output,
+                allow_payload=True,
+                max_payload_bytes=64,
+            )
+            self.assertTrue(receipt["payload_materialized"])
+            self.assertFalse(receipt["model_loader_called"])
+            self.assertEqual(receipt["tensor_names"], ["layer.0.weight"])
+            self.assertTrue(output.is_file())
 
 
 if __name__ == "__main__":

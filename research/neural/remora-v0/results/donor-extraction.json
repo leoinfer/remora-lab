@@ -1,0 +1,60 @@
+{
+  "extraction": {
+    "budget_bytes": 268435456,
+    "component_keys": [
+      "model.language_model.layers.0.linear_attn",
+      "model.language_model.layers.1.linear_attn",
+      "model.language_model.hyper_connection_mixer",
+      "model.language_model.layers.0.attn_hyper_connection"
+    ],
+    "expected_payload_bytes": 258171776,
+    "license_review_required": true,
+    "model_loader_called": false,
+    "observed_payload_bytes": 258171776,
+    "output_bytes": 258175320,
+    "output_path": "/tmp/remora-v0-qwen3.8-selected.safetensors",
+    "output_sha256": "b20a37abc72f7285e565821278012095d48aa66da0e11f636acc9cb4d707d141",
+    "payload_materialized": true,
+    "promotion_state": "CANDIDATE_EXTRACTED",
+    "schema": "remora-donor-extraction-v1",
+    "selection_schema": "remora-donor-selection-v1",
+    "source_path": "/home/leo/models/Qwen3.8-Flash-Next-BF16-source",
+    "source_repository": "Qwen/Qwen3.8-Flash-Next",
+    "source_revision": "f5d08274bafd880402bd16f5e3e6c514136ec06c",
+    "source_shards": [
+      "model-00001-of-00131.safetensors",
+      "model-00003-of-00131.safetensors"
+    ],
+    "tensor_names": [
+      "model.language_model.layers.0.linear_attn.A_log",
+      "model.language_model.layers.0.linear_attn.conv1d.weight",
+      "model.language_model.layers.0.linear_attn.dt_bias",
+      "model.language_model.layers.0.linear_attn.in_proj_a.weight",
+      "model.language_model.layers.0.linear_attn.in_proj_b.weight",
+      "model.language_model.layers.0.linear_attn.in_proj_qkv.weight",
+      "model.language_model.layers.0.linear_attn.in_proj_z.weight",
+      "model.language_model.layers.0.linear_attn.norm.weight",
+      "model.language_model.layers.0.linear_attn.out_proj.weight",
+      "model.language_model.layers.1.linear_attn.A_log",
+      "model.language_model.layers.1.linear_attn.conv1d.weight",
+      "model.language_model.layers.1.linear_attn.dt_bias",
+      "model.language_model.layers.1.linear_attn.in_proj_a.weight",
+      "model.language_model.layers.1.linear_attn.in_proj_b.weight",
+      "model.language_model.layers.1.linear_attn.in_proj_qkv.weight",
+      "model.language_model.layers.1.linear_attn.in_proj_z.weight",
+      "model.language_model.layers.1.linear_attn.norm.weight",
+      "model.language_model.layers.1.linear_attn.out_proj.weight",
+      "model.language_model.hyper_connection_mixer.hc_norm.weight",
+      "model.language_model.hyper_connection_mixer.input_mix_weight_down.weight",
+      "model.language_model.hyper_connection_mixer.input_mix_weight_up.weight",
+      "model.language_model.layers.0.attn_hyper_connection.block_inject_weight.weight",
+      "model.language_model.layers.0.attn_hyper_connection.hc_norm.weight",
+      "model.language_model.layers.0.attn_hyper_connection.input_mix_weight_down.weight",
+      "model.language_model.layers.0.attn_hyper_connection.input_mix_weight_up.weight"
+    ]
+  },
+  "interpretation": "MEASURED MECHANISM CONTROL: only the explicitly selected, byte-bounded donor tensors were materialized; no full model loader or candidate promotion was performed.",
+  "manifest": "results/donor-inspection.json",
+  "schema": "remora-v0-donor-extraction-result",
+  "selection": "results/donor-selection.json"
+}
