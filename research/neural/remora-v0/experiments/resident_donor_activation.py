@@ -35,6 +35,7 @@ def run(
     layer_name: str,
     device_name: str = "auto",
     trust_remote_code: bool = False,
+    prompt_format: str = "raw",
     output: str | Path | None = None,
     records_output: str | Path | None = None,
     bundle_output: str | Path | None = None,
@@ -47,6 +48,7 @@ def run(
             device=str(device),
             max_new_tokens=1,
             trust_remote_code=trust_remote_code,
+            prompt_format=prompt_format,
             allow_model_load=True,
         )
     )
@@ -54,7 +56,7 @@ def run(
         _PROMPTS,
         donor_id=f"resident-{Path(model_path).name}",
         layer_name=layer_name,
-        lineage_key=f"{runtime_id}:activation-probe-v1",
+        lineage_key=f"{runtime_id}:activation-probe-v1:{prompt_format}",
     )
     if records_output:
         write_activation_records(records_output, records)
@@ -84,6 +86,8 @@ def run(
         "model_path": str(Path(model_path).expanduser().resolve()),
         "runtime_id": runtime_id,
         "layer_name": layer_name,
+        "prompt_format": prompt_format,
+        "chat_template_sha256": donor.chat_template_sha256,
         "config_repairs": list(donor.config_repairs),
         "device": str(device),
         "record_count": len(records),
@@ -139,6 +143,8 @@ def main() -> None:
     parser.add_argument("--layer-name", default="model.layers.0")
     parser.add_argument("--device", default="auto", choices=["auto", "cpu", "cuda"])
     parser.add_argument("--trust-remote-code", action="store_true")
+    parser.add_argument("--prompt-format", choices=["raw", "chat_template"], default="raw")
+    parser.add_argument("--chat-template", action="store_const", const="chat_template", dest="prompt_format")
     parser.add_argument("--allow-model-load", action="store_true", help="required safety acknowledgment")
     parser.add_argument("--output", default=str(ROOT / "results" / "resident-donor-activation.json"))
     parser.add_argument("--records-output", default=str(ROOT / "results" / "resident-donor-activation-records.jsonl"))
@@ -152,6 +158,7 @@ def main() -> None:
         layer_name=args.layer_name,
         device_name=args.device,
         trust_remote_code=args.trust_remote_code,
+        prompt_format=args.prompt_format,
         output=args.output,
         records_output=args.records_output,
         bundle_output=args.bundle_output,

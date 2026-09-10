@@ -181,6 +181,18 @@ class DonorTests(unittest.TestCase):
                 runtime_id="fixture-runtime",
             ).validate()
 
+    def test_resident_runtime_prompt_format_is_versioned(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root / "config.json").write_text('{"model_type":"fixture"}\n')
+            with self.assertRaises(ValueError):
+                DonorRuntimeSpec(
+                    model_path=str(root),
+                    runtime_id="fixture-runtime",
+                    prompt_format="unbounded-template",
+                    allow_model_load=True,
+                ).validate()
+
 
 if __name__ == "__main__":
     unittest.main()
