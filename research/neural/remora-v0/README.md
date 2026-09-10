@@ -17,6 +17,8 @@ long-term Remora architecture is solved. The first implementation contains:
 - a trainable structured world-model prototype;
 - factual assembly lineage plus a trainable ledger reader;
 - controlled module replacement and resurrection-queue experiments.
+- a bounded Neural IR/standalone-organ path for selectively reusing trained
+  components from a resident open-weight checkpoint.
 
 The matched baseline is a conventional pre-norm causal Transformer using the
 same tokenizer, streams, optimizer family, seed policy, and approximately the
@@ -67,6 +69,29 @@ flock -n /tmp/remora-v0-gpu.lock \
   --wiki-root /home/leo/tmp/wikitext-2-raw \
   --device cuda --seeds 7 19 31 --steps 240 --adaptation-steps 120 \
   --batch-size 16 --seq-len 96 --max-eval-tokens 1536 --task-eval-count 16
+# Strong lifetime adversary, consolidation, manual, and aged surgery
+flock -n /tmp/remora-v0-gpu.lock \
+  /home/leo/.venvs/remora-rocm10/bin/python -m experiments.lifetime_compounding \
+  --device cuda --seeds 7 19 31
+/home/leo/.venvs/remora-rocm10/bin/python -m experiments.analyze_lifetime_compounding
+/home/leo/.venvs/remora-rocm10/bin/python -m experiments.consolidation_probe \
+  --seeds 7 19 31
+/home/leo/.venvs/remora-rocm10/bin/python -m experiments.manual_real_changes
+flock -n /tmp/remora-v0-gpu.lock \
+  /home/leo/.venvs/remora-rocm10/bin/python -m experiments.aged_surgery \
+  --device cuda --seeds 7 19 31 --steps 60
+flock -n /tmp/remora-v0-gpu.lock \
+  /home/leo/.venvs/remora-rocm10/bin/python -m experiments.ship_of_theseus \
+  --checkpoint checkpoints/lifetime-compounding-remora_local_rehearsal-seed7.pt \
+  --seed 7 --steps-per-generation 20 --device cuda \
+  --output results/ship-of-theseus-aged-v1.json
+# Actual Qwen shared-expert organ pilot (selected payload already extracted)
+/home/leo/.venvs/remora-rocm10/bin/python -m experiments.donor_organ
+flock -n /tmp/remora-v0-gpu.lock \
+  /home/leo/.venvs/remora-rocm10/bin/python -m experiments.donor_graft \
+  --checkpoint-dir checkpoints --payload results/qwen-neural-organ-layer0.safetensors \
+  --device cuda --seeds 7 19 31 --steps 60
+/home/leo/.venvs/remora-rocm10/bin/python -m experiments.analyze_donor_graft
 ```
 
 For a longer bounded run, use `scripts/run_v0.sh`. It records the exact
@@ -110,10 +135,12 @@ shapes, dtypes, shard accounting, provenance, license state, and compatibility
 with the v0 bus without materializing model weights. The current donor design
 and the import ladder are documented in
 `docs/donors/RESIDENT_MODEL_IMPORT.md`. Incompatible models such as the
-360-GB Qwen3.8-Flash-Next source are expected to enter Remora first as frozen
-teachers or through learned representation/response ports. Direct tensor grafts
-are allowed only after explicit shape, tokenizer, positional, normalization,
-license, and held-out compatibility checks.
+360-GB Qwen3.8-Flash-Next source cannot be loaded as a whole on this machine,
+but a finite trained organ can still be read selectively, function-checked,
+wrapped behind a Remora port, and kept as a non-promoted candidate. Direct
+tensor grafts are allowed only after explicit shape, tokenizer, positional,
+normalization, license, functional-equivalence, and held-out compatibility
+checks.
 
 An explicitly selected smaller resident model can be queried through the
 runtime boundary, but it requires a separate model-load acknowledgment and a

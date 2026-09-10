@@ -1,0 +1,695 @@
+{
+  "checkpoint": "checkpoints/lifetime-compounding-remora_local_rehearsal-seed7.pt",
+  "device": "cuda",
+  "final_scores": {
+    "old": {
+      "loss": 2.7192164182276546,
+      "perplexity": 15.16843188028932,
+      "tokens": 118464,
+      "tokens_per_second": 210545.80357893233,
+      "wall_seconds": 0.5626519170000392
+    },
+    "target": {
+      "loss": 2.118417190633631,
+      "perplexity": 8.317961315674749,
+      "tokens": 60384,
+      "tokens_per_second": 207350.558053099,
+      "wall_seconds": 0.29121696400034125
+    }
+  },
+  "generations": [
+    {
+      "adaptation_loss_first_last": [
+        6.90877628326416,
+        5.589336395263672
+      ],
+      "after_local_rehearsal": {
+        "old": {
+          "loss": 2.950688762834818,
+          "perplexity": 19.11911773200127,
+          "tokens": 118464,
+          "tokens_per_second": 218899.75665021755,
+          "wall_seconds": 0.5411792220002098
+        },
+        "target": {
+          "loss": 2.595061008426078,
+          "perplexity": 13.397404691049324,
+          "tokens": 60384,
+          "tokens_per_second": 203832.9231103191,
+          "wall_seconds": 0.2962426240010245
+        }
+      },
+      "before_replacement": {
+        "old": {
+          "loss": 3.4607880034361704,
+          "perplexity": 31.84205828245153,
+          "tokens": 118464,
+          "tokens_per_second": 212960.05535248714,
+          "wall_seconds": 0.5562733340011619
+        },
+        "target": {
+          "loss": 3.4533448170023617,
+          "perplexity": 31.605931763207966,
+          "tokens": 60384,
+          "tokens_per_second": 218266.3897060157,
+          "wall_seconds": 0.2766527639978449
+        }
+      },
+      "generation": 1,
+      "installed": "expert-layer0-g1",
+      "layer": 0,
+      "local_update": {
+        "changed_fraction": 0.06482317805494406,
+        "changed_parameters": 111456,
+        "per_top_level_module": {
+          "blocks": {
+            "changed": 111456,
+            "l1": 2178.1693593263626,
+            "total": 1633944
+          },
+          "bus": {
+            "changed": 0,
+            "l1": 0.0,
+            "total": 42049
+          },
+          "final_norm": {
+            "changed": 0,
+            "l1": 0.0,
+            "total": 384
+          },
+          "position_embedding": {
+            "changed": 0,
+            "l1": 0.0,
+            "total": 18432
+          },
+          "token_embedding": {
+            "changed": 0,
+            "l1": 0.0,
+            "total": 24576
+          }
+        },
+        "total_parameters": 1719385
+      },
+      "new_module_parameters": 111456,
+      "old_module_parameters": 74208,
+      "replaced": "expert-layer0-g0"
+    },
+    {
+      "adaptation_loss_first_last": [
+        5.56028938293457,
+        5.175609588623047
+      ],
+      "after_local_rehearsal": {
+        "old": {
+          "loss": 2.8240068275692782,
+          "perplexity": 16.84420747336684,
+          "tokens": 118464,
+          "tokens_per_second": 199606.9627959903,
+          "wall_seconds": 0.5934863110014703
+        },
+        "target": {
+          "loss": 2.3379611665759064,
+          "perplexity": 10.360092512566794,
+          "tokens": 60384,
+          "tokens_per_second": 196772.7137253032,
+          "wall_seconds": 0.30687181599932956
+        }
+      },
+      "before_replacement": {
+        "old": {
+          "loss": 2.96850344157103,
+          "perplexity": 19.462770616478778,
+          "tokens": 118464,
+          "tokens_per_second": 205162.65859430472,
+          "wall_seconds": 0.5774150170000212
+        },
+        "target": {
+          "loss": 2.602840480440561,
+          "perplexity": 13.502035885945244,
+          "tokens": 60384,
+          "tokens_per_second": 213363.90908586606,
+          "wall_seconds": 0.2830094380005903
+        }
+      },
+      "generation": 2,
+      "installed": "expert-layer1-g2",
+      "layer": 1,
+      "local_update": {
+        "changed_fraction": 0.06344865432904881,
+        "changed_parameters": 111456,
+        "per_top_level_module": {
+          "blocks": {
+            "changed": 111456,
+            "l1": 2087.4710985422134,
+            "total": 1671192
+          },
+          "bus": {
+            "changed": 0,
+            "l1": 0.0,
+            "total": 42049
+          },
+          "final_norm": {
+            "changed": 0,
+            "l1": 0.0,
+            "total": 384
+          },
+          "position_embedding": {
+            "changed": 0,
+            "l1": 0.0,
+            "total": 18432
+          },
+          "token_embedding": {
+            "changed": 0,
+            "l1": 0.0,
+            "total": 24576
+          }
+        },
+        "total_parameters": 1756633
+      },
+      "new_module_parameters": 111456,
+      "old_module_parameters": 74208,
+      "replaced": "expert-layer1-g0"
+    },
+    {
+      "adaptation_loss_first_last": [
+        5.177395820617676,
+        4.976933479309082
+      ],
+      "after_local_rehearsal": {
+        "old": {
+          "loss": 2.7492998465533387,
+          "perplexity": 15.631683474790147,
+          "tokens": 118464,
+          "tokens_per_second": 207841.90467839834,
+          "wall_seconds": 0.5699716820017784
+        },
+        "target": {
+          "loss": 2.2084482716831757,
+          "perplexity": 9.101582246798653,
+          "tokens": 60384,
+          "tokens_per_second": 209273.1764176017,
+          "wall_seconds": 0.288541517998965
+        }
+      },
+      "before_replacement": {
+        "old": {
+          "loss": 2.828421264645346,
+          "perplexity": 16.918729532806182,
+          "tokens": 118464,
+          "tokens_per_second": 202740.05692422867,
+          "wall_seconds": 0.584314722000272
+        },
+        "target": {
+          "loss": 2.3400480891259563,
+          "perplexity": 10.381735799328322,
+          "tokens": 60384,
+          "tokens_per_second": 203040.92180025062,
+          "wall_seconds": 0.2973981770010141
+        }
+      },
+      "generation": 3,
+      "installed": "expert-layer2-g3",
+      "layer": 2,
+      "local_update": {
+        "changed_fraction": 0.062131211602107383,
+        "changed_parameters": 111456,
+        "per_top_level_module": {
+          "blocks": {
+            "changed": 111456,
+            "l1": 2103.989117860794,
+            "total": 1708440
+          },
+          "bus": {
+            "changed": 0,
+            "l1": 0.0,
+            "total": 42049
+          },
+          "final_norm": {
+            "changed": 0,
+            "l1": 0.0,
+            "total": 384
+          },
+          "position_embedding": {
+            "changed": 0,
+            "l1": 0.0,
+            "total": 18432
+          },
+          "token_embedding": {
+            "changed": 0,
+            "l1": 0.0,
+            "total": 24576
+          }
+        },
+        "total_parameters": 1793881
+      },
+      "new_module_parameters": 111456,
+      "old_module_parameters": 74208,
+      "replaced": "expert-layer2-g0"
+    },
+    {
+      "adaptation_loss_first_last": [
+        4.944307327270508,
+        4.811914443969727
+      ],
+      "after_local_rehearsal": {
+        "old": {
+          "loss": 2.7192164182276546,
+          "perplexity": 15.16843188028932,
+          "tokens": 118464,
+          "tokens_per_second": 212911.4236400341,
+          "wall_seconds": 0.5564003939980466
+        },
+        "target": {
+          "loss": 2.118417190633631,
+          "perplexity": 8.317961315674749,
+          "tokens": 60384,
+          "tokens_per_second": 210250.83840064355,
+          "wall_seconds": 0.2871998059999896
+        }
+      },
+      "before_replacement": {
+        "old": {
+          "loss": 2.749929405302051,
+          "perplexity": 15.64152763629266,
+          "tokens": 118464,
+          "tokens_per_second": 203498.0078291552,
+          "wall_seconds": 0.5821383769980457
+        },
+        "target": {
+          "loss": 2.209615291207318,
+          "perplexity": 9.112210171272725,
+          "tokens": 60384,
+          "tokens_per_second": 208041.78734856352,
+          "wall_seconds": 0.2902493809997395
+        }
+      },
+      "generation": 4,
+      "installed": "expert-layer3-g4",
+      "layer": 3,
+      "local_update": {
+        "changed_fraction": 0.0608673665263343,
+        "changed_parameters": 111456,
+        "per_top_level_module": {
+          "blocks": {
+            "changed": 111456,
+            "l1": 2266.2166694402695,
+            "total": 1745688
+          },
+          "bus": {
+            "changed": 0,
+            "l1": 0.0,
+            "total": 42049
+          },
+          "final_norm": {
+            "changed": 0,
+            "l1": 0.0,
+            "total": 384
+          },
+          "position_embedding": {
+            "changed": 0,
+            "l1": 0.0,
+            "total": 18432
+          },
+          "token_embedding": {
+            "changed": 0,
+            "l1": 0.0,
+            "total": 24576
+          }
+        },
+        "total_parameters": 1831129
+      },
+      "new_module_parameters": 111456,
+      "old_module_parameters": 74208,
+      "replaced": "expert-layer3-g0"
+    }
+  ],
+  "initial_scores": {
+    "old": {
+      "loss": 3.4083882827233265,
+      "perplexity": 30.216504530226906,
+      "tokens": 118464,
+      "tokens_per_second": 22196.292696354732,
+      "wall_seconds": 5.337107490002381
+    },
+    "target": {
+      "loss": 3.410295517531791,
+      "perplexity": 30.274189491354,
+      "tokens": 60384,
+      "tokens_per_second": 217996.97051832985,
+      "wall_seconds": 0.27699467500133323
+    }
+  },
+  "interpretation": "MEASURED: sequential local replacements retained a coherent factual ancestry graph; capability retention is judged against the fixed old stream and is not inferred from lineage alone.",
+  "lineage": {
+    "assembly": {
+      "edges": [
+        {
+          "downstream": "expert-layer0-g0",
+          "kind": "data",
+          "upstream": "language-v1"
+        },
+        {
+          "downstream": "lm-head",
+          "kind": "data",
+          "upstream": "expert-layer0-g0"
+        },
+        {
+          "downstream": "expert-layer1-g0",
+          "kind": "data",
+          "upstream": "language-v1"
+        },
+        {
+          "downstream": "lm-head",
+          "kind": "data",
+          "upstream": "expert-layer1-g0"
+        },
+        {
+          "downstream": "expert-layer2-g0",
+          "kind": "data",
+          "upstream": "language-v1"
+        },
+        {
+          "downstream": "lm-head",
+          "kind": "data",
+          "upstream": "expert-layer2-g0"
+        },
+        {
+          "downstream": "expert-layer3-g0",
+          "kind": "data",
+          "upstream": "language-v1"
+        },
+        {
+          "downstream": "lm-head",
+          "kind": "data",
+          "upstream": "expert-layer3-g0"
+        },
+        {
+          "downstream": "expert-layer0-g1",
+          "kind": "data",
+          "upstream": "language-v1"
+        },
+        {
+          "downstream": "lm-head",
+          "kind": "data",
+          "upstream": "expert-layer0-g1"
+        },
+        {
+          "downstream": "expert-layer1-g2",
+          "kind": "data",
+          "upstream": "language-v1"
+        },
+        {
+          "downstream": "lm-head",
+          "kind": "data",
+          "upstream": "expert-layer1-g2"
+        },
+        {
+          "downstream": "expert-layer2-g3",
+          "kind": "data",
+          "upstream": "language-v1"
+        },
+        {
+          "downstream": "lm-head",
+          "kind": "data",
+          "upstream": "expert-layer2-g3"
+        },
+        {
+          "downstream": "expert-layer3-g4",
+          "kind": "data",
+          "upstream": "language-v1"
+        },
+        {
+          "downstream": "lm-head",
+          "kind": "data",
+          "upstream": "expert-layer3-g4"
+        }
+      ],
+      "experiments": {},
+      "generation": 4,
+      "modules": {
+        "expert-layer0-g0": {
+          "ancestry": [
+            "expert-layer0-g0@g0"
+          ],
+          "benchmarks": {},
+          "content_hash": "c76e8a8ee6a37c8ea1e90bb589cd0d66f6cf15c10b23a3ac6f551e0778313851",
+          "dependencies": [
+            "language-v1"
+          ],
+          "failures": [],
+          "inputs": [
+            "language-v1"
+          ],
+          "module_id": "expert-layer0-g0",
+          "outputs": [
+            "language-v1"
+          ],
+          "parameter_count": 74208,
+          "replacements": [
+            "expert-layer0-g1"
+          ],
+          "state_owner": "expert-layer0-g0",
+          "status": "DORMANT",
+          "version": "expert-v1"
+        },
+        "expert-layer0-g1": {
+          "ancestry": [
+            "expert-layer0-g0",
+            "expert-layer0-g1@g1"
+          ],
+          "benchmarks": {},
+          "content_hash": "3837b19038b2adbab48cf3976d453f338584f4d3ffeec0f0719bc61771022124",
+          "dependencies": [
+            "language-v1"
+          ],
+          "failures": [],
+          "inputs": [
+            "language-v1"
+          ],
+          "module_id": "expert-layer0-g1",
+          "outputs": [
+            "language-v1"
+          ],
+          "parameter_count": 111456,
+          "replacements": [],
+          "state_owner": "expert-layer0-g1",
+          "status": "ACTIVE",
+          "version": "expert-v1"
+        },
+        "expert-layer1-g0": {
+          "ancestry": [
+            "expert-layer1-g0@g0"
+          ],
+          "benchmarks": {},
+          "content_hash": "5f71c3e9d44e34e3fa7e3e103a5f9ae2a45df02ec8089eb2593695a3354b3bd3",
+          "dependencies": [
+            "language-v1"
+          ],
+          "failures": [],
+          "inputs": [
+            "language-v1"
+          ],
+          "module_id": "expert-layer1-g0",
+          "outputs": [
+            "language-v1"
+          ],
+          "parameter_count": 74208,
+          "replacements": [
+            "expert-layer1-g2"
+          ],
+          "state_owner": "expert-layer1-g0",
+          "status": "DORMANT",
+          "version": "expert-v1"
+        },
+        "expert-layer1-g2": {
+          "ancestry": [
+            "expert-layer1-g0",
+            "expert-layer1-g2@g2"
+          ],
+          "benchmarks": {},
+          "content_hash": "8328ea9dcd48976caba49e371c145c776090bc80ff2ef62c20fc61fac35dda4c",
+          "dependencies": [
+            "language-v1"
+          ],
+          "failures": [],
+          "inputs": [
+            "language-v1"
+          ],
+          "module_id": "expert-layer1-g2",
+          "outputs": [
+            "language-v1"
+          ],
+          "parameter_count": 111456,
+          "replacements": [],
+          "state_owner": "expert-layer1-g2",
+          "status": "ACTIVE",
+          "version": "expert-v1"
+        },
+        "expert-layer2-g0": {
+          "ancestry": [
+            "expert-layer2-g0@g0"
+          ],
+          "benchmarks": {},
+          "content_hash": "a9fab11310bbc8e8c82fb38809a4824c59d81859183e6bc04a5d767a0950ba1d",
+          "dependencies": [
+            "language-v1"
+          ],
+          "failures": [],
+          "inputs": [
+            "language-v1"
+          ],
+          "module_id": "expert-layer2-g0",
+          "outputs": [
+            "language-v1"
+          ],
+          "parameter_count": 74208,
+          "replacements": [
+            "expert-layer2-g3"
+          ],
+          "state_owner": "expert-layer2-g0",
+          "status": "DORMANT",
+          "version": "expert-v1"
+        },
+        "expert-layer2-g3": {
+          "ancestry": [
+            "expert-layer2-g0",
+            "expert-layer2-g3@g3"
+          ],
+          "benchmarks": {},
+          "content_hash": "632d1202b3e083e7bfeca54e22948a2183d2a0de418c8a77f1d9e2a213cc1dcc",
+          "dependencies": [
+            "language-v1"
+          ],
+          "failures": [],
+          "inputs": [
+            "language-v1"
+          ],
+          "module_id": "expert-layer2-g3",
+          "outputs": [
+            "language-v1"
+          ],
+          "parameter_count": 111456,
+          "replacements": [],
+          "state_owner": "expert-layer2-g3",
+          "status": "ACTIVE",
+          "version": "expert-v1"
+        },
+        "expert-layer3-g0": {
+          "ancestry": [
+            "expert-layer3-g0@g0"
+          ],
+          "benchmarks": {},
+          "content_hash": "96c10ff12dfccd66033c7aed8c65271a0b8b1e35c08c7fe92cbbdf1adbf36e53",
+          "dependencies": [
+            "language-v1"
+          ],
+          "failures": [],
+          "inputs": [
+            "language-v1"
+          ],
+          "module_id": "expert-layer3-g0",
+          "outputs": [
+            "language-v1"
+          ],
+          "parameter_count": 74208,
+          "replacements": [
+            "expert-layer3-g4"
+          ],
+          "state_owner": "expert-layer3-g0",
+          "status": "DORMANT",
+          "version": "expert-v1"
+        },
+        "expert-layer3-g4": {
+          "ancestry": [
+            "expert-layer3-g0",
+            "expert-layer3-g4@g4"
+          ],
+          "benchmarks": {},
+          "content_hash": "d290429bb1a5718dbdfd538c1829774c973cb7fbaa5f4aad92d66c9a4a9ca731",
+          "dependencies": [
+            "language-v1"
+          ],
+          "failures": [],
+          "inputs": [
+            "language-v1"
+          ],
+          "module_id": "expert-layer3-g4",
+          "outputs": [
+            "language-v1"
+          ],
+          "parameter_count": 111456,
+          "replacements": [],
+          "state_owner": "expert-layer3-g4",
+          "status": "ACTIVE",
+          "version": "expert-v1"
+        },
+        "language-v1": {
+          "ancestry": [
+            "language-v1@g0"
+          ],
+          "benchmarks": {},
+          "content_hash": "1fcc71acbe8d7a796f3139f66df90d426fa03054531ff37147d42727dee1898a",
+          "dependencies": [],
+          "failures": [],
+          "inputs": [
+            "language-v1"
+          ],
+          "module_id": "language-v1",
+          "outputs": [
+            "language-v1"
+          ],
+          "parameter_count": 42049,
+          "replacements": [],
+          "state_owner": "language-v1",
+          "status": "ACTIVE",
+          "version": "v1"
+        },
+        "lm-head": {
+          "ancestry": [
+            "lm-head@g0"
+          ],
+          "benchmarks": {},
+          "content_hash": "ccecd1b881660e6aaa216ff07e3f6e6a27e57dca1849db473bac2949403ebf18",
+          "dependencies": [
+            "expert-layer0-g0",
+            "expert-layer1-g0",
+            "expert-layer2-g0",
+            "expert-layer3-g0",
+            "expert-layer0-g1",
+            "expert-layer1-g2",
+            "expert-layer2-g3",
+            "expert-layer3-g4"
+          ],
+          "failures": [],
+          "inputs": [
+            "language-v1"
+          ],
+          "module_id": "lm-head",
+          "outputs": [
+            "language-v1"
+          ],
+          "parameter_count": 24576,
+          "replacements": [],
+          "state_owner": "lm-head",
+          "status": "ACTIVE",
+          "version": "v1"
+        }
+      }
+    },
+    "current_modules": {
+      "0": "expert-layer0-g1",
+      "1": "expert-layer1-g2",
+      "2": "expert-layer2-g3",
+      "3": "expert-layer3-g4"
+    },
+    "generation": 4
+  },
+  "output_checkpoint": "results/ship-of-theseus-aged-v1.pt",
+  "retention_gate": {
+    "passed": true,
+    "threshold": 6.816776565446653
+  },
+  "schema": "remora-v0-ship-of-theseus-result",
+  "seed": 7,
+  "steps_per_generation": 20
+}

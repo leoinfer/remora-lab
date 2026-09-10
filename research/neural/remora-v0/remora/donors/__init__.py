@@ -1,6 +1,11 @@
 """Safe inspection and controlled import ports for resident donor models."""
 
+from .anatomy import build_anatomy_graph
 from .manifest import inspect_resident_model
+from .organ import select_anatomy_component
+from .neural_ir import NeuralComponentIR, NeuralIROp, qwen_shared_expert_ir
+from .payload import QwenSharedExpertOrgan, functional_equivalence, inspect_payload, load_payload, reference_shared_expert
+from .graft import LowRankPort, QwenSharedExpertGraft, make_donor_variant
 from .port import TeacherPortAdapter, teacher_logit_distillation_loss
 from .registry import DonorRegistry
 from .selection import group_components, select_components
@@ -17,7 +22,20 @@ from .activation import (
 from .runtime import DonorRuntimeSpec, LocalTransformersDonor
 
 __all__ = [
+    "build_anatomy_graph",
     "inspect_resident_model",
+    "select_anatomy_component",
+    "NeuralComponentIR",
+    "NeuralIROp",
+    "qwen_shared_expert_ir",
+    "QwenSharedExpertOrgan",
+    "functional_equivalence",
+    "inspect_payload",
+    "load_payload",
+    "reference_shared_expert",
+    "LowRankPort",
+    "QwenSharedExpertGraft",
+    "make_donor_variant",
     "TeacherPortAdapter",
     "teacher_logit_distillation_loss",
     "DonorRegistry",

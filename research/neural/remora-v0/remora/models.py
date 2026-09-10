@@ -6,12 +6,12 @@ import torch
 from torch import nn
 
 from .config import ModelConfig
-from .language_bus import SharedLanguageBus
+from .language_bus import DirectLanguageBus, SharedLanguageBus
 from .modules import CausalSelfAttention, FastPlasticAdapter, GatedDeltaState, ModularExperts
 
 
 class RemoraBlock(nn.Module):
-    def __init__(self, cfg: ModelConfig, bus: SharedLanguageBus):
+    def __init__(self, cfg: ModelConfig, bus: nn.Module):
         super().__init__()
         self.norm = nn.LayerNorm(cfg.d_model)
         self.attention = CausalSelfAttention(cfg.d_model, cfg.n_heads, cfg.dropout)
@@ -48,12 +48,18 @@ class RemoraBlock(nn.Module):
 class RemoraModel(nn.Module):
     model_type = "remora-v0"
 
-    def __init__(self, cfg: ModelConfig):
+    def __init__(self, cfg: ModelConfig, bus_mode: str = "shared"):
         super().__init__()
         self.cfg = cfg
+        self.bus_mode = bus_mode
         self.token_embedding = nn.Embedding(cfg.vocab_size, cfg.d_model)
         self.position_embedding = nn.Embedding(cfg.max_seq_len, cfg.d_model)
-        self.bus = SharedLanguageBus(cfg.d_model, cfg.bus_dim, version="language-v1")
+        if bus_mode == "shared":
+            self.bus = SharedLanguageBus(cfg.d_model, cfg.bus_dim, version="language-v1")
+        elif bus_mode == "direct":
+            self.bus = DirectLanguageBus(cfg.d_model, cfg.bus_dim, version="language-direct-v1")
+        else:
+            raise ValueError(f"unknown Remora bus mode: {bus_mode}")
         self.blocks = nn.ModuleList([RemoraBlock(cfg, self.bus) for _ in range(cfg.n_layers)])
         self.final_norm = nn.LayerNorm(cfg.d_model)
         self.lm_head = nn.Linear(cfg.d_model, cfg.vocab_size, bias=False)
@@ -173,9 +179,9 @@ class BaselineModel(nn.Module):
         return logits, loss
 
 
-def build_model(kind: str, cfg: ModelConfig) -> nn.Module:
+def build_model(kind: str, cfg: ModelConfig, *, bus_mode: str = "shared") -> nn.Module:
     if kind == "remora":
-        return RemoraModel(cfg)
+        return RemoraModel(cfg, bus_mode=bus_mode)
     if kind == "baseline":
         return BaselineModel(cfg)
     raise ValueError(f"unknown model kind: {kind}")

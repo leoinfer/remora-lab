@@ -1,0 +1,328 @@
+{
+  "anatomy_update": {
+    "actual_payload_inspected": true,
+    "anatomy_path": "results/qwen-neural-anatomy-v4.json",
+    "component_id": "qwen3.8.language.layer0.shared_expert",
+    "payload_statistics_source": "results/qwen-neural-organ-layer0-payload-analysis-v1.json"
+  },
+  "donor_identity": {
+    "repository": "Qwen/Qwen3.8-Flash-Next",
+    "revision": "f5d08274bafd880402bd16f5e3e6c514136ec06c",
+    "source_shard": [
+      "model-00003-of-00131.safetensors"
+    ],
+    "source_tensor_names": [
+      "model.language_model.layers.0.mlp.shared_expert.down_proj.weight",
+      "model.language_model.layers.0.mlp.shared_expert.gate_proj.weight",
+      "model.language_model.layers.0.mlp.shared_expert.up_proj.weight",
+      "model.language_model.layers.0.mlp.shared_expert_gate.weight"
+    ]
+  },
+  "functional_equivalence": {
+    "absolute_output_l2": 0.8324140310287476,
+    "apply_scalar_gate": true,
+    "cosine_similarity": 1.0000004768371582,
+    "input_seed": 1701,
+    "input_shape": [
+      3,
+      5,
+      2560
+    ],
+    "max_absolute_error": 0.0,
+    "mean_absolute_error": 0.0,
+    "reference_path": "explicit matmul/SILU/sigmoid implementation independent of the standalone module call path",
+    "relative_l2_error": 0.0,
+    "schema": "remora-qwen-neural-functional-equivalence-v1",
+    "state_update_error": null,
+    "state_update_note": "not applicable: selected shared expert is stateless",
+    "status": "EQUIVALENT_WITHIN_FLOAT32_REFERENCE_TOLERANCE",
+    "top_abs_coordinate_overlap_at_16": 16
+  },
+  "interpretation": "MEASURED: actual selected Qwen weights were inspected, represented in a minimal Neural IR, and reproduced by a standalone implementation within the measured numerical tolerance. This is donor-function reproduction, not yet Remora utility or promotion.",
+  "neural_ir": {
+    "component_id": "qwen3.8.language.layer0.shared_expert",
+    "import_mode": "submodule_graft",
+    "input_contract": {
+      "dtype": "BF16-compatible",
+      "names": [
+        "hidden"
+      ],
+      "shape": [
+        "...",
+        2560
+      ]
+    },
+    "metadata": {
+      "activation": "silu",
+      "architecture_family": "shared_swiglu_expert",
+      "conversion_status": "mechanism_represented; numerical equivalence must be measured separately",
+      "reference_implementation": "Qwen4ExpTextMLP plus shared_expert_gate from official Transformers implementation"
+    },
+    "operations": [
+      {
+        "attributes": {
+          "bias": false,
+          "tensor": "model.language_model.layers.0.mlp.shared_expert.gate_proj.weight"
+        },
+        "inputs": [
+          "hidden"
+        ],
+        "op_id": "gate_affine",
+        "output": "gate_pre",
+        "primitive": "affine"
+      },
+      {
+        "attributes": {
+          "bias": false,
+          "tensor": "model.language_model.layers.0.mlp.shared_expert.up_proj.weight"
+        },
+        "inputs": [
+          "hidden"
+        ],
+        "op_id": "up_affine",
+        "output": "up_pre",
+        "primitive": "affine"
+      },
+      {
+        "attributes": {
+          "function": "silu"
+        },
+        "inputs": [
+          "gate_pre"
+        ],
+        "op_id": "silu_gate",
+        "output": "gate",
+        "primitive": "elementwise_nonlinearity"
+      },
+      {
+        "attributes": {},
+        "inputs": [
+          "gate",
+          "up_pre"
+        ],
+        "op_id": "gated_product",
+        "output": "hidden_product",
+        "primitive": "elementwise_mul"
+      },
+      {
+        "attributes": {
+          "bias": false,
+          "tensor": "model.language_model.layers.0.mlp.shared_expert.down_proj.weight"
+        },
+        "inputs": [
+          "hidden_product"
+        ],
+        "op_id": "down_affine",
+        "output": "core_output",
+        "primitive": "affine"
+      },
+      {
+        "attributes": {
+          "bias": false,
+          "output_width": 1,
+          "tensor": "model.language_model.layers.0.mlp.shared_expert_gate.weight"
+        },
+        "inputs": [
+          "hidden"
+        ],
+        "op_id": "shared_gate_affine",
+        "output": "shared_gate_pre",
+        "primitive": "affine"
+      },
+      {
+        "attributes": {
+          "function": "sigmoid"
+        },
+        "inputs": [
+          "shared_gate_pre"
+        ],
+        "op_id": "shared_gate_sigmoid",
+        "output": "shared_gate",
+        "primitive": "gating"
+      },
+      {
+        "attributes": {},
+        "inputs": [
+          "core_output",
+          "shared_gate"
+        ],
+        "op_id": "shared_output_gate",
+        "output": "output",
+        "primitive": "elementwise_mul"
+      }
+    ],
+    "output_contract": {
+      "dtype": "BF16-compatible",
+      "names": [
+        "output"
+      ],
+      "shape": [
+        "...",
+        2560
+      ]
+    },
+    "parameter_tensors": [
+      {
+        "name": "model.language_model.layers.0.mlp.shared_expert.down_proj.weight"
+      },
+      {
+        "name": "model.language_model.layers.0.mlp.shared_expert.gate_proj.weight"
+      },
+      {
+        "name": "model.language_model.layers.0.mlp.shared_expert.up_proj.weight"
+      },
+      {
+        "name": "model.language_model.layers.0.mlp.shared_expert_gate.weight"
+      }
+    ],
+    "source_model": "Qwen/Qwen3.8-Flash-Next",
+    "source_revision": "f5d08274bafd880402bd16f5e3e6c514136ec06c",
+    "state_contract": {
+      "kind": "stateless",
+      "owned_state": null
+    }
+  },
+  "payload_analysis": {
+    "interpretation": "MEASURED: statistics and spectra were computed from the selected trained Qwen payload only. These observations do not establish Remora utility.",
+    "materialized_payload_bytes": 9835520,
+    "max_payload_bytes": 268435456,
+    "model_loader_called": false,
+    "payload_file_bytes": 9836288,
+    "payload_path": "/home/leo/research/remora-v0/results/qwen-neural-organ-layer0.safetensors",
+    "payload_sha256": "e1d2bd3035a5487a8c5189748612835862acf7f096a801766580876761585fa7",
+    "schema": "remora-qwen-neural-payload-analysis-v1",
+    "tensor_count": 4,
+    "tensors": {
+      "model.language_model.layers.0.mlp.shared_expert.down_proj.weight": {
+        "dtype": "torch.bfloat16",
+        "l2_norm": 12.088467597961426,
+        "max": 0.53125,
+        "mean": -9.782105507838423e-07,
+        "mean_abs": 0.006787966936826706,
+        "min": -0.474609375,
+        "numel": 1638400,
+        "p01": -0.023193359375,
+        "p50": -1.087784767150879e-06,
+        "p99": 0.023193359375,
+        "payload_bytes": 3276800,
+        "shape": [
+          2560,
+          640
+        ],
+        "spectrum": {
+          "largest_to_smallest_ratio": 13.212764739990234,
+          "rank_at_90pct_energy": 456,
+          "rank_at_999pct_energy": 633,
+          "rank_at_99pct_energy": 604,
+          "stable_rank": 71.02403259277344,
+          "top_8_singular_values": [
+            1.4343364238739014,
+            1.2218047380447388,
+            1.1028971672058105,
+            0.9743059873580933,
+            0.9294667840003967,
+            0.8986324071884155,
+            0.8686765432357788,
+            0.8492795825004578
+          ]
+        },
+        "std": 0.009443731978535652,
+        "zero_fraction": 0.0
+      },
+      "model.language_model.layers.0.mlp.shared_expert.gate_proj.weight": {
+        "dtype": "torch.bfloat16",
+        "l2_norm": 12.706153869628906,
+        "max": 0.7734375,
+        "mean": 1.1691001589042571e-07,
+        "mean_abs": 0.007097592577338219,
+        "min": -0.62890625,
+        "numel": 1638400,
+        "p01": -0.02294921875,
+        "p50": 1.2442469596862793e-06,
+        "p99": 0.0228271484375,
+        "payload_bytes": 3276800,
+        "shape": [
+          640,
+          2560
+        ],
+        "spectrum": {
+          "largest_to_smallest_ratio": 11.18596076965332,
+          "rank_at_90pct_energy": 440,
+          "rank_at_999pct_energy": 636,
+          "rank_at_99pct_energy": 607,
+          "stable_rank": 33.429622650146484,
+          "top_8_singular_values": [
+            2.1975131034851074,
+            1.831389307975769,
+            1.337736964225769,
+            1.2930245399475098,
+            1.1918225288391113,
+            1.1691632270812988,
+            1.1254140138626099,
+            1.116152048110962
+          ]
+        },
+        "std": 0.009926297701895237,
+        "zero_fraction": 0.0
+      },
+      "model.language_model.layers.0.mlp.shared_expert.up_proj.weight": {
+        "dtype": "torch.bfloat16",
+        "l2_norm": 12.254913330078125,
+        "max": 0.5859375,
+        "mean": -9.065331596502801e-07,
+        "mean_abs": 0.007023924496024847,
+        "min": -0.45703125,
+        "numel": 1638400,
+        "p01": -0.02294921875,
+        "p50": -5.5730342864990234e-06,
+        "p99": 0.02294921875,
+        "payload_bytes": 3276800,
+        "shape": [
+          640,
+          2560
+        ],
+        "spectrum": {
+          "largest_to_smallest_ratio": 9.950028419494629,
+          "rank_at_90pct_energy": 452,
+          "rank_at_999pct_energy": 637,
+          "rank_at_99pct_energy": 610,
+          "stable_rank": 37.62571334838867,
+          "top_8_singular_values": [
+            1.9977915287017822,
+            1.8007893562316895,
+            1.305984377861023,
+            1.2584937810897827,
+            1.2054641246795654,
+            1.1547378301620483,
+            1.0773670673370361,
+            1.033002257347107
+          ]
+        },
+        "std": 0.009573760442435741,
+        "zero_fraction": 0.0
+      },
+      "model.language_model.layers.0.mlp.shared_expert_gate.weight": {
+        "dtype": "torch.bfloat16",
+        "l2_norm": 0.29984328150749207,
+        "max": 0.06640625,
+        "mean": 6.347840826492757e-05,
+        "mean_abs": 0.0037326663732528687,
+        "min": -0.04052734375,
+        "numel": 2560,
+        "p01": -0.015617065131664276,
+        "p50": -4.875659942626953e-05,
+        "p99": 0.01657956838607788,
+        "payload_bytes": 5120,
+        "shape": [
+          1,
+          2560
+        ],
+        "std": 0.005925834644585848,
+        "zero_fraction": 0.0
+      }
+    },
+    "weights_materialized": true
+  },
+  "promotion_state": "DONOR_FUNCTION_REPRODUCED",
+  "schema": "remora-qwen-neural-organ-payload-result-v1"
+}

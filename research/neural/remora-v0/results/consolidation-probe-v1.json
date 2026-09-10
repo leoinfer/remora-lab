@@ -1,0 +1,1869 @@
+{
+  "aggregate": {
+    "consolidated_experience_accuracy": {
+      "mean": 1.0,
+      "std": 0.0,
+      "values": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "consolidated_latency": {
+      "mean": 5.090634000225691e-05,
+      "std": 1.6762067650405191e-06,
+      "values": [
+        4.968279998138314e-05,
+        5.021930999646429e-05,
+        5.28169100289233e-05
+      ]
+    },
+    "consolidated_old_accuracy": {
+      "mean": 1.0,
+      "std": 0.0,
+      "values": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "consolidation_write_fraction": {
+      "mean": 0.3333333333333333,
+      "std": 0.0,
+      "values": [
+        0.3333333333333333,
+        0.3333333333333333,
+        0.3333333333333333
+      ]
+    },
+    "fast_changed_fraction": {
+      "mean": 0.3333333333333333,
+      "std": 0.0,
+      "values": [
+        0.3333333333333333,
+        0.3333333333333333,
+        0.3333333333333333
+      ]
+    },
+    "retrieval_enabled_experience_accuracy": {
+      "mean": 1.0,
+      "std": 0.0,
+      "values": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "retrieval_enabled_old_accuracy": {
+      "mean": 1.0,
+      "std": 0.0,
+      "values": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "retrieval_latency": {
+      "mean": 5.346548000185673e-05,
+      "std": 1.9369428526868523e-06,
+      "values": [
+        5.190501000470249e-05,
+        5.2858109993394466e-05,
+        5.563332000747323e-05
+      ]
+    },
+    "retrieval_required_experience_accuracy": {
+      "mean": 0.0,
+      "std": 0.0,
+      "values": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "device": "cpu",
+  "experiment_family": "CONSOLIDATION-001+",
+  "interpretation": "MEASURED structured-world probe: the fast path is explicitly needed before consolidation, the consolidated path is evaluated without retrieval, and provenance remains in the archive; this does not establish language-level consolidation.",
+  "labels": {
+    "DERIVED": [
+      "retention",
+      "retrieval dependence",
+      "latency change",
+      "parameter update fraction"
+    ],
+    "HYPOTHESIS": [
+      "validated repeated experience can become a retrieval-independent neural prior"
+    ],
+    "MEASURED": [
+      "accuracy",
+      "latency",
+      "parameter changes",
+      "steps",
+      "archive/provenance records"
+    ]
+  },
+  "mode": "STRUCTURED_WORLD_FAST_EXPERIENCE_TO_SLOW_INTUITION",
+  "promotion": {
+    "promoted": false,
+    "state": "CONTROLLED_EXPERIMENT_ONLY"
+  },
+  "runs": [
+    {
+      "archive": {
+        "records": [
+          {
+            "episode_id": "episode-00000",
+            "kind": "inherited_prior",
+            "lineage": "civilization-prior-v1",
+            "rule": "Y is the default",
+            "source": "pretraining",
+            "timestamp_index": 0
+          },
+          {
+            "environment": 0,
+            "episode_id": "episode-00001",
+            "independence_cluster": "run-cluster-00",
+            "kind": "lifetime_observation",
+            "lineage": "independent-run-00",
+            "measurement": 0.0,
+            "outcome": "X",
+            "timestamp_index": 1,
+            "z": 1
+          },
+          {
+            "environment": 0,
+            "episode_id": "episode-00002",
+            "independence_cluster": "run-cluster-01",
+            "kind": "lifetime_observation",
+            "lineage": "independent-run-01",
+            "measurement": 0.043478260869565216,
+            "outcome": "X",
+            "timestamp_index": 2,
+            "z": 1
+          },
+          {
+            "environment": 0,
+            "episode_id": "episode-00003",
+            "independence_cluster": "run-cluster-02",
+            "kind": "lifetime_observation",
+            "lineage": "independent-run-02",
+            "measurement": 0.08695652173913043,
+            "outcome": "X",
+            "timestamp_index": 3,
+            "z": 1
+          },
+          {
+            "environment": 0,
+            "episode_id": "episode-00004",
+            "independence_cluster": "run-cluster-03",
+            "kind": "lifetime_observation",
+            "lineage": "independent-run-03",
+            "measurement": 0.13043478260869565,
+            "outcome": "X",
+            "timestamp_index": 4,
+            "z": 1
+          },
+          {
+            "environment": 0,
+            "episode_id": "episode-00005",
+            "independence_cluster": "run-cluster-04",
+            "kind": "lifetime_observation",
+            "lineage": "independent-run-04",
+            "measurement": 0.17391304347826086,
+            "outcome": "X",
+            "timestamp_index": 5,
+            "z": 1
+          },
+          {
+            "environment": 0,
+            "episode_id": "episode-00006",
+            "independence_cluster": "run-cluster-05",
+            "kind": "lifetime_observation",
+            "lineage": "independent-run-05",
+            "measurement": 0.21739130434782608,
+            "outcome": "X",
+            "timestamp_index": 6,
+            "z": 1
+          },
+          {
+            "environment": 0,
+            "episode_id": "episode-00007",
+            "independence_cluster": "run-cluster-06",
+            "kind": "lifetime_observation",
+            "lineage": "independent-run-06",
+            "measurement": 0.2608695652173913,
+            "outcome": "X",
+            "timestamp_index": 7,
+            "z": 1
+          },
+          {
+            "environment": 0,
+            "episode_id": "episode-00008",
+            "independence_cluster": "run-cluster-07",
+            "kind": "lifetime_observation",
+            "lineage": "independent-run-07",
+            "measurement": 0.30434782608695654,
+            "outcome": "X",
+            "timestamp_index": 8,
+            "z": 1
+          },
+          {
+            "environment": 0,
+            "episode_id": "episode-00009",
+            "independence_cluster": "run-cluster-08",
+            "kind": "lifetime_observation",
+            "lineage": "independent-run-08",
+            "measurement": 0.34782608695652173,
+            "outcome": "X",
+            "timestamp_index": 9,
+            "z": 1
+          },
+          {
+            "environment": 0,
+            "episode_id": "episode-00010",
+            "independence_cluster": "run-cluster-09",
+            "kind": "lifetime_observation",
+            "lineage": "independent-run-09",
+            "measurement": 0.391304347826087,
+            "outcome": "X",
+            "timestamp_index": 10,
+            "z": 1
+          },
+          {
+            "environment": 0,
+            "episode_id": "episode-00011",
+            "independence_cluster": "run-cluster-10",
+            "kind": "lifetime_observation",
+            "lineage": "independent-run-10",
+            "measurement": 0.43478260869565216,
+            "outcome": "X",
+            "timestamp_index": 11,
+            "z": 1
+          },
+          {
+            "environment": 0,
+            "episode_id": "episode-00012",
+            "independence_cluster": "run-cluster-11",
+            "kind": "lifetime_observation",
+            "lineage": "independent-run-11",
+            "measurement": 0.4782608695652174,
+            "outcome": "X",
+            "timestamp_index": 12,
+            "z": 1
+          },
+          {
+            "environment": 0,
+            "episode_id": "episode-00013",
+            "independence_cluster": "run-cluster-12",
+            "kind": "lifetime_observation",
+            "lineage": "independent-run-12",
+            "measurement": 0.5217391304347826,
+            "outcome": "X",
+            "timestamp_index": 13,
+            "z": 1
+          },
+          {
+            "environment": 0,
+            "episode_id": "episode-00014",
+            "independence_cluster": "run-cluster-13",
+            "kind": "lifetime_observation",
+            "lineage": "independent-run-13",
+            "measurement": 0.5652173913043478,
+            "outcome": "X",
+            "timestamp_index": 14,
+            "z": 1
+          },
+          {
+            "environment": 0,
+            "episode_id": "episode-00015",
+            "independence_cluster": "run-cluster-14",
+            "kind": "lifetime_observation",
+            "lineage": "independent-run-14",
+            "measurement": 0.6086956521739131,
+            "outcome": "X",
+            "timestamp_index": 15,
+            "z": 1
+          },
+          {
+            "environment": 0,
+            "episode_id": "episode-00016",
+            "independence_cluster": "run-cluster-15",
+            "kind": "lifetime_observation",
+            "lineage": "independent-run-15",
+            "measurement": 0.6521739130434783,
+            "outcome": "X",
+            "timestamp_index": 16,
+            "z": 1
+          },
+          {
+            "environment": 0,
+            "episode_id": "episode-00017",
+            "independence_cluster": "run-cluster-16",
+            "kind": "lifetime_observation",
+            "lineage": "independent-run-16",
+            "measurement": 0.6956521739130435,
+            "outcome": "X",
+            "timestamp_index": 17,
+            "z": 1
+          },
+          {
+            "environment": 0,
+            "episode_id": "episode-00018",
+            "independence_cluster": "run-cluster-17",
+            "kind": "lifetime_observation",
+            "lineage": "independent-run-17",
+            "measurement": 0.7391304347826086,
+            "outcome": "X",
+            "timestamp_index": 18,
+            "z": 1
+          },
+          {
+            "environment": 0,
+            "episode_id": "episode-00019",
+            "independence_cluster": "run-cluster-18",
+            "kind": "lifetime_observation",
+            "lineage": "independent-run-18",
+            "measurement": 0.782608695652174,
+            "outcome": "X",
+            "timestamp_index": 19,
+            "z": 1
+          },
+          {
+            "environment": 0,
+            "episode_id": "episode-00020",
+            "independence_cluster": "run-cluster-19",
+            "kind": "lifetime_observation",
+            "lineage": "independent-run-19",
+            "measurement": 0.8260869565217391,
+            "outcome": "X",
+            "timestamp_index": 20,
+            "z": 1
+          },
+          {
+            "environment": 0,
+            "episode_id": "episode-00021",
+            "independence_cluster": "run-cluster-20",
+            "kind": "lifetime_observation",
+            "lineage": "independent-run-20",
+            "measurement": 0.8695652173913043,
+            "outcome": "X",
+            "timestamp_index": 21,
+            "z": 1
+          },
+          {
+            "environment": 0,
+            "episode_id": "episode-00022",
+            "independence_cluster": "run-cluster-21",
+            "kind": "lifetime_observation",
+            "lineage": "independent-run-21",
+            "measurement": 0.9130434782608695,
+            "outcome": "X",
+            "timestamp_index": 22,
+            "z": 1
+          },
+          {
+            "environment": 0,
+            "episode_id": "episode-00023",
+            "independence_cluster": "run-cluster-22",
+            "kind": "lifetime_observation",
+            "lineage": "independent-run-22",
+            "measurement": 0.9565217391304348,
+            "outcome": "X",
+            "timestamp_index": 23,
+            "z": 1
+          },
+          {
+            "environment": 0,
+            "episode_id": "episode-00024",
+            "independence_cluster": "run-cluster-23",
+            "kind": "lifetime_observation",
+            "lineage": "independent-run-23",
+            "measurement": 1.0,
+            "outcome": "X",
+            "timestamp_index": 24,
+            "z": 1
+          }
+        ]
+      },
+      "consolidated_without_retrieval": {
+        "experienced_condition_accuracy": 1.0,
+        "latency_seconds_per_query": 4.968279998138314e-05,
+        "old_unrelated_accuracy": 1.0,
+        "retrieval_enabled": false
+      },
+      "consolidation_report": {
+        "parameter_update": {
+          "changed_fraction": 0.3333333333333333,
+          "changed_parameters": 194,
+          "per_top_level_module": {
+            "consolidated": {
+              "changed": 194,
+              "l1": 101.01439595222473,
+              "total": 194
+            },
+            "experience_adapter": {
+              "changed": 0,
+              "l1": 0.0,
+              "total": 194
+            },
+            "inherited": {
+              "changed": 0,
+              "l1": 0.0,
+              "total": 194
+            }
+          },
+          "total_parameters": 582
+        },
+        "provenance_ids": [
+          "episode-00001",
+          "episode-00002",
+          "episode-00003",
+          "episode-00004",
+          "episode-00005",
+          "episode-00006",
+          "episode-00007",
+          "episode-00008",
+          "episode-00009",
+          "episode-00010",
+          "episode-00011",
+          "episode-00012",
+          "episode-00013",
+          "episode-00014",
+          "episode-00015",
+          "episode-00016",
+          "episode-00017",
+          "episode-00018",
+          "episode-00019",
+          "episode-00020",
+          "episode-00021",
+          "episode-00022",
+          "episode-00023",
+          "episode-00024"
+        ],
+        "retrieval_dependency": "disabled_after_consolidation"
+      },
+      "consolidation_write": {
+        "changed_fraction": 0.3333333333333333,
+        "changed_parameters": 194,
+        "per_top_level_module": {
+          "consolidated": {
+            "changed": 194,
+            "l1": 101.01439595222473,
+            "total": 194
+          },
+          "experience_adapter": {
+            "changed": 0,
+            "l1": 0.0,
+            "total": 194
+          },
+          "inherited": {
+            "changed": 0,
+            "l1": 0.0,
+            "total": 194
+          }
+        },
+        "total_parameters": 582
+      },
+      "evidence": {
+        "combined": {
+          "cluster_contributions": {
+            "experience-cluster-00": 0.9,
+            "experience-cluster-01": 0.9,
+            "experience-cluster-02": 0.9,
+            "experience-cluster-03": 0.9,
+            "experience-cluster-04": 0.9,
+            "experience-cluster-05": 0.9,
+            "experience-cluster-06": 0.9,
+            "experience-cluster-07": 0.9,
+            "experience-cluster-08": 0.9,
+            "experience-cluster-09": 0.9,
+            "experience-cluster-10": 0.9,
+            "experience-cluster-11": 0.9,
+            "experience-cluster-12": 0.9,
+            "experience-cluster-13": 0.9,
+            "experience-cluster-14": 0.9,
+            "experience-cluster-15": 0.9,
+            "experience-cluster-16": 0.9,
+            "experience-cluster-17": 0.9,
+            "experience-cluster-18": 0.9,
+            "experience-cluster-19": 0.9,
+            "experience-cluster-20": 0.9,
+            "experience-cluster-21": 0.9,
+            "experience-cluster-22": 0.9,
+            "experience-cluster-23": 0.9,
+            "inherited-cluster": -0.8
+          },
+          "effective_independent_clusters": 25,
+          "probability_x": 0.9999999990738639,
+          "probability_y": 9.261360567336396e-10,
+          "query": {
+            "environment": 0,
+            "z": 1
+          },
+          "raw_observations": 25,
+          "source_kind": "combined"
+        },
+        "experienced": {
+          "cluster_contributions": {
+            "experience-cluster-00": 0.9,
+            "experience-cluster-01": 0.9,
+            "experience-cluster-02": 0.9,
+            "experience-cluster-03": 0.9,
+            "experience-cluster-04": 0.9,
+            "experience-cluster-05": 0.9,
+            "experience-cluster-06": 0.9,
+            "experience-cluster-07": 0.9,
+            "experience-cluster-08": 0.9,
+            "experience-cluster-09": 0.9,
+            "experience-cluster-10": 0.9,
+            "experience-cluster-11": 0.9,
+            "experience-cluster-12": 0.9,
+            "experience-cluster-13": 0.9,
+            "experience-cluster-14": 0.9,
+            "experience-cluster-15": 0.9,
+            "experience-cluster-16": 0.9,
+            "experience-cluster-17": 0.9,
+            "experience-cluster-18": 0.9,
+            "experience-cluster-19": 0.9,
+            "experience-cluster-20": 0.9,
+            "experience-cluster-21": 0.9,
+            "experience-cluster-22": 0.9,
+            "experience-cluster-23": 0.9
+          },
+          "effective_independent_clusters": 24,
+          "probability_x": 0.9999999995838602,
+          "probability_y": 4.1613978929433415e-10,
+          "query": {
+            "environment": 0,
+            "z": 1
+          },
+          "raw_observations": 24,
+          "source_kind": "experienced"
+        },
+        "inherited": {
+          "cluster_contributions": {
+            "inherited-cluster": -0.8
+          },
+          "effective_independent_clusters": 1,
+          "probability_x": 0.31002551887238755,
+          "probability_y": 0.6899744811276125,
+          "query": {
+            "environment": 0,
+            "z": 1
+          },
+          "raw_observations": 1,
+          "source_kind": "inherited"
+        }
+      },
+      "fast_experience_update": {
+        "first_loss": 16.395484924316406,
+        "last_loss": 0.0007678326801396906,
+        "parameter_update": {
+          "changed_fraction": 0.3333333333333333,
+          "changed_parameters": 194,
+          "per_top_level_module": {
+            "consolidated": {
+              "changed": 0,
+              "l1": 0.0,
+              "total": 194
+            },
+            "experience_adapter": {
+              "changed": 194,
+              "l1": 61.76821160316467,
+              "total": 194
+            },
+            "inherited": {
+              "changed": 0,
+              "l1": 0.0,
+              "total": 194
+            }
+          },
+          "total_parameters": 582
+        },
+        "steps": 180
+      },
+      "parameter_counts": {
+        "consolidated": 194,
+        "experience_adapter": 194,
+        "total": 582
+      },
+      "prior_training": {
+        "first_loss": 1.072365641593933,
+        "last_loss": 3.5017515074287076e-06,
+        "steps": 180
+      },
+      "provenance_receipt": {
+        "absorbing_module": "world_model.consolidated",
+        "archive_recoverable": true,
+        "consolidation_id": "consolidation-007-experience-parity",
+        "prior_belief_changed": "Y default -> X under z=1, environment=0",
+        "source_episode_ids": [
+          "episode-00001",
+          "episode-00002",
+          "episode-00003",
+          "episode-00004",
+          "episode-00005",
+          "episode-00006",
+          "episode-00007",
+          "episode-00008",
+          "episode-00009",
+          "episode-00010",
+          "episode-00011",
+          "episode-00012",
+          "episode-00013",
+          "episode-00014",
+          "episode-00015",
+          "episode-00016",
+          "episode-00017",
+          "episode-00018",
+          "episode-00019",
+          "episode-00020",
+          "episode-00021",
+          "episode-00022",
+          "episode-00023",
+          "episode-00024"
+        ],
+        "source_independence_clusters": [
+          "experience-cluster-00",
+          "experience-cluster-01",
+          "experience-cluster-02",
+          "experience-cluster-03",
+          "experience-cluster-04",
+          "experience-cluster-05",
+          "experience-cluster-06",
+          "experience-cluster-07",
+          "experience-cluster-08",
+          "experience-cluster-09",
+          "experience-cluster-10",
+          "experience-cluster-11",
+          "experience-cluster-12",
+          "experience-cluster-13",
+          "experience-cluster-14",
+          "experience-cluster-15",
+          "experience-cluster-16",
+          "experience-cluster-17",
+          "experience-cluster-18",
+          "experience-cluster-19",
+          "experience-cluster-20",
+          "experience-cluster-21",
+          "experience-cluster-22",
+          "experience-cluster-23"
+        ],
+        "validation": "held-out old and experienced feature sets"
+      },
+      "retrieval_disabled_before_consolidation": {
+        "experienced_condition_accuracy": 0.0,
+        "latency_seconds_per_query": 2.674996001587715e-05,
+        "old_unrelated_accuracy": 1.0
+      },
+      "retrieval_enabled_before_consolidation": {
+        "experienced_condition_accuracy": 1.0,
+        "latency_seconds_per_query": 5.190501000470249e-05,
+        "old_unrelated_accuracy": 1.0,
+        "retrieval_calls": 24,
+        "retrieved_episode_ids": [
+          "episode-00001",
+          "episode-00002",
+          "episode-00003",
+          "episode-00004",
+          "episode-00005",
+          "episode-00006",
+          "episode-00007",
+          "episode-00008",
+          "episode-00009",
+          "episode-00010",
+          "episode-00011",
+          "episode-00012",
+          "episode-00013",
+          "episode-00014",
+          "episode-00015",
+          "episode-00016",
+          "episode-00017",
+          "episode-00018",
+          "episode-00019",
+          "episode-00020",
+          "episode-00021",
+          "episode-00022",
+          "episode-00023",
+          "episode-00024"
+        ]
+      },
+      "seed": 7
+    },
+    {
+      "archive": {
+        "records": [
+          {
+            "episode_id": "episode-00000",
+            "kind": "inherited_prior",
+            "lineage": "civilization-prior-v1",
+            "rule": "Y is the default",
+            "source": "pretraining",
+            "timestamp_index": 0
+          },
+          {
+            "environment": 0,
+            "episode_id": "episode-00001",
+            "independence_cluster": "run-cluster-00",
+            "kind": "lifetime_observation",
+            "lineage": "independent-run-00",
+            "measurement": 0.0,
+            "outcome": "X",
+            "timestamp_index": 1,
+            "z": 1
+          },
+          {
+            "environment": 0,
+            "episode_id": "episode-00002",
+            "independence_cluster": "run-cluster-01",
+            "kind": "lifetime_observation",
+            "lineage": "independent-run-01",
+            "measurement": 0.043478260869565216,
+            "outcome": "X",
+            "timestamp_index": 2,
+            "z": 1
+          },
+          {
+            "environment": 0,
+            "episode_id": "episode-00003",
+            "independence_cluster": "run-cluster-02",
+            "kind": "lifetime_observation",
+            "lineage": "independent-run-02",
+            "measurement": 0.08695652173913043,
+            "outcome": "X",
+            "timestamp_index": 3,
+            "z": 1
+          },
+          {
+            "environment": 0,
+            "episode_id": "episode-00004",
+            "independence_cluster": "run-cluster-03",
+            "kind": "lifetime_observation",
+            "lineage": "independent-run-03",
+            "measurement": 0.13043478260869565,
+            "outcome": "X",
+            "timestamp_index": 4,
+            "z": 1
+          },
+          {
+            "environment": 0,
+            "episode_id": "episode-00005",
+            "independence_cluster": "run-cluster-04",
+            "kind": "lifetime_observation",
+            "lineage": "independent-run-04",
+            "measurement": 0.17391304347826086,
+            "outcome": "X",
+            "timestamp_index": 5,
+            "z": 1
+          },
+          {
+            "environment": 0,
+            "episode_id": "episode-00006",
+            "independence_cluster": "run-cluster-05",
+            "kind": "lifetime_observation",
+            "lineage": "independent-run-05",
+            "measurement": 0.21739130434782608,
+            "outcome": "X",
+            "timestamp_index": 6,
+            "z": 1
+          },
+          {
+            "environment": 0,
+            "episode_id": "episode-00007",
+            "independence_cluster": "run-cluster-06",
+            "kind": "lifetime_observation",
+            "lineage": "independent-run-06",
+            "measurement": 0.2608695652173913,
+            "outcome": "X",
+            "timestamp_index": 7,
+            "z": 1
+          },
+          {
+            "environment": 0,
+            "episode_id": "episode-00008",
+            "independence_cluster": "run-cluster-07",
+            "kind": "lifetime_observation",
+            "lineage": "independent-run-07",
+            "measurement": 0.30434782608695654,
+            "outcome": "X",
+            "timestamp_index": 8,
+            "z": 1
+          },
+          {
+            "environment": 0,
+            "episode_id": "episode-00009",
+            "independence_cluster": "run-cluster-08",
+            "kind": "lifetime_observation",
+            "lineage": "independent-run-08",
+            "measurement": 0.34782608695652173,
+            "outcome": "X",
+            "timestamp_index": 9,
+            "z": 1
+          },
+          {
+            "environment": 0,
+            "episode_id": "episode-00010",
+            "independence_cluster": "run-cluster-09",
+            "kind": "lifetime_observation",
+            "lineage": "independent-run-09",
+            "measurement": 0.391304347826087,
+            "outcome": "X",
+            "timestamp_index": 10,
+            "z": 1
+          },
+          {
+            "environment": 0,
+            "episode_id": "episode-00011",
+            "independence_cluster": "run-cluster-10",
+            "kind": "lifetime_observation",
+            "lineage": "independent-run-10",
+            "measurement": 0.43478260869565216,
+            "outcome": "X",
+            "timestamp_index": 11,
+            "z": 1
+          },
+          {
+            "environment": 0,
+            "episode_id": "episode-00012",
+            "independence_cluster": "run-cluster-11",
+            "kind": "lifetime_observation",
+            "lineage": "independent-run-11",
+            "measurement": 0.4782608695652174,
+            "outcome": "X",
+            "timestamp_index": 12,
+            "z": 1
+          },
+          {
+            "environment": 0,
+            "episode_id": "episode-00013",
+            "independence_cluster": "run-cluster-12",
+            "kind": "lifetime_observation",
+            "lineage": "independent-run-12",
+            "measurement": 0.5217391304347826,
+            "outcome": "X",
+            "timestamp_index": 13,
+            "z": 1
+          },
+          {
+            "environment": 0,
+            "episode_id": "episode-00014",
+            "independence_cluster": "run-cluster-13",
+            "kind": "lifetime_observation",
+            "lineage": "independent-run-13",
+            "measurement": 0.5652173913043478,
+            "outcome": "X",
+            "timestamp_index": 14,
+            "z": 1
+          },
+          {
+            "environment": 0,
+            "episode_id": "episode-00015",
+            "independence_cluster": "run-cluster-14",
+            "kind": "lifetime_observation",
+            "lineage": "independent-run-14",
+            "measurement": 0.6086956521739131,
+            "outcome": "X",
+            "timestamp_index": 15,
+            "z": 1
+          },
+          {
+            "environment": 0,
+            "episode_id": "episode-00016",
+            "independence_cluster": "run-cluster-15",
+            "kind": "lifetime_observation",
+            "lineage": "independent-run-15",
+            "measurement": 0.6521739130434783,
+            "outcome": "X",
+            "timestamp_index": 16,
+            "z": 1
+          },
+          {
+            "environment": 0,
+            "episode_id": "episode-00017",
+            "independence_cluster": "run-cluster-16",
+            "kind": "lifetime_observation",
+            "lineage": "independent-run-16",
+            "measurement": 0.6956521739130435,
+            "outcome": "X",
+            "timestamp_index": 17,
+            "z": 1
+          },
+          {
+            "environment": 0,
+            "episode_id": "episode-00018",
+            "independence_cluster": "run-cluster-17",
+            "kind": "lifetime_observation",
+            "lineage": "independent-run-17",
+            "measurement": 0.7391304347826086,
+            "outcome": "X",
+            "timestamp_index": 18,
+            "z": 1
+          },
+          {
+            "environment": 0,
+            "episode_id": "episode-00019",
+            "independence_cluster": "run-cluster-18",
+            "kind": "lifetime_observation",
+            "lineage": "independent-run-18",
+            "measurement": 0.782608695652174,
+            "outcome": "X",
+            "timestamp_index": 19,
+            "z": 1
+          },
+          {
+            "environment": 0,
+            "episode_id": "episode-00020",
+            "independence_cluster": "run-cluster-19",
+            "kind": "lifetime_observation",
+            "lineage": "independent-run-19",
+            "measurement": 0.8260869565217391,
+            "outcome": "X",
+            "timestamp_index": 20,
+            "z": 1
+          },
+          {
+            "environment": 0,
+            "episode_id": "episode-00021",
+            "independence_cluster": "run-cluster-20",
+            "kind": "lifetime_observation",
+            "lineage": "independent-run-20",
+            "measurement": 0.8695652173913043,
+            "outcome": "X",
+            "timestamp_index": 21,
+            "z": 1
+          },
+          {
+            "environment": 0,
+            "episode_id": "episode-00022",
+            "independence_cluster": "run-cluster-21",
+            "kind": "lifetime_observation",
+            "lineage": "independent-run-21",
+            "measurement": 0.9130434782608695,
+            "outcome": "X",
+            "timestamp_index": 22,
+            "z": 1
+          },
+          {
+            "environment": 0,
+            "episode_id": "episode-00023",
+            "independence_cluster": "run-cluster-22",
+            "kind": "lifetime_observation",
+            "lineage": "independent-run-22",
+            "measurement": 0.9565217391304348,
+            "outcome": "X",
+            "timestamp_index": 23,
+            "z": 1
+          },
+          {
+            "environment": 0,
+            "episode_id": "episode-00024",
+            "independence_cluster": "run-cluster-23",
+            "kind": "lifetime_observation",
+            "lineage": "independent-run-23",
+            "measurement": 1.0,
+            "outcome": "X",
+            "timestamp_index": 24,
+            "z": 1
+          }
+        ]
+      },
+      "consolidated_without_retrieval": {
+        "experienced_condition_accuracy": 1.0,
+        "latency_seconds_per_query": 5.021930999646429e-05,
+        "old_unrelated_accuracy": 1.0,
+        "retrieval_enabled": false
+      },
+      "consolidation_report": {
+        "parameter_update": {
+          "changed_fraction": 0.3333333333333333,
+          "changed_parameters": 194,
+          "per_top_level_module": {
+            "consolidated": {
+              "changed": 194,
+              "l1": 96.5343142747879,
+              "total": 194
+            },
+            "experience_adapter": {
+              "changed": 0,
+              "l1": 0.0,
+              "total": 194
+            },
+            "inherited": {
+              "changed": 0,
+              "l1": 0.0,
+              "total": 194
+            }
+          },
+          "total_parameters": 582
+        },
+        "provenance_ids": [
+          "episode-00001",
+          "episode-00002",
+          "episode-00003",
+          "episode-00004",
+          "episode-00005",
+          "episode-00006",
+          "episode-00007",
+          "episode-00008",
+          "episode-00009",
+          "episode-00010",
+          "episode-00011",
+          "episode-00012",
+          "episode-00013",
+          "episode-00014",
+          "episode-00015",
+          "episode-00016",
+          "episode-00017",
+          "episode-00018",
+          "episode-00019",
+          "episode-00020",
+          "episode-00021",
+          "episode-00022",
+          "episode-00023",
+          "episode-00024"
+        ],
+        "retrieval_dependency": "disabled_after_consolidation"
+      },
+      "consolidation_write": {
+        "changed_fraction": 0.3333333333333333,
+        "changed_parameters": 194,
+        "per_top_level_module": {
+          "consolidated": {
+            "changed": 194,
+            "l1": 96.5343142747879,
+            "total": 194
+          },
+          "experience_adapter": {
+            "changed": 0,
+            "l1": 0.0,
+            "total": 194
+          },
+          "inherited": {
+            "changed": 0,
+            "l1": 0.0,
+            "total": 194
+          }
+        },
+        "total_parameters": 582
+      },
+      "evidence": {
+        "combined": {
+          "cluster_contributions": {
+            "experience-cluster-00": 0.9,
+            "experience-cluster-01": 0.9,
+            "experience-cluster-02": 0.9,
+            "experience-cluster-03": 0.9,
+            "experience-cluster-04": 0.9,
+            "experience-cluster-05": 0.9,
+            "experience-cluster-06": 0.9,
+            "experience-cluster-07": 0.9,
+            "experience-cluster-08": 0.9,
+            "experience-cluster-09": 0.9,
+            "experience-cluster-10": 0.9,
+            "experience-cluster-11": 0.9,
+            "experience-cluster-12": 0.9,
+            "experience-cluster-13": 0.9,
+            "experience-cluster-14": 0.9,
+            "experience-cluster-15": 0.9,
+            "experience-cluster-16": 0.9,
+            "experience-cluster-17": 0.9,
+            "experience-cluster-18": 0.9,
+            "experience-cluster-19": 0.9,
+            "experience-cluster-20": 0.9,
+            "experience-cluster-21": 0.9,
+            "experience-cluster-22": 0.9,
+            "experience-cluster-23": 0.9,
+            "inherited-cluster": -0.8
+          },
+          "effective_independent_clusters": 25,
+          "probability_x": 0.9999999990738639,
+          "probability_y": 9.261360567336396e-10,
+          "query": {
+            "environment": 0,
+            "z": 1
+          },
+          "raw_observations": 25,
+          "source_kind": "combined"
+        },
+        "experienced": {
+          "cluster_contributions": {
+            "experience-cluster-00": 0.9,
+            "experience-cluster-01": 0.9,
+            "experience-cluster-02": 0.9,
+            "experience-cluster-03": 0.9,
+            "experience-cluster-04": 0.9,
+            "experience-cluster-05": 0.9,
+            "experience-cluster-06": 0.9,
+            "experience-cluster-07": 0.9,
+            "experience-cluster-08": 0.9,
+            "experience-cluster-09": 0.9,
+            "experience-cluster-10": 0.9,
+            "experience-cluster-11": 0.9,
+            "experience-cluster-12": 0.9,
+            "experience-cluster-13": 0.9,
+            "experience-cluster-14": 0.9,
+            "experience-cluster-15": 0.9,
+            "experience-cluster-16": 0.9,
+            "experience-cluster-17": 0.9,
+            "experience-cluster-18": 0.9,
+            "experience-cluster-19": 0.9,
+            "experience-cluster-20": 0.9,
+            "experience-cluster-21": 0.9,
+            "experience-cluster-22": 0.9,
+            "experience-cluster-23": 0.9
+          },
+          "effective_independent_clusters": 24,
+          "probability_x": 0.9999999995838602,
+          "probability_y": 4.1613978929433415e-10,
+          "query": {
+            "environment": 0,
+            "z": 1
+          },
+          "raw_observations": 24,
+          "source_kind": "experienced"
+        },
+        "inherited": {
+          "cluster_contributions": {
+            "inherited-cluster": -0.8
+          },
+          "effective_independent_clusters": 1,
+          "probability_x": 0.31002551887238755,
+          "probability_y": 0.6899744811276125,
+          "query": {
+            "environment": 0,
+            "z": 1
+          },
+          "raw_observations": 1,
+          "source_kind": "inherited"
+        }
+      },
+      "fast_experience_update": {
+        "first_loss": 15.233495712280273,
+        "last_loss": 0.0007156303036026657,
+        "parameter_update": {
+          "changed_fraction": 0.3333333333333333,
+          "changed_parameters": 194,
+          "per_top_level_module": {
+            "consolidated": {
+              "changed": 0,
+              "l1": 0.0,
+              "total": 194
+            },
+            "experience_adapter": {
+              "changed": 194,
+              "l1": 60.192784905433655,
+              "total": 194
+            },
+            "inherited": {
+              "changed": 0,
+              "l1": 0.0,
+              "total": 194
+            }
+          },
+          "total_parameters": 582
+        },
+        "steps": 180
+      },
+      "parameter_counts": {
+        "consolidated": 194,
+        "experience_adapter": 194,
+        "total": 582
+      },
+      "prior_training": {
+        "first_loss": 0.7324291467666626,
+        "last_loss": 5.2749701353604905e-06,
+        "steps": 180
+      },
+      "provenance_receipt": {
+        "absorbing_module": "world_model.consolidated",
+        "archive_recoverable": true,
+        "consolidation_id": "consolidation-019-experience-parity",
+        "prior_belief_changed": "Y default -> X under z=1, environment=0",
+        "source_episode_ids": [
+          "episode-00001",
+          "episode-00002",
+          "episode-00003",
+          "episode-00004",
+          "episode-00005",
+          "episode-00006",
+          "episode-00007",
+          "episode-00008",
+          "episode-00009",
+          "episode-00010",
+          "episode-00011",
+          "episode-00012",
+          "episode-00013",
+          "episode-00014",
+          "episode-00015",
+          "episode-00016",
+          "episode-00017",
+          "episode-00018",
+          "episode-00019",
+          "episode-00020",
+          "episode-00021",
+          "episode-00022",
+          "episode-00023",
+          "episode-00024"
+        ],
+        "source_independence_clusters": [
+          "experience-cluster-00",
+          "experience-cluster-01",
+          "experience-cluster-02",
+          "experience-cluster-03",
+          "experience-cluster-04",
+          "experience-cluster-05",
+          "experience-cluster-06",
+          "experience-cluster-07",
+          "experience-cluster-08",
+          "experience-cluster-09",
+          "experience-cluster-10",
+          "experience-cluster-11",
+          "experience-cluster-12",
+          "experience-cluster-13",
+          "experience-cluster-14",
+          "experience-cluster-15",
+          "experience-cluster-16",
+          "experience-cluster-17",
+          "experience-cluster-18",
+          "experience-cluster-19",
+          "experience-cluster-20",
+          "experience-cluster-21",
+          "experience-cluster-22",
+          "experience-cluster-23"
+        ],
+        "validation": "held-out old and experienced feature sets"
+      },
+      "retrieval_disabled_before_consolidation": {
+        "experienced_condition_accuracy": 0.0,
+        "latency_seconds_per_query": 2.6101160001417158e-05,
+        "old_unrelated_accuracy": 1.0
+      },
+      "retrieval_enabled_before_consolidation": {
+        "experienced_condition_accuracy": 1.0,
+        "latency_seconds_per_query": 5.2858109993394466e-05,
+        "old_unrelated_accuracy": 1.0,
+        "retrieval_calls": 24,
+        "retrieved_episode_ids": [
+          "episode-00001",
+          "episode-00002",
+          "episode-00003",
+          "episode-00004",
+          "episode-00005",
+          "episode-00006",
+          "episode-00007",
+          "episode-00008",
+          "episode-00009",
+          "episode-00010",
+          "episode-00011",
+          "episode-00012",
+          "episode-00013",
+          "episode-00014",
+          "episode-00015",
+          "episode-00016",
+          "episode-00017",
+          "episode-00018",
+          "episode-00019",
+          "episode-00020",
+          "episode-00021",
+          "episode-00022",
+          "episode-00023",
+          "episode-00024"
+        ]
+      },
+      "seed": 19
+    },
+    {
+      "archive": {
+        "records": [
+          {
+            "episode_id": "episode-00000",
+            "kind": "inherited_prior",
+            "lineage": "civilization-prior-v1",
+            "rule": "Y is the default",
+            "source": "pretraining",
+            "timestamp_index": 0
+          },
+          {
+            "environment": 0,
+            "episode_id": "episode-00001",
+            "independence_cluster": "run-cluster-00",
+            "kind": "lifetime_observation",
+            "lineage": "independent-run-00",
+            "measurement": 0.0,
+            "outcome": "X",
+            "timestamp_index": 1,
+            "z": 1
+          },
+          {
+            "environment": 0,
+            "episode_id": "episode-00002",
+            "independence_cluster": "run-cluster-01",
+            "kind": "lifetime_observation",
+            "lineage": "independent-run-01",
+            "measurement": 0.043478260869565216,
+            "outcome": "X",
+            "timestamp_index": 2,
+            "z": 1
+          },
+          {
+            "environment": 0,
+            "episode_id": "episode-00003",
+            "independence_cluster": "run-cluster-02",
+            "kind": "lifetime_observation",
+            "lineage": "independent-run-02",
+            "measurement": 0.08695652173913043,
+            "outcome": "X",
+            "timestamp_index": 3,
+            "z": 1
+          },
+          {
+            "environment": 0,
+            "episode_id": "episode-00004",
+            "independence_cluster": "run-cluster-03",
+            "kind": "lifetime_observation",
+            "lineage": "independent-run-03",
+            "measurement": 0.13043478260869565,
+            "outcome": "X",
+            "timestamp_index": 4,
+            "z": 1
+          },
+          {
+            "environment": 0,
+            "episode_id": "episode-00005",
+            "independence_cluster": "run-cluster-04",
+            "kind": "lifetime_observation",
+            "lineage": "independent-run-04",
+            "measurement": 0.17391304347826086,
+            "outcome": "X",
+            "timestamp_index": 5,
+            "z": 1
+          },
+          {
+            "environment": 0,
+            "episode_id": "episode-00006",
+            "independence_cluster": "run-cluster-05",
+            "kind": "lifetime_observation",
+            "lineage": "independent-run-05",
+            "measurement": 0.21739130434782608,
+            "outcome": "X",
+            "timestamp_index": 6,
+            "z": 1
+          },
+          {
+            "environment": 0,
+            "episode_id": "episode-00007",
+            "independence_cluster": "run-cluster-06",
+            "kind": "lifetime_observation",
+            "lineage": "independent-run-06",
+            "measurement": 0.2608695652173913,
+            "outcome": "X",
+            "timestamp_index": 7,
+            "z": 1
+          },
+          {
+            "environment": 0,
+            "episode_id": "episode-00008",
+            "independence_cluster": "run-cluster-07",
+            "kind": "lifetime_observation",
+            "lineage": "independent-run-07",
+            "measurement": 0.30434782608695654,
+            "outcome": "X",
+            "timestamp_index": 8,
+            "z": 1
+          },
+          {
+            "environment": 0,
+            "episode_id": "episode-00009",
+            "independence_cluster": "run-cluster-08",
+            "kind": "lifetime_observation",
+            "lineage": "independent-run-08",
+            "measurement": 0.34782608695652173,
+            "outcome": "X",
+            "timestamp_index": 9,
+            "z": 1
+          },
+          {
+            "environment": 0,
+            "episode_id": "episode-00010",
+            "independence_cluster": "run-cluster-09",
+            "kind": "lifetime_observation",
+            "lineage": "independent-run-09",
+            "measurement": 0.391304347826087,
+            "outcome": "X",
+            "timestamp_index": 10,
+            "z": 1
+          },
+          {
+            "environment": 0,
+            "episode_id": "episode-00011",
+            "independence_cluster": "run-cluster-10",
+            "kind": "lifetime_observation",
+            "lineage": "independent-run-10",
+            "measurement": 0.43478260869565216,
+            "outcome": "X",
+            "timestamp_index": 11,
+            "z": 1
+          },
+          {
+            "environment": 0,
+            "episode_id": "episode-00012",
+            "independence_cluster": "run-cluster-11",
+            "kind": "lifetime_observation",
+            "lineage": "independent-run-11",
+            "measurement": 0.4782608695652174,
+            "outcome": "X",
+            "timestamp_index": 12,
+            "z": 1
+          },
+          {
+            "environment": 0,
+            "episode_id": "episode-00013",
+            "independence_cluster": "run-cluster-12",
+            "kind": "lifetime_observation",
+            "lineage": "independent-run-12",
+            "measurement": 0.5217391304347826,
+            "outcome": "X",
+            "timestamp_index": 13,
+            "z": 1
+          },
+          {
+            "environment": 0,
+            "episode_id": "episode-00014",
+            "independence_cluster": "run-cluster-13",
+            "kind": "lifetime_observation",
+            "lineage": "independent-run-13",
+            "measurement": 0.5652173913043478,
+            "outcome": "X",
+            "timestamp_index": 14,
+            "z": 1
+          },
+          {
+            "environment": 0,
+            "episode_id": "episode-00015",
+            "independence_cluster": "run-cluster-14",
+            "kind": "lifetime_observation",
+            "lineage": "independent-run-14",
+            "measurement": 0.6086956521739131,
+            "outcome": "X",
+            "timestamp_index": 15,
+            "z": 1
+          },
+          {
+            "environment": 0,
+            "episode_id": "episode-00016",
+            "independence_cluster": "run-cluster-15",
+            "kind": "lifetime_observation",
+            "lineage": "independent-run-15",
+            "measurement": 0.6521739130434783,
+            "outcome": "X",
+            "timestamp_index": 16,
+            "z": 1
+          },
+          {
+            "environment": 0,
+            "episode_id": "episode-00017",
+            "independence_cluster": "run-cluster-16",
+            "kind": "lifetime_observation",
+            "lineage": "independent-run-16",
+            "measurement": 0.6956521739130435,
+            "outcome": "X",
+            "timestamp_index": 17,
+            "z": 1
+          },
+          {
+            "environment": 0,
+            "episode_id": "episode-00018",
+            "independence_cluster": "run-cluster-17",
+            "kind": "lifetime_observation",
+            "lineage": "independent-run-17",
+            "measurement": 0.7391304347826086,
+            "outcome": "X",
+            "timestamp_index": 18,
+            "z": 1
+          },
+          {
+            "environment": 0,
+            "episode_id": "episode-00019",
+            "independence_cluster": "run-cluster-18",
+            "kind": "lifetime_observation",
+            "lineage": "independent-run-18",
+            "measurement": 0.782608695652174,
+            "outcome": "X",
+            "timestamp_index": 19,
+            "z": 1
+          },
+          {
+            "environment": 0,
+            "episode_id": "episode-00020",
+            "independence_cluster": "run-cluster-19",
+            "kind": "lifetime_observation",
+            "lineage": "independent-run-19",
+            "measurement": 0.8260869565217391,
+            "outcome": "X",
+            "timestamp_index": 20,
+            "z": 1
+          },
+          {
+            "environment": 0,
+            "episode_id": "episode-00021",
+            "independence_cluster": "run-cluster-20",
+            "kind": "lifetime_observation",
+            "lineage": "independent-run-20",
+            "measurement": 0.8695652173913043,
+            "outcome": "X",
+            "timestamp_index": 21,
+            "z": 1
+          },
+          {
+            "environment": 0,
+            "episode_id": "episode-00022",
+            "independence_cluster": "run-cluster-21",
+            "kind": "lifetime_observation",
+            "lineage": "independent-run-21",
+            "measurement": 0.9130434782608695,
+            "outcome": "X",
+            "timestamp_index": 22,
+            "z": 1
+          },
+          {
+            "environment": 0,
+            "episode_id": "episode-00023",
+            "independence_cluster": "run-cluster-22",
+            "kind": "lifetime_observation",
+            "lineage": "independent-run-22",
+            "measurement": 0.9565217391304348,
+            "outcome": "X",
+            "timestamp_index": 23,
+            "z": 1
+          },
+          {
+            "environment": 0,
+            "episode_id": "episode-00024",
+            "independence_cluster": "run-cluster-23",
+            "kind": "lifetime_observation",
+            "lineage": "independent-run-23",
+            "measurement": 1.0,
+            "outcome": "X",
+            "timestamp_index": 24,
+            "z": 1
+          }
+        ]
+      },
+      "consolidated_without_retrieval": {
+        "experienced_condition_accuracy": 1.0,
+        "latency_seconds_per_query": 5.28169100289233e-05,
+        "old_unrelated_accuracy": 1.0,
+        "retrieval_enabled": false
+      },
+      "consolidation_report": {
+        "parameter_update": {
+          "changed_fraction": 0.3333333333333333,
+          "changed_parameters": 194,
+          "per_top_level_module": {
+            "consolidated": {
+              "changed": 194,
+              "l1": 89.01344162225723,
+              "total": 194
+            },
+            "experience_adapter": {
+              "changed": 0,
+              "l1": 0.0,
+              "total": 194
+            },
+            "inherited": {
+              "changed": 0,
+              "l1": 0.0,
+              "total": 194
+            }
+          },
+          "total_parameters": 582
+        },
+        "provenance_ids": [
+          "episode-00001",
+          "episode-00002",
+          "episode-00003",
+          "episode-00004",
+          "episode-00005",
+          "episode-00006",
+          "episode-00007",
+          "episode-00008",
+          "episode-00009",
+          "episode-00010",
+          "episode-00011",
+          "episode-00012",
+          "episode-00013",
+          "episode-00014",
+          "episode-00015",
+          "episode-00016",
+          "episode-00017",
+          "episode-00018",
+          "episode-00019",
+          "episode-00020",
+          "episode-00021",
+          "episode-00022",
+          "episode-00023",
+          "episode-00024"
+        ],
+        "retrieval_dependency": "disabled_after_consolidation"
+      },
+      "consolidation_write": {
+        "changed_fraction": 0.3333333333333333,
+        "changed_parameters": 194,
+        "per_top_level_module": {
+          "consolidated": {
+            "changed": 194,
+            "l1": 89.01344162225723,
+            "total": 194
+          },
+          "experience_adapter": {
+            "changed": 0,
+            "l1": 0.0,
+            "total": 194
+          },
+          "inherited": {
+            "changed": 0,
+            "l1": 0.0,
+            "total": 194
+          }
+        },
+        "total_parameters": 582
+      },
+      "evidence": {
+        "combined": {
+          "cluster_contributions": {
+            "experience-cluster-00": 0.9,
+            "experience-cluster-01": 0.9,
+            "experience-cluster-02": 0.9,
+            "experience-cluster-03": 0.9,
+            "experience-cluster-04": 0.9,
+            "experience-cluster-05": 0.9,
+            "experience-cluster-06": 0.9,
+            "experience-cluster-07": 0.9,
+            "experience-cluster-08": 0.9,
+            "experience-cluster-09": 0.9,
+            "experience-cluster-10": 0.9,
+            "experience-cluster-11": 0.9,
+            "experience-cluster-12": 0.9,
+            "experience-cluster-13": 0.9,
+            "experience-cluster-14": 0.9,
+            "experience-cluster-15": 0.9,
+            "experience-cluster-16": 0.9,
+            "experience-cluster-17": 0.9,
+            "experience-cluster-18": 0.9,
+            "experience-cluster-19": 0.9,
+            "experience-cluster-20": 0.9,
+            "experience-cluster-21": 0.9,
+            "experience-cluster-22": 0.9,
+            "experience-cluster-23": 0.9,
+            "inherited-cluster": -0.8
+          },
+          "effective_independent_clusters": 25,
+          "probability_x": 0.9999999990738639,
+          "probability_y": 9.261360567336396e-10,
+          "query": {
+            "environment": 0,
+            "z": 1
+          },
+          "raw_observations": 25,
+          "source_kind": "combined"
+        },
+        "experienced": {
+          "cluster_contributions": {
+            "experience-cluster-00": 0.9,
+            "experience-cluster-01": 0.9,
+            "experience-cluster-02": 0.9,
+            "experience-cluster-03": 0.9,
+            "experience-cluster-04": 0.9,
+            "experience-cluster-05": 0.9,
+            "experience-cluster-06": 0.9,
+            "experience-cluster-07": 0.9,
+            "experience-cluster-08": 0.9,
+            "experience-cluster-09": 0.9,
+            "experience-cluster-10": 0.9,
+            "experience-cluster-11": 0.9,
+            "experience-cluster-12": 0.9,
+            "experience-cluster-13": 0.9,
+            "experience-cluster-14": 0.9,
+            "experience-cluster-15": 0.9,
+            "experience-cluster-16": 0.9,
+            "experience-cluster-17": 0.9,
+            "experience-cluster-18": 0.9,
+            "experience-cluster-19": 0.9,
+            "experience-cluster-20": 0.9,
+            "experience-cluster-21": 0.9,
+            "experience-cluster-22": 0.9,
+            "experience-cluster-23": 0.9
+          },
+          "effective_independent_clusters": 24,
+          "probability_x": 0.9999999995838602,
+          "probability_y": 4.1613978929433415e-10,
+          "query": {
+            "environment": 0,
+            "z": 1
+          },
+          "raw_observations": 24,
+          "source_kind": "experienced"
+        },
+        "inherited": {
+          "cluster_contributions": {
+            "inherited-cluster": -0.8
+          },
+          "effective_independent_clusters": 1,
+          "probability_x": 0.31002551887238755,
+          "probability_y": 0.6899744811276125,
+          "query": {
+            "environment": 0,
+            "z": 1
+          },
+          "raw_observations": 1,
+          "source_kind": "inherited"
+        }
+      },
+      "fast_experience_update": {
+        "first_loss": 13.07951545715332,
+        "last_loss": 0.000726815895177424,
+        "parameter_update": {
+          "changed_fraction": 0.3333333333333333,
+          "changed_parameters": 194,
+          "per_top_level_module": {
+            "consolidated": {
+              "changed": 0,
+              "l1": 0.0,
+              "total": 194
+            },
+            "experience_adapter": {
+              "changed": 194,
+              "l1": 55.830481112003326,
+              "total": 194
+            },
+            "inherited": {
+              "changed": 0,
+              "l1": 0.0,
+              "total": 194
+            }
+          },
+          "total_parameters": 582
+        },
+        "steps": 180
+      },
+      "parameter_counts": {
+        "consolidated": 194,
+        "experience_adapter": 194,
+        "total": 582
+      },
+      "prior_training": {
+        "first_loss": 0.6323825120925903,
+        "last_loss": 8.538281690562144e-06,
+        "steps": 180
+      },
+      "provenance_receipt": {
+        "absorbing_module": "world_model.consolidated",
+        "archive_recoverable": true,
+        "consolidation_id": "consolidation-031-experience-parity",
+        "prior_belief_changed": "Y default -> X under z=1, environment=0",
+        "source_episode_ids": [
+          "episode-00001",
+          "episode-00002",
+          "episode-00003",
+          "episode-00004",
+          "episode-00005",
+          "episode-00006",
+          "episode-00007",
+          "episode-00008",
+          "episode-00009",
+          "episode-00010",
+          "episode-00011",
+          "episode-00012",
+          "episode-00013",
+          "episode-00014",
+          "episode-00015",
+          "episode-00016",
+          "episode-00017",
+          "episode-00018",
+          "episode-00019",
+          "episode-00020",
+          "episode-00021",
+          "episode-00022",
+          "episode-00023",
+          "episode-00024"
+        ],
+        "source_independence_clusters": [
+          "experience-cluster-00",
+          "experience-cluster-01",
+          "experience-cluster-02",
+          "experience-cluster-03",
+          "experience-cluster-04",
+          "experience-cluster-05",
+          "experience-cluster-06",
+          "experience-cluster-07",
+          "experience-cluster-08",
+          "experience-cluster-09",
+          "experience-cluster-10",
+          "experience-cluster-11",
+          "experience-cluster-12",
+          "experience-cluster-13",
+          "experience-cluster-14",
+          "experience-cluster-15",
+          "experience-cluster-16",
+          "experience-cluster-17",
+          "experience-cluster-18",
+          "experience-cluster-19",
+          "experience-cluster-20",
+          "experience-cluster-21",
+          "experience-cluster-22",
+          "experience-cluster-23"
+        ],
+        "validation": "held-out old and experienced feature sets"
+      },
+      "retrieval_disabled_before_consolidation": {
+        "experienced_condition_accuracy": 0.0,
+        "latency_seconds_per_query": 2.7155560019309632e-05,
+        "old_unrelated_accuracy": 1.0
+      },
+      "retrieval_enabled_before_consolidation": {
+        "experienced_condition_accuracy": 1.0,
+        "latency_seconds_per_query": 5.563332000747323e-05,
+        "old_unrelated_accuracy": 1.0,
+        "retrieval_calls": 24,
+        "retrieved_episode_ids": [
+          "episode-00001",
+          "episode-00002",
+          "episode-00003",
+          "episode-00004",
+          "episode-00005",
+          "episode-00006",
+          "episode-00007",
+          "episode-00008",
+          "episode-00009",
+          "episode-00010",
+          "episode-00011",
+          "episode-00012",
+          "episode-00013",
+          "episode-00014",
+          "episode-00015",
+          "episode-00016",
+          "episode-00017",
+          "episode-00018",
+          "episode-00019",
+          "episode-00020",
+          "episode-00021",
+          "episode-00022",
+          "episode-00023",
+          "episode-00024"
+        ]
+      },
+      "seed": 31
+    }
+  ],
+  "schema": "remora-v1-consolidation-probe-result",
+  "training": {
+    "experience_steps": 180,
+    "prior_steps": 180,
+    "seeds": [
+      7,
+      19,
+      31
+    ]
+  }
+}

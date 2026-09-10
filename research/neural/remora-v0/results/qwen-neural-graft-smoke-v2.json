@@ -1,0 +1,1334 @@
+{
+  "aggregate": {
+    "arms": {
+      "donor_actual_local": {
+        "changed_fraction": [
+          0.02574851932078101
+        ],
+        "old_loss": [
+          3.6354897022247314
+        ],
+        "old_loss_delta": [
+          -2.384185791015625e-07
+        ],
+        "target_loss": [
+          3.567535877227783
+        ],
+        "target_loss_delta": [
+          0.0
+        ],
+        "trainable_parameters": [
+          42496
+        ],
+        "wall_seconds": [
+          0.029463424998539267
+        ]
+      },
+      "donor_random_local": {
+        "changed_fraction": [
+          0.02574851932078101
+        ],
+        "old_loss": [
+          3.6354899406433105
+        ],
+        "old_loss_delta": [
+          0.0
+        ],
+        "target_loss": [
+          3.567535877227783
+        ],
+        "target_loss_delta": [
+          -2.384185791015625e-07
+        ],
+        "trainable_parameters": [
+          42496
+        ],
+        "wall_seconds": [
+          0.03159915799915325
+        ]
+      },
+      "donor_shuffled_local": {
+        "changed_fraction": [
+          0.02574851932078101
+        ],
+        "old_loss": [
+          3.6354897022247314
+        ],
+        "old_loss_delta": [
+          2.384185791015625e-07
+        ],
+        "target_loss": [
+          3.567535877227783
+        ],
+        "target_loss_delta": [
+          -2.384185791015625e-07
+        ],
+        "trainable_parameters": [
+          42496
+        ],
+        "wall_seconds": [
+          0.030708587000845
+        ]
+      },
+      "native_expert_local": {
+        "changed_fraction": [
+          0.04411531284312752
+        ],
+        "old_loss": [
+          3.4910149574279785
+        ],
+        "old_loss_delta": [
+          -0.07386159896850586
+        ],
+        "target_loss": [
+          3.4774558544158936
+        ],
+        "target_loss_delta": [
+          -0.053984642028808594
+        ],
+        "trainable_parameters": [
+          74208
+        ],
+        "wall_seconds": [
+          0.02120253999964916
+        ]
+      },
+      "native_frozen": {
+        "changed_fraction": [
+          0.0
+        ],
+        "old_loss": [
+          3.5648765563964844
+        ],
+        "old_loss_delta": [
+          0.0
+        ],
+        "target_loss": [
+          3.531440496444702
+        ],
+        "target_loss_delta": [
+          0.0
+        ],
+        "trainable_parameters": [
+          0
+        ],
+        "wall_seconds": [
+          0.0
+        ]
+      },
+      "native_random_expert_local": {
+        "changed_fraction": [
+          0.04411531284312752
+        ],
+        "old_loss": [
+          3.659369707107544
+        ],
+        "old_loss_delta": [
+          -0.008790969848632812
+        ],
+        "target_loss": [
+          3.441359519958496
+        ],
+        "target_loss_delta": [
+          -0.14221620559692383
+        ],
+        "trainable_parameters": [
+          74208
+        ],
+        "wall_seconds": [
+          0.019113315000140574
+        ]
+      },
+      "native_swiglu_local": {
+        "changed_fraction": [
+          0.06482317805494406
+        ],
+        "old_loss": [
+          3.634213447570801
+        ],
+        "old_loss_delta": [
+          -0.0022313594818115234
+        ],
+        "target_loss": [
+          3.505524158477783
+        ],
+        "target_loss_delta": [
+          -0.05788993835449219
+        ],
+        "trainable_parameters": [
+          111456
+        ],
+        "wall_seconds": [
+          0.018787054999847896
+        ]
+      }
+    },
+    "paired_donor_actual_vs_controls": {
+      "random": {
+        "actual_target_loss": [
+          3.567535877227783
+        ],
+        "control_minus_actual": [
+          0.0
+        ],
+        "control_target_loss": [
+          3.567535877227783
+        ]
+      },
+      "shuffled": {
+        "actual_target_loss": [
+          3.567535877227783
+        ],
+        "control_minus_actual": [
+          0.0
+        ],
+        "control_target_loss": [
+          3.567535877227783
+        ]
+      },
+      "zero": {
+        "actual_target_loss": [
+          3.567535877227783
+        ],
+        "control_minus_actual": [
+          2.384185791015625e-07
+        ],
+        "control_target_loss": [
+          3.5675361156463623
+        ]
+      }
+    },
+    "seeds": [
+      7
+    ]
+  },
+  "controls": {
+    "donor_actual_local": "actual Qwen trained shared-expert core, frozen behind rank-8 ports, local port update",
+    "donor_random_local": "same graft with shape/std-matched random donor core, same port state and budget",
+    "donor_shuffled_local": "same graft with per-tensor value permutation, same port state and budget",
+    "donor_zero_ablation": "post-training zero donor core with ports held fixed",
+    "native_expert_local": "existing ExpertMLP at the used path, local update",
+    "native_frozen": "aged Remora checkpoint without local update",
+    "native_random_expert_local": "same-shape fresh ExpertMLP replacement, local update",
+    "native_swiglu_local": "Remora-native SwiGLU replacement, local update"
+  },
+  "device": "cpu",
+  "donor_lineage": {
+    "attachment": "blocks.1.experts.experts.0",
+    "conversion": "minimal Neural IR -> frozen native-width organ -> rank-8 low-rank Remora ports",
+    "extraction": "results/qwen-neural-organ-layer0.safetensors",
+    "source_component": "model.language_model.layers.0.mlp.shared_expert plus shared_expert_gate.weight",
+    "source_model": "Qwen/Qwen3.8-Flash-Next",
+    "source_revision": "f5d08274bafd880402bd16f5e3e6c514136ec06c"
+  },
+  "experiment_family": "QWEN-NEURAL-ORGAN-002+",
+  "labels": {
+    "DERIVED": [
+      "control-minus-actual loss differences",
+      "parameter fractions"
+    ],
+    "ESTIMATED": [],
+    "EXTERNAL": [
+      "deterministic synthetic corpus construction"
+    ],
+    "HYPOTHESIS": [
+      "foreign trained weights improve the used Remora path after local repair"
+    ],
+    "MEASURED": [
+      "held-out losses",
+      "ablation deltas",
+      "wall time",
+      "changed parameters",
+      "VRAM",
+      "trainable parameters"
+    ],
+    "MODELED": []
+  },
+  "mode": "AGED_REMORA_USED_PATH_WRAPPED_FOREIGN_WEIGHT_SURGERY",
+  "payload_path": "results/qwen-neural-organ-layer0.safetensors",
+  "predeclared_gates": {
+    "donor_core_must_be_frozen": true,
+    "foreign_weights_must_change_behavior_under_ablation": "actual vs shuffled/random/zero donor core should differ on held-out target; if not, donor weights are not shown responsible",
+    "native_and_donor_controls_use_same_checkpoint_and_streams": true,
+    "no_promotion_without_external_decision": true
+  },
+  "promotion_state": "CONTROLLED_EXPERIMENT_ONLY",
+  "runs": [
+    {
+      "aged_checkpoint": "checkpoints/lifetime-compounding-remora_local_rehearsal-seed7.pt",
+      "arms": {
+        "donor_actual_local": {
+          "arm": "donor_actual_local",
+          "base_parameter_count_before_surgery": 1682137,
+          "changed_parameter_stats": {
+            "changed_fraction": 0.02574851932078101,
+            "changed_parameters": 42496,
+            "per_top_level_module": {
+              "blocks": {
+                "changed": 42496,
+                "l1": 43.34525829553604,
+                "total": 1564984
+              },
+              "bus": {
+                "changed": 0,
+                "l1": 0.0,
+                "total": 42049
+              },
+              "final_norm": {
+                "changed": 0,
+                "l1": 0.0,
+                "total": 384
+              },
+              "position_embedding": {
+                "changed": 0,
+                "l1": 0.0,
+                "total": 18432
+              },
+              "token_embedding": {
+                "changed": 0,
+                "l1": 0.0,
+                "total": 24576
+              }
+            },
+            "total_parameters": 1650425
+          },
+          "checkpoint": "checkpoints/lifetime-compounding-remora_local_rehearsal-seed7.pt",
+          "donor": {
+            "ablation": {
+              "actual": {
+                "old": {
+                  "loss": 3.6354897022247314,
+                  "perplexity": 37.9204180641581,
+                  "tokens": 64,
+                  "tokens_per_second": 8340.985755698985,
+                  "wall_seconds": 0.007672953997825971
+                },
+                "route_load_block1": [
+                  0.4779972732067108,
+                  0.5220026969909668
+                ],
+                "target": {
+                  "loss": 3.567535877227783,
+                  "perplexity": 35.4291836437599,
+                  "tokens": 64,
+                  "tokens_per_second": 9043.425965522996,
+                  "wall_seconds": 0.007076964000589214
+                }
+              },
+              "controls": {
+                "random": {
+                  "old": {
+                    "loss": 3.6354897022247314,
+                    "perplexity": 37.9204180641581,
+                    "tokens": 64,
+                    "tokens_per_second": 7919.170018077214,
+                    "wall_seconds": 0.008081655003479682
+                  },
+                  "old_loss_delta_vs_actual": 0.0,
+                  "route_load_block1": [
+                    0.4779972732067108,
+                    0.5220026969909668
+                  ],
+                  "target": {
+                    "loss": 3.567535877227783,
+                    "perplexity": 35.4291836437599,
+                    "tokens": 64,
+                    "tokens_per_second": 9134.74940049025,
+                    "wall_seconds": 0.0070062129998405
+                  },
+                  "target_loss_delta_vs_actual": 0.0
+                },
+                "shuffled": {
+                  "old": {
+                    "loss": 3.6354897022247314,
+                    "perplexity": 37.9204180641581,
+                    "tokens": 64,
+                    "tokens_per_second": 8127.319539661774,
+                    "wall_seconds": 0.00787467500049388
+                  },
+                  "old_loss_delta_vs_actual": 0.0,
+                  "route_load_block1": [
+                    0.4779972732067108,
+                    0.5220026969909668
+                  ],
+                  "target": {
+                    "loss": 3.567535877227783,
+                    "perplexity": 35.4291836437599,
+                    "tokens": 64,
+                    "tokens_per_second": 9136.470750783716,
+                    "wall_seconds": 0.0070048929992481135
+                  },
+                  "target_loss_delta_vs_actual": 0.0
+                },
+                "zero": {
+                  "old": {
+                    "loss": 3.6354894638061523,
+                    "perplexity": 37.92040902322699,
+                    "tokens": 64,
+                    "tokens_per_second": 8240.972209221909,
+                    "wall_seconds": 0.007766073998936918
+                  },
+                  "old_loss_delta_vs_actual": -2.384185791015625e-07,
+                  "route_load_block1": [
+                    0.4779972732067108,
+                    0.5220026969909668
+                  ],
+                  "target": {
+                    "loss": 3.5675361156463623,
+                    "perplexity": 35.42919209073653,
+                    "tokens": 64,
+                    "tokens_per_second": 9132.95050361148,
+                    "wall_seconds": 0.007007592997979373
+                  },
+                  "target_loss_delta_vs_actual": 2.384185791015625e-07
+                }
+              }
+            },
+            "donor_core_frozen": true,
+            "donor_payload_parameter_count": 4917760,
+            "interface_signature": {
+              "donor_core": [
+                "batch",
+                "time",
+                2560
+              ],
+              "donor_core_frozen": true,
+              "donor_variant": "actual",
+              "input": [
+                "batch",
+                "time",
+                96
+              ],
+              "output": [
+                "batch",
+                "time",
+                96
+              ],
+              "port_rank": 8,
+              "version": "expert-v1/qwen-shared-expert-organ-v1"
+            },
+            "port_parameter_count": 42496,
+            "variant": "actual"
+          },
+          "old_loss_delta": -2.384185791015625e-07,
+          "parameter_count": 1650425,
+          "peak_vram_bytes": null,
+          "post": {
+            "old": {
+              "loss": 3.6354897022247314,
+              "perplexity": 37.9204180641581,
+              "tokens": 64,
+              "tokens_per_second": 8893.504866118044,
+              "wall_seconds": 0.0071962629990594
+            },
+            "route_load_block1": [
+              0.4779972732067108,
+              0.5220026969909668
+            ],
+            "target": {
+              "loss": 3.567535877227783,
+              "perplexity": 35.4291836437599,
+              "tokens": 64,
+              "tokens_per_second": 9098.73736727081,
+              "wall_seconds": 0.007033942998532439
+            }
+          },
+          "pre": {
+            "old": {
+              "loss": 3.6354899406433105,
+              "perplexity": 37.92042710509138,
+              "tokens": 64,
+              "tokens_per_second": 8373.187742305958,
+              "wall_seconds": 0.0076434450020315126
+            },
+            "route_load_block1": [
+              0.4779972732067108,
+              0.5220026969909668
+            ],
+            "target": {
+              "loss": 3.567535877227783,
+              "perplexity": 35.4291836437599,
+              "tokens": 64,
+              "tokens_per_second": 9087.652251171196,
+              "wall_seconds": 0.0070425230005639605
+            }
+          },
+          "promotion_state": "CANDIDATE_ATTACHED",
+          "seed": 7,
+          "selected_parameter_names": [
+            "blocks.1.experts.experts.0.input_port.down.weight",
+            "blocks.1.experts.experts.0.input_port.up.weight",
+            "blocks.1.experts.experts.0.output_port.down.weight",
+            "blocks.1.experts.experts.0.output_port.up.weight"
+          ],
+          "target_loss_delta": 0.0,
+          "trainable_parameters": 42496,
+          "training": {
+            "loss_first": 6.905728816986084,
+            "loss_last": 6.905728816986084,
+            "new_task_tokens": 64,
+            "optimization_steps": 1,
+            "rehearsal_tokens": 64,
+            "wall_seconds": 0.029463424998539267
+          }
+        },
+        "donor_random_local": {
+          "arm": "donor_random_local",
+          "base_parameter_count_before_surgery": 1682137,
+          "changed_parameter_stats": {
+            "changed_fraction": 0.02574851932078101,
+            "changed_parameters": 42496,
+            "per_top_level_module": {
+              "blocks": {
+                "changed": 42496,
+                "l1": 37.73028123378754,
+                "total": 1564984
+              },
+              "bus": {
+                "changed": 0,
+                "l1": 0.0,
+                "total": 42049
+              },
+              "final_norm": {
+                "changed": 0,
+                "l1": 0.0,
+                "total": 384
+              },
+              "position_embedding": {
+                "changed": 0,
+                "l1": 0.0,
+                "total": 18432
+              },
+              "token_embedding": {
+                "changed": 0,
+                "l1": 0.0,
+                "total": 24576
+              }
+            },
+            "total_parameters": 1650425
+          },
+          "checkpoint": "checkpoints/lifetime-compounding-remora_local_rehearsal-seed7.pt",
+          "donor": {
+            "ablation": {
+              "actual": {
+                "old": {
+                  "loss": 3.6354899406433105,
+                  "perplexity": 37.92042710509138,
+                  "tokens": 64,
+                  "tokens_per_second": 8111.590133372492,
+                  "wall_seconds": 0.007889944998169085
+                },
+                "route_load_block1": [
+                  0.4779972732067108,
+                  0.5220026969909668
+                ],
+                "target": {
+                  "loss": 3.567535877227783,
+                  "perplexity": 35.4291836437599,
+                  "tokens": 64,
+                  "tokens_per_second": 8357.007166058811,
+                  "wall_seconds": 0.0076582440015044995
+                }
+              },
+              "controls": {
+                "random": {
+                  "old": {
+                    "loss": 3.6354894638061523,
+                    "perplexity": 37.92040902322699,
+                    "tokens": 64,
+                    "tokens_per_second": 7988.5314620250365,
+                    "wall_seconds": 0.008011485002498375
+                  },
+                  "old_loss_delta_vs_actual": -4.76837158203125e-07,
+                  "route_load_block1": [
+                    0.4779972732067108,
+                    0.5220026969909668
+                  ],
+                  "target": {
+                    "loss": 3.5675361156463623,
+                    "perplexity": 35.42919209073653,
+                    "tokens": 64,
+                    "tokens_per_second": 8854.842021194972,
+                    "wall_seconds": 0.0072276840000995435
+                  },
+                  "target_loss_delta_vs_actual": 2.384185791015625e-07
+                },
+                "shuffled": {
+                  "old": {
+                    "loss": 3.6354894638061523,
+                    "perplexity": 37.92040902322699,
+                    "tokens": 64,
+                    "tokens_per_second": 7839.202284766421,
+                    "wall_seconds": 0.008164095997926779
+                  },
+                  "old_loss_delta_vs_actual": -4.76837158203125e-07,
+                  "route_load_block1": [
+                    0.4779972732067108,
+                    0.5220026969909668
+                  ],
+                  "target": {
+                    "loss": 3.5675361156463623,
+                    "perplexity": 35.42919209073653,
+                    "tokens": 64,
+                    "tokens_per_second": 8465.514405318343,
+                    "wall_seconds": 0.00756008399912389
+                  },
+                  "target_loss_delta_vs_actual": 2.384185791015625e-07
+                },
+                "zero": {
+                  "old": {
+                    "loss": 3.6354894638061523,
+                    "perplexity": 37.92040902322699,
+                    "tokens": 64,
+                    "tokens_per_second": 7838.771177253702,
+                    "wall_seconds": 0.00816454499727115
+                  },
+                  "old_loss_delta_vs_actual": -4.76837158203125e-07,
+                  "route_load_block1": [
+                    0.4779972732067108,
+                    0.5220026969909668
+                  ],
+                  "target": {
+                    "loss": 3.5675361156463623,
+                    "perplexity": 35.42919209073653,
+                    "tokens": 64,
+                    "tokens_per_second": 8641.345543132045,
+                    "wall_seconds": 0.007406254000670742
+                  },
+                  "target_loss_delta_vs_actual": 2.384185791015625e-07
+                }
+              }
+            },
+            "donor_core_frozen": true,
+            "donor_payload_parameter_count": 4917760,
+            "interface_signature": {
+              "donor_core": [
+                "batch",
+                "time",
+                2560
+              ],
+              "donor_core_frozen": true,
+              "donor_variant": "random",
+              "input": [
+                "batch",
+                "time",
+                96
+              ],
+              "output": [
+                "batch",
+                "time",
+                96
+              ],
+              "port_rank": 8,
+              "version": "expert-v1/qwen-shared-expert-organ-v1"
+            },
+            "port_parameter_count": 42496,
+            "variant": "random"
+          },
+          "old_loss_delta": 0.0,
+          "parameter_count": 1650425,
+          "peak_vram_bytes": null,
+          "post": {
+            "old": {
+              "loss": 3.6354899406433105,
+              "perplexity": 37.92042710509138,
+              "tokens": 64,
+              "tokens_per_second": 8183.719388629763,
+              "wall_seconds": 0.007820404996891739
+            },
+            "route_load_block1": [
+              0.4779972732067108,
+              0.5220026969909668
+            ],
+            "target": {
+              "loss": 3.567535877227783,
+              "perplexity": 35.4291836437599,
+              "tokens": 64,
+              "tokens_per_second": 8356.166993176132,
+              "wall_seconds": 0.007659014001546893
+            }
+          },
+          "pre": {
+            "old": {
+              "loss": 3.6354899406433105,
+              "perplexity": 37.92042710509138,
+              "tokens": 64,
+              "tokens_per_second": 7999.955000463442,
+              "wall_seconds": 0.00800004499978968
+            },
+            "route_load_block1": [
+              0.4779972732067108,
+              0.5220026969909668
+            ],
+            "target": {
+              "loss": 3.5675361156463623,
+              "perplexity": 35.42919209073653,
+              "tokens": 64,
+              "tokens_per_second": 8291.504420756746,
+              "wall_seconds": 0.00771874400015804
+            }
+          },
+          "promotion_state": "CANDIDATE_ATTACHED",
+          "seed": 7,
+          "selected_parameter_names": [
+            "blocks.1.experts.experts.0.input_port.down.weight",
+            "blocks.1.experts.experts.0.input_port.up.weight",
+            "blocks.1.experts.experts.0.output_port.down.weight",
+            "blocks.1.experts.experts.0.output_port.up.weight"
+          ],
+          "target_loss_delta": -2.384185791015625e-07,
+          "trainable_parameters": 42496,
+          "training": {
+            "loss_first": 6.651364326477051,
+            "loss_last": 6.651364326477051,
+            "new_task_tokens": 64,
+            "optimization_steps": 1,
+            "rehearsal_tokens": 64,
+            "wall_seconds": 0.03159915799915325
+          }
+        },
+        "donor_shuffled_local": {
+          "arm": "donor_shuffled_local",
+          "base_parameter_count_before_surgery": 1682137,
+          "changed_parameter_stats": {
+            "changed_fraction": 0.02574851932078101,
+            "changed_parameters": 42496,
+            "per_top_level_module": {
+              "blocks": {
+                "changed": 42496,
+                "l1": 42.613035798072815,
+                "total": 1564984
+              },
+              "bus": {
+                "changed": 0,
+                "l1": 0.0,
+                "total": 42049
+              },
+              "final_norm": {
+                "changed": 0,
+                "l1": 0.0,
+                "total": 384
+              },
+              "position_embedding": {
+                "changed": 0,
+                "l1": 0.0,
+                "total": 18432
+              },
+              "token_embedding": {
+                "changed": 0,
+                "l1": 0.0,
+                "total": 24576
+              }
+            },
+            "total_parameters": 1650425
+          },
+          "checkpoint": "checkpoints/lifetime-compounding-remora_local_rehearsal-seed7.pt",
+          "donor": {
+            "ablation": {
+              "actual": {
+                "old": {
+                  "loss": 3.6354897022247314,
+                  "perplexity": 37.9204180641581,
+                  "tokens": 64,
+                  "tokens_per_second": 7982.355005923369,
+                  "wall_seconds": 0.008017683998332359
+                },
+                "route_load_block1": [
+                  0.4779972732067108,
+                  0.5220026969909668
+                ],
+                "target": {
+                  "loss": 3.567535877227783,
+                  "perplexity": 35.4291836437599,
+                  "tokens": 64,
+                  "tokens_per_second": 8665.226162469455,
+                  "wall_seconds": 0.0073858430005202536
+                }
+              },
+              "controls": {
+                "random": {
+                  "old": {
+                    "loss": 3.6354899406433105,
+                    "perplexity": 37.92042710509138,
+                    "tokens": 64,
+                    "tokens_per_second": 7780.459739645183,
+                    "wall_seconds": 0.008225735000451095
+                  },
+                  "old_loss_delta_vs_actual": 2.384185791015625e-07,
+                  "route_load_block1": [
+                    0.4779972732067108,
+                    0.5220026969909668
+                  ],
+                  "target": {
+                    "loss": 3.5675361156463623,
+                    "perplexity": 35.42919209073653,
+                    "tokens": 64,
+                    "tokens_per_second": 8387.828004532834,
+                    "wall_seconds": 0.007630103998963023
+                  },
+                  "target_loss_delta_vs_actual": 2.384185791015625e-07
+                },
+                "shuffled": {
+                  "old": {
+                    "loss": 3.6354894638061523,
+                    "perplexity": 37.92040902322699,
+                    "tokens": 64,
+                    "tokens_per_second": 7544.0952364367195,
+                    "wall_seconds": 0.008483456000249134
+                  },
+                  "old_loss_delta_vs_actual": -2.384185791015625e-07,
+                  "route_load_block1": [
+                    0.4779972732067108,
+                    0.5220026969909668
+                  ],
+                  "target": {
+                    "loss": 3.5675361156463623,
+                    "perplexity": 35.42919209073653,
+                    "tokens": 64,
+                    "tokens_per_second": 7943.5166294962755,
+                    "wall_seconds": 0.008056885002588388
+                  },
+                  "target_loss_delta_vs_actual": 2.384185791015625e-07
+                },
+                "zero": {
+                  "old": {
+                    "loss": 3.6354894638061523,
+                    "perplexity": 37.92040902322699,
+                    "tokens": 64,
+                    "tokens_per_second": 7425.863772436645,
+                    "wall_seconds": 0.008618526000645943
+                  },
+                  "old_loss_delta_vs_actual": -2.384185791015625e-07,
+                  "route_load_block1": [
+                    0.4779972732067108,
+                    0.5220026969909668
+                  ],
+                  "target": {
+                    "loss": 3.5675361156463623,
+                    "perplexity": 35.42919209073653,
+                    "tokens": 64,
+                    "tokens_per_second": 7947.236310248135,
+                    "wall_seconds": 0.008053114001086215
+                  },
+                  "target_loss_delta_vs_actual": 2.384185791015625e-07
+                }
+              }
+            },
+            "donor_core_frozen": true,
+            "donor_payload_parameter_count": 4917760,
+            "interface_signature": {
+              "donor_core": [
+                "batch",
+                "time",
+                2560
+              ],
+              "donor_core_frozen": true,
+              "donor_variant": "shuffled",
+              "input": [
+                "batch",
+                "time",
+                96
+              ],
+              "output": [
+                "batch",
+                "time",
+                96
+              ],
+              "port_rank": 8,
+              "version": "expert-v1/qwen-shared-expert-organ-v1"
+            },
+            "port_parameter_count": 42496,
+            "variant": "shuffled"
+          },
+          "old_loss_delta": 2.384185791015625e-07,
+          "parameter_count": 1650425,
+          "peak_vram_bytes": null,
+          "post": {
+            "old": {
+              "loss": 3.6354897022247314,
+              "perplexity": 37.9204180641581,
+              "tokens": 64,
+              "tokens_per_second": 8520.479904221133,
+              "wall_seconds": 0.007511314001021674
+            },
+            "route_load_block1": [
+              0.4779972732067108,
+              0.5220026969909668
+            ],
+            "target": {
+              "loss": 3.567535877227783,
+              "perplexity": 35.4291836437599,
+              "tokens": 64,
+              "tokens_per_second": 8680.762782073985,
+              "wall_seconds": 0.007372623997071059
+            }
+          },
+          "pre": {
+            "old": {
+              "loss": 3.6354894638061523,
+              "perplexity": 37.92040902322699,
+              "tokens": 64,
+              "tokens_per_second": 7983.817798620847,
+              "wall_seconds": 0.00801621500067995
+            },
+            "route_load_block1": [
+              0.4779972732067108,
+              0.5220026969909668
+            ],
+            "target": {
+              "loss": 3.5675361156463623,
+              "perplexity": 35.42919209073653,
+              "tokens": 64,
+              "tokens_per_second": 8649.766101118683,
+              "wall_seconds": 0.00739904400325031
+            }
+          },
+          "promotion_state": "CANDIDATE_ATTACHED",
+          "seed": 7,
+          "selected_parameter_names": [
+            "blocks.1.experts.experts.0.input_port.down.weight",
+            "blocks.1.experts.experts.0.input_port.up.weight",
+            "blocks.1.experts.experts.0.output_port.down.weight",
+            "blocks.1.experts.experts.0.output_port.up.weight"
+          ],
+          "target_loss_delta": -2.384185791015625e-07,
+          "trainable_parameters": 42496,
+          "training": {
+            "loss_first": 6.886002063751221,
+            "loss_last": 6.886002063751221,
+            "new_task_tokens": 64,
+            "optimization_steps": 1,
+            "rehearsal_tokens": 64,
+            "wall_seconds": 0.030708587000845
+          }
+        },
+        "native_expert_local": {
+          "arm": "native_expert_local",
+          "base_parameter_count_before_surgery": 1682137,
+          "changed_parameter_stats": {
+            "changed_fraction": 0.04411531284312752,
+            "changed_parameters": 74208,
+            "per_top_level_module": {
+              "blocks": {
+                "changed": 74208,
+                "l1": 222.6107088625431,
+                "total": 1596696
+              },
+              "bus": {
+                "changed": 0,
+                "l1": 0.0,
+                "total": 42049
+              },
+              "final_norm": {
+                "changed": 0,
+                "l1": 0.0,
+                "total": 384
+              },
+              "position_embedding": {
+                "changed": 0,
+                "l1": 0.0,
+                "total": 18432
+              },
+              "token_embedding": {
+                "changed": 0,
+                "l1": 0.0,
+                "total": 24576
+              }
+            },
+            "total_parameters": 1682137
+          },
+          "checkpoint": "checkpoints/lifetime-compounding-remora_local_rehearsal-seed7.pt",
+          "old_loss_delta": -0.07386159896850586,
+          "parameter_count": 1682137,
+          "peak_vram_bytes": null,
+          "post": {
+            "old": {
+              "loss": 3.4910149574279785,
+              "perplexity": 32.81924094013912,
+              "tokens": 64,
+              "tokens_per_second": 13539.047881526285,
+              "wall_seconds": 0.004727068000647705
+            },
+            "route_load_block1": [
+              0.4779972732067108,
+              0.5220026969909668
+            ],
+            "target": {
+              "loss": 3.4774558544158936,
+              "perplexity": 32.377244778896,
+              "tokens": 64,
+              "tokens_per_second": 14136.966885959788,
+              "wall_seconds": 0.0045271380004123785
+            }
+          },
+          "pre": {
+            "old": {
+              "loss": 3.5648765563964844,
+              "perplexity": 35.33509124405112,
+              "tokens": 64,
+              "tokens_per_second": 13225.957848340751,
+              "wall_seconds": 0.0048389689982286654
+            },
+            "route_load_block1": [
+              0.4779972732067108,
+              0.5220026969909668
+            ],
+            "target": {
+              "loss": 3.531440496444702,
+              "perplexity": 34.173158489916894,
+              "tokens": 64,
+              "tokens_per_second": 14454.528990991923,
+              "wall_seconds": 0.004427677999046864
+            }
+          },
+          "promotion_state": "CONTROL",
+          "seed": 7,
+          "selected_parameter_names": [
+            "blocks.1.experts.experts.0.up.weight",
+            "blocks.1.experts.experts.0.up.bias",
+            "blocks.1.experts.experts.0.down.weight",
+            "blocks.1.experts.experts.0.down.bias"
+          ],
+          "target_loss_delta": -0.053984642028808594,
+          "trainable_parameters": 74208,
+          "training": {
+            "loss_first": 6.7682204246521,
+            "loss_last": 6.7682204246521,
+            "new_task_tokens": 64,
+            "optimization_steps": 1,
+            "rehearsal_tokens": 64,
+            "wall_seconds": 0.02120253999964916
+          }
+        },
+        "native_frozen": {
+          "arm": "native_frozen",
+          "base_parameter_count_before_surgery": 1682137,
+          "changed_parameter_stats": {
+            "changed_fraction": 0.0,
+            "changed_parameters": 0,
+            "per_top_level_module": {
+              "blocks": {
+                "changed": 0,
+                "l1": 0.0,
+                "total": 1596696
+              },
+              "bus": {
+                "changed": 0,
+                "l1": 0.0,
+                "total": 42049
+              },
+              "final_norm": {
+                "changed": 0,
+                "l1": 0.0,
+                "total": 384
+              },
+              "position_embedding": {
+                "changed": 0,
+                "l1": 0.0,
+                "total": 18432
+              },
+              "token_embedding": {
+                "changed": 0,
+                "l1": 0.0,
+                "total": 24576
+              }
+            },
+            "total_parameters": 1682137
+          },
+          "checkpoint": "checkpoints/lifetime-compounding-remora_local_rehearsal-seed7.pt",
+          "old_loss_delta": 0.0,
+          "parameter_count": 1682137,
+          "peak_vram_bytes": null,
+          "post": {
+            "old": {
+              "loss": 3.5648765563964844,
+              "perplexity": 35.33509124405112,
+              "tokens": 64,
+              "tokens_per_second": 14246.76464548354,
+              "wall_seconds": 0.0044922480010427535
+            },
+            "route_load_block1": [
+              0.4779972732067108,
+              0.5220026969909668
+            ],
+            "target": {
+              "loss": 3.531440496444702,
+              "perplexity": 34.173158489916894,
+              "tokens": 64,
+              "tokens_per_second": 14393.443426817083,
+              "wall_seconds": 0.004446468999958597
+            }
+          },
+          "pre": {
+            "old": {
+              "loss": 3.5648765563964844,
+              "perplexity": 35.33509124405112,
+              "tokens": 64,
+              "tokens_per_second": 12969.093627937817,
+              "wall_seconds": 0.004934809003316332
+            },
+            "route_load_block1": [
+              0.4779972732067108,
+              0.5220026969909668
+            ],
+            "target": {
+              "loss": 3.531440496444702,
+              "perplexity": 34.173158489916894,
+              "tokens": 64,
+              "tokens_per_second": 14082.003018500498,
+              "wall_seconds": 0.004544808001810452
+            }
+          },
+          "promotion_state": "CONTROL",
+          "seed": 7,
+          "selected_parameter_names": [],
+          "target_loss_delta": 0.0,
+          "trainable_parameters": 0,
+          "training": {
+            "loss_first": null,
+            "loss_last": null,
+            "new_task_tokens": 0,
+            "optimization_steps": 0,
+            "rehearsal_tokens": 0,
+            "wall_seconds": 0.0
+          }
+        },
+        "native_random_expert_local": {
+          "arm": "native_random_expert_local",
+          "base_parameter_count_before_surgery": 1682137,
+          "changed_parameter_stats": {
+            "changed_fraction": 0.04411531284312752,
+            "changed_parameters": 74208,
+            "per_top_level_module": {
+              "blocks": {
+                "changed": 74208,
+                "l1": 222.61153554916382,
+                "total": 1596696
+              },
+              "bus": {
+                "changed": 0,
+                "l1": 0.0,
+                "total": 42049
+              },
+              "final_norm": {
+                "changed": 0,
+                "l1": 0.0,
+                "total": 384
+              },
+              "position_embedding": {
+                "changed": 0,
+                "l1": 0.0,
+                "total": 18432
+              },
+              "token_embedding": {
+                "changed": 0,
+                "l1": 0.0,
+                "total": 24576
+              }
+            },
+            "total_parameters": 1682137
+          },
+          "checkpoint": "checkpoints/lifetime-compounding-remora_local_rehearsal-seed7.pt",
+          "old_loss_delta": -0.008790969848632812,
+          "parameter_count": 1682137,
+          "peak_vram_bytes": null,
+          "post": {
+            "old": {
+              "loss": 3.659369707107544,
+              "perplexity": 38.83685656071378,
+              "tokens": 64,
+              "tokens_per_second": 13198.464274100694,
+              "wall_seconds": 0.004849049000767991
+            },
+            "route_load_block1": [
+              0.4779972732067108,
+              0.5220026969909668
+            ],
+            "target": {
+              "loss": 3.441359519958496,
+              "perplexity": 31.229386294791468,
+              "tokens": 64,
+              "tokens_per_second": 13372.537148910607,
+              "wall_seconds": 0.004785928002092987
+            }
+          },
+          "pre": {
+            "old": {
+              "loss": 3.6681606769561768,
+              "perplexity": 39.1797752813951,
+              "tokens": 64,
+              "tokens_per_second": 12497.534668137665,
+              "wall_seconds": 0.0051210099991294555
+            },
+            "route_load_block1": [
+              0.4779972732067108,
+              0.5220026969909668
+            ],
+            "target": {
+              "loss": 3.58357572555542,
+              "perplexity": 36.0020443936222,
+              "tokens": 64,
+              "tokens_per_second": 13422.624545568335,
+              "wall_seconds": 0.004768069000419928
+            }
+          },
+          "promotion_state": "CONTROL",
+          "seed": 7,
+          "selected_parameter_names": [
+            "blocks.1.experts.experts.0.up.weight",
+            "blocks.1.experts.experts.0.up.bias",
+            "blocks.1.experts.experts.0.down.weight",
+            "blocks.1.experts.experts.0.down.bias"
+          ],
+          "target_loss_delta": -0.14221620559692383,
+          "trainable_parameters": 74208,
+          "training": {
+            "loss_first": 7.103925704956055,
+            "loss_last": 7.103925704956055,
+            "new_task_tokens": 64,
+            "optimization_steps": 1,
+            "rehearsal_tokens": 64,
+            "wall_seconds": 0.019113315000140574
+          }
+        },
+        "native_swiglu_local": {
+          "arm": "native_swiglu_local",
+          "base_parameter_count_before_surgery": 1682137,
+          "changed_parameter_stats": {
+            "changed_fraction": 0.06482317805494406,
+            "changed_parameters": 111456,
+            "per_top_level_module": {
+              "blocks": {
+                "changed": 111456,
+                "l1": 334.34349527955055,
+                "total": 1633944
+              },
+              "bus": {
+                "changed": 0,
+                "l1": 0.0,
+                "total": 42049
+              },
+              "final_norm": {
+                "changed": 0,
+                "l1": 0.0,
+                "total": 384
+              },
+              "position_embedding": {
+                "changed": 0,
+                "l1": 0.0,
+                "total": 18432
+              },
+              "token_embedding": {
+                "changed": 0,
+                "l1": 0.0,
+                "total": 24576
+              }
+            },
+            "total_parameters": 1719385
+          },
+          "checkpoint": "checkpoints/lifetime-compounding-remora_local_rehearsal-seed7.pt",
+          "old_loss_delta": -0.0022313594818115234,
+          "parameter_count": 1719385,
+          "peak_vram_bytes": null,
+          "post": {
+            "old": {
+              "loss": 3.634213447570801,
+              "perplexity": 37.87205282387111,
+              "tokens": 64,
+              "tokens_per_second": 12858.534618295991,
+              "wall_seconds": 0.00497723900116398
+            },
+            "route_load_block1": [
+              0.4779972732067108,
+              0.5220026969909668
+            ],
+            "target": {
+              "loss": 3.505524158477783,
+              "perplexity": 33.29889317605781,
+              "tokens": 64,
+              "tokens_per_second": 13449.167084518358,
+              "wall_seconds": 0.0047586590007995255
+            }
+          },
+          "pre": {
+            "old": {
+              "loss": 3.6364448070526123,
+              "perplexity": 37.956653340015336,
+              "tokens": 64,
+              "tokens_per_second": 13240.788499535214,
+              "wall_seconds": 0.0048335489991586655
+            },
+            "route_load_block1": [
+              0.4779972732067108,
+              0.5220026969909668
+            ],
+            "target": {
+              "loss": 3.5634140968322754,
+              "perplexity": 35.28345287062923,
+              "tokens": 64,
+              "tokens_per_second": 14140.215256712141,
+              "wall_seconds": 0.004526098000496859
+            }
+          },
+          "promotion_state": "CONTROL",
+          "seed": 7,
+          "selected_parameter_names": [
+            "blocks.1.experts.experts.0.value.weight",
+            "blocks.1.experts.experts.0.value.bias",
+            "blocks.1.experts.experts.0.gate.weight",
+            "blocks.1.experts.experts.0.gate.bias",
+            "blocks.1.experts.experts.0.down.weight",
+            "blocks.1.experts.experts.0.down.bias"
+          ],
+          "target_loss_delta": -0.05788993835449219,
+          "trainable_parameters": 111456,
+          "training": {
+            "loss_first": 6.793726921081543,
+            "loss_last": 6.793726921081543,
+            "new_task_tokens": 64,
+            "optimization_steps": 1,
+            "rehearsal_tokens": 64,
+            "wall_seconds": 0.018787054999847896
+          }
+        }
+      },
+      "intervention": {
+        "ablated": {
+          "old": {
+            "loss": 3.6354894638061523,
+            "perplexity": 37.92040902322699,
+            "tokens": 64,
+            "tokens_per_second": 8718.404129462739,
+            "wall_seconds": 0.007340792999457335
+          },
+          "route_load_block1": [
+            0.4779972732067108,
+            0.5220026969909668
+          ],
+          "target": {
+            "loss": 3.5675361156463623,
+            "perplexity": 35.42919209073653,
+            "tokens": 64,
+            "tokens_per_second": 13526.828990836813,
+            "wall_seconds": 0.004731337998236995
+          }
+        }
+      },
+      "seed": 7
+    }
+  ],
+  "schema": "remora-qwen-neural-graft-result-v1",
+  "seeds": [
+    7
+  ],
+  "training": {
+    "batch_size": 2,
+    "graft_port_rank": 8,
+    "max_eval_tokens": 65,
+    "optimizer": "AdamW(lr=0.003, betas=(0.9,0.95), weight_decay=0)",
+    "rehearsal_weight": 1.0,
+    "seq_len": 32,
+    "steps": 1,
+    "used_path": "blocks.1.experts.experts.0"
+  }
+}

@@ -1,0 +1,194 @@
+{
+  "actual_trial": {
+    "checkpoint": "checkpoints/lifetime-compounding-remora_local_rehearsal-seed7.pt",
+    "measured": {
+      "baseline_full_model_control": null,
+      "checkpoint": "/home/leo/research/remora-v0/results/resurrection-real-module-replacement.pt",
+      "device": "cuda",
+      "interpretation": "MEASURED: replacement recovered target capability under the declared local update scope and passed the old-task retention gate.",
+      "local_adaptation_loss_first_last": [
+        6.884265899658203,
+        4.683408260345459
+      ],
+      "local_update": {
+        "changed_fraction": 0.06482317805494406,
+        "changed_parameters": 111456,
+        "per_top_level_module": {
+          "blocks": {
+            "changed": 111456,
+            "l1": 4826.548669219017,
+            "total": 1633944
+          },
+          "bus": {
+            "changed": 0,
+            "l1": 0.0,
+            "total": 42049
+          },
+          "final_norm": {
+            "changed": 0,
+            "l1": 0.0,
+            "total": 384
+          },
+          "position_embedding": {
+            "changed": 0,
+            "l1": 0.0,
+            "total": 18432
+          },
+          "token_embedding": {
+            "changed": 0,
+            "l1": 0.0,
+            "total": 24576
+          }
+        },
+        "total_parameters": 1719385
+      },
+      "original": {
+        "old": {
+          "loss": 3.4083882827233265,
+          "perplexity": 30.216504530226906,
+          "tokens": 118464,
+          "tokens_per_second": 22546.2497147545,
+          "wall_seconds": 5.254266297000868
+        },
+        "target": {
+          "loss": 3.410295517531791,
+          "perplexity": 30.274189491354,
+          "tokens": 60384,
+          "tokens_per_second": 218568.13712855816,
+          "wall_seconds": 0.27627082699837047
+        }
+      },
+      "replaced_after_local_training": {
+        "old": {
+          "loss": 2.634457261674408,
+          "perplexity": 13.93574694633708,
+          "tokens": 118464,
+          "tokens_per_second": 218181.20618519577,
+          "wall_seconds": 0.5429615229986666
+        },
+        "target": {
+          "loss": 2.0301200714323593,
+          "perplexity": 7.615000647924085,
+          "tokens": 60384,
+          "tokens_per_second": 216550.82335721765,
+          "wall_seconds": 0.2788444719990366
+        }
+      },
+      "replaced_before_local_training": {
+        "old": {
+          "loss": 3.4587150408344485,
+          "perplexity": 31.776119254652087,
+          "tokens": 118464,
+          "tokens_per_second": 214130.9713940706,
+          "wall_seconds": 0.5532315070013283
+        },
+        "target": {
+          "loss": 3.4318653832179375,
+          "perplexity": 30.93429327433215,
+          "tokens": 60384,
+          "tokens_per_second": 218232.50621959617,
+          "wall_seconds": 0.27669571800288395
+        }
+      },
+      "replacement_parameter_accounting": {
+        "added_parameters": 37248,
+        "new_expert_parameters": 111456,
+        "new_module_fraction_of_model": 0.06482317805494406,
+        "old_expert_parameters": 74208,
+        "total_model_parameters": 1719385
+      },
+      "retention_weight": 1.0,
+      "schema": "remora-v0-module-replacement-result",
+      "scope": {
+        "replaced": "blocks.1.experts.experts.0",
+        "retrained_prefixes": [
+          "blocks.1.experts.experts.0"
+        ],
+        "selected_parameters": [
+          "blocks.1.experts.experts.0.value.weight",
+          "blocks.1.experts.experts.0.value.bias",
+          "blocks.1.experts.experts.0.gate.weight",
+          "blocks.1.experts.experts.0.gate.bias",
+          "blocks.1.experts.experts.0.down.weight",
+          "blocks.1.experts.experts.0.down.bias"
+        ]
+      },
+      "seed": 7,
+      "source_checkpoint": "checkpoints/lifetime-compounding-remora_local_rehearsal-seed7.pt",
+      "source_seed": 7
+    },
+    "module_replacement_result": "/home/leo/research/remora-v0/results/resurrection-real-module-replacement.json",
+    "retention_gate_passed": true,
+    "success": true,
+    "target_improved": true
+  },
+  "changed_context": {
+    "checkpoint_age_stages": 5,
+    "replacement": "blocks.1.experts.experts.0",
+    "retention_weight": 1.0,
+    "training_policy": "target_plus_old_rehearsal"
+  },
+  "experiment_family": "RESURRECTION-REAL-001+",
+  "interpretation": "MEASURED: a real previously failed replacement was re-run after the retention policy and model age changed; success is conditional on both target recovery and the fixed old-stream gate.",
+  "queue": {
+    "candidates": [
+      {
+        "candidate_id": "swiGLU-expert-local-adaptation",
+        "expected_upside": 0.85,
+        "failure_reason": "target-only replacement reached target loss 0.880641 but exceeded the old-task retention gate",
+        "failure_state": {
+          "checkpoint_age_stages": 0,
+          "replacement": "blocks.1.experts.experts.0",
+          "retention_weight": 0.0,
+          "training_policy": "target_only"
+        },
+        "history": [
+          {
+            "priority_after": 0.8925000000000001,
+            "priority_before": 0.51,
+            "state": {
+              "checkpoint_age_stages": 5,
+              "replacement": "blocks.1.experts.experts.0",
+              "retention_weight": 1.0,
+              "training_policy": "target_plus_old_rehearsal"
+            },
+            "success": true,
+            "trial_result": "/home/leo/research/remora-v0/results/resurrection-real-module-replacement.json"
+          }
+        ],
+        "novelty": 0.6,
+        "status": "REJECTED_UNDER_CONDITIONS_X",
+        "test_cost": 1.0,
+        "uncertainty": 0.75
+      }
+    ]
+  },
+  "queue_after_context_change": [
+    {
+      "candidate_id": "swiGLU-expert-local-adaptation",
+      "context_change": 0.75,
+      "priority": 0.8925000000000001,
+      "status": "REJECTED_UNDER_CONDITIONS_X"
+    }
+  ],
+  "queue_before_context_change": [
+    {
+      "candidate_id": "swiGLU-expert-local-adaptation",
+      "context_change": 0.0,
+      "priority": 0.51,
+      "status": "REJECTED_UNDER_CONDITIONS_X"
+    }
+  ],
+  "schema": "remora-v1-real-resurrection-result",
+  "source_failure": {
+    "failure_reason": "target-only replacement reached target loss 0.880641 but exceeded the old-task retention gate",
+    "failure_state": {
+      "checkpoint_age_stages": 0,
+      "replacement": "blocks.1.experts.experts.0",
+      "retention_weight": 0.0,
+      "training_policy": "target_only"
+    },
+    "immutable": true,
+    "path": "results/module-replacement-v1-failure.json"
+  }
+}

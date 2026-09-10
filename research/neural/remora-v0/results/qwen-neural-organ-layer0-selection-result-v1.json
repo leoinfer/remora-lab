@@ -1,0 +1,23 @@
+{
+  "anatomy": "results/qwen-neural-anatomy-v4.json",
+  "component_id": "qwen3.8.language.layer0.shared_expert",
+  "extraction": null,
+  "header_manifest": "results/qwen-neural-header-manifest-v1.json",
+  "interpretation": "MEASURED: selection was made from config/index/header geometry and byte accounting only. No donor payload was materialized and no transplant promotion occurred.",
+  "model_loader_called": false,
+  "payload_materialized": false,
+  "schema": "remora-qwen-neural-organ-selection-result-v1",
+  "selection": "results/qwen-neural-organ-layer0-selection-v1.json",
+  "selection_is_value_free": true,
+  "source": {
+    "download_methods": [
+      "curl official Hugging Face pinned resolver, resumable per-shard files, 32 workers",
+      "validated HTTP byte ranges for final stalled shards 115 and 121, existing prefixes retained"
+    ],
+    "official_model_url": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next",
+    "pinned_resolve_root": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next/resolve/f5d08274bafd880402bd16f5e3e6c514136ec06c/",
+    "repository": "Qwen/Qwen3.8-Flash-Next",
+    "revision": "f5d08274bafd880402bd16f5e3e6c514136ec06c",
+    "revision_type": "commit_sha"
+  }
+}

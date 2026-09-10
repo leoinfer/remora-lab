@@ -34,7 +34,12 @@ from remora.utils import (
 def _load(path: str | Path, device: torch.device):
     checkpoint = torch.load(path, map_location="cpu", weights_only=False)
     cfg = ModelConfig(**checkpoint["config"])
-    model_kind = "remora" if checkpoint["model_type"].startswith("remora") else "baseline"
+    # Older scratch checkpoints recorded ``model_type`` while the lifetime
+    # checkpoint writer records ``model_kind``.  Keep both formats readable so
+    # an aged Remora checkpoint can actually enter the surgery harness instead
+    # of being silently misclassified as a baseline.
+    marker = checkpoint.get("model_type", checkpoint.get("model_kind", ""))
+    model_kind = "remora" if str(marker).startswith("remora") else "baseline"
     model = build_model(model_kind, cfg)
     model.load_state_dict(checkpoint["state_dict"])
     return model.to(device), checkpoint

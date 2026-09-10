@@ -47,3 +47,19 @@ archive.
   Bayesian treatment.
 - The manual reader is a learned graph-query component evaluated against a
   factual graph oracle; it is not trusted to edit the graph.
+
+## Foreign neural-organ boundary
+
+Resident open-weight checkpoints are treated as versioned donor assemblies,
+not as monolithic replacements. The donor path has explicit categories:
+`DIRECT_GRAFT`, `FUNCTION_PRESERVING_CONVERSION`, `WRAPPED_GRAFT`,
+`SUBMODULE_GRAFT`, `MECHANISM_RECONSTRUCTION`, `INSPIRATION_ONLY`, and
+`DISTILLATION_CONTROL`. A candidate must first reproduce its selected donor
+computation in the standalone Neural IR harness, then attach through a declared
+Remora port. The donor core, transformed parameters, discarded parameters,
+newly trained ports, tokens, steps, and compute are recorded separately.
+
+The Qwen v0 pilot uses a frozen `WRAPPED_GRAFT` with exact selected trained
+weights and rank-8 ports. It remains a candidate because function reproduction
+and causal contribution do not by themselves establish retained capability or
+compute avoidance against native and equal-budget controls.
