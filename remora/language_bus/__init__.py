@@ -1,3 +1,3 @@
-from .bus import BusPacket, SharedLanguageBus
+from .bus import BusPacket, DirectLanguageBus, SharedLanguageBus
 
-__all__ = ["BusPacket", "SharedLanguageBus"]
+__all__ = ["BusPacket", "DirectLanguageBus", "SharedLanguageBus"]

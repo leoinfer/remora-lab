@@ -39,6 +39,15 @@ class CoreModelTests(unittest.TestCase):
         self.assertLess(ratio, 3.0)
         self.assertGreater(ratio, 0.3)
 
+    def test_direct_bus_ablation_preserves_forward_contract(self):
+        model = build_model("remora", self.cfg, bus_mode="direct")
+        x = torch.randint(0, 128, (2, 16))
+        logits, loss, aux = model(x, x, return_aux=True)
+        self.assertEqual(logits.shape, (2, 16, 128))
+        self.assertTrue(torch.isfinite(loss))
+        self.assertEqual(model.bus.interface_signature()["trainable_parameters"], 0)
+        self.assertLess(count_parameters(model), count_parameters(build_model("remora", self.cfg)))
+
     def test_parallel_recurrent_scan_matches_reference(self):
         if not torch.cuda.is_available():
             self.skipTest("CUDA/XPU associative scan is unavailable")

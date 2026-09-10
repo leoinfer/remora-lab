@@ -1,16 +1,18 @@
 # Resident open-weight models as Remora donors
 
-Status: design formalization plus a measured metadata/header inspection. No
-Qwen3.8 tensor values have been loaded into Remora-v0 and no Qwen-derived
-module has been promoted.
+Status: design formalization plus a measured metadata/header inspection and a
+bounded neural-organ pilot. A selected Qwen shared-expert payload has been
+read into a standalone Remora graft harness; no Qwen-derived module has been
+promoted.
 
 ## Decision
 
 Yes: a resident open-weight model can become a source of replaceable Remora
-capability. The safe default is not cross-model weight copying. It is a
-frozen donor interface whose outputs are converted into the common language
-bus and then distilled into a candidate module under the external experiment
-harness.
+capability. The safe default is bounded inspection followed by the least
+destructive import that survives controls: exact trained-weight reuse where
+interfaces permit it, lossless conversion or a frozen wrapped organ next,
+and learned ports or reconstruction only when necessary. A full cross-model
+copy is not the same thing as a submodule transplant.
 
 The import ladder is:
 
@@ -35,8 +37,10 @@ The local acquisition is protected and pinned to
 `f5d08274bafd880402bd16f5e3e6c514136ec06c`. Its existing acquisition report
 records 131/131 shards, 360,000,192,888 shard bytes, 1,658 tensors, and a
 successful index/header reconciliation. The local source manifest reports the
-upstream SHA-256 verification and says that no model load or conversion was
-performed.
+upstream SHA-256 verification and says that no full model load or conversion
+was performed. A separate, explicitly bounded organ experiment later read
+only the selected shared-expert tensors; the source tree itself was not
+mutated.
 
 Header inspection finds a multimodal `qwen4_exp` configuration with a 2,560
 wide, 48-layer text stack, 24 query heads / 2 KV heads, 512 experts with 10
@@ -48,7 +52,9 @@ token. These are precisely the kinds of subsystems worth studying, but they
 are not directly compatible with the v0 character tokenizer, 192-wide hidden
 state, 4 layers, 128-token vocabulary, or 96-wide language bus.
 
-Therefore the first Qwen experiment must be one of:
+Therefore a full Qwen graft is not a sensible v0 operation, but a bounded
+submodule/organ experiment is still meaningful. The first Qwen experiment can
+be one of:
 
 1. query a separately launched, explicitly budgeted local runtime and distill
    verified responses into a small Remora specialist; or
@@ -71,9 +77,11 @@ width, expert routing, calibration, tied embeddings, or training scale.
 
 For Qwen3.8 specifically, the local and upstream architecture metadata show
 different model families, dimensions, vocabulary, layer count, routing, and
-multimodal inputs. Direct graft status must consequently be
+multimodal inputs. A whole-block/full-model direct graft remains
 `INCOMPATIBLE_FOR_DIRECT_GRAFT`; the manifest recommends frozen-teacher or
-activation distillation instead.
+activation import for those boundaries. That does not rule out a
+`WRAPPED_GRAFT` or `SUBMODULE_GRAFT` whose own geometry and state semantics
+are explicitly reproduced and tested.
 
 A direct graft becomes a candidate only if all of these are true:
 
@@ -296,6 +304,60 @@ Use a deliberately compatible small donor, not Qwen3.8, to test a named expert
 graft. Freeze all unaffected modules, train only the replacement and declared
 ports, and compare to full-model adaptation. This is the direct analogue of
 the existing Remora module-replacement experiment.
+
+### D5b: Qwen neural-organ pilot
+
+The first real donor-organ run selected Qwen's layer-0 shared expert because it
+has a finite boundary and does not require the full Qwen stack. The exact
+selected tensors are the `down_proj`, `gate_proj`, and `up_proj` weights under
+`model.language_model.layers.0.mlp.shared_expert`, plus
+`model.language_model.layers.0.mlp.shared_expert_gate.weight`; they came from
+one source shard. The
+BF16 payload contains 4,917,760 trained parameters and 9,835,520 bytes. It was
+read selectively and held in a standalone organ; the 360-GB checkpoint was
+never materialized.
+
+The standalone harness reproduced the explicit Qwen computation (gate/up,
+SiLU product, down projection, scalar sigmoid gate) against an independent
+reference with zero max/mean/relative-L2 error and cosine similarity 1.0
+within the FP32 reference. This is `FUNCTION_REPRODUCED`, not a claim that
+the isolated organ reproduces the full Qwen block.
+
+The attached candidate is a `WRAPPED_GRAFT`: all 4,917,760 donor parameters
+were retained and frozen, the BF16 values were represented as FP32 runtime
+buffers (storage conversion only), and rank-8 input/output ports supplied the
+Remora `language-v1` boundary. The ports contain 42,496 newly trained
+parameters. No donor parameter was analytically transformed or discarded.
+Across seeds 7, 19, and 31, the surgery used 60 gradient steps and 184,320
+assimilation tokens (92,160 target plus 92,160 rehearsal) and took 18.70–19.62
+seconds. The modeled trainable-update cost was 46.997 billion FLOPs; modeled
+forward cost including the frozen donor core was 7.264 trillion FLOPs. The
+original Qwen training compute is not present in the downloaded checkpoint,
+so the desired compute-avoidance ratio is explicitly `NOT_COMPUTABLE`, not
+estimated.
+
+The controls show why this remains a candidate. With repaired ports held
+fixed, zeroing or replacing the donor core caused a large target-loss change
+(mean approximately 0.423), proving that the frozen organ contributes to the
+path. However, separately trained same-port controls were close: random-core
+control minus actual loss averaged 0.0360 and shuffled-core control minus
+actual averaged 0.0147. The native Remora specialist remains the stronger v0
+control in the recorded run. The graft is therefore
+`DONOR_FUNCTION_REPRODUCED -> GRAFT_ATTACHED -> CONTROLLED_EXPERIMENT_ONLY`,
+not `PROMOTED`.
+
+The complete accounting, source shard/payload hash, equivalence receipt,
+ablation controls, and ledger entry are in
+`results/qwen-neural-graft-analysis-v1.json` and
+`results/qwen-neural-graft-v1.json`. The reproducible bounded command is:
+
+```bash
+flock -n /tmp/remora-v0-gpu.lock \
+  python -m experiments.donor_graft \
+  --checkpoint-dir checkpoints \
+  --payload results/qwen-neural-organ-layer0.safetensors \
+  --device cuda --seeds 7 19 31
+```
 
 ## Prior-art classification
 

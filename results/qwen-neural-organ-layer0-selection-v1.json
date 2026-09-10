@@ -1,0 +1,40 @@
+{
+  "donor_weights_consulted": false,
+  "max_payload_bytes": 268435456,
+  "promotion_state": "DONOR_OBSERVED",
+  "schema": "remora-qwen-neural-organ-selection-v1",
+  "selected": [
+    {
+      "architecture_family": "shared_swiglu_expert",
+      "component_id": "qwen3.8.language.layer0.shared_expert",
+      "component_key": "model.language_model.layers.0.mlp.shared_expert",
+      "declared_import_modes": [
+        "reparameterize",
+        "wrapped_graft",
+        "subspace_graft",
+        "mechanism_reconstruction"
+      ],
+      "geometry": {
+        "input_width": 2560,
+        "output_width": 2560,
+        "state_dimensions": {
+          "activation": "silu",
+          "intermediate_size": 640
+        }
+      },
+      "payload_bytes": 9835520,
+      "source_shards": [
+        "model-00003-of-00131.safetensors"
+      ],
+      "tensor_names": [
+        "model.language_model.layers.0.mlp.shared_expert.down_proj.weight",
+        "model.language_model.layers.0.mlp.shared_expert.gate_proj.weight",
+        "model.language_model.layers.0.mlp.shared_expert.up_proj.weight",
+        "model.language_model.layers.0.mlp.shared_expert_gate.weight"
+      ]
+    }
+  ],
+  "selected_payload_bytes": 9835520,
+  "selection_basis": "architecture/header evidence only: bounded component with explicit tensor boundary, finite computation contract, and manageable extraction cost",
+  "selection_is_value_free": true
+}

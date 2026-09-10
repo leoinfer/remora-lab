@@ -1,0 +1,1066 @@
+{
+  "all_questions_passed": true,
+  "experiment_family": "MANUAL-REAL-CHANGES-001+",
+  "graph_queries": {
+    "active_dependents_of_language_v1": {
+      "dependents": [
+        "expert-layer0-g1",
+        "expert-layer1-g2",
+        "expert-layer2-g3",
+        "expert-layer3-g4",
+        "lm-head"
+      ],
+      "module_id": "language-v1",
+      "source": "graph+status-filter"
+    },
+    "ancestry_of_aged_surgery_candidate": {
+      "ancestry": [
+        "expert-layer1-g2",
+        "SwiGLUExpert",
+        "AGED-SURGERY-001"
+      ],
+      "module_id": "expert-layer1-aged-swiglu-surgery",
+      "source": "ledger"
+    },
+    "ancestry_of_qwen_graft": {
+      "ancestry": [
+        "qwen3.8-flash-next.layer0.shared-expert",
+        "conversion:BF16-to-FP32-storage-only",
+        "ports:rank-8-input-output",
+        "QWEN-NEURAL-ORGAN-003"
+      ],
+      "module_id": "remora.qwen-shared-expert-graft.v1",
+      "source": "ledger"
+    },
+    "dependents_of_language_v1_historical": {
+      "dependents": [
+        "expert-layer0-g0",
+        "expert-layer0-g1",
+        "expert-layer1-aged-swiglu-surgery",
+        "expert-layer1-g0",
+        "expert-layer1-g2",
+        "expert-layer2-g0",
+        "expert-layer2-g3",
+        "expert-layer3-g0",
+        "expert-layer3-g4",
+        "lm-head",
+        "remora.qwen-shared-expert-graft.v1"
+      ],
+      "module_id": "language-v1",
+      "source": "graph"
+    },
+    "minimum_affected_if_expert_layer1_g2_changes": {
+      "dependents": [
+        "lm-head"
+      ],
+      "module_id": "expert-layer1-g2",
+      "source": "graph"
+    }
+  },
+  "interpretation": "MEASURED/DERIVED: the factual manual answers real-change questions from hashed experiment receipts and graph state; candidate branches remain non-promoted and the learner is non-authoritative.",
+  "labels": {
+    "DERIVED": [
+      "graph dependents",
+      "ancestry queries",
+      "active status filter",
+      "question pass flags"
+    ],
+    "HYPOTHESIS": [
+      "learned manual can reason over this graph without mutating factual state"
+    ],
+    "LIMITATION": [
+      "this tranche verifies a factual real-change manual; it does not claim a language-model manual has been trained on the full graph"
+    ],
+    "MEASURED": [
+      "source artifact hashes",
+      "experiment receipt fields",
+      "aged before/after regressions"
+    ]
+  },
+  "lineage": {
+    "edges": [
+      {
+        "downstream": "expert-layer0-g0",
+        "kind": "data",
+        "upstream": "language-v1"
+      },
+      {
+        "downstream": "lm-head",
+        "kind": "data",
+        "upstream": "expert-layer0-g0"
+      },
+      {
+        "downstream": "expert-layer1-g0",
+        "kind": "data",
+        "upstream": "language-v1"
+      },
+      {
+        "downstream": "lm-head",
+        "kind": "data",
+        "upstream": "expert-layer1-g0"
+      },
+      {
+        "downstream": "expert-layer2-g0",
+        "kind": "data",
+        "upstream": "language-v1"
+      },
+      {
+        "downstream": "lm-head",
+        "kind": "data",
+        "upstream": "expert-layer2-g0"
+      },
+      {
+        "downstream": "expert-layer3-g0",
+        "kind": "data",
+        "upstream": "language-v1"
+      },
+      {
+        "downstream": "lm-head",
+        "kind": "data",
+        "upstream": "expert-layer3-g0"
+      },
+      {
+        "downstream": "expert-layer0-g1",
+        "kind": "data",
+        "upstream": "language-v1"
+      },
+      {
+        "downstream": "lm-head",
+        "kind": "data",
+        "upstream": "expert-layer0-g1"
+      },
+      {
+        "downstream": "expert-layer1-g2",
+        "kind": "data",
+        "upstream": "language-v1"
+      },
+      {
+        "downstream": "lm-head",
+        "kind": "data",
+        "upstream": "expert-layer1-g2"
+      },
+      {
+        "downstream": "expert-layer2-g3",
+        "kind": "data",
+        "upstream": "language-v1"
+      },
+      {
+        "downstream": "lm-head",
+        "kind": "data",
+        "upstream": "expert-layer2-g3"
+      },
+      {
+        "downstream": "expert-layer3-g4",
+        "kind": "data",
+        "upstream": "language-v1"
+      },
+      {
+        "downstream": "lm-head",
+        "kind": "data",
+        "upstream": "expert-layer3-g4"
+      },
+      {
+        "downstream": "remora.qwen-shared-expert-graft.v1",
+        "kind": "ancestry",
+        "upstream": "qwen3.8-flash-next.layer0.shared-expert"
+      },
+      {
+        "downstream": "remora.qwen-shared-expert-graft.v1",
+        "kind": "input",
+        "upstream": "language-v1"
+      },
+      {
+        "downstream": "lm-head",
+        "kind": "candidate-output",
+        "upstream": "remora.qwen-shared-expert-graft.v1"
+      },
+      {
+        "downstream": "world-model.experience-adapter-v1",
+        "kind": "evidence",
+        "upstream": "experience-archive-v1"
+      },
+      {
+        "downstream": "world-model.consolidated-v1",
+        "kind": "consolidation",
+        "upstream": "world-model.experience-adapter-v1"
+      },
+      {
+        "downstream": "expert-layer1-aged-swiglu-surgery",
+        "kind": "input",
+        "upstream": "language-v1"
+      },
+      {
+        "downstream": "lm-head",
+        "kind": "candidate-output",
+        "upstream": "expert-layer1-aged-swiglu-surgery"
+      }
+    ],
+    "experiments": {
+      "AGED-SURGERY-001": {
+        "artifact": "/home/leo/research/remora-v0/results/aged-surgery-v1.json",
+        "note": "near-equal Transformer-LoRA adversary",
+        "status": "CONTROLLED_EXPERIMENT_ONLY"
+      },
+      "CONSOLIDATION-001": {
+        "artifact": "/home/leo/research/remora-v0/results/consolidation-probe-v1.json",
+        "note": "structured-world probe; provenance preserved",
+        "status": "COMPLETE"
+      },
+      "LIFETIME-COMPOUNDING-001": {
+        "artifact": "/home/leo/research/remora-v0/results/lifetime-compounding.json",
+        "note": "five-stage sequential curriculum with shifted/unseen interfaces",
+        "status": "COMPLETE"
+      },
+      "QWEN-NEURAL-ORGAN-003": {
+        "artifact": "/home/leo/research/remora-v0/results/qwen-neural-graft-analysis-v1.json",
+        "note": "real frozen Qwen shared-expert organ and ports",
+        "status": "CONTROLLED_EXPERIMENT_ONLY"
+      },
+      "RESURRECTION-REAL-001": {
+        "artifact": "/home/leo/research/remora-v0/results/resurrection-real-v1.json",
+        "note": "real failed candidate retested after age and replay policy changed",
+        "status": "COMPLETE"
+      },
+      "SHIP-THESEUS-AGED-001": {
+        "artifact": "/home/leo/research/remora-v0/results/ship-of-theseus-aged-v1.json",
+        "note": "four sequential replacements after lifetime aging",
+        "status": "COMPLETE"
+      }
+    },
+    "generation": 5,
+    "modules": {
+      "experience-archive-v1": {
+        "ancestry": [
+          "lifetime-evidence-episodes"
+        ],
+        "benchmarks": {
+          "episode_count": 25
+        },
+        "content_hash": "169e92929bddbec899025768ca1dee56c8b43838b8732a6f84e01552b25ef37d",
+        "dependencies": [],
+        "failures": [],
+        "inputs": [
+          "lifetime-observation"
+        ],
+        "module_id": "experience-archive-v1",
+        "outputs": [
+          "evidence-cluster"
+        ],
+        "parameter_count": 0,
+        "replacements": [],
+        "state_owner": "experience-archive-v1",
+        "status": "ACTIVE",
+        "version": "archive-v1"
+      },
+      "expert-layer0-g0": {
+        "ancestry": [
+          "expert-layer0-g0@g0"
+        ],
+        "benchmarks": {},
+        "content_hash": "c76e8a8ee6a37c8ea1e90bb589cd0d66f6cf15c10b23a3ac6f551e0778313851",
+        "dependencies": [
+          "language-v1"
+        ],
+        "failures": [],
+        "inputs": [
+          "language-v1"
+        ],
+        "module_id": "expert-layer0-g0",
+        "outputs": [
+          "language-v1"
+        ],
+        "parameter_count": 74208,
+        "replacements": [
+          "expert-layer0-g1"
+        ],
+        "state_owner": "expert-layer0-g0",
+        "status": "DORMANT",
+        "version": "expert-v1"
+      },
+      "expert-layer0-g1": {
+        "ancestry": [
+          "expert-layer0-g0",
+          "expert-layer0-g1@g1"
+        ],
+        "benchmarks": {},
+        "content_hash": "3837b19038b2adbab48cf3976d453f338584f4d3ffeec0f0719bc61771022124",
+        "dependencies": [
+          "language-v1"
+        ],
+        "failures": [],
+        "inputs": [
+          "language-v1"
+        ],
+        "module_id": "expert-layer0-g1",
+        "outputs": [
+          "language-v1"
+        ],
+        "parameter_count": 111456,
+        "replacements": [],
+        "state_owner": "expert-layer0-g1",
+        "status": "ACTIVE",
+        "version": "expert-v1"
+      },
+      "expert-layer1-aged-swiglu-surgery": {
+        "ancestry": [
+          "expert-layer1-g2",
+          "SwiGLUExpert",
+          "AGED-SURGERY-001"
+        ],
+        "benchmarks": {
+          "paired": [
+            {
+              "retention_ratio_remora_minus_baseline": -0.11805555555555558,
+              "seed": 7,
+              "target_shifted_accuracy_remora_minus_baseline": -0.1875,
+              "target_unseen_accuracy_remora_minus_baseline": -0.0625,
+              "target_valid_accuracy_remora_minus_baseline": 0.0625,
+              "tokens_remora_minus_baseline": 0,
+              "wall_seconds_remora_minus_baseline": 8.618586696997227
+            },
+            {
+              "retention_ratio_remora_minus_baseline": 0.08333333333333337,
+              "seed": 19,
+              "target_shifted_accuracy_remora_minus_baseline": 0.0,
+              "target_unseen_accuracy_remora_minus_baseline": -0.25,
+              "target_valid_accuracy_remora_minus_baseline": 0.375,
+              "tokens_remora_minus_baseline": 0,
+              "wall_seconds_remora_minus_baseline": 6.242095831003098
+            },
+            {
+              "retention_ratio_remora_minus_baseline": -0.1717171717171717,
+              "seed": 31,
+              "target_shifted_accuracy_remora_minus_baseline": -0.3125,
+              "target_unseen_accuracy_remora_minus_baseline": 0.125,
+              "target_valid_accuracy_remora_minus_baseline": 0.125,
+              "tokens_remora_minus_baseline": 0,
+              "wall_seconds_remora_minus_baseline": 6.578002612997807
+            }
+          ],
+          "promotion": {
+            "promoted": false,
+            "state": "CONTROLLED_EXPERIMENT_ONLY"
+          }
+        },
+        "content_hash": "5fe9de5037f42410935f7e0a7472fe3d04607c5324bc17c130143393efa39b54",
+        "dependencies": [
+          "language-v1"
+        ],
+        "failures": [],
+        "inputs": [
+          "language-v1"
+        ],
+        "module_id": "expert-layer1-aged-swiglu-surgery",
+        "outputs": [
+          "language-v1"
+        ],
+        "parameter_count": 111456,
+        "replacements": [],
+        "state_owner": "expert-layer1-aged-swiglu-surgery",
+        "status": "DORMANT",
+        "version": "aged-surgery-v1"
+      },
+      "expert-layer1-g0": {
+        "ancestry": [
+          "expert-layer1-g0@g0"
+        ],
+        "benchmarks": {},
+        "content_hash": "5f71c3e9d44e34e3fa7e3e103a5f9ae2a45df02ec8089eb2593695a3354b3bd3",
+        "dependencies": [
+          "language-v1"
+        ],
+        "failures": [],
+        "inputs": [
+          "language-v1"
+        ],
+        "module_id": "expert-layer1-g0",
+        "outputs": [
+          "language-v1"
+        ],
+        "parameter_count": 74208,
+        "replacements": [
+          "expert-layer1-g2"
+        ],
+        "state_owner": "expert-layer1-g0",
+        "status": "DORMANT",
+        "version": "expert-v1"
+      },
+      "expert-layer1-g2": {
+        "ancestry": [
+          "expert-layer1-g0",
+          "expert-layer1-g2@g2"
+        ],
+        "benchmarks": {},
+        "content_hash": "8328ea9dcd48976caba49e371c145c776090bc80ff2ef62c20fc61fac35dda4c",
+        "dependencies": [
+          "language-v1"
+        ],
+        "failures": [],
+        "inputs": [
+          "language-v1"
+        ],
+        "module_id": "expert-layer1-g2",
+        "outputs": [
+          "language-v1"
+        ],
+        "parameter_count": 111456,
+        "replacements": [
+          "expert-layer1-aged-swiglu-surgery"
+        ],
+        "state_owner": "expert-layer1-g2",
+        "status": "ACTIVE",
+        "version": "expert-v1"
+      },
+      "expert-layer2-g0": {
+        "ancestry": [
+          "expert-layer2-g0@g0"
+        ],
+        "benchmarks": {},
+        "content_hash": "a9fab11310bbc8e8c82fb38809a4824c59d81859183e6bc04a5d767a0950ba1d",
+        "dependencies": [
+          "language-v1"
+        ],
+        "failures": [],
+        "inputs": [
+          "language-v1"
+        ],
+        "module_id": "expert-layer2-g0",
+        "outputs": [
+          "language-v1"
+        ],
+        "parameter_count": 74208,
+        "replacements": [
+          "expert-layer2-g3"
+        ],
+        "state_owner": "expert-layer2-g0",
+        "status": "DORMANT",
+        "version": "expert-v1"
+      },
+      "expert-layer2-g3": {
+        "ancestry": [
+          "expert-layer2-g0",
+          "expert-layer2-g3@g3"
+        ],
+        "benchmarks": {},
+        "content_hash": "632d1202b3e083e7bfeca54e22948a2183d2a0de418c8a77f1d9e2a213cc1dcc",
+        "dependencies": [
+          "language-v1"
+        ],
+        "failures": [],
+        "inputs": [
+          "language-v1"
+        ],
+        "module_id": "expert-layer2-g3",
+        "outputs": [
+          "language-v1"
+        ],
+        "parameter_count": 111456,
+        "replacements": [],
+        "state_owner": "expert-layer2-g3",
+        "status": "ACTIVE",
+        "version": "expert-v1"
+      },
+      "expert-layer3-g0": {
+        "ancestry": [
+          "expert-layer3-g0@g0"
+        ],
+        "benchmarks": {},
+        "content_hash": "96c10ff12dfccd66033c7aed8c65271a0b8b1e35c08c7fe92cbbdf1adbf36e53",
+        "dependencies": [
+          "language-v1"
+        ],
+        "failures": [],
+        "inputs": [
+          "language-v1"
+        ],
+        "module_id": "expert-layer3-g0",
+        "outputs": [
+          "language-v1"
+        ],
+        "parameter_count": 74208,
+        "replacements": [
+          "expert-layer3-g4"
+        ],
+        "state_owner": "expert-layer3-g0",
+        "status": "DORMANT",
+        "version": "expert-v1"
+      },
+      "expert-layer3-g4": {
+        "ancestry": [
+          "expert-layer3-g0",
+          "expert-layer3-g4@g4"
+        ],
+        "benchmarks": {},
+        "content_hash": "d290429bb1a5718dbdfd538c1829774c973cb7fbaa5f4aad92d66c9a4a9ca731",
+        "dependencies": [
+          "language-v1"
+        ],
+        "failures": [],
+        "inputs": [
+          "language-v1"
+        ],
+        "module_id": "expert-layer3-g4",
+        "outputs": [
+          "language-v1"
+        ],
+        "parameter_count": 111456,
+        "replacements": [],
+        "state_owner": "expert-layer3-g4",
+        "status": "ACTIVE",
+        "version": "expert-v1"
+      },
+      "language-v1": {
+        "ancestry": [
+          "language-v1@g0"
+        ],
+        "benchmarks": {},
+        "content_hash": "1fcc71acbe8d7a796f3139f66df90d426fa03054531ff37147d42727dee1898a",
+        "dependencies": [],
+        "failures": [],
+        "inputs": [
+          "language-v1"
+        ],
+        "module_id": "language-v1",
+        "outputs": [
+          "language-v1"
+        ],
+        "parameter_count": 42049,
+        "replacements": [],
+        "state_owner": "language-v1",
+        "status": "ACTIVE",
+        "version": "v1"
+      },
+      "lm-head": {
+        "ancestry": [
+          "lm-head@g0"
+        ],
+        "benchmarks": {},
+        "content_hash": "ccecd1b881660e6aaa216ff07e3f6e6a27e57dca1849db473bac2949403ebf18",
+        "dependencies": [
+          "expert-layer0-g0",
+          "expert-layer1-g0",
+          "expert-layer2-g0",
+          "expert-layer3-g0",
+          "expert-layer0-g1",
+          "expert-layer1-g2",
+          "expert-layer2-g3",
+          "expert-layer3-g4",
+          "remora.qwen-shared-expert-graft.v1",
+          "expert-layer1-aged-swiglu-surgery"
+        ],
+        "failures": [],
+        "inputs": [
+          "language-v1"
+        ],
+        "module_id": "lm-head",
+        "outputs": [
+          "language-v1"
+        ],
+        "parameter_count": 24576,
+        "replacements": [],
+        "state_owner": "lm-head",
+        "status": "ACTIVE",
+        "version": "v1"
+      },
+      "qwen3.8-flash-next.layer0.shared-expert": {
+        "ancestry": [
+          "Qwen/Qwen3.8-Flash-Next",
+          "f5d08274bafd880402bd16f5e3e6c514136ec06c",
+          "model.layers.0.shared_expert"
+        ],
+        "benchmarks": {
+          "functional_equivalence": {
+            "cosine_similarity": 1.0000004768371582,
+            "relative_l2_error": 0.0,
+            "scope": "standalone shared-expert computation, not full Qwen block behavior",
+            "source": "results/qwen-neural-organ-layer0-payload-analysis-v1.json",
+            "status": "EQUIVALENT_WITHIN_FLOAT32_REFERENCE_TOLERANCE"
+          },
+          "source_payload_bytes": 9835520,
+          "source_shards": [
+            "model-00003-of-00131.safetensors"
+          ]
+        },
+        "content_hash": "e1d2bd3035a5487a8c5189748612835862acf7f096a801766580876761585fa7",
+        "dependencies": [],
+        "failures": [],
+        "inputs": [
+          "qwen-hidden-2560"
+        ],
+        "module_id": "qwen3.8-flash-next.layer0.shared-expert",
+        "outputs": [
+          "qwen-hidden-2560"
+        ],
+        "parameter_count": 4917760,
+        "replacements": [],
+        "state_owner": "qwen3.8-flash-next.layer0.shared-expert",
+        "status": "DONOR_FUNCTION_REPRODUCED",
+        "version": "qwen3.8-source-f5d0827"
+      },
+      "remora.qwen-shared-expert-graft.v1": {
+        "ancestry": [
+          "qwen3.8-flash-next.layer0.shared-expert",
+          "conversion:BF16-to-FP32-storage-only",
+          "ports:rank-8-input-output",
+          "QWEN-NEURAL-ORGAN-003"
+        ],
+        "benchmarks": {
+          "donor_parameters_analytically_transformed": 0,
+          "donor_parameters_discarded": 0,
+          "donor_parameters_preserved_unchanged": 4917760,
+          "newly_trained_parameters": 42496,
+          "promotion": "CONTROLLED_EXPERIMENT_ONLY"
+        },
+        "content_hash": "b655a83edca488a67c0a6c478ef842c1e21fdb00aa3d29943546106ea293856b",
+        "dependencies": [
+          "qwen3.8-flash-next.layer0.shared-expert",
+          "language-v1"
+        ],
+        "failures": [],
+        "inputs": [
+          "language-v1",
+          "qwen-hidden-2560"
+        ],
+        "module_id": "remora.qwen-shared-expert-graft.v1",
+        "outputs": [
+          "language-v1"
+        ],
+        "parameter_count": 4960256,
+        "replacements": [],
+        "state_owner": "remora.qwen-shared-expert-graft.v1",
+        "status": "CANDIDATE",
+        "version": "graft-v1"
+      },
+      "world-model.consolidated-v1": {
+        "ancestry": [
+          "world-model.experience-adapter-v1",
+          "consolidation-007-experience-parity"
+        ],
+        "benchmarks": {
+          "archive_recoverable": true,
+          "source_episode_ids": [
+            "episode-00001",
+            "episode-00002",
+            "episode-00003",
+            "episode-00004",
+            "episode-00005",
+            "episode-00006",
+            "episode-00007",
+            "episode-00008",
+            "episode-00009",
+            "episode-00010",
+            "episode-00011",
+            "episode-00012",
+            "episode-00013",
+            "episode-00014",
+            "episode-00015",
+            "episode-00016",
+            "episode-00017",
+            "episode-00018",
+            "episode-00019",
+            "episode-00020",
+            "episode-00021",
+            "episode-00022",
+            "episode-00023",
+            "episode-00024"
+          ],
+          "source_independence_clusters": [
+            "experience-cluster-00",
+            "experience-cluster-01",
+            "experience-cluster-02",
+            "experience-cluster-03",
+            "experience-cluster-04",
+            "experience-cluster-05",
+            "experience-cluster-06",
+            "experience-cluster-07",
+            "experience-cluster-08",
+            "experience-cluster-09",
+            "experience-cluster-10",
+            "experience-cluster-11",
+            "experience-cluster-12",
+            "experience-cluster-13",
+            "experience-cluster-14",
+            "experience-cluster-15",
+            "experience-cluster-16",
+            "experience-cluster-17",
+            "experience-cluster-18",
+            "experience-cluster-19",
+            "experience-cluster-20",
+            "experience-cluster-21",
+            "experience-cluster-22",
+            "experience-cluster-23"
+          ]
+        },
+        "content_hash": "42be6369271d47ffbe2c5a661760b491abbb400179d35a4d7588569a755e93e4",
+        "dependencies": [
+          "world-model.experience-adapter-v1"
+        ],
+        "failures": [],
+        "inputs": [
+          "belief-v1"
+        ],
+        "module_id": "world-model.consolidated-v1",
+        "outputs": [
+          "belief-v1"
+        ],
+        "parameter_count": 194,
+        "replacements": [],
+        "state_owner": "world-model.consolidated-v1",
+        "status": "ACTIVE",
+        "version": "slow-v1"
+      },
+      "world-model.experience-adapter-v1": {
+        "ancestry": [
+          "experience-fast-path"
+        ],
+        "benchmarks": {
+          "changed_fraction": 0.3333333333333333
+        },
+        "content_hash": "5e070046074baa91614cbfe2eda9e755a335a142fd786bb47338d304af8dafbe",
+        "dependencies": [
+          "experience-archive-v1"
+        ],
+        "failures": [],
+        "inputs": [
+          "evidence-cluster"
+        ],
+        "module_id": "world-model.experience-adapter-v1",
+        "outputs": [
+          "belief-v1"
+        ],
+        "parameter_count": 194,
+        "replacements": [],
+        "state_owner": "world-model.experience-adapter-v1",
+        "status": "ACTIVE",
+        "version": "fast-v1"
+      }
+    }
+  },
+  "promotion": {
+    "promoted": false,
+    "state": "CONTROLLED_MANUAL_RECEIPT"
+  },
+  "schema": "remora-v1-manual-real-changes-result",
+  "source_artifacts": {
+    "aged_surgery": {
+      "path": "/home/leo/research/remora-v0/results/aged-surgery-v1.json",
+      "sha256": "5fe9de5037f42410935f7e0a7472fe3d04607c5324bc17c130143393efa39b54"
+    },
+    "consolidation": {
+      "path": "/home/leo/research/remora-v0/results/consolidation-probe-v1.json",
+      "sha256": "a74020429dd5b84f73371cd9e22c0c5c273ee832a86041ae0f2c3a101d6e22fe"
+    },
+    "donor_analysis": {
+      "path": "/home/leo/research/remora-v0/results/qwen-neural-graft-analysis-v1.json",
+      "sha256": "b655a83edca488a67c0a6c478ef842c1e21fdb00aa3d29943546106ea293856b"
+    },
+    "lifetime": {
+      "path": "/home/leo/research/remora-v0/results/lifetime-compounding.json",
+      "sha256": "4ef1909969b1fdb59839b1876556a6c9ac195f8aaa8f2b7594ea89f3f7ce15ac"
+    },
+    "resurrection": {
+      "path": "/home/leo/research/remora-v0/results/resurrection-real-v1.json",
+      "sha256": "d74dcc925725a9fc50bb6aef4fbc10681baf56fe02eb285d609abffc4223d9f4"
+    },
+    "ship": {
+      "path": "/home/leo/research/remora-v0/results/ship-of-theseus-aged-v1.json",
+      "sha256": "cc12be2164c217376da81a545d64dc947935e05d8b94ae92e37bf7dfbf82cef5"
+    }
+  },
+  "verified_questions": [
+    {
+      "answer": [
+        "blocks.0.plastic.down.weight",
+        "blocks.0.plastic.up.weight",
+        "blocks.1.plastic.down.weight",
+        "blocks.1.plastic.up.weight",
+        "blocks.2.plastic.down.weight",
+        "blocks.2.plastic.up.weight",
+        "blocks.3.plastic.down.weight",
+        "blocks.3.plastic.up.weight"
+      ],
+      "oracle": {
+        "changed_parameters": {
+          "changed_fraction": 0.021914980765538123,
+          "changed_parameters": 36864,
+          "per_top_level_module": {
+            "blocks": {
+              "changed": 36864,
+              "l1": 404.11637115478516,
+              "total": 1596696
+            },
+            "bus": {
+              "changed": 0,
+              "l1": 0.0,
+              "total": 42049
+            },
+            "final_norm": {
+              "changed": 0,
+              "l1": 0.0,
+              "total": 384
+            },
+            "position_embedding": {
+              "changed": 0,
+              "l1": 0.0,
+              "total": 18432
+            },
+            "token_embedding": {
+              "changed": 0,
+              "l1": 0.0,
+              "total": 24576
+            }
+          },
+          "total_parameters": 1682137
+        },
+        "selected_parameters": [
+          "blocks.0.plastic.down.weight",
+          "blocks.0.plastic.up.weight",
+          "blocks.1.plastic.down.weight",
+          "blocks.1.plastic.up.weight",
+          "blocks.2.plastic.down.weight",
+          "blocks.2.plastic.up.weight",
+          "blocks.3.plastic.down.weight",
+          "blocks.3.plastic.up.weight"
+        ]
+      },
+      "passed": true,
+      "question": "Which modules/parameters changed during T3?"
+    },
+    {
+      "answer": [
+        "episode-00001",
+        "episode-00002",
+        "episode-00003",
+        "episode-00004",
+        "episode-00005",
+        "episode-00006",
+        "episode-00007",
+        "episode-00008",
+        "episode-00009",
+        "episode-00010",
+        "episode-00011",
+        "episode-00012",
+        "episode-00013",
+        "episode-00014",
+        "episode-00015",
+        "episode-00016",
+        "episode-00017",
+        "episode-00018",
+        "episode-00019",
+        "episode-00020",
+        "episode-00021",
+        "episode-00022",
+        "episode-00023",
+        "episode-00024"
+      ],
+      "oracle": [
+        "episode-00001",
+        "episode-00002",
+        "episode-00003",
+        "episode-00004",
+        "episode-00005",
+        "episode-00006",
+        "episode-00007",
+        "episode-00008",
+        "episode-00009",
+        "episode-00010",
+        "episode-00011",
+        "episode-00012",
+        "episode-00013",
+        "episode-00014",
+        "episode-00015",
+        "episode-00016",
+        "episode-00017",
+        "episode-00018",
+        "episode-00019",
+        "episode-00020",
+        "episode-00021",
+        "episode-00022",
+        "episode-00023",
+        "episode-00024"
+      ],
+      "passed": true,
+      "question": "Which experiences were consolidated into world-model.consolidated-v1?"
+    },
+    {
+      "answer": [
+        "expert-layer0-g1",
+        "expert-layer1-g2",
+        "expert-layer2-g3",
+        "expert-layer3-g4",
+        "lm-head"
+      ],
+      "oracle": {
+        "dependents": [
+          "expert-layer0-g1",
+          "expert-layer1-g2",
+          "expert-layer2-g3",
+          "expert-layer3-g4",
+          "lm-head"
+        ],
+        "module_id": "language-v1",
+        "source": "graph+status-filter"
+      },
+      "passed": true,
+      "question": "Which modules depend on language-v1 now?"
+    },
+    {
+      "answer": {
+        "dependents": [
+          "lm-head"
+        ],
+        "module_id": "expert-layer1-g2",
+        "source": "graph"
+      },
+      "oracle": {
+        "dependents": [
+          "lm-head"
+        ],
+        "module_id": "expert-layer1-g2",
+        "source": "graph"
+      },
+      "passed": true,
+      "question": "What is the graph-derived affected neighborhood for expert-layer1-g2?"
+    },
+    {
+      "answer": [
+        {
+          "after": 0.25,
+          "before": 0.5,
+          "delta": -0.25,
+          "split": "shifted",
+          "task": "T1"
+        },
+        {
+          "after": 0.4375,
+          "before": 0.5625,
+          "delta": -0.125,
+          "split": "unseen",
+          "task": "T1"
+        },
+        {
+          "after": 0.0625,
+          "before": 0.375,
+          "delta": -0.3125,
+          "split": "shifted",
+          "task": "T2"
+        },
+        {
+          "after": 0.5,
+          "before": 0.625,
+          "delta": -0.125,
+          "split": "unseen",
+          "task": "T2"
+        },
+        {
+          "after": 0.0,
+          "before": 0.25,
+          "delta": -0.25,
+          "split": "shifted",
+          "task": "T3"
+        },
+        {
+          "after": 0.25,
+          "before": 0.375,
+          "delta": -0.125,
+          "split": "valid",
+          "task": "T4"
+        },
+        {
+          "after": 0.375,
+          "before": 0.4375,
+          "delta": -0.0625,
+          "split": "shifted",
+          "task": "T4"
+        },
+        {
+          "after": 0.0,
+          "before": 0.625,
+          "delta": -0.625,
+          "split": "shifted",
+          "task": "T5"
+        },
+        {
+          "after": 0.125,
+          "before": 0.375,
+          "delta": -0.25,
+          "split": "unseen",
+          "task": "T5"
+        }
+      ],
+      "oracle": "direct comparison of aged-surgery before/after matrices for seed 7",
+      "passed": true,
+      "question": "Which previous task/interface rows regressed after aged surgery?"
+    },
+    {
+      "answer": {
+        "candidate_id": "swiGLU-expert-local-adaptation",
+        "context_change": 0.75,
+        "priority": 0.8925000000000001,
+        "status": "REJECTED_UNDER_CONDITIONS_X"
+      },
+      "oracle": {
+        "candidate_id": "swiGLU-expert-local-adaptation",
+        "context_change": 0.75,
+        "priority": 0.8925000000000001,
+        "status": "REJECTED_UNDER_CONDITIONS_X"
+      },
+      "passed": true,
+      "question": "Which real failed candidate deserves resurrection after context changed?"
+    },
+    {
+      "answer": {
+        "checkpoint_age_stages": 5,
+        "replacement": "blocks.1.experts.experts.0",
+        "retention_weight": 1.0,
+        "training_policy": "target_plus_old_rehearsal"
+      },
+      "oracle": {
+        "new": {
+          "checkpoint_age_stages": 5,
+          "replacement": "blocks.1.experts.experts.0",
+          "retention_weight": 1.0,
+          "training_policy": "target_plus_old_rehearsal"
+        },
+        "old": {
+          "checkpoint_age_stages": 0,
+          "replacement": "blocks.1.experts.experts.0",
+          "retention_weight": 0.0,
+          "training_policy": "target_only"
+        }
+      },
+      "passed": true,
+      "question": "What old failure condition changed before the resurrection trial?"
+    },
+    {
+      "answer": {
+        "ancestry": {
+          "ancestry": [
+            "qwen3.8-flash-next.layer0.shared-expert",
+            "conversion:BF16-to-FP32-storage-only",
+            "ports:rank-8-input-output",
+            "QWEN-NEURAL-ORGAN-003"
+          ],
+          "module_id": "remora.qwen-shared-expert-graft.v1",
+          "source": "ledger"
+        },
+        "status": "CANDIDATE"
+      },
+      "oracle": {
+        "ancestry": {
+          "ancestry": [
+            "qwen3.8-flash-next.layer0.shared-expert",
+            "conversion:BF16-to-FP32-storage-only",
+            "ports:rank-8-input-output",
+            "QWEN-NEURAL-ORGAN-003"
+          ],
+          "module_id": "remora.qwen-shared-expert-graft.v1",
+          "source": "ledger"
+        },
+        "status": "CANDIDATE"
+      },
+      "passed": true,
+      "question": "What is the Qwen graft ancestry and promotion status?"
+    }
+  ]
+}

@@ -121,6 +121,51 @@ learning. Full JSON, split hashes, per-seed histories, checkpoints, and the
 append-only ledger entry are in `results/transfer-benchmark.json` and
 `ledger/experiments.jsonl`.
 
+## Strong adversarial lifetime comparison
+
+The first continual-learning comparison used Remora local plasticity against
+baseline full-model fine-tuning. `LIFETIME-COMPOUNDING-001+` replaces that
+easy adversary with a conventional Transformer using rank-8 LoRA plus the same
+old-task rehearsal policy. Both arms were scratch-trained for 120 shared base
+steps, then exposed to five sequential tasks (`T1 -> T5`) over three paired
+seeds (7, 19, 31). Remora had 1,682,137 parameters and 36,864 trainable
+plastic parameters; the baseline had 1,675,008 base parameters, 1,711,872
+parameters after LoRA insertion, and the same 36,864 trainable parameters.
+
+The paired Remora-minus-Transformer-LoRA differences were:
+
+| Stage | Primary accuracy | Shifted-interface accuracy | Wall time | Threshold-step difference |
+| --- | ---: | ---: | ---: | ---: |
+| T1 | +16.67 pp | -2.08 pp | +3.57 s | not reached |
+| T2 | -14.58 pp | -27.08 pp | +4.51 s | not reached |
+| T3 | 0.00 pp | -64.58 pp | +5.43 s | -20 steps* |
+| T4 | 0.00 pp | -12.50 pp | +6.48 s | not reached |
+| T5 | +18.75 pp | 0.00 pp | +7.62 s | not reached |
+
+The T3 `-20` entry is a single threshold comparison from the declared tiny
+task set; it is retained for auditability and is not treated as significance.
+
+**MEASURED/DERIVED:** the Transformer adapter is a strong matched adversary.
+The primary accuracy deltas are noisy and do not grow monotonically with age;
+the shifted-interface deltas are mostly negative for Remora, and Remora's
+wall-time penalty grows across stages. The one negative threshold-step entry
+is not a general learning-velocity win because most fixed thresholds were not
+reached and the task set is tiny. The full per-seed values, bootstrap/t
+intervals, task matrices, split hashes, and curves are in
+`results/lifetime-compounding-analysis-v1.json` and
+`results/lifetime-compounding.json`.
+
+**MEASURED NEGATIVE RESULT:** after normalizing by wall time and modeled
+training FLOPs, this tranche provides no credible compounding advantage for
+Remora. Positive small-task gain-per-token values exist in the receipt, but
+they do not survive as a consistent capability advantage across stages or
+interfaces. The current evidence therefore does not pass the scaling gate.
+
+The experiment was predeclared to count the following against the thesis:
+matched Transformer-LoRA retention or transfer, no increasing later-task
+advantage, shifted-template collapse, and compute-normalized regression. All
+remain live concerns rather than being hidden by a favorable baseline.
+
 ## Lifetime evidence and three timescales
 
 The controlled world encodes inherited rule Y as the default and experience
@@ -189,12 +234,71 @@ original expert in the four-layer toy stack has a recorded replacement and
 ancestry edge. This demonstrates a bounded toy surgery path, not indefinite
 real-world capability preservation.
 
+### Aged surgery against matched LoRA
+
+`AGED-SURGERY-001+` repeats the meaningful replacement after five lifetime
+stages. It replaces the used layer-1 expert with a 111,456-parameter SwiGLU
+module and trains only that module. The adversary keeps the aged Transformer
+attention LoRA frozen, inserts rank-64 LoRA factors at the corresponding
+feed-forward block, and trains 110,592 parameters. Both arms use 60 steps,
+the same target examples, the same task rehearsal, and the same base text/code
+replay: 445,440 assimilation tokens.
+
+**MEASURED NEGATIVE RESULT:** Remora's mean target-valid difference was
+`+0.1875`, but its shifted-interface difference was `-0.1667`, unseen-task
+difference was `-0.0625`, and old-task retention-ratio difference was
+`-0.0688`. The Remora surgery was 6.24–8.62 seconds slower per seed. One seed
+favored the local replacement on retention, two favored the Transformer;
+there is no aged-surgery superiority claim. Full task matrices and changed
+parameter receipts are in `results/aged-surgery-v1.json`; surgery checkpoints
+remain local and are ignored by Git.
+
+### Bus ablation and real resurrection
+
+The shared learned bus has 42,049 parameters. In the scratch bus ablation, a
+parameter-free direct channel-slice/zero-pad coupling matched the shared bus
+at 0.0 paired primary/shifted accuracy difference on the first four stages;
+shared-bus unseen-interface deltas were -0.1042, -0.0833, -0.0417, and
+-0.1250. This does not establish that the bus adds abstraction. On the aged
+path, removing it while retaining the other weights raised base validation
+loss from text/code `2.9881/2.9633` to `3.4908/3.3862`, so the learned bus is
+used by the current representation even though its transfer value is
+unproven. The result and small comparison plots are in
+`results/bus-ablation-v1.json` and `results/bus-ablation-v1-*.svg`.
+
+The real resurrection run took the immutable target-only expert-replacement
+failure, where old-task retention failed, and re-tested the same candidate
+after model age changed from 0 to 5 and the policy changed to target plus old
+rehearsal. Its queue priority rose from `0.5100` to `0.8925`; the actual trial
+improved the target and passed the fixed old-loss gate. **MEASURED
+CONDITIONAL PASS:** this is a context-dependent resurrection, not proof that
+the candidate is universally good. Both the original failure and successful
+retest remain in the ledger and `results/resurrection-real-*.json`.
+
+The experienced Ship-of-Theseus run then replaced all four experts after the
+five-stage checkpoint. Local update fractions were 6.482%, 6.345%, 6.213%,
+and 6.087%; old loss moved from 3.4084 to 2.7192 and target loss from 3.4103
+to 2.1184 under the declared rehearsal. The four-generation lineage is in
+`results/ship-of-theseus-aged-v1.json`. This is a successful bounded toy chain,
+not evidence that arbitrary capability can survive indefinite replacement.
+
 ## Manual and resurrection
 
 **MEASURED:** the factual assembly graph answered dependency, ancestry, and
 minimum-affected-neighborhood queries. The learned reader predicted all graph
 dependents for `language-v1` with no unsupported dependency; the graph remains
 the authority and the reader cannot mutate it.
+
+**MEASURED:** `MANUAL-REAL-CHANGES-001+` replayed the actual aged
+Ship-of-Theseus graph and bound the donor, consolidation, aged-surgery, and
+resurrection receipts to it. Eight questions passed mechanically, including
+which parameters changed at T3, all 24 consolidated experience IDs and their
+independence clusters, the active dependents of `language-v1`, the affected
+neighborhood of `expert-layer1-g2`, the aged-surgery regressions, and the
+Qwen-graft ancestry/status. Candidate branches remained `CANDIDATE` or
+`DORMANT`; none was promoted. This is a factual real-change manual receipt,
+not a claim that a language-model manual has learned the whole graph. The
+receipt is `results/manual-real-changes-v1.json`.
 
 **MODELED/SYNTHETIC:** a candidate with old-state quality 0.41 versus a safe
 baseline at 0.58 rose from queue priority 0.608 to 1.013 after a surrounding
@@ -299,6 +403,57 @@ failed; no donor-derived module was promoted. The port itself changed
 cheap-import claim. Records, bundle, result, and failure history are retained
 in `results/resident-activation-transfer-*`.
 
+### Direct Qwen neural-organ pilot
+
+The donor addendum's primary objective was tested separately from response or
+activation distillation. `QWEN-NEURAL-ORGAN-001+` built a header-derived
+anatomy map for the pinned 131-shard Qwen source, then selected one finite
+component: the layer-0 shared expert. Only four actual BF16 tensors were read
+from `model-00003-of-00131.safetensors`: the shared expert's `gate_proj`,
+`up_proj`, `down_proj`, and scalar shared gate. The selected payload was
+9,835,520 bytes / 4,917,760 trained parameters; no full model loader ran.
+
+**MEASURED:** the standalone organ exactly reproduced its explicit gate/up,
+SiLU, down, and scalar-gate computation against an independent reference:
+zero max absolute, mean, and relative-L2 error, cosine similarity 1.0, and
+full top-k agreement. This proves function reproduction for the isolated
+organ, not for the full Qwen block.
+
+**MEASURED:** the Remora attachment was a wrapped frozen graft. All 4,917,760
+donor parameters were preserved unchanged and frozen; 0 were analytically
+transformed and 0 discarded. BF16-to-FP32 was a runtime storage conversion,
+not learned reconstruction. Rank-8 input/output ports added 42,496 newly
+trained parameters. Across seeds 7, 19, and 31, repair used 60 gradient steps,
+184,320 total assimilation tokens (92,160 target + 92,160 rehearsal), and
+18.70–19.62 seconds. The modeled trainable-update cost was 46.997 billion
+FLOPs and modeled forward cost including the donor core was 7.264 trillion
+FLOPs. Original Qwen training compute is **UNMEASURED**, so original compute
+avoided / assimilation compute spent is **NOT_COMPUTABLE** rather than
+invented.
+
+The donor core was causally relevant with fixed ports: zero/random/shuffled
+core interventions changed target loss by about 0.423 on average. But the
+same-budget retrained controls were close (random minus actual target loss
+`0.0360`, shuffled minus actual `0.0147`), and native Remora specialists were
+stronger in this v0 task. The graft is therefore a genuine
+`WRAPPED_GRAFT`/`FUNCTION_REPRODUCED` candidate, not a successful capability
+assimilation claim and not promoted. The full parameter accounting,
+functional-equivalence receipt, controls, hashes, and lineage are in
+`results/qwen-neural-graft-analysis-v1.json`,
+`results/qwen-neural-graft-v1.json`, and
+`results/manual-real-changes-v1.json`.
+
+### Current performance gate
+
+The post-adversarial profile confirms the runtime cost remains material. On
+the same RX 9060 XT batch, current Remora reference/scan/scan+SDPA paths took
+13.22/13.62/13.57 ms, while the manual-attention baseline took 3.08 ms. The
+current scan remained numerically equivalent (maximum logit delta
+`1.19e-6`) but was not faster in this rerun. This is an engineering negative
+result and blocks scaling until routing, expert batching, and small-kernel
+fragmentation are improved. Receipt:
+`results/profile-forward-post-adversarial-v1.json`.
+
 ## Reproduction
 
 From the repository root:
@@ -314,6 +469,32 @@ From the repository root:
 /home/leo/.venvs/remora-rocm10/bin/python -m experiments.donor_selection \
   --manifest results/donor-inspection.json \
   --output results/donor-selection.json
+# Strong matched lifetime adversary (three seeds; requires the local Wikitext-2 files)
+flock -n /tmp/remora-v0-gpu.lock \
+  /home/leo/.venvs/remora-rocm10/bin/python -m experiments.lifetime_compounding \
+  --device cuda --seeds 7 19 31
+/home/leo/.venvs/remora-rocm10/bin/python -m experiments.analyze_lifetime_compounding
+# Real-change manual receipt and aged-model lineage
+/home/leo/.venvs/remora-rocm10/bin/python -m experiments.manual_real_changes
+flock -n /tmp/remora-v0-gpu.lock \
+  /home/leo/.venvs/remora-rocm10/bin/python -m experiments.aged_surgery \
+  --device cuda --seeds 7 19 31 --steps 60
+flock -n /tmp/remora-v0-gpu.lock \
+  /home/leo/.venvs/remora-rocm10/bin/python -m experiments.ship_of_theseus \
+  --checkpoint checkpoints/lifetime-compounding-remora_local_rehearsal-seed7.pt \
+  --seed 7 --steps-per-generation 20 --device cuda \
+  --output results/ship-of-theseus-aged-v1.json
+# Donor-organ pilot and explicit assimilation accounting
+/home/leo/.venvs/remora-rocm10/bin/python -m experiments.donor_organ
+flock -n /tmp/remora-v0-gpu.lock \
+  /home/leo/.venvs/remora-rocm10/bin/python -m experiments.donor_graft \
+  --checkpoint-dir checkpoints --payload results/qwen-neural-organ-layer0.safetensors \
+  --device cuda --seeds 7 19 31 --steps 60
+/home/leo/.venvs/remora-rocm10/bin/python -m experiments.analyze_donor_graft
+# Current runtime profile; compare with the preserved profile-forward.json
+flock -n /tmp/remora-v0-gpu.lock \
+  /home/leo/.venvs/remora-rocm10/bin/python -m experiments.profile_forward \
+  --device cuda --output results/profile-forward-post-adversarial-v1.json
 ```
 
 The append-only experiment ledger is `ledger/experiments.jsonl`; failures are
@@ -322,16 +503,18 @@ remain local because they are generated artifacts.
 
 ## Next scaling path chosen from evidence
 
-1. Profile and optimize the Remora forward path before increasing model size;
-   rerun the matched scratch comparison over at least three seeds.
-2. Expand the real text/code/math curriculum and repeat the transfer result
-   with more seeds, larger held-out task sets, and a second local corpus while
-   preserving the synthetic causal tests.
-3. Retest the resident donor across layers, pooling choices, and a task where
-   the donor is actually strong; retain chat-template and response failures as
-   resurrection conditions rather than promoting them.
-4. Connect a useful donor port to a Remora specialist, then measure local
-   replacement, rehearsal, provenance recovery, and old-capability retention.
-5. Run direct tensor surgery only with a deliberately compatible small donor;
-   keep Qwen as a frozen teacher/representation source until a safe serving
-   path and held-out utility are demonstrated.
+1. Keep the model at v0 size. The strong Transformer-LoRA adversary did not
+   reveal a compounding Remora advantage, so the next step is architecture
+   redesign/measurement, not scale-up.
+2. Reduce runtime overhead: batch experts, remove avoidable per-branch kernel
+   launches, and profile bus/routing layouts before repeating the central
+   lifetime comparison.
+3. Improve shifted-interface abstraction and repeat the multi-lifetime run
+   with larger held-out task sets and more seeds; preserve the current failure
+   gates.
+4. For donor work, prioritize lower-repair/function-preserving conversions
+   and a donor task where the source is independently strong. Do not claim
+   compute avoidance until the donor training bill is measured or sourced.
+5. Keep the Qwen organ as a candidate branch. Test subspace/low-rank extraction
+   and stateful organs only after a bounded organ beats native and fresh
+   controls at comparable assimilation cost.

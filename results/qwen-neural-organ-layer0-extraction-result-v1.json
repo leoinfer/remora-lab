@@ -1,0 +1,51 @@
+{
+  "anatomy": "results/qwen-neural-anatomy-v4.json",
+  "component_id": "qwen3.8.language.layer0.shared_expert",
+  "extraction": {
+    "budget_bytes": 268435456,
+    "component_keys": [
+      "model.language_model.layers.0.mlp.shared_expert"
+    ],
+    "expected_payload_bytes": 9835520,
+    "license_review_required": true,
+    "model_loader_called": false,
+    "observed_payload_bytes": 9835520,
+    "output_bytes": 9836288,
+    "output_path": "/home/leo/research/remora-v0/results/qwen-neural-organ-layer0.safetensors",
+    "output_sha256": "e1d2bd3035a5487a8c5189748612835862acf7f096a801766580876761585fa7",
+    "payload_materialized": true,
+    "promotion_state": "CANDIDATE_EXTRACTED",
+    "schema": "remora-donor-extraction-v1",
+    "selection_schema": "remora-qwen-neural-organ-selection-v1",
+    "source_path": "/home/leo/models/Qwen3.8-Flash-Next-BF16-source",
+    "source_repository": "Qwen/Qwen3.8-Flash-Next",
+    "source_revision": "f5d08274bafd880402bd16f5e3e6c514136ec06c",
+    "source_shards": [
+      "model-00003-of-00131.safetensors"
+    ],
+    "tensor_names": [
+      "model.language_model.layers.0.mlp.shared_expert.down_proj.weight",
+      "model.language_model.layers.0.mlp.shared_expert.gate_proj.weight",
+      "model.language_model.layers.0.mlp.shared_expert.up_proj.weight",
+      "model.language_model.layers.0.mlp.shared_expert_gate.weight"
+    ]
+  },
+  "header_manifest": "results/qwen-neural-header-manifest-v1.json",
+  "interpretation": "MEASURED: only the selected Qwen organ payload was materialized. This establishes extraction, not functional equivalence, Remora utility, or promotion.",
+  "model_loader_called": false,
+  "payload_materialized": true,
+  "schema": "remora-qwen-neural-organ-extraction-result-v1",
+  "selection": "results/qwen-neural-organ-layer0-selection-v1.json",
+  "selection_is_value_free": true,
+  "source": {
+    "download_methods": [
+      "curl official Hugging Face pinned resolver, resumable per-shard files, 32 workers",
+      "validated HTTP byte ranges for final stalled shards 115 and 121, existing prefixes retained"
+    ],
+    "official_model_url": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next",
+    "pinned_resolve_root": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next/resolve/f5d08274bafd880402bd16f5e3e6c514136ec06c/",
+    "repository": "Qwen/Qwen3.8-Flash-Next",
+    "revision": "f5d08274bafd880402bd16f5e3e6c514136ec06c",
+    "revision_type": "commit_sha"
+  }
+}

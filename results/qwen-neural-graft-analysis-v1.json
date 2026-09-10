@@ -1,0 +1,323 @@
+{
+  "assimilation_cost": {
+    "per_seed": [
+      {
+        "donor_parameter_count": 4917760,
+        "gradient_steps": 60,
+        "modeled_forward_flops_including_donor_core": 7263887155200,
+        "modeled_trainable_update_flops": 46997176320,
+        "new_task_tokens": 92160,
+        "rehearsal_tokens": 92160,
+        "seed": 7,
+        "tokens_per_preserved_donor_parameter": 0.03748047891723061,
+        "total_assimilation_tokens": 184320,
+        "trainable_parameter_count": 42496,
+        "wall_seconds": 18.696988663999946,
+        "wall_seconds_per_preserved_donor_parameter": 3.8019319088365324e-06
+      },
+      {
+        "donor_parameter_count": 4917760,
+        "gradient_steps": 60,
+        "modeled_forward_flops_including_donor_core": 7263887155200,
+        "modeled_trainable_update_flops": 46997176320,
+        "new_task_tokens": 92160,
+        "rehearsal_tokens": 92160,
+        "seed": 19,
+        "tokens_per_preserved_donor_parameter": 0.03748047891723061,
+        "total_assimilation_tokens": 184320,
+        "trainable_parameter_count": 42496,
+        "wall_seconds": 19.62177845200131,
+        "wall_seconds_per_preserved_donor_parameter": 3.989982929626763e-06
+      },
+      {
+        "donor_parameter_count": 4917760,
+        "gradient_steps": 60,
+        "modeled_forward_flops_including_donor_core": 7263887155200,
+        "modeled_trainable_update_flops": 46997176320,
+        "new_task_tokens": 92160,
+        "rehearsal_tokens": 92160,
+        "seed": 31,
+        "tokens_per_preserved_donor_parameter": 0.03748047891723061,
+        "total_assimilation_tokens": 184320,
+        "trainable_parameter_count": 42496,
+        "wall_seconds": 18.96838343499985,
+        "wall_seconds_per_preserved_donor_parameter": 3.857118573293501e-06
+      }
+    ],
+    "summary": {
+      "gradient_steps": {
+        "mean": 60.0,
+        "std": 0.0,
+        "values": [
+          60,
+          60,
+          60
+        ]
+      },
+      "modeled_forward_flops_including_donor_core": {
+        "mean": 7263887155200.0,
+        "std": 0.0,
+        "values": [
+          7263887155200,
+          7263887155200,
+          7263887155200
+        ]
+      },
+      "modeled_trainable_update_flops": {
+        "mean": 46997176320.0,
+        "std": 0.0,
+        "values": [
+          46997176320,
+          46997176320,
+          46997176320
+        ]
+      },
+      "new_task_tokens": {
+        "mean": 92160.0,
+        "std": 0.0,
+        "values": [
+          92160,
+          92160,
+          92160
+        ]
+      },
+      "rehearsal_tokens": {
+        "mean": 92160.0,
+        "std": 0.0,
+        "values": [
+          92160,
+          92160,
+          92160
+        ]
+      },
+      "tokens_per_preserved_donor_parameter": {
+        "mean": 0.03748047891723061,
+        "std": 0.0,
+        "values": [
+          0.03748047891723061,
+          0.03748047891723061,
+          0.03748047891723061
+        ]
+      },
+      "total_assimilation_tokens": {
+        "mean": 184320.0,
+        "std": 0.0,
+        "values": [
+          184320,
+          184320,
+          184320
+        ]
+      },
+      "wall_seconds": {
+        "mean": 19.0957168503337,
+        "std": 0.4753623743980359,
+        "values": [
+          18.696988663999946,
+          19.62177845200131,
+          18.96838343499985
+        ]
+      },
+      "wall_seconds_per_preserved_donor_parameter": {
+        "mean": 3.883011137252266e-06,
+        "std": 9.66623776674822e-08,
+        "values": [
+          3.8019319088365324e-06,
+          3.989982929626763e-06,
+          3.857118573293501e-06
+        ]
+      }
+    }
+  },
+  "donor_parameter_accounting": {
+    "per_seed": [
+      {
+        "donor_core_frozen": true,
+        "donor_functional_equivalence_status": "EQUIVALENT_WITHIN_FLOAT32_REFERENCE_TOLERANCE",
+        "donor_parameters_analytically_transformed": 0,
+        "donor_parameters_discarded": 0,
+        "donor_parameters_preserved_unchanged": 4917760,
+        "newly_trained_parameters": 42496,
+        "port_parameters": 42496,
+        "seed": 7
+      },
+      {
+        "donor_core_frozen": true,
+        "donor_functional_equivalence_status": "EQUIVALENT_WITHIN_FLOAT32_REFERENCE_TOLERANCE",
+        "donor_parameters_analytically_transformed": 0,
+        "donor_parameters_discarded": 0,
+        "donor_parameters_preserved_unchanged": 4917760,
+        "newly_trained_parameters": 42496,
+        "port_parameters": 42496,
+        "seed": 19
+      },
+      {
+        "donor_core_frozen": true,
+        "donor_functional_equivalence_status": "EQUIVALENT_WITHIN_FLOAT32_REFERENCE_TOLERANCE",
+        "donor_parameters_analytically_transformed": 0,
+        "donor_parameters_discarded": 0,
+        "donor_parameters_preserved_unchanged": 4917760,
+        "newly_trained_parameters": 42496,
+        "port_parameters": 42496,
+        "seed": 31
+      }
+    ],
+    "summary": {
+      "analytically_transformed_parameters": {
+        "mean": 0.0,
+        "std": 0.0,
+        "values": [
+          0,
+          0,
+          0
+        ]
+      },
+      "discarded_parameters": {
+        "mean": 0.0,
+        "std": 0.0,
+        "values": [
+          0,
+          0,
+          0
+        ]
+      },
+      "newly_trained_parameters": {
+        "mean": 42496.0,
+        "std": 0.0,
+        "values": [
+          42496,
+          42496,
+          42496
+        ]
+      },
+      "preserved_parameters": {
+        "mean": 4917760.0,
+        "std": 0.0,
+        "values": [
+          4917760,
+          4917760,
+          4917760
+        ]
+      }
+    }
+  },
+  "experiment_family": "QWEN-NEURAL-ORGAN-003+",
+  "extraction": {
+    "donor_parameter_count": 4917760,
+    "runtime_dtype": "FP32",
+    "runtime_storage_bytes": 19671040,
+    "selected_payload_fraction_of_source_payload": 2.732089168715533e-05,
+    "source_dtype": "BF16",
+    "source_model": "Qwen/Qwen3.8-Flash-Next",
+    "source_model_payload_bytes_from_headers": 359999963128,
+    "source_payload_bytes_selected": 9835520,
+    "source_payload_sha256_selected_bundle": "e1d2bd3035a5487a8c5189748612835862acf7f096a801766580876761585fa7",
+    "source_revision": "f5d08274bafd880402bd16f5e3e6c514136ec06c",
+    "source_shards": [
+      "model-00003-of-00131.safetensors"
+    ],
+    "storage_conversion": "BF16 payload represented as FP32 buffers in the standalone Remora organ; no learned numerical transformation was applied."
+  },
+  "interpretation": "MEASURED/DERIVED: this artifact makes retained-weight reuse and assimilation cost explicit. The central compute-avoidance ratio remains unavailable until a donor training ledger or defensible external accounting is obtained; no ratio is fabricated.",
+  "labels": {
+    "DERIVED": [
+      "parameter fractions",
+      "tokens per preserved parameter",
+      "control-minus-actual loss",
+      "selected payload fraction"
+    ],
+    "HYPOTHESIS": [
+      "expensive donor capability can be retained at a small assimilation cost"
+    ],
+    "MEASURED": [
+      "payload bytes",
+      "donor tensor count",
+      "functional-equivalence errors",
+      "ablation loss deltas",
+      "gradient steps",
+      "tokens",
+      "wall seconds"
+    ],
+    "MODELED": [
+      "trainable-update FLOPs",
+      "forward FLOPs including donor buffers"
+    ],
+    "UNMEASURED_EXTERNAL": [
+      "original Qwen training compute"
+    ]
+  },
+  "original_compute_avoided_over_assimilation_compute": {
+    "reason": "Original donor training compute is unmeasured; only assimilation cost is recorded here.",
+    "status": "NOT_COMPUTABLE",
+    "value": null
+  },
+  "original_donor_training_compute": {
+    "reason": "The Qwen checkpoint contains trained tensors but not the original optimizer state, data-token count, hardware trace, or training FLOP ledger.",
+    "status": "UNMEASURED",
+    "unit": "FLOP",
+    "value": null
+  },
+  "promotion_state": "CONTROLLED_EXPERIMENT_ONLY",
+  "raw_result": "results/qwen-neural-graft-v1.json",
+  "raw_result_immutable": true,
+  "raw_result_sha256": "fe0c700cd041682951088cbb512cef81a4ccaa5ebd1a92a496f8f31347d93103",
+  "retained_donor_capability_evidence": {
+    "fixed_port_core_ablation_target_loss_delta": {
+      "random": {
+        "mean": 0.42383750279744464,
+        "std": 0.07581597938736988,
+        "values": [
+          0.34478044509887695,
+          0.4307999610900879,
+          0.49593210220336914
+        ]
+      },
+      "shuffled": {
+        "mean": 0.4227409362792969,
+        "std": 0.07548398079798635,
+        "values": [
+          0.34403467178344727,
+          0.42966222763061523,
+          0.4945259094238281
+        ]
+      },
+      "zero": {
+        "mean": 0.4228166739145915,
+        "std": 0.07589348468035922,
+        "values": [
+          0.3432278633117676,
+          0.4308457374572754,
+          0.49437642097473145
+        ]
+      }
+    },
+    "functional_reproduction": {
+      "cosine_similarity": 1.0000004768371582,
+      "relative_l2_error": 0.0,
+      "scope": "standalone shared-expert computation, not full Qwen block behavior",
+      "source": "results/qwen-neural-organ-layer0-payload-analysis-v1.json",
+      "status": "EQUIVALENT_WITHIN_FLOAT32_REFERENCE_TOLERANCE"
+    },
+    "interpretation": "The frozen donor core is causally responsible for a large held-out output difference when the repaired ports are held fixed, while its advantage over separately trained same-port controls is modest. This is preserved computation evidence, not proof of broad donor capability transfer.",
+    "same_budget_retrained_arm_control_minus_actual_target_loss": {
+      "random": {
+        "mean": 0.03600684801737467,
+        "std": 0.04972980268740883,
+        "values": [
+          0.0764772891998291,
+          0.05105137825012207,
+          -0.01950812339782715
+        ]
+      },
+      "shuffled": {
+        "mean": 0.014676253000895182,
+        "std": 0.02016158197954586,
+        "values": [
+          0.018837451934814453,
+          0.03243255615234375,
+          -0.007241249084472656
+        ]
+      }
+    }
+  },
+  "schema": "remora-v1-donor-assimilation-analysis-v1"
+}

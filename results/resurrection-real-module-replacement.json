@@ -1,0 +1,116 @@
+{
+  "baseline_full_model_control": null,
+  "checkpoint": "/home/leo/research/remora-v0/results/resurrection-real-module-replacement.pt",
+  "device": "cuda",
+  "interpretation": "MEASURED: replacement recovered target capability under the declared local update scope and passed the old-task retention gate.",
+  "local_adaptation_loss_first_last": [
+    6.884265899658203,
+    4.683408260345459
+  ],
+  "local_update": {
+    "changed_fraction": 0.06482317805494406,
+    "changed_parameters": 111456,
+    "per_top_level_module": {
+      "blocks": {
+        "changed": 111456,
+        "l1": 4826.548669219017,
+        "total": 1633944
+      },
+      "bus": {
+        "changed": 0,
+        "l1": 0.0,
+        "total": 42049
+      },
+      "final_norm": {
+        "changed": 0,
+        "l1": 0.0,
+        "total": 384
+      },
+      "position_embedding": {
+        "changed": 0,
+        "l1": 0.0,
+        "total": 18432
+      },
+      "token_embedding": {
+        "changed": 0,
+        "l1": 0.0,
+        "total": 24576
+      }
+    },
+    "total_parameters": 1719385
+  },
+  "original": {
+    "old": {
+      "loss": 3.4083882827233265,
+      "perplexity": 30.216504530226906,
+      "tokens": 118464,
+      "tokens_per_second": 22546.2497147545,
+      "wall_seconds": 5.254266297000868
+    },
+    "target": {
+      "loss": 3.410295517531791,
+      "perplexity": 30.274189491354,
+      "tokens": 60384,
+      "tokens_per_second": 218568.13712855816,
+      "wall_seconds": 0.27627082699837047
+    }
+  },
+  "replaced_after_local_training": {
+    "old": {
+      "loss": 2.634457261674408,
+      "perplexity": 13.93574694633708,
+      "tokens": 118464,
+      "tokens_per_second": 218181.20618519577,
+      "wall_seconds": 0.5429615229986666
+    },
+    "target": {
+      "loss": 2.0301200714323593,
+      "perplexity": 7.615000647924085,
+      "tokens": 60384,
+      "tokens_per_second": 216550.82335721765,
+      "wall_seconds": 0.2788444719990366
+    }
+  },
+  "replaced_before_local_training": {
+    "old": {
+      "loss": 3.4587150408344485,
+      "perplexity": 31.776119254652087,
+      "tokens": 118464,
+      "tokens_per_second": 214130.9713940706,
+      "wall_seconds": 0.5532315070013283
+    },
+    "target": {
+      "loss": 3.4318653832179375,
+      "perplexity": 30.93429327433215,
+      "tokens": 60384,
+      "tokens_per_second": 218232.50621959617,
+      "wall_seconds": 0.27669571800288395
+    }
+  },
+  "replacement_parameter_accounting": {
+    "added_parameters": 37248,
+    "new_expert_parameters": 111456,
+    "new_module_fraction_of_model": 0.06482317805494406,
+    "old_expert_parameters": 74208,
+    "total_model_parameters": 1719385
+  },
+  "retention_weight": 1.0,
+  "schema": "remora-v0-module-replacement-result",
+  "scope": {
+    "replaced": "blocks.1.experts.experts.0",
+    "retrained_prefixes": [
+      "blocks.1.experts.experts.0"
+    ],
+    "selected_parameters": [
+      "blocks.1.experts.experts.0.value.weight",
+      "blocks.1.experts.experts.0.value.bias",
+      "blocks.1.experts.experts.0.gate.weight",
+      "blocks.1.experts.experts.0.gate.bias",
+      "blocks.1.experts.experts.0.down.weight",
+      "blocks.1.experts.experts.0.down.bias"
+    ]
+  },
+  "seed": 7,
+  "source_checkpoint": "checkpoints/lifetime-compounding-remora_local_rehearsal-seed7.pt",
+  "source_seed": 7
+}
