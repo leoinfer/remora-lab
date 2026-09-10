@@ -3,9 +3,11 @@
 from .anatomy import build_anatomy_graph
 from .manifest import inspect_resident_model
 from .organ import select_anatomy_component
-from .neural_ir import NeuralComponentIR, NeuralIROp, qwen_shared_expert_ir
+from .neural_ir import NeuralComponentIR, NeuralIROp, qwen_gated_delta_core_ir, qwen_gated_delta_head_ir, qwen_shared_expert_ir
 from .payload import QwenSharedExpertOrgan, functional_equivalence, inspect_payload, load_payload, reference_shared_expert
 from .graft import LowRankPort, QwenSharedExpertGraft, make_donor_variant
+from .router import QwenCompactRouterOrgan, QwenRouterOrgan, make_router_variant, select_balanced_pair, top_right_singular_basis
+from .gdn import QwenGatedDeltaCoreOrgan, QwenGatedDeltaCoreSocket, QwenGatedDeltaHead, TrainableGatedDeltaCoreOrgan, causal_depthwise_silu, l2_normalize, make_gdn_variant
 from .port import TeacherPortAdapter, teacher_logit_distillation_loss
 from .registry import DonorRegistry
 from .selection import group_components, select_components
@@ -28,6 +30,8 @@ __all__ = [
     "NeuralComponentIR",
     "NeuralIROp",
     "qwen_shared_expert_ir",
+    "qwen_gated_delta_core_ir",
+    "qwen_gated_delta_head_ir",
     "QwenSharedExpertOrgan",
     "functional_equivalence",
     "inspect_payload",
@@ -36,6 +40,18 @@ __all__ = [
     "LowRankPort",
     "QwenSharedExpertGraft",
     "make_donor_variant",
+    "QwenRouterOrgan",
+    "QwenCompactRouterOrgan",
+    "QwenGatedDeltaHead",
+    "QwenGatedDeltaCoreOrgan",
+    "QwenGatedDeltaCoreSocket",
+    "TrainableGatedDeltaCoreOrgan",
+    "causal_depthwise_silu",
+    "l2_normalize",
+    "make_gdn_variant",
+    "make_router_variant",
+    "select_balanced_pair",
+    "top_right_singular_basis",
     "TeacherPortAdapter",
     "teacher_logit_distillation_loss",
     "DonorRegistry",

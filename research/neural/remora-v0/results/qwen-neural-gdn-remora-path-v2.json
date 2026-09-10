@@ -1,0 +1,1548 @@
+{
+  "experiment_family": "QWEN-DONOR-GDN-REMORA-PATH-001+",
+  "graft": {
+    "active_core_mac_per_token_modeled": 104128,
+    "active_output_port_mac_per_token_modeled": 24576,
+    "attached_module_path": "blocks.1.plastic",
+    "base_ports_frozen": true,
+    "donor_core_frozen": true,
+    "donor_parameters_analytically_transformed": 988160,
+    "donor_parameters_discarded_from_resident_full_head": 1606592,
+    "donor_parameters_preserved_unchanged": 1538,
+    "donor_parameters_resident_compact": 38594,
+    "full_head_width_conversion_reference": "results/qwen-neural-gdn-head-v2.json D4; full output is retained as a negative boundary control",
+    "micro_repair_rank": 4,
+    "micro_repair_trainable_parameters": 2432,
+    "mode": "SUBMODULE_SUBSPACE_GRAFT_CORE_SOCKET",
+    "socket": {
+      "donor_core_frozen": true,
+      "donor_variant": "actual",
+      "exported_representation": [
+        "batch",
+        "time",
+        128
+      ],
+      "input": [
+        "batch",
+        "time",
+        192
+      ],
+      "interface_permutation": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95
+      ],
+      "interface_scale": 1.0,
+      "output": [
+        "batch",
+        "time",
+        192
+      ],
+      "repair_rank": 4,
+      "state": {
+        "convolution": [
+          "batch",
+          384,
+          3
+        ],
+        "recurrent": [
+          "batch",
+          128,
+          128
+        ]
+      },
+      "state_owner": "foreign-gdn-core-organ",
+      "trainable_parameters": 2432,
+      "version": "qwen-gdn-core-socket-v1"
+    }
+  },
+  "interpretation": "MEASURED CONDITIONAL POSITIVE: the actual trained GDN core clears the fixed recall threshold through the real aged Remora plastic branch and separates from destroyed-core controls at zero repair steps; this is not broad language capability or proof of reclaimed Qwen pretraining compute.",
+  "labels": {
+    "DERIVED": [
+      "donor parameter accounting",
+      "repair threshold steps",
+      "mean/std across seeds"
+    ],
+    "HYPOTHESIS": [
+      "a trained donor GDN core can export useful state computation through a Remora branch socket"
+    ],
+    "MEASURED": [
+      "actual/random/shuffled/zero core socket recall inside blocks.1.plastic",
+      "shifted-interface recall",
+      "causal pre-final hidden intervention",
+      "low-rank micro-repair curves and changed-parameter counts",
+      "aged-checkpoint text/code insertion losses",
+      "bounded selective source extraction and tensor hashes"
+    ],
+    "MODELED": [
+      "active core MACs",
+      "socket state shape"
+    ],
+    "UNMEASURED": [
+      "original donor pretraining compute",
+      "energy",
+      "full Remora language capability gain"
+    ]
+  },
+  "promotion_state": "CANDIDATE_ONLY_UNTIL_SHIFTED_GENERALIZATION_AND_NONTRIVIAL_TASK_HEAD_VALIDATION",
+  "runtime": {
+    "cwd": "/home/leo/research/remora-v0",
+    "device": "cpu",
+    "gpu_name": "AMD Radeon RX 9060 XT",
+    "hip_version": "7.15.26333",
+    "hostname": "cachyos-x8664",
+    "mode": "aged_remora_gdn_core_socket_cpu",
+    "pid": 259938,
+    "platform": "Linux-7.2.3-1-cachyos-x86_64-with-glibc2.44",
+    "python": "3.14.7",
+    "timestamp_utc": "2026-09-10T16:56:18.031485+00:00",
+    "torch": "2.13.0+rocm10.0.0",
+    "vram_allocated_bytes": 0,
+    "vram_reserved_bytes": 0
+  },
+  "schema": "remora-qwen-neural-gdn-remora-path-result-v1",
+  "source": {
+    "full_model_materialized": false,
+    "key_head": 3,
+    "layer": 17,
+    "model_loader_called": false,
+    "path": "/home/leo/models/Qwen3.8-Flash-Next-BF16-source",
+    "repository": "Qwen/Qwen3.8-Flash-Next",
+    "revision": "f5d08274bafd880402bd16f5e3e6c514136ec06c",
+    "selected_payload_materialized_bytes_fp32": 6580744,
+    "selection_evidence": "results/qwen-neural-gdn-candidate-ranking-v2.json; highest bounded state-response score",
+    "source_payload_bytes_bf16": 3290372,
+    "source_shard": "model-00051-of-00131.safetensors",
+    "source_slices": {
+      "k_rows": [
+        2432,
+        2560
+      ],
+      "out_columns": [
+        1280,
+        1408
+      ],
+      "q_rows": [
+        384,
+        512
+      ],
+      "v_rows": [
+        5376,
+        5504
+      ],
+      "z_rows": [
+        1280,
+        1408
+      ]
+    },
+    "source_tensor_names": {
+      "A_log": "model.language_model.layers.17.linear_attn.A_log",
+      "a": "model.language_model.layers.17.linear_attn.in_proj_a.weight",
+      "b": "model.language_model.layers.17.linear_attn.in_proj_b.weight",
+      "conv": "model.language_model.layers.17.linear_attn.conv1d.weight",
+      "dt_bias": "model.language_model.layers.17.linear_attn.dt_bias",
+      "norm": "model.language_model.layers.17.linear_attn.norm.weight",
+      "out": "model.language_model.layers.17.linear_attn.out_proj.weight",
+      "qkv": "model.language_model.layers.17.linear_attn.in_proj_qkv.weight",
+      "z": "model.language_model.layers.17.linear_attn.in_proj_z.weight"
+    },
+    "tensor_hashes_float32": {
+      "A_log": "6009938f8c6accca048beb40270fd247f407d844d1bffbe05111d1c5f459eded",
+      "a_weight": "85b2b39823be6f0a9a27b10dee34da4f531790f23e7942d6f3650594d0f62588",
+      "b_weight": "23871b9420102e58e6e0fc4f9b31010bda14f858dec5ed521575b1e79370d2d5",
+      "conv_qkv": "9cb8f3ff75ea85fa59d40f32de89df9567bdf0e60c65187397de9aba68a5b30a",
+      "dt_bias": "aede85337b8e6e94f27070129b62d4d0c5cbb16841048eb146b2c0e11943e58b",
+      "k_weight": "0dd3f0e16e0b846337123a00277e271bbc2f82eff698f72a76b9416248323822",
+      "norm_weight": "116235b429bff50254d33021b6a731c06feb810fea640f0344d07a533a5e5963",
+      "out_weight": "86188dbe31ac6345e46787b2941c0c945d3945d0dd4fb45af18d947cfca83ef5",
+      "q_weight": "4289f10da1896e90f431087adafd9279357e7dce68603ec810863bd225df7e9b",
+      "v_weight": "7fcbb48d05626f715cd571a33e1b227edc6135b2740f9bc29952fe2f1831a358",
+      "z_weight": "c7df0a3aa51aa304e045b10977ac2c4022d903b3525c2bd1eef7dc72ec3710fa"
+    },
+    "value_head": 10
+  },
+  "task": {
+    "name": "aged-Remora delayed associative recall through core socket",
+    "per_seed": {
+      "19": {
+        "causal_path_contribution": {
+          "actual_vs_zero_pre_final_hidden_delta_max": 0.02678345888853073,
+          "actual_vs_zero_pre_final_hidden_delta_mean": 0.0003030793450307101,
+          "scope": "isolated blocks.1.plastic branch inside the real Remora block stack"
+        },
+        "checkpoint": {
+          "bytes": 7705454,
+          "path": "/home/leo/research/remora-v0/checkpoints/aged-surgery-remora-seed19.pt",
+          "schema": "remora-v1-aged-surgery-checkpoint",
+          "seed": 19,
+          "sha256": "5c6c4fff217be18671d375521e779e41308ab9164b81597fc7da62b8b382a7be"
+        },
+        "dataset": {
+          "input_contract": [
+            "batch",
+            "time",
+            192
+          ],
+          "memory_delay": 9,
+          "memory_items": 4,
+          "query_synthesis": "64-step analytic optimization through aged Remora target LayerNorm and actual converted donor key; no donor training",
+          "shifted_interface": "fixed GDN input port cyclically permuted by 7 and scaled by 0.9",
+          "test_query_beta_mean": 0.06033799797296524,
+          "test_query_key_cosine_mean": 0.6135827898979187,
+          "test_samples": 128,
+          "time": 10,
+          "train_query_beta_mean": 0.07058027386665344,
+          "train_query_key_cosine_mean": 0.664685070514679,
+          "train_samples": 64
+        },
+        "micro_repair_curves": {
+          "actual": {
+            "repair_rank": 4,
+            "steps": [
+              {
+                "accuracy": 0.53125,
+                "changed_fraction_total_model": 0.0,
+                "changed_parameters": 0,
+                "gradient_steps": 0,
+                "loss_last": null,
+                "mean_target_cosine": 0.45023801922798157,
+                "tokens": 0,
+                "trainable_parameters": 2432,
+                "wall_seconds": 0.11043723599868827
+              },
+              {
+                "accuracy": 0.5546875,
+                "changed_fraction_total_model": 0.0005103642097984232,
+                "changed_parameters": 896,
+                "gradient_steps": 1,
+                "loss_last": 2.238194704055786,
+                "mean_target_cosine": 0.45143336057662964,
+                "tokens": 640,
+                "trainable_parameters": 2432,
+                "wall_seconds": 0.20530006699846126
+              },
+              {
+                "accuracy": 0.5625,
+                "changed_fraction_total_model": 0.001239455938081885,
+                "changed_parameters": 2176,
+                "gradient_steps": 2,
+                "loss_last": 1.754961371421814,
+                "mean_target_cosine": 0.460851788520813,
+                "tokens": 1280,
+                "trainable_parameters": 2432,
+                "wall_seconds": 0.30389740700047696
+              },
+              {
+                "accuracy": 0.5546875,
+                "changed_fraction_total_model": 0.001239455938081885,
+                "changed_parameters": 2176,
+                "gradient_steps": 4,
+                "loss_last": 0.7678623199462891,
+                "mean_target_cosine": 0.4452550411224365,
+                "tokens": 2560,
+                "trainable_parameters": 2432,
+                "wall_seconds": 0.4684308530049748
+              },
+              {
+                "accuracy": 0.4921875,
+                "changed_fraction_total_model": 0.001239455938081885,
+                "changed_parameters": 2176,
+                "gradient_steps": 8,
+                "loss_last": 0.1441819965839386,
+                "mean_target_cosine": 0.3156781792640686,
+                "tokens": 5120,
+                "trainable_parameters": 2432,
+                "wall_seconds": 0.8017121750017395
+              },
+              {
+                "accuracy": 0.453125,
+                "changed_fraction_total_model": 0.001239455938081885,
+                "changed_parameters": 2176,
+                "gradient_steps": 16,
+                "loss_last": 0.05219893157482147,
+                "mean_target_cosine": 0.18945853412151337,
+                "tokens": 10240,
+                "trainable_parameters": 2432,
+                "wall_seconds": 1.513282898995385
+              },
+              {
+                "accuracy": 0.4296875,
+                "changed_fraction_total_model": 0.001239455938081885,
+                "changed_parameters": 2176,
+                "gradient_steps": 32,
+                "loss_last": 0.018176700919866562,
+                "mean_target_cosine": 0.1689785122871399,
+                "tokens": 20480,
+                "trainable_parameters": 2432,
+                "wall_seconds": 2.8669545730008394
+              },
+              {
+                "accuracy": 0.4375,
+                "changed_fraction_total_model": 0.001239455938081885,
+                "changed_parameters": 2176,
+                "gradient_steps": 64,
+                "loss_last": 0.0071802265010774136,
+                "mean_target_cosine": 0.17777585983276367,
+                "shifted_interface_accuracy": 0.25,
+                "tokens": 40960,
+                "trainable_parameters": 2432,
+                "wall_seconds": 5.63082615500025
+              }
+            ],
+            "target": "frozen actual-value memory vectors with a low-rank socket repair; no donor-core updates",
+            "trainable_parameters": 2432
+          },
+          "random": {
+            "repair_rank": 4,
+            "steps": [
+              {
+                "accuracy": 0.2421875,
+                "changed_fraction_total_model": 0.0,
+                "changed_parameters": 0,
+                "gradient_steps": 0,
+                "loss_last": null,
+                "mean_target_cosine": -0.002006032969802618,
+                "tokens": 0,
+                "trainable_parameters": 2432,
+                "wall_seconds": 0.11118597799941199
+              },
+              {
+                "accuracy": 0.2109375,
+                "changed_fraction_total_model": 0.0005103642097984232,
+                "changed_parameters": 896,
+                "gradient_steps": 1,
+                "loss_last": 1.5172017812728882,
+                "mean_target_cosine": -0.0013307220069691539,
+                "tokens": 640,
+                "trainable_parameters": 2432,
+                "wall_seconds": 0.20347906299866736
+              },
+              {
+                "accuracy": 0.25,
+                "changed_fraction_total_model": 0.001239455938081885,
+                "changed_parameters": 2176,
+                "gradient_steps": 2,
+                "loss_last": 1.3881144523620605,
+                "mean_target_cosine": 0.003198947524651885,
+                "tokens": 1280,
+                "trainable_parameters": 2432,
+                "wall_seconds": 0.3039444359965273
+              },
+              {
+                "accuracy": 0.2578125,
+                "changed_fraction_total_model": 0.001239455938081885,
+                "changed_parameters": 2176,
+                "gradient_steps": 4,
+                "loss_last": 0.9540414214134216,
+                "mean_target_cosine": 0.00302958395332098,
+                "tokens": 2560,
+                "trainable_parameters": 2432,
+                "wall_seconds": 0.4503937420013244
+              },
+              {
+                "accuracy": 0.2265625,
+                "changed_fraction_total_model": 0.001239455938081885,
+                "changed_parameters": 2176,
+                "gradient_steps": 8,
+                "loss_last": 0.40719518065452576,
+                "mean_target_cosine": -0.003912303131073713,
+                "tokens": 5120,
+                "trainable_parameters": 2432,
+                "wall_seconds": 0.8222365500041633
+              },
+              {
+                "accuracy": 0.2109375,
+                "changed_fraction_total_model": 0.001239455938081885,
+                "changed_parameters": 2176,
+                "gradient_steps": 16,
+                "loss_last": 0.1694776862859726,
+                "mean_target_cosine": 0.0060207415372133255,
+                "tokens": 10240,
+                "trainable_parameters": 2432,
+                "wall_seconds": 1.5062859829995432
+              },
+              {
+                "accuracy": 0.2421875,
+                "changed_fraction_total_model": 0.001239455938081885,
+                "changed_parameters": 2176,
+                "gradient_steps": 32,
+                "loss_last": 0.06548959016799927,
+                "mean_target_cosine": 0.02054310403764248,
+                "tokens": 20480,
+                "trainable_parameters": 2432,
+                "wall_seconds": 2.8898400619946187
+              },
+              {
+                "accuracy": 0.171875,
+                "changed_fraction_total_model": 0.001239455938081885,
+                "changed_parameters": 2176,
+                "gradient_steps": 64,
+                "loss_last": 0.027295850217342377,
+                "mean_target_cosine": 0.006728505250066519,
+                "shifted_interface_accuracy": 0.2265625,
+                "tokens": 40960,
+                "trainable_parameters": 2432,
+                "wall_seconds": 5.792600011001923
+              }
+            ],
+            "target": "frozen actual-value memory vectors with a low-rank socket repair; no donor-core updates",
+            "trainable_parameters": 2432
+          }
+        },
+        "micro_repair_threshold_steps": {
+          "actual": 0,
+          "random": null
+        },
+        "old_capability": {
+          "actual_core_socket": {
+            "code": {
+              "loss": 3.1848986744880676,
+              "perplexity": 24.16483976703224,
+              "tokens": 512,
+              "tokens_per_second": 9032.547638004062,
+              "wall_seconds": 0.05668389700440457
+            },
+            "text": {
+              "loss": 2.9090489745140076,
+              "perplexity": 18.339349082506885,
+              "tokens": 512,
+              "tokens_per_second": 8923.69004063569,
+              "wall_seconds": 0.057375368000066373
+            }
+          },
+          "baseline_aged_checkpoint": {
+            "code": {
+              "loss": 3.1123872995376587,
+              "perplexity": 22.474634091548584,
+              "tokens": 512,
+              "tokens_per_second": 11932.02706535554,
+              "wall_seconds": 0.04290972499438794
+            },
+            "text": {
+              "loss": 2.83061021566391,
+              "perplexity": 16.95580436574279,
+              "tokens": 512,
+              "tokens_per_second": 11797.235837268521,
+              "wall_seconds": 0.043399997004598845
+            }
+          },
+          "evaluation_tokens_per_domain": 512,
+          "loss_delta_actual_minus_baseline": {
+            "code": 0.07251137495040894,
+            "text": 0.07843875885009766
+          },
+          "loss_delta_actual_minus_zero": {
+            "code": 0.00026404857635498047,
+            "text": -0.0004531741142272949
+          },
+          "zero_core_socket": {
+            "code": {
+              "loss": 3.1846346259117126,
+              "perplexity": 24.15845991782603,
+              "tokens": 512,
+              "tokens_per_second": 8968.772153527225,
+              "wall_seconds": 0.05708696700457949
+            },
+            "text": {
+              "loss": 2.909502148628235,
+              "perplexity": 18.347661884213867,
+              "tokens": 512,
+              "tokens_per_second": 8945.161564593567,
+              "wall_seconds": 0.05723764700087486
+            }
+          }
+        },
+        "zero_shot": {
+          "actual": {
+            "core_to_actual_value": {
+              "accuracy": 0.53125,
+              "mean_best_cosine": 0.6331368684768677,
+              "mean_target_cosine": 0.45023801922798157
+            },
+            "core_to_own_value": {
+              "accuracy": 0.53125,
+              "mean_best_cosine": 0.6331368684768677,
+              "mean_target_cosine": 0.45023801922798157
+            },
+            "donor_core_frozen": true,
+            "fixed_input_port": true,
+            "path_output_to_actual_value": {
+              "accuracy": 0.53125,
+              "mean_best_cosine": 0.6331368684768677,
+              "mean_target_cosine": 0.45023801922798157
+            },
+            "shifted_interface": {
+              "accuracy": 0.2578125,
+              "mean_best_cosine": 0.1998434066772461,
+              "mean_target_cosine": 0.04041137546300888
+            },
+            "shifted_interface_path_output": {
+              "accuracy": 0.2578125,
+              "mean_best_cosine": 0.1998434215784073,
+              "mean_target_cosine": 0.04041137546300888
+            },
+            "trainable_parameters": 0
+          },
+          "random": {
+            "core_to_actual_value": {
+              "accuracy": 0.2421875,
+              "mean_best_cosine": 0.06581033766269684,
+              "mean_target_cosine": -0.0020060327369719744
+            },
+            "core_to_own_value": {
+              "accuracy": 0.3046875,
+              "mean_best_cosine": 0.15020309388637543,
+              "mean_target_cosine": 0.03050908073782921
+            },
+            "donor_core_frozen": true,
+            "fixed_input_port": true,
+            "path_output_to_actual_value": {
+              "accuracy": 0.2421875,
+              "mean_best_cosine": 0.06581034511327744,
+              "mean_target_cosine": -0.002006032969802618
+            },
+            "shifted_interface": {
+              "accuracy": 0.25,
+              "mean_best_cosine": 0.06438442319631577,
+              "mean_target_cosine": 0.003578387200832367
+            },
+            "shifted_interface_path_output": {
+              "accuracy": 0.25,
+              "mean_best_cosine": 0.06438442319631577,
+              "mean_target_cosine": 0.003578387899324298
+            },
+            "trainable_parameters": 0
+          },
+          "shuffled": {
+            "core_to_actual_value": {
+              "accuracy": 0.1953125,
+              "mean_best_cosine": 0.09047155827283859,
+              "mean_target_cosine": -0.0013336400734260678
+            },
+            "core_to_own_value": {
+              "accuracy": 0.2265625,
+              "mean_best_cosine": 0.32488730549812317,
+              "mean_target_cosine": -0.0015820623375475407
+            },
+            "donor_core_frozen": true,
+            "fixed_input_port": true,
+            "path_output_to_actual_value": {
+              "accuracy": 0.1953125,
+              "mean_best_cosine": 0.090471550822258,
+              "mean_target_cosine": -0.0013336390256881714
+            },
+            "shifted_interface": {
+              "accuracy": 0.265625,
+              "mean_best_cosine": 0.07712322473526001,
+              "mean_target_cosine": -0.0010389855597168207
+            },
+            "shifted_interface_path_output": {
+              "accuracy": 0.265625,
+              "mean_best_cosine": 0.07712322473526001,
+              "mean_target_cosine": -0.0010389869567006826
+            },
+            "trainable_parameters": 0
+          },
+          "zero": {
+            "core_to_actual_value": {
+              "accuracy": 0.296875,
+              "mean_best_cosine": 0.0,
+              "mean_target_cosine": 0.0
+            },
+            "core_to_own_value": {
+              "accuracy": 0.296875,
+              "mean_best_cosine": 0.0,
+              "mean_target_cosine": 0.0
+            },
+            "donor_core_frozen": true,
+            "fixed_input_port": true,
+            "path_output_to_actual_value": {
+              "accuracy": 0.296875,
+              "mean_best_cosine": 0.0,
+              "mean_target_cosine": 0.0
+            },
+            "shifted_interface": {
+              "accuracy": 0.296875,
+              "mean_best_cosine": 0.0,
+              "mean_target_cosine": 0.0
+            },
+            "shifted_interface_path_output": {
+              "accuracy": 0.296875,
+              "mean_best_cosine": 0.0,
+              "mean_target_cosine": 0.0
+            },
+            "trainable_parameters": 0
+          }
+        }
+      },
+      "31": {
+        "causal_path_contribution": {
+          "actual_vs_zero_pre_final_hidden_delta_max": 0.029357552528381348,
+          "actual_vs_zero_pre_final_hidden_delta_mean": 0.00030027588945813477,
+          "scope": "isolated blocks.1.plastic branch inside the real Remora block stack"
+        },
+        "checkpoint": {
+          "bytes": 7705454,
+          "path": "/home/leo/research/remora-v0/checkpoints/aged-surgery-remora-seed31.pt",
+          "schema": "remora-v1-aged-surgery-checkpoint",
+          "seed": 31,
+          "sha256": "6ff858324bbc3aac8b50d087ca4e6632e8c2888206dacad465f34609b8aa2d9f"
+        },
+        "dataset": {
+          "input_contract": [
+            "batch",
+            "time",
+            192
+          ],
+          "memory_delay": 9,
+          "memory_items": 4,
+          "query_synthesis": "64-step analytic optimization through aged Remora target LayerNorm and actual converted donor key; no donor training",
+          "shifted_interface": "fixed GDN input port cyclically permuted by 7 and scaled by 0.9",
+          "test_query_beta_mean": 0.06582038104534149,
+          "test_query_key_cosine_mean": 0.5923474431037903,
+          "test_samples": 128,
+          "time": 10,
+          "train_query_beta_mean": 0.05108225345611572,
+          "train_query_key_cosine_mean": 0.5779969692230225,
+          "train_samples": 64
+        },
+        "micro_repair_curves": {
+          "actual": {
+            "repair_rank": 4,
+            "steps": [
+              {
+                "accuracy": 0.65625,
+                "changed_fraction_total_model": 0.0,
+                "changed_parameters": 0,
+                "gradient_steps": 0,
+                "loss_last": null,
+                "mean_target_cosine": 0.5287726521492004,
+                "tokens": 0,
+                "trainable_parameters": 2432,
+                "wall_seconds": 0.11084395599755226
+              },
+              {
+                "accuracy": 0.625,
+                "changed_fraction_total_model": 0.0005103642097984232,
+                "changed_parameters": 896,
+                "gradient_steps": 1,
+                "loss_last": 1.465785026550293,
+                "mean_target_cosine": 0.5313417315483093,
+                "tokens": 640,
+                "trainable_parameters": 2432,
+                "wall_seconds": 0.21372286599944346
+              },
+              {
+                "accuracy": 0.609375,
+                "changed_fraction_total_model": 0.001239455938081885,
+                "changed_parameters": 2176,
+                "gradient_steps": 2,
+                "loss_last": 1.0767412185668945,
+                "mean_target_cosine": 0.5331482291221619,
+                "tokens": 1280,
+                "trainable_parameters": 2432,
+                "wall_seconds": 0.30343458500283305
+              },
+              {
+                "accuracy": 0.5546875,
+                "changed_fraction_total_model": 0.001239455938081885,
+                "changed_parameters": 2176,
+                "gradient_steps": 4,
+                "loss_last": 0.44093990325927734,
+                "mean_target_cosine": 0.48056355118751526,
+                "tokens": 2560,
+                "trainable_parameters": 2432,
+                "wall_seconds": 0.4506573129983735
+              },
+              {
+                "accuracy": 0.5546875,
+                "changed_fraction_total_model": 0.001239455938081885,
+                "changed_parameters": 2176,
+                "gradient_steps": 8,
+                "loss_last": 0.09617019444704056,
+                "mean_target_cosine": 0.36735936999320984,
+                "tokens": 5120,
+                "trainable_parameters": 2432,
+                "wall_seconds": 0.7908568890052265
+              },
+              {
+                "accuracy": 0.5,
+                "changed_fraction_total_model": 0.001239455938081885,
+                "changed_parameters": 2176,
+                "gradient_steps": 16,
+                "loss_last": 0.04363347217440605,
+                "mean_target_cosine": 0.31229305267333984,
+                "tokens": 10240,
+                "trainable_parameters": 2432,
+                "wall_seconds": 1.4698852699948475
+              },
+              {
+                "accuracy": 0.4765625,
+                "changed_fraction_total_model": 0.001239455938081885,
+                "changed_parameters": 2176,
+                "gradient_steps": 32,
+                "loss_last": 0.014222070574760437,
+                "mean_target_cosine": 0.29959946870803833,
+                "tokens": 20480,
+                "trainable_parameters": 2432,
+                "wall_seconds": 2.9167117279939703
+              },
+              {
+                "accuracy": 0.484375,
+                "changed_fraction_total_model": 0.001239455938081885,
+                "changed_parameters": 2176,
+                "gradient_steps": 64,
+                "loss_last": 0.005607441067695618,
+                "mean_target_cosine": 0.3023281395435333,
+                "shifted_interface_accuracy": 0.203125,
+                "tokens": 40960,
+                "trainable_parameters": 2432,
+                "wall_seconds": 5.609848937005154
+              }
+            ],
+            "target": "frozen actual-value memory vectors with a low-rank socket repair; no donor-core updates",
+            "trainable_parameters": 2432
+          },
+          "random": {
+            "repair_rank": 4,
+            "steps": [
+              {
+                "accuracy": 0.25,
+                "changed_fraction_total_model": 0.0,
+                "changed_parameters": 0,
+                "gradient_steps": 0,
+                "loss_last": null,
+                "mean_target_cosine": -0.005712543614208698,
+                "tokens": 0,
+                "trainable_parameters": 2432,
+                "wall_seconds": 0.11078670599817997
+              },
+              {
+                "accuracy": 0.2421875,
+                "changed_fraction_total_model": 0.0005103642097984232,
+                "changed_parameters": 896,
+                "gradient_steps": 1,
+                "loss_last": 1.502492070198059,
+                "mean_target_cosine": -0.004081727471202612,
+                "tokens": 640,
+                "trainable_parameters": 2432,
+                "wall_seconds": 0.21585474000312388
+              },
+              {
+                "accuracy": 0.3203125,
+                "changed_fraction_total_model": 0.001239455938081885,
+                "changed_parameters": 2176,
+                "gradient_steps": 2,
+                "loss_last": 1.3690980672836304,
+                "mean_target_cosine": 0.001449689967557788,
+                "tokens": 1280,
+                "trainable_parameters": 2432,
+                "wall_seconds": 0.3049377479983377
+              },
+              {
+                "accuracy": 0.265625,
+                "changed_fraction_total_model": 0.001239455938081885,
+                "changed_parameters": 2176,
+                "gradient_steps": 4,
+                "loss_last": 1.0250738859176636,
+                "mean_target_cosine": 0.0055498722940683365,
+                "tokens": 2560,
+                "trainable_parameters": 2432,
+                "wall_seconds": 0.472312249999959
+              },
+              {
+                "accuracy": 0.2421875,
+                "changed_fraction_total_model": 0.001239455938081885,
+                "changed_parameters": 2176,
+                "gradient_steps": 8,
+                "loss_last": 0.5603737831115723,
+                "mean_target_cosine": 0.006286322139203548,
+                "tokens": 5120,
+                "trainable_parameters": 2432,
+                "wall_seconds": 0.801775813997665
+              },
+              {
+                "accuracy": 0.2421875,
+                "changed_fraction_total_model": 0.001239455938081885,
+                "changed_parameters": 2176,
+                "gradient_steps": 16,
+                "loss_last": 0.255964457988739,
+                "mean_target_cosine": 0.018385503441095352,
+                "tokens": 10240,
+                "trainable_parameters": 2432,
+                "wall_seconds": 1.5015952899993863
+              },
+              {
+                "accuracy": 0.296875,
+                "changed_fraction_total_model": 0.001239455938081885,
+                "changed_parameters": 2176,
+                "gradient_steps": 32,
+                "loss_last": 0.12747344374656677,
+                "mean_target_cosine": 0.02376117929816246,
+                "tokens": 20480,
+                "trainable_parameters": 2432,
+                "wall_seconds": 2.9333423630014295
+              },
+              {
+                "accuracy": 0.2578125,
+                "changed_fraction_total_model": 0.001239455938081885,
+                "changed_parameters": 2176,
+                "gradient_steps": 64,
+                "loss_last": 0.07024198770523071,
+                "mean_target_cosine": 0.014531836844980717,
+                "shifted_interface_accuracy": 0.2734375,
+                "tokens": 40960,
+                "trainable_parameters": 2432,
+                "wall_seconds": 5.783991619995504
+              }
+            ],
+            "target": "frozen actual-value memory vectors with a low-rank socket repair; no donor-core updates",
+            "trainable_parameters": 2432
+          }
+        },
+        "micro_repair_threshold_steps": {
+          "actual": 0,
+          "random": null
+        },
+        "old_capability": {
+          "actual_core_socket": {
+            "code": {
+              "loss": 3.2070305347442627,
+              "perplexity": 24.705614728489945,
+              "tokens": 512,
+              "tokens_per_second": 8880.263162430598,
+              "wall_seconds": 0.057655949000036344
+            },
+            "text": {
+              "loss": 2.890356123447418,
+              "perplexity": 17.999718582122476,
+              "tokens": 512,
+              "tokens_per_second": 8839.666219846875,
+              "wall_seconds": 0.05792073900374817
+            }
+          },
+          "baseline_aged_checkpoint": {
+            "code": {
+              "loss": 3.185793459415436,
+              "perplexity": 24.186471777983435,
+              "tokens": 512,
+              "tokens_per_second": 11618.66392291042,
+              "wall_seconds": 0.04406702899723314
+            },
+            "text": {
+              "loss": 2.861256241798401,
+              "perplexity": 17.483476620750338,
+              "tokens": 512,
+              "tokens_per_second": 11546.758429101697,
+              "wall_seconds": 0.044341449000057764
+            }
+          },
+          "evaluation_tokens_per_domain": 512,
+          "loss_delta_actual_minus_baseline": {
+            "code": 0.021237075328826904,
+            "text": 0.029099881649017334
+          },
+          "loss_delta_actual_minus_zero": {
+            "code": -0.0002238750457763672,
+            "text": 0.000118255615234375
+          },
+          "zero_core_socket": {
+            "code": {
+              "loss": 3.207254409790039,
+              "perplexity": 24.711146318287575,
+              "tokens": 512,
+              "tokens_per_second": 8796.484718676917,
+              "wall_seconds": 0.05820506899908651
+            },
+            "text": {
+              "loss": 2.890237867832184,
+              "perplexity": 17.997590140180087,
+              "tokens": 512,
+              "tokens_per_second": 8757.680288542462,
+              "wall_seconds": 0.05846297000243794
+            }
+          }
+        },
+        "zero_shot": {
+          "actual": {
+            "core_to_actual_value": {
+              "accuracy": 0.65625,
+              "mean_best_cosine": 0.6789474487304688,
+              "mean_target_cosine": 0.5287726521492004
+            },
+            "core_to_own_value": {
+              "accuracy": 0.65625,
+              "mean_best_cosine": 0.6789474487304688,
+              "mean_target_cosine": 0.5287726521492004
+            },
+            "donor_core_frozen": true,
+            "fixed_input_port": true,
+            "path_output_to_actual_value": {
+              "accuracy": 0.65625,
+              "mean_best_cosine": 0.6789475083351135,
+              "mean_target_cosine": 0.5287726521492004
+            },
+            "shifted_interface": {
+              "accuracy": 0.2421875,
+              "mean_best_cosine": 0.20978140830993652,
+              "mean_target_cosine": -0.0025217384099960327
+            },
+            "shifted_interface_path_output": {
+              "accuracy": 0.2421875,
+              "mean_best_cosine": 0.20978140830993652,
+              "mean_target_cosine": -0.002521737478673458
+            },
+            "trainable_parameters": 0
+          },
+          "random": {
+            "core_to_actual_value": {
+              "accuracy": 0.25,
+              "mean_best_cosine": 0.047740060836076736,
+              "mean_target_cosine": -0.005712541751563549
+            },
+            "core_to_own_value": {
+              "accuracy": 0.1796875,
+              "mean_best_cosine": 0.1267392784357071,
+              "mean_target_cosine": -0.006286379881203175
+            },
+            "donor_core_frozen": true,
+            "fixed_input_port": true,
+            "path_output_to_actual_value": {
+              "accuracy": 0.25,
+              "mean_best_cosine": 0.047740060836076736,
+              "mean_target_cosine": -0.005712543614208698
+            },
+            "shifted_interface": {
+              "accuracy": 0.234375,
+              "mean_best_cosine": 0.04908427596092224,
+              "mean_target_cosine": -0.010779454372823238
+            },
+            "shifted_interface_path_output": {
+              "accuracy": 0.234375,
+              "mean_best_cosine": 0.04908427223563194,
+              "mean_target_cosine": -0.010779455304145813
+            },
+            "trainable_parameters": 0
+          },
+          "shuffled": {
+            "core_to_actual_value": {
+              "accuracy": 0.234375,
+              "mean_best_cosine": 0.07623614370822906,
+              "mean_target_cosine": -0.0023023912217468023
+            },
+            "core_to_own_value": {
+              "accuracy": 0.2890625,
+              "mean_best_cosine": 0.37114325165748596,
+              "mean_target_cosine": -0.02912256494164467
+            },
+            "donor_core_frozen": true,
+            "fixed_input_port": true,
+            "path_output_to_actual_value": {
+              "accuracy": 0.234375,
+              "mean_best_cosine": 0.07623614370822906,
+              "mean_target_cosine": -0.002302393317222595
+            },
+            "shifted_interface": {
+              "accuracy": 0.2890625,
+              "mean_best_cosine": 0.07351040095090866,
+              "mean_target_cosine": 0.012602755799889565
+            },
+            "shifted_interface_path_output": {
+              "accuracy": 0.2890625,
+              "mean_best_cosine": 0.07351040095090866,
+              "mean_target_cosine": 0.012602756731212139
+            },
+            "trainable_parameters": 0
+          },
+          "zero": {
+            "core_to_actual_value": {
+              "accuracy": 0.203125,
+              "mean_best_cosine": 0.0,
+              "mean_target_cosine": 0.0
+            },
+            "core_to_own_value": {
+              "accuracy": 0.203125,
+              "mean_best_cosine": 0.0,
+              "mean_target_cosine": 0.0
+            },
+            "donor_core_frozen": true,
+            "fixed_input_port": true,
+            "path_output_to_actual_value": {
+              "accuracy": 0.203125,
+              "mean_best_cosine": 0.0,
+              "mean_target_cosine": 0.0
+            },
+            "shifted_interface": {
+              "accuracy": 0.203125,
+              "mean_best_cosine": 0.0,
+              "mean_target_cosine": 0.0
+            },
+            "shifted_interface_path_output": {
+              "accuracy": 0.203125,
+              "mean_best_cosine": 0.0,
+              "mean_target_cosine": 0.0
+            },
+            "trainable_parameters": 0
+          }
+        }
+      },
+      "7": {
+        "causal_path_contribution": {
+          "actual_vs_zero_pre_final_hidden_delta_max": 0.02039344795048237,
+          "actual_vs_zero_pre_final_hidden_delta_mean": 0.0002961068821605295,
+          "scope": "isolated blocks.1.plastic branch inside the real Remora block stack"
+        },
+        "checkpoint": {
+          "bytes": 7705275,
+          "path": "/home/leo/research/remora-v0/checkpoints/aged-surgery-remora-seed7.pt",
+          "schema": "remora-v1-aged-surgery-checkpoint",
+          "seed": 7,
+          "sha256": "cccdfaff0a208fce56fcc64ed48b475bd374a577b48ea65d50a3ada559f09b08"
+        },
+        "dataset": {
+          "input_contract": [
+            "batch",
+            "time",
+            192
+          ],
+          "memory_delay": 9,
+          "memory_items": 4,
+          "query_synthesis": "64-step analytic optimization through aged Remora target LayerNorm and actual converted donor key; no donor training",
+          "shifted_interface": "fixed GDN input port cyclically permuted by 7 and scaled by 0.9",
+          "test_query_beta_mean": 0.05914415419101715,
+          "test_query_key_cosine_mean": 0.6094812750816345,
+          "test_samples": 128,
+          "time": 10,
+          "train_query_beta_mean": 0.05960124731063843,
+          "train_query_key_cosine_mean": 0.5909159779548645,
+          "train_samples": 64
+        },
+        "micro_repair_curves": {
+          "actual": {
+            "repair_rank": 4,
+            "steps": [
+              {
+                "accuracy": 0.5703125,
+                "changed_fraction_total_model": 0.0,
+                "changed_parameters": 0,
+                "gradient_steps": 0,
+                "loss_last": null,
+                "mean_target_cosine": 0.4912126660346985,
+                "tokens": 0,
+                "trainable_parameters": 2432,
+                "wall_seconds": 0.1101883360024658
+              },
+              {
+                "accuracy": 0.59375,
+                "changed_fraction_total_model": 0.0005103642097984232,
+                "changed_parameters": 896,
+                "gradient_steps": 1,
+                "loss_last": 1.459479570388794,
+                "mean_target_cosine": 0.497408002614975,
+                "tokens": 640,
+                "trainable_parameters": 2432,
+                "wall_seconds": 0.20561116799945012
+              },
+              {
+                "accuracy": 0.6015625,
+                "changed_fraction_total_model": 0.001239455938081885,
+                "changed_parameters": 2176,
+                "gradient_steps": 2,
+                "loss_last": 0.9453146457672119,
+                "mean_target_cosine": 0.5026203989982605,
+                "tokens": 1280,
+                "trainable_parameters": 2432,
+                "wall_seconds": 0.30136123100237455
+              },
+              {
+                "accuracy": 0.609375,
+                "changed_fraction_total_model": 0.001239455938081885,
+                "changed_parameters": 2176,
+                "gradient_steps": 4,
+                "loss_last": 0.27218014001846313,
+                "mean_target_cosine": 0.4556652903556824,
+                "tokens": 2560,
+                "trainable_parameters": 2432,
+                "wall_seconds": 0.45787825099978363
+              },
+              {
+                "accuracy": 0.5859375,
+                "changed_fraction_total_model": 0.001239455938081885,
+                "changed_parameters": 2176,
+                "gradient_steps": 8,
+                "loss_last": 0.0765797421336174,
+                "mean_target_cosine": 0.33207646012306213,
+                "tokens": 5120,
+                "trainable_parameters": 2432,
+                "wall_seconds": 0.8173430410024594
+              },
+              {
+                "accuracy": 0.46875,
+                "changed_fraction_total_model": 0.001239455938081885,
+                "changed_parameters": 2176,
+                "gradient_steps": 16,
+                "loss_last": 0.03003327175974846,
+                "mean_target_cosine": 0.24935993552207947,
+                "tokens": 10240,
+                "trainable_parameters": 2432,
+                "wall_seconds": 1.514321734997793
+              },
+              {
+                "accuracy": 0.4453125,
+                "changed_fraction_total_model": 0.001239455938081885,
+                "changed_parameters": 2176,
+                "gradient_steps": 32,
+                "loss_last": 0.010265964083373547,
+                "mean_target_cosine": 0.2460189163684845,
+                "tokens": 20480,
+                "trainable_parameters": 2432,
+                "wall_seconds": 2.9061857660053647
+              },
+              {
+                "accuracy": 0.4375,
+                "changed_fraction_total_model": 0.001239455938081885,
+                "changed_parameters": 2176,
+                "gradient_steps": 64,
+                "loss_last": 0.0043529123067855835,
+                "mean_target_cosine": 0.24562793970108032,
+                "shifted_interface_accuracy": 0.3046875,
+                "tokens": 40960,
+                "trainable_parameters": 2432,
+                "wall_seconds": 5.640273737000825
+              }
+            ],
+            "target": "frozen actual-value memory vectors with a low-rank socket repair; no donor-core updates",
+            "trainable_parameters": 2432
+          },
+          "random": {
+            "repair_rank": 4,
+            "steps": [
+              {
+                "accuracy": 0.2734375,
+                "changed_fraction_total_model": 0.0,
+                "changed_parameters": 0,
+                "gradient_steps": 0,
+                "loss_last": null,
+                "mean_target_cosine": 0.010663488879799843,
+                "tokens": 0,
+                "trainable_parameters": 2432,
+                "wall_seconds": 0.11093692700524116
+              },
+              {
+                "accuracy": 0.296875,
+                "changed_fraction_total_model": 0.0005103642097984232,
+                "changed_parameters": 896,
+                "gradient_steps": 1,
+                "loss_last": 1.5160484313964844,
+                "mean_target_cosine": 0.012008186429738998,
+                "tokens": 640,
+                "trainable_parameters": 2432,
+                "wall_seconds": 0.20429733500350267
+              },
+              {
+                "accuracy": 0.3046875,
+                "changed_fraction_total_model": 0.001239455938081885,
+                "changed_parameters": 2176,
+                "gradient_steps": 2,
+                "loss_last": 1.3495149612426758,
+                "mean_target_cosine": 0.0038984271232038736,
+                "tokens": 1280,
+                "trainable_parameters": 2432,
+                "wall_seconds": 0.3038092470014817
+              },
+              {
+                "accuracy": 0.265625,
+                "changed_fraction_total_model": 0.001239455938081885,
+                "changed_parameters": 2176,
+                "gradient_steps": 4,
+                "loss_last": 1.0663293600082397,
+                "mean_target_cosine": 0.0015392500208690763,
+                "tokens": 2560,
+                "trainable_parameters": 2432,
+                "wall_seconds": 0.4727934330003336
+              },
+              {
+                "accuracy": 0.2578125,
+                "changed_fraction_total_model": 0.001239455938081885,
+                "changed_parameters": 2176,
+                "gradient_steps": 8,
+                "loss_last": 0.536271870136261,
+                "mean_target_cosine": -0.002605048008263111,
+                "tokens": 5120,
+                "trainable_parameters": 2432,
+                "wall_seconds": 0.8163597789971391
+              },
+              {
+                "accuracy": 0.265625,
+                "changed_fraction_total_model": 0.001239455938081885,
+                "changed_parameters": 2176,
+                "gradient_steps": 16,
+                "loss_last": 0.255804181098938,
+                "mean_target_cosine": 0.011058639734983444,
+                "tokens": 10240,
+                "trainable_parameters": 2432,
+                "wall_seconds": 1.5112876870043692
+              },
+              {
+                "accuracy": 0.265625,
+                "changed_fraction_total_model": 0.001239455938081885,
+                "changed_parameters": 2176,
+                "gradient_steps": 32,
+                "loss_last": 0.09428355097770691,
+                "mean_target_cosine": -0.0017569256015121937,
+                "tokens": 20480,
+                "trainable_parameters": 2432,
+                "wall_seconds": 2.908713369004545
+              },
+              {
+                "accuracy": 0.2578125,
+                "changed_fraction_total_model": 0.001239455938081885,
+                "changed_parameters": 2176,
+                "gradient_steps": 64,
+                "loss_last": 0.03719041496515274,
+                "mean_target_cosine": -0.01041155494749546,
+                "shifted_interface_accuracy": 0.296875,
+                "tokens": 40960,
+                "trainable_parameters": 2432,
+                "wall_seconds": 5.655679837000207
+              }
+            ],
+            "target": "frozen actual-value memory vectors with a low-rank socket repair; no donor-core updates",
+            "trainable_parameters": 2432
+          }
+        },
+        "micro_repair_threshold_steps": {
+          "actual": 0,
+          "random": null
+        },
+        "old_capability": {
+          "actual_core_socket": {
+            "code": {
+              "loss": 3.2645500898361206,
+              "perplexity": 26.168334942077347,
+              "tokens": 512,
+              "tokens_per_second": 8901.751920427196,
+              "wall_seconds": 0.05751676799991401
+            },
+            "text": {
+              "loss": 2.9455400109291077,
+              "perplexity": 19.0209311242925,
+              "tokens": 512,
+              "tokens_per_second": 8834.872081951931,
+              "wall_seconds": 0.0579521690015099
+            }
+          },
+          "baseline_aged_checkpoint": {
+            "code": {
+              "loss": 3.2132954001426697,
+              "perplexity": 24.860877923035623,
+              "tokens": 512,
+              "tokens_per_second": 11798.693005533423,
+              "wall_seconds": 0.043394636995799374
+            },
+            "text": {
+              "loss": 2.8553972840309143,
+              "perplexity": 17.381341165430264,
+              "tokens": 512,
+              "tokens_per_second": 11644.35907694064,
+              "wall_seconds": 0.0439697879992309
+            }
+          },
+          "evaluation_tokens_per_domain": 512,
+          "loss_delta_actual_minus_baseline": {
+            "code": 0.05125468969345093,
+            "text": 0.09014272689819336
+          },
+          "loss_delta_actual_minus_zero": {
+            "code": -0.0004184246063232422,
+            "text": 0.00015115737915039062
+          },
+          "zero_core_socket": {
+            "code": {
+              "loss": 3.264968514442444,
+              "perplexity": 26.179286708408092,
+              "tokens": 512,
+              "tokens_per_second": 8884.086238376613,
+              "wall_seconds": 0.057631137999123894
+            },
+            "text": {
+              "loss": 2.9453888535499573,
+              "perplexity": 19.01805618748418,
+              "tokens": 512,
+              "tokens_per_second": 8845.648258836853,
+              "wall_seconds": 0.057881568995071575
+            }
+          }
+        },
+        "zero_shot": {
+          "actual": {
+            "core_to_actual_value": {
+              "accuracy": 0.5703125,
+              "mean_best_cosine": 0.6611120700836182,
+              "mean_target_cosine": 0.4912126660346985
+            },
+            "core_to_own_value": {
+              "accuracy": 0.5703125,
+              "mean_best_cosine": 0.6611120700836182,
+              "mean_target_cosine": 0.4912126660346985
+            },
+            "donor_core_frozen": true,
+            "fixed_input_port": true,
+            "path_output_to_actual_value": {
+              "accuracy": 0.5703125,
+              "mean_best_cosine": 0.6611120700836182,
+              "mean_target_cosine": 0.4912126660346985
+            },
+            "shifted_interface": {
+              "accuracy": 0.265625,
+              "mean_best_cosine": 0.18303793668746948,
+              "mean_target_cosine": -0.02699926123023033
+            },
+            "shifted_interface_path_output": {
+              "accuracy": 0.265625,
+              "mean_best_cosine": 0.1830379068851471,
+              "mean_target_cosine": -0.02699926309287548
+            },
+            "trainable_parameters": 0
+          },
+          "random": {
+            "core_to_actual_value": {
+              "accuracy": 0.2734375,
+              "mean_best_cosine": 0.06482324004173279,
+              "mean_target_cosine": 0.010663487017154694
+            },
+            "core_to_own_value": {
+              "accuracy": 0.1640625,
+              "mean_best_cosine": 0.1373116672039032,
+              "mean_target_cosine": -0.01996086724102497
+            },
+            "donor_core_frozen": true,
+            "fixed_input_port": true,
+            "path_output_to_actual_value": {
+              "accuracy": 0.2734375,
+              "mean_best_cosine": 0.06482324004173279,
+              "mean_target_cosine": 0.010663488879799843
+            },
+            "shifted_interface": {
+              "accuracy": 0.28125,
+              "mean_best_cosine": 0.07025104761123657,
+              "mean_target_cosine": 0.008694682270288467
+            },
+            "shifted_interface_path_output": {
+              "accuracy": 0.28125,
+              "mean_best_cosine": 0.07025105506181717,
+              "mean_target_cosine": 0.008694683201611042
+            },
+            "trainable_parameters": 0
+          },
+          "shuffled": {
+            "core_to_actual_value": {
+              "accuracy": 0.2265625,
+              "mean_best_cosine": 0.07493136823177338,
+              "mean_target_cosine": -0.0073088654316961765
+            },
+            "core_to_own_value": {
+              "accuracy": 0.3046875,
+              "mean_best_cosine": 0.34768247604370117,
+              "mean_target_cosine": 0.015402534045279026
+            },
+            "donor_core_frozen": true,
+            "fixed_input_port": true,
+            "path_output_to_actual_value": {
+              "accuracy": 0.2265625,
+              "mean_best_cosine": 0.07493136823177338,
+              "mean_target_cosine": -0.007308866363018751
+            },
+            "shifted_interface": {
+              "accuracy": 0.28125,
+              "mean_best_cosine": 0.0800333172082901,
+              "mean_target_cosine": -0.008224865421652794
+            },
+            "shifted_interface_path_output": {
+              "accuracy": 0.28125,
+              "mean_best_cosine": 0.0800333172082901,
+              "mean_target_cosine": -0.00822486449033022
+            },
+            "trainable_parameters": 0
+          },
+          "zero": {
+            "core_to_actual_value": {
+              "accuracy": 0.2578125,
+              "mean_best_cosine": 0.0,
+              "mean_target_cosine": 0.0
+            },
+            "core_to_own_value": {
+              "accuracy": 0.2578125,
+              "mean_best_cosine": 0.0,
+              "mean_target_cosine": 0.0
+            },
+            "donor_core_frozen": true,
+            "fixed_input_port": true,
+            "path_output_to_actual_value": {
+              "accuracy": 0.2578125,
+              "mean_best_cosine": 0.0,
+              "mean_target_cosine": 0.0
+            },
+            "shifted_interface": {
+              "accuracy": 0.2578125,
+              "mean_best_cosine": 0.0,
+              "mean_target_cosine": 0.0
+            },
+            "shifted_interface_path_output": {
+              "accuracy": 0.2578125,
+              "mean_best_cosine": 0.0,
+              "mean_target_cosine": 0.0
+            },
+            "trainable_parameters": 0
+          }
+        }
+      }
+    },
+    "repair_steps": [
+      0,
+      1,
+      2,
+      4,
+      8,
+      16,
+      32,
+      64
+    ],
+    "seeds": [
+      7,
+      19,
+      31
+    ],
+    "threshold": 0.5,
+    "training_avoidance": "MEASURED for the bounded Remora pathway task only; original Qwen training compute remains UNMEASURED",
+    "zero_step_actual_accuracy": {
+      "mean": 0.5859375,
+      "std": 0.06394806853025352,
+      "values": [
+        0.5703125,
+        0.53125,
+        0.65625
+      ]
+    },
+    "zero_step_actual_minus_random": {
+      "mean": 0.3307291666666667,
+      "std": 0.06551950846567253,
+      "values": [
+        0.296875,
+        0.2890625,
+        0.40625
+      ]
+    },
+    "zero_step_random_accuracy": {
+      "mean": 0.2552083333333333,
+      "std": 0.01626301562082916,
+      "values": [
+        0.2734375,
+        0.2421875,
+        0.25
+      ]
+    },
+    "zero_step_shifted_actual_accuracy": {
+      "mean": 0.2552083333333333,
+      "std": 0.011933790872280832,
+      "values": [
+        0.265625,
+        0.2578125,
+        0.2421875
+      ]
+    }
+  }
+}

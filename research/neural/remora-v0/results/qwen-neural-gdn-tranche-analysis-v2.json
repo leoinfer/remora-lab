@@ -1,0 +1,312 @@
+{
+  "aged_pathway": {
+    "actual_minus_random": {
+      "bootstrap_mean_difference_ci_95": [
+        0.2578125,
+        0.296875
+      ],
+      "bootstrap_note": "descriptive paired seed-resampling interval; n=3 is too small for a strong significance claim",
+      "bootstrap_samples": 20000,
+      "difference": {
+        "mean": 0.2838541666666667,
+        "std": 0.022552744890219755,
+        "values": [
+          0.296875,
+          0.2578125,
+          0.296875
+        ]
+      },
+      "difference_per_seed": [
+        0.296875,
+        0.2578125,
+        0.296875
+      ]
+    },
+    "actual_minus_zero": {
+      "bootstrap_mean_difference_ci_95": [
+        0.2109375,
+        0.40625
+      ],
+      "bootstrap_note": "descriptive paired seed-resampling interval; n=3 is too small for a strong significance claim",
+      "bootstrap_samples": 20000,
+      "difference": {
+        "mean": 0.3177083333333333,
+        "std": 0.09892406204803426,
+        "values": [
+          0.3359375,
+          0.2109375,
+          0.40625
+        ]
+      },
+      "difference_per_seed": [
+        0.3359375,
+        0.2109375,
+        0.40625
+      ]
+    },
+    "actual_zero_step_accuracy": {
+      "mean": 0.5703125,
+      "std": 0.0546875,
+      "values": [
+        0.59375,
+        0.5078125,
+        0.609375
+      ]
+    },
+    "fresh_curve_mean_accuracy": [
+      0.22395833333333334,
+      0.21354166666666666,
+      0.2760416666666667,
+      0.2890625,
+      0.2916666666666667,
+      0.28125,
+      0.2708333333333333,
+      0.2734375
+    ],
+    "fresh_curve_steps": [
+      0,
+      1,
+      2,
+      4,
+      8,
+      16,
+      32,
+      64
+    ],
+    "fresh_same_mechanism_threshold_steps": [
+      null,
+      null,
+      null
+    ],
+    "random_zero_step_accuracy": {
+      "mean": 0.2864583333333333,
+      "std": 0.03252603124165832,
+      "values": [
+        0.296875,
+        0.25,
+        0.3125
+      ]
+    },
+    "seeds": [
+      7,
+      19,
+      31
+    ],
+    "shifted_actual_zero_step_accuracy": {
+      "mean": 0.2265625,
+      "std": 0.04752158226795484,
+      "values": [
+        0.25,
+        0.2578125,
+        0.171875
+      ]
+    },
+    "shuffled_zero_step_accuracy": {
+      "mean": 0.2526041666666667,
+      "std": 0.029577647634376425,
+      "values": [
+        0.21875,
+        0.2734375,
+        0.265625
+      ]
+    },
+    "zero_core_accuracy": {
+      "mean": 0.2526041666666667,
+      "std": 0.047091513854232096,
+      "values": [
+        0.2578125,
+        0.296875,
+        0.203125
+      ]
+    }
+  },
+  "classification": "DERIVED_FROM_MEASURED_RESULT_FILES",
+  "inputs": {
+    "interface": {
+      "path": "results/qwen-neural-gdn-interface-repair-v2.json",
+      "sha256": "273813115536d95f9f1571ad24002aeb0495a40272fa34c46e2a363de1df03a7"
+    },
+    "native": {
+      "path": "results/qwen-neural-gdn-native-core-v2.json",
+      "sha256": "9f654d731fb3a3acb07a110cbd47930c8196f3a1b053f691a15b771bb0153c5d"
+    },
+    "path": {
+      "path": "results/qwen-neural-gdn-remora-path-v6.json",
+      "sha256": "2c52e38559598138d4de3e57721358930f7916aeedbd995fb00238f0a7af1eec"
+    }
+  },
+  "labels": {
+    "DERIVED": "means, sample standard deviations, paired differences, and descriptive bootstrap intervals",
+    "HYPOTHESIS": "a donor core can be useful before retraining, but the current interface is not transplant-tolerant",
+    "MEASURED_INPUTS": "the three source JSON artifacts",
+    "UNMEASURED": "original Qwen training compute avoided and energy"
+  },
+  "native_exact_reuse": {
+    "actual_minus_random": {
+      "mean": 0.2838541666666667,
+      "std": 0.022552744890219755,
+      "values": [
+        0.296875,
+        0.2578125,
+        0.296875
+      ]
+    },
+    "actual_zero_step_accuracy": {
+      "mean": 0.5703125,
+      "std": 0.0546875,
+      "values": [
+        0.59375,
+        0.5078125,
+        0.609375
+      ]
+    },
+    "native_vs_compact": {
+      "compact_reference": "results/qwen-neural-gdn-remora-path-v5.json",
+      "native_core_parameters_are_source_values": true,
+      "per_seed_native_vs_compact": {
+        "19": {
+          "cosine_similarity": 1.0,
+          "max_absolute_error": 2.0489096641540527e-08,
+          "reference": "native-width frozen Qwen core behind fixed rank-96 basis port versus compact analytically converted core",
+          "relative_l2_error": 5.883825906494167e-07,
+          "status": "MEASURED_NATIVE_WRAPPED_CORE_EQUIVALENCE"
+        },
+        "31": {
+          "cosine_similarity": 1.0,
+          "max_absolute_error": 1.257285475730896e-08,
+          "reference": "native-width frozen Qwen core behind fixed rank-96 basis port versus compact analytically converted core",
+          "relative_l2_error": 5.952865080871561e-07,
+          "status": "MEASURED_NATIVE_WRAPPED_CORE_EQUIVALENCE"
+        },
+        "7": {
+          "cosine_similarity": 1.0,
+          "max_absolute_error": 1.4901161193847656e-08,
+          "reference": "native-width frozen Qwen core behind fixed rank-96 basis port versus compact analytically converted core",
+          "relative_l2_error": 5.849631747878448e-07,
+          "status": "MEASURED_NATIVE_WRAPPED_CORE_EQUIVALENCE"
+        }
+      }
+    },
+    "random_zero_step_accuracy": {
+      "mean": 0.2864583333333333,
+      "std": 0.03252603124165833,
+      "values": [
+        0.296875,
+        0.25,
+        0.3125
+      ]
+    },
+    "shifted_actual_zero_step_accuracy": {
+      "mean": 0.22395833333333334,
+      "std": 0.03853814736184568,
+      "values": [
+        0.2421875,
+        0.25,
+        0.1796875
+      ]
+    }
+  },
+  "schema": "remora-qwen-neural-gdn-tranche-analysis-v1",
+  "shifted_interface_repair": {
+    "actual_rank4": {
+      "best_accuracy": {
+        "mean": 0.28125,
+        "std": 0.0078125,
+        "values": [
+          0.2734375,
+          0.28125,
+          0.2890625
+        ]
+      },
+      "final_accuracy": {
+        "mean": 0.25,
+        "std": 0.015625,
+        "values": [
+          0.234375,
+          0.25,
+          0.265625
+        ]
+      },
+      "threshold_steps": [
+        null,
+        null,
+        null
+      ]
+    },
+    "actual_rank96": {
+      "best_accuracy": {
+        "mean": 0.3098958333333333,
+        "std": 0.023867581744561668,
+        "values": [
+          0.3359375,
+          0.3046875,
+          0.2890625
+        ]
+      },
+      "final_accuracy": {
+        "mean": 0.2760416666666667,
+        "std": 0.023867581744561668,
+        "values": [
+          0.296875,
+          0.25,
+          0.28125
+        ]
+      },
+      "threshold_steps": [
+        null,
+        null,
+        null
+      ]
+    },
+    "random_rank4": {
+      "best_accuracy": {
+        "mean": 0.3229166666666667,
+        "std": 0.027436598314720673,
+        "values": [
+          0.3203125,
+          0.3515625,
+          0.296875
+        ]
+      },
+      "final_accuracy": {
+        "mean": 0.2630208333333333,
+        "std": 0.023867581744561668,
+        "values": [
+          0.2421875,
+          0.2890625,
+          0.2578125
+        ]
+      },
+      "threshold_steps": [
+        null,
+        null,
+        null
+      ]
+    },
+    "random_rank96": {
+      "best_accuracy": {
+        "mean": 0.3203125,
+        "std": 0.027063293868263706,
+        "values": [
+          0.3046875,
+          0.3046875,
+          0.3515625
+        ]
+      },
+      "final_accuracy": {
+        "mean": 0.2578125,
+        "std": 0.027063293868263706,
+        "values": [
+          0.2421875,
+          0.2421875,
+          0.2890625
+        ]
+      },
+      "threshold_steps": [
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}

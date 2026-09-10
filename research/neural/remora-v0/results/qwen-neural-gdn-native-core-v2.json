@@ -1,0 +1,686 @@
+{
+  "experiment_family": "QWEN-DONOR-GDN-NATIVE-CORE-002+",
+  "experiment_id": "QWEN-DONOR-GDN-NATIVE-CORE-002",
+  "function_preservation": {
+    "compact_reference": "results/qwen-neural-gdn-remora-path-v5.json",
+    "native_core_parameters_are_source_values": true,
+    "per_seed_native_vs_compact": {
+      "7": {
+        "cosine_similarity": 1.0,
+        "max_absolute_error": 1.4901161193847656e-08,
+        "reference": "native-width frozen Qwen core behind fixed rank-96 basis port versus compact analytically converted core",
+        "relative_l2_error": 5.849631747878448e-07,
+        "status": "MEASURED_NATIVE_WRAPPED_CORE_EQUIVALENCE"
+      },
+      "19": {
+        "cosine_similarity": 1.0,
+        "max_absolute_error": 2.0489096641540527e-08,
+        "reference": "native-width frozen Qwen core behind fixed rank-96 basis port versus compact analytically converted core",
+        "relative_l2_error": 5.883825906494167e-07,
+        "status": "MEASURED_NATIVE_WRAPPED_CORE_EQUIVALENCE"
+      },
+      "31": {
+        "cosine_similarity": 1.0,
+        "max_absolute_error": 1.257285475730896e-08,
+        "reference": "native-width frozen Qwen core behind fixed rank-96 basis port versus compact analytically converted core",
+        "relative_l2_error": 5.952865080871561e-07,
+        "status": "MEASURED_NATIVE_WRAPPED_CORE_EQUIVALENCE"
+      }
+    }
+  },
+  "graft": {
+    "active_core_mac_per_token_modeled": 1055232,
+    "active_input_port_mac_per_token_modeled": 491520,
+    "active_output_port_mac_per_token_modeled": 24576,
+    "active_socket_mac_per_token_modeled": 1571328,
+    "analytic_basis_shape": [
+      2560,
+      96
+    ],
+    "attached_module_path": "blocks.1.plastic",
+    "donor_core_frozen": true,
+    "donor_parameters_analytically_transformed": 0,
+    "donor_parameters_discarded": 655488,
+    "donor_parameters_discarded_by_width_conversion": 0,
+    "donor_parameters_modified_during_assimilation": 0,
+    "donor_parameters_preserved_unchanged": 989698,
+    "donor_parameters_source_total": 1645186,
+    "frozen_input_port_parameters": 491520,
+    "input_port_semantics": "fixed analytic rank-96 donor basis in first 96 Remora coordinates; remaining 96 coordinates zero",
+    "mode": "WRAPPED_NATIVE_WIDTH_CORE_GRAFT",
+    "newly_trained_parameters": 0,
+    "resident_native_core_bytes_fp32": 3958792,
+    "resident_native_core_parameters": 989698
+  },
+  "interpretation": "A native-width wrapped core can preserve the donor core numerically and contribute to the same bounded Remora pathway without retraining; this does not establish broad capability assimilation, and its 1.57M modeled socket MACs/token and 491,520 frozen port parameters are the explicit cost of exact reuse.",
+  "labels": {
+    "DERIVED": [
+      "native donor parameter accounting",
+      "mean/std and paired differences"
+    ],
+    "MEASURED": [
+      "native-width actual/random/shuffled/zero core task scores",
+      "native-vs-compact core equivalence",
+      "shifted native-interface scores",
+      "bounded source extraction and checkpoint hashes"
+    ],
+    "MODELED": [
+      "native socket MACs",
+      "frozen input-port parameter count"
+    ],
+    "UNMEASURED": [
+      "original donor pretraining compute avoided",
+      "energy",
+      "broad Remora language capability"
+    ]
+  },
+  "promotion_state": "CANDIDATE_EXACT_WEIGHT_REUSE_ONLY_UNTIL_NON_DONOR_CONDITIONED_VALIDATION",
+  "runtime": {
+    "cwd": "/home/leo/research/remora-v0",
+    "device": "cpu",
+    "hostname": "cachyos-x8664",
+    "mode": "native_width_gdn_core_socket_cpu",
+    "pid": 287044,
+    "platform": "Linux-7.2.3-1-cachyos-x86_64-with-glibc2.44",
+    "python": "3.14.7",
+    "timestamp_utc": "2026-09-10T17:40:49.813184+00:00",
+    "torch": "2.13.0+cpu"
+  },
+  "schema": "remora-qwen-neural-gdn-native-core-result-v1",
+  "source": {
+    "full_model_materialized": false,
+    "layer": 17,
+    "model_loader_called": false,
+    "path": "/home/leo/models/Qwen3.8-Flash-Next-BF16-source",
+    "repository": "Qwen/Qwen3.8-Flash-Next",
+    "revision": "f5d08274bafd880402bd16f5e3e6c514136ec06c",
+    "selected_payload_materialized_bytes_fp32": 6580744,
+    "source_payload_bytes_bf16": 3290372,
+    "source_shard": "model-00051-of-00131.safetensors",
+    "source_tensor_names": {
+      "A_log": "model.language_model.layers.17.linear_attn.A_log",
+      "a": "model.language_model.layers.17.linear_attn.in_proj_a.weight",
+      "b": "model.language_model.layers.17.linear_attn.in_proj_b.weight",
+      "conv": "model.language_model.layers.17.linear_attn.conv1d.weight",
+      "dt_bias": "model.language_model.layers.17.linear_attn.dt_bias",
+      "norm": "model.language_model.layers.17.linear_attn.norm.weight",
+      "out": "model.language_model.layers.17.linear_attn.out_proj.weight",
+      "qkv": "model.language_model.layers.17.linear_attn.in_proj_qkv.weight",
+      "z": "model.language_model.layers.17.linear_attn.in_proj_z.weight"
+    },
+    "value_head": 10
+  },
+  "task": {
+    "name": "aged-Remora delayed associative recall with native-width frozen Qwen core",
+    "per_seed": {
+      "19": {
+        "checkpoint": {
+          "bytes": 7705454,
+          "path": "/home/leo/research/remora-v0/checkpoints/aged-surgery-remora-seed19.pt",
+          "schema": "remora-v1-aged-surgery-checkpoint",
+          "seed": 19,
+          "sha256": "5c6c4fff217be18671d375521e779e41308ab9164b81597fc7da62b8b382a7be"
+        },
+        "dataset": {
+          "memory_delay": 9,
+          "memory_items": 4,
+          "query_synthesis": "same donor-key analytic synthesis as the compact aged-path assay; no donor training",
+          "test_samples": 128,
+          "train_samples": 64
+        },
+        "native_vs_compact_equivalence": {
+          "cosine_similarity": 1.0,
+          "max_absolute_error": 2.0489096641540527e-08,
+          "reference": "native-width frozen Qwen core behind fixed rank-96 basis port versus compact analytically converted core",
+          "relative_l2_error": 5.883825906494167e-07,
+          "status": "MEASURED_NATIVE_WRAPPED_CORE_EQUIVALENCE"
+        },
+        "zero_shot": {
+          "actual": {
+            "shifted": {
+              "checkpoint_schema": "remora-v1-aged-surgery-checkpoint",
+              "core_to_actual_value": {
+                "accuracy": 0.25,
+                "mean_best_cosine": 0.18853892385959625,
+                "mean_target_cosine": -0.011346384882926941
+              },
+              "donor_core_frozen": true,
+              "donor_variant": "actual",
+              "input_port_parameters_frozen": 491520,
+              "path_output_to_actual_value": {
+                "accuracy": 0.25,
+                "mean_best_cosine": 0.18853893876075745,
+                "mean_target_cosine": -0.011346383020281792
+              },
+              "shifted_interface": true
+            },
+            "unshifted": {
+              "checkpoint_schema": "remora-v1-aged-surgery-checkpoint",
+              "core_to_actual_value": {
+                "accuracy": 0.5078125,
+                "mean_best_cosine": 0.6829112768173218,
+                "mean_target_cosine": 0.5004855394363403
+              },
+              "donor_core_frozen": true,
+              "donor_variant": "actual",
+              "input_port_parameters_frozen": 491520,
+              "path_output_to_actual_value": {
+                "accuracy": 0.5078125,
+                "mean_best_cosine": 0.6829113364219666,
+                "mean_target_cosine": 0.5004855394363403
+              },
+              "shifted_interface": false
+            }
+          },
+          "random": {
+            "shifted": {
+              "checkpoint_schema": "remora-v1-aged-surgery-checkpoint",
+              "core_to_actual_value": {
+                "accuracy": 0.2734375,
+                "mean_best_cosine": 0.059350498020648956,
+                "mean_target_cosine": 0.0007564604165963829
+              },
+              "donor_core_frozen": true,
+              "donor_variant": "random",
+              "input_port_parameters_frozen": 491520,
+              "path_output_to_actual_value": {
+                "accuracy": 0.2734375,
+                "mean_best_cosine": 0.059350498020648956,
+                "mean_target_cosine": 0.0007564619882032275
+              },
+              "shifted_interface": true
+            },
+            "unshifted": {
+              "checkpoint_schema": "remora-v1-aged-surgery-checkpoint",
+              "core_to_actual_value": {
+                "accuracy": 0.25,
+                "mean_best_cosine": 0.053314659744501114,
+                "mean_target_cosine": -0.011941010132431984
+              },
+              "donor_core_frozen": true,
+              "donor_variant": "random",
+              "input_port_parameters_frozen": 491520,
+              "path_output_to_actual_value": {
+                "accuracy": 0.25,
+                "mean_best_cosine": 0.053314659744501114,
+                "mean_target_cosine": -0.011941011995077133
+              },
+              "shifted_interface": false
+            }
+          },
+          "shuffled": {
+            "shifted": {
+              "checkpoint_schema": "remora-v1-aged-surgery-checkpoint",
+              "core_to_actual_value": {
+                "accuracy": 0.2578125,
+                "mean_best_cosine": 0.08604451268911362,
+                "mean_target_cosine": 0.00890398770570755
+              },
+              "donor_core_frozen": true,
+              "donor_variant": "shuffled",
+              "input_port_parameters_frozen": 491520,
+              "path_output_to_actual_value": {
+                "accuracy": 0.2578125,
+                "mean_best_cosine": 0.08604451268911362,
+                "mean_target_cosine": 0.0089039858430624
+              },
+              "shifted_interface": true
+            },
+            "unshifted": {
+              "checkpoint_schema": "remora-v1-aged-surgery-checkpoint",
+              "core_to_actual_value": {
+                "accuracy": 0.2734375,
+                "mean_best_cosine": 0.07863181829452515,
+                "mean_target_cosine": 0.007119486574083567
+              },
+              "donor_core_frozen": true,
+              "donor_variant": "shuffled",
+              "input_port_parameters_frozen": 491520,
+              "path_output_to_actual_value": {
+                "accuracy": 0.2734375,
+                "mean_best_cosine": 0.07863181084394455,
+                "mean_target_cosine": 0.007119487505406141
+              },
+              "shifted_interface": false
+            }
+          },
+          "zero": {
+            "shifted": {
+              "checkpoint_schema": "remora-v1-aged-surgery-checkpoint",
+              "core_to_actual_value": {
+                "accuracy": 0.296875,
+                "mean_best_cosine": 0.0,
+                "mean_target_cosine": 0.0
+              },
+              "donor_core_frozen": true,
+              "donor_variant": "zero",
+              "input_port_parameters_frozen": 491520,
+              "path_output_to_actual_value": {
+                "accuracy": 0.296875,
+                "mean_best_cosine": 0.0,
+                "mean_target_cosine": 0.0
+              },
+              "shifted_interface": true
+            },
+            "unshifted": {
+              "checkpoint_schema": "remora-v1-aged-surgery-checkpoint",
+              "core_to_actual_value": {
+                "accuracy": 0.296875,
+                "mean_best_cosine": 0.0,
+                "mean_target_cosine": 0.0
+              },
+              "donor_core_frozen": true,
+              "donor_variant": "zero",
+              "input_port_parameters_frozen": 491520,
+              "path_output_to_actual_value": {
+                "accuracy": 0.296875,
+                "mean_best_cosine": 0.0,
+                "mean_target_cosine": 0.0
+              },
+              "shifted_interface": false
+            }
+          }
+        }
+      },
+      "31": {
+        "checkpoint": {
+          "bytes": 7705454,
+          "path": "/home/leo/research/remora-v0/checkpoints/aged-surgery-remora-seed31.pt",
+          "schema": "remora-v1-aged-surgery-checkpoint",
+          "seed": 31,
+          "sha256": "6ff858324bbc3aac8b50d087ca4e6632e8c2888206dacad465f34609b8aa2d9f"
+        },
+        "dataset": {
+          "memory_delay": 9,
+          "memory_items": 4,
+          "query_synthesis": "same donor-key analytic synthesis as the compact aged-path assay; no donor training",
+          "test_samples": 128,
+          "train_samples": 64
+        },
+        "native_vs_compact_equivalence": {
+          "cosine_similarity": 1.0,
+          "max_absolute_error": 1.257285475730896e-08,
+          "reference": "native-width frozen Qwen core behind fixed rank-96 basis port versus compact analytically converted core",
+          "relative_l2_error": 5.952865080871561e-07,
+          "status": "MEASURED_NATIVE_WRAPPED_CORE_EQUIVALENCE"
+        },
+        "zero_shot": {
+          "actual": {
+            "shifted": {
+              "checkpoint_schema": "remora-v1-aged-surgery-checkpoint",
+              "core_to_actual_value": {
+                "accuracy": 0.1796875,
+                "mean_best_cosine": 0.19841527938842773,
+                "mean_target_cosine": -0.029260266572237015
+              },
+              "donor_core_frozen": true,
+              "donor_variant": "actual",
+              "input_port_parameters_frozen": 491520,
+              "path_output_to_actual_value": {
+                "accuracy": 0.1796875,
+                "mean_best_cosine": 0.19841527938842773,
+                "mean_target_cosine": -0.029260264709591866
+              },
+              "shifted_interface": true
+            },
+            "unshifted": {
+              "checkpoint_schema": "remora-v1-aged-surgery-checkpoint",
+              "core_to_actual_value": {
+                "accuracy": 0.609375,
+                "mean_best_cosine": 0.7131727933883667,
+                "mean_target_cosine": 0.5640846490859985
+              },
+              "donor_core_frozen": true,
+              "donor_variant": "actual",
+              "input_port_parameters_frozen": 491520,
+              "path_output_to_actual_value": {
+                "accuracy": 0.609375,
+                "mean_best_cosine": 0.7131727933883667,
+                "mean_target_cosine": 0.5640846490859985
+              },
+              "shifted_interface": false
+            }
+          },
+          "random": {
+            "shifted": {
+              "checkpoint_schema": "remora-v1-aged-surgery-checkpoint",
+              "core_to_actual_value": {
+                "accuracy": 0.25,
+                "mean_best_cosine": 0.055549200624227524,
+                "mean_target_cosine": 0.008642734959721565
+              },
+              "donor_core_frozen": true,
+              "donor_variant": "random",
+              "input_port_parameters_frozen": 491520,
+              "path_output_to_actual_value": {
+                "accuracy": 0.25,
+                "mean_best_cosine": 0.055549196898937225,
+                "mean_target_cosine": 0.008642734959721565
+              },
+              "shifted_interface": true
+            },
+            "unshifted": {
+              "checkpoint_schema": "remora-v1-aged-surgery-checkpoint",
+              "core_to_actual_value": {
+                "accuracy": 0.3125,
+                "mean_best_cosine": 0.05530710145831108,
+                "mean_target_cosine": 0.011237898841500282
+              },
+              "donor_core_frozen": true,
+              "donor_variant": "random",
+              "input_port_parameters_frozen": 491520,
+              "path_output_to_actual_value": {
+                "accuracy": 0.3125,
+                "mean_best_cosine": 0.05530710890889168,
+                "mean_target_cosine": 0.011237900704145432
+              },
+              "shifted_interface": false
+            }
+          },
+          "shuffled": {
+            "shifted": {
+              "checkpoint_schema": "remora-v1-aged-surgery-checkpoint",
+              "core_to_actual_value": {
+                "accuracy": 0.3125,
+                "mean_best_cosine": 0.0821591317653656,
+                "mean_target_cosine": 0.01515764556825161
+              },
+              "donor_core_frozen": true,
+              "donor_variant": "shuffled",
+              "input_port_parameters_frozen": 491520,
+              "path_output_to_actual_value": {
+                "accuracy": 0.3125,
+                "mean_best_cosine": 0.0821591392159462,
+                "mean_target_cosine": 0.015157647430896759
+              },
+              "shifted_interface": true
+            },
+            "unshifted": {
+              "checkpoint_schema": "remora-v1-aged-surgery-checkpoint",
+              "core_to_actual_value": {
+                "accuracy": 0.265625,
+                "mean_best_cosine": 0.07181607931852341,
+                "mean_target_cosine": -0.0046776109375059605
+              },
+              "donor_core_frozen": true,
+              "donor_variant": "shuffled",
+              "input_port_parameters_frozen": 491520,
+              "path_output_to_actual_value": {
+                "accuracy": 0.265625,
+                "mean_best_cosine": 0.07181607931852341,
+                "mean_target_cosine": -0.0046776109375059605
+              },
+              "shifted_interface": false
+            }
+          },
+          "zero": {
+            "shifted": {
+              "checkpoint_schema": "remora-v1-aged-surgery-checkpoint",
+              "core_to_actual_value": {
+                "accuracy": 0.203125,
+                "mean_best_cosine": 0.0,
+                "mean_target_cosine": 0.0
+              },
+              "donor_core_frozen": true,
+              "donor_variant": "zero",
+              "input_port_parameters_frozen": 491520,
+              "path_output_to_actual_value": {
+                "accuracy": 0.203125,
+                "mean_best_cosine": 0.0,
+                "mean_target_cosine": 0.0
+              },
+              "shifted_interface": true
+            },
+            "unshifted": {
+              "checkpoint_schema": "remora-v1-aged-surgery-checkpoint",
+              "core_to_actual_value": {
+                "accuracy": 0.203125,
+                "mean_best_cosine": 0.0,
+                "mean_target_cosine": 0.0
+              },
+              "donor_core_frozen": true,
+              "donor_variant": "zero",
+              "input_port_parameters_frozen": 491520,
+              "path_output_to_actual_value": {
+                "accuracy": 0.203125,
+                "mean_best_cosine": 0.0,
+                "mean_target_cosine": 0.0
+              },
+              "shifted_interface": false
+            }
+          }
+        }
+      },
+      "7": {
+        "checkpoint": {
+          "bytes": 7705275,
+          "path": "/home/leo/research/remora-v0/checkpoints/aged-surgery-remora-seed7.pt",
+          "schema": "remora-v1-aged-surgery-checkpoint",
+          "seed": 7,
+          "sha256": "cccdfaff0a208fce56fcc64ed48b475bd374a577b48ea65d50a3ada559f09b08"
+        },
+        "dataset": {
+          "memory_delay": 9,
+          "memory_items": 4,
+          "query_synthesis": "same donor-key analytic synthesis as the compact aged-path assay; no donor training",
+          "test_samples": 128,
+          "train_samples": 64
+        },
+        "native_vs_compact_equivalence": {
+          "cosine_similarity": 1.0,
+          "max_absolute_error": 1.4901161193847656e-08,
+          "reference": "native-width frozen Qwen core behind fixed rank-96 basis port versus compact analytically converted core",
+          "relative_l2_error": 5.849631747878448e-07,
+          "status": "MEASURED_NATIVE_WRAPPED_CORE_EQUIVALENCE"
+        },
+        "zero_shot": {
+          "actual": {
+            "shifted": {
+              "checkpoint_schema": "remora-v1-aged-surgery-checkpoint",
+              "core_to_actual_value": {
+                "accuracy": 0.2421875,
+                "mean_best_cosine": 0.1999872624874115,
+                "mean_target_cosine": 0.007913362234830856
+              },
+              "donor_core_frozen": true,
+              "donor_variant": "actual",
+              "input_port_parameters_frozen": 491520,
+              "path_output_to_actual_value": {
+                "accuracy": 0.2421875,
+                "mean_best_cosine": 0.1999872773885727,
+                "mean_target_cosine": 0.007913360372185707
+              },
+              "shifted_interface": true
+            },
+            "unshifted": {
+              "checkpoint_schema": "remora-v1-aged-surgery-checkpoint",
+              "core_to_actual_value": {
+                "accuracy": 0.59375,
+                "mean_best_cosine": 0.6298691034317017,
+                "mean_target_cosine": 0.4858819842338562
+              },
+              "donor_core_frozen": true,
+              "donor_variant": "actual",
+              "input_port_parameters_frozen": 491520,
+              "path_output_to_actual_value": {
+                "accuracy": 0.59375,
+                "mean_best_cosine": 0.6298691034317017,
+                "mean_target_cosine": 0.4858819842338562
+              },
+              "shifted_interface": false
+            }
+          },
+          "random": {
+            "shifted": {
+              "checkpoint_schema": "remora-v1-aged-surgery-checkpoint",
+              "core_to_actual_value": {
+                "accuracy": 0.25,
+                "mean_best_cosine": 0.05578712373971939,
+                "mean_target_cosine": 0.0010439467150717974
+              },
+              "donor_core_frozen": true,
+              "donor_variant": "random",
+              "input_port_parameters_frozen": 491520,
+              "path_output_to_actual_value": {
+                "accuracy": 0.25,
+                "mean_best_cosine": 0.05578712373971939,
+                "mean_target_cosine": 0.0010439460165798664
+              },
+              "shifted_interface": true
+            },
+            "unshifted": {
+              "checkpoint_schema": "remora-v1-aged-surgery-checkpoint",
+              "core_to_actual_value": {
+                "accuracy": 0.296875,
+                "mean_best_cosine": 0.0658828541636467,
+                "mean_target_cosine": -0.0011735886801034212
+              },
+              "donor_core_frozen": true,
+              "donor_variant": "random",
+              "input_port_parameters_frozen": 491520,
+              "path_output_to_actual_value": {
+                "accuracy": 0.296875,
+                "mean_best_cosine": 0.0658828541636467,
+                "mean_target_cosine": -0.0011735886801034212
+              },
+              "shifted_interface": false
+            }
+          },
+          "shuffled": {
+            "shifted": {
+              "checkpoint_schema": "remora-v1-aged-surgery-checkpoint",
+              "core_to_actual_value": {
+                "accuracy": 0.2109375,
+                "mean_best_cosine": 0.08460963517427444,
+                "mean_target_cosine": 1.2742355465888977e-05
+              },
+              "donor_core_frozen": true,
+              "donor_variant": "shuffled",
+              "input_port_parameters_frozen": 491520,
+              "path_output_to_actual_value": {
+                "accuracy": 0.2109375,
+                "mean_best_cosine": 0.08460963517427444,
+                "mean_target_cosine": 1.2742355465888977e-05
+              },
+              "shifted_interface": true
+            },
+            "unshifted": {
+              "checkpoint_schema": "remora-v1-aged-surgery-checkpoint",
+              "core_to_actual_value": {
+                "accuracy": 0.21875,
+                "mean_best_cosine": 0.08531440049409866,
+                "mean_target_cosine": 0.006396076641976833
+              },
+              "donor_core_frozen": true,
+              "donor_variant": "shuffled",
+              "input_port_parameters_frozen": 491520,
+              "path_output_to_actual_value": {
+                "accuracy": 0.21875,
+                "mean_best_cosine": 0.08531440049409866,
+                "mean_target_cosine": 0.006396077107638121
+              },
+              "shifted_interface": false
+            }
+          },
+          "zero": {
+            "shifted": {
+              "checkpoint_schema": "remora-v1-aged-surgery-checkpoint",
+              "core_to_actual_value": {
+                "accuracy": 0.2578125,
+                "mean_best_cosine": 0.0,
+                "mean_target_cosine": 0.0
+              },
+              "donor_core_frozen": true,
+              "donor_variant": "zero",
+              "input_port_parameters_frozen": 491520,
+              "path_output_to_actual_value": {
+                "accuracy": 0.2578125,
+                "mean_best_cosine": 0.0,
+                "mean_target_cosine": 0.0
+              },
+              "shifted_interface": true
+            },
+            "unshifted": {
+              "checkpoint_schema": "remora-v1-aged-surgery-checkpoint",
+              "core_to_actual_value": {
+                "accuracy": 0.2578125,
+                "mean_best_cosine": 0.0,
+                "mean_target_cosine": 0.0
+              },
+              "donor_core_frozen": true,
+              "donor_variant": "zero",
+              "input_port_parameters_frozen": 491520,
+              "path_output_to_actual_value": {
+                "accuracy": 0.2578125,
+                "mean_best_cosine": 0.0,
+                "mean_target_cosine": 0.0
+              },
+              "shifted_interface": false
+            }
+          }
+        }
+      }
+    },
+    "seeds": [
+      7,
+      19,
+      31
+    ],
+    "threshold": 0.5,
+    "training_avoidance": "MEASURED zero-gradient bounded pathway utility; original Qwen training compute remains UNMEASURED",
+    "zero_step_actual_accuracy": {
+      "mean": 0.5703125,
+      "std": 0.0546875,
+      "values": [
+        0.59375,
+        0.5078125,
+        0.609375
+      ]
+    },
+    "zero_step_actual_minus_random": {
+      "mean": 0.2838541666666667,
+      "std": 0.022552744890219755,
+      "values": [
+        0.296875,
+        0.2578125,
+        0.296875
+      ]
+    },
+    "zero_step_random_accuracy": {
+      "mean": 0.2864583333333333,
+      "std": 0.03252603124165833,
+      "values": [
+        0.296875,
+        0.25,
+        0.3125
+      ]
+    },
+    "zero_step_shifted_actual_accuracy": {
+      "mean": 0.22395833333333334,
+      "std": 0.03853814736184568,
+      "values": [
+        0.2421875,
+        0.25,
+        0.1796875
+      ]
+    },
+    "zero_step_shuffled_accuracy": {
+      "mean": 0.2526041666666667,
+      "std": 0.029577647634376425,
+      "values": [
+        0.21875,
+        0.2734375,
+        0.265625
+      ]
+    },
+    "zero_step_zero_accuracy": {
+      "mean": 0.2526041666666667,
+      "std": 0.047091513854232096,
+      "values": [
+        0.2578125,
+        0.296875,
+        0.203125
+      ]
+    }
+  }
+}

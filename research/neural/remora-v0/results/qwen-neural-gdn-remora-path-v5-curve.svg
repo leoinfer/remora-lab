@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="520" viewBox="0 0 900 520">
+<rect width="100%" height="100%" fill="white"/><text x="55" y="20" font-size="16">Aged Remora donor path: held-out recall vs gradient budget</text>
+<line x1="55" y1="55" x2="55" y2="465" stroke="#555"/><line x1="55" y1="465" x2="845" y2="465" stroke="#555"/>
+<polyline fill="none" stroke="#0b6e4f" stroke-width="2" points="55.00,55.00 167.86,63.37 280.71,105.20 393.57,197.24 506.43,172.14 619.29,297.65 732.14,465.00 845.00,448.27"/><text x="55" y="30" fill="#0b6e4f" font-size="14">actual donor + rank4 port</text><polyline fill="none" stroke="#b23a48" stroke-width="2" points="55.00,74.52 167.86,74.52 280.71,55.00 393.57,269.76 506.43,328.33 619.29,465.00 732.14,230.71 845.00,465.00"/><text x="225" y="30" fill="#b23a48" font-size="14">random core + rank4 port</text><polyline fill="none" stroke="#2455a4" stroke-width="2" points="55.00,410.33 167.86,465.00 280.71,137.00 393.57,68.67 506.43,55.00 619.29,109.67 732.14,164.33 845.00,150.67"/><text x="395" y="30" fill="#2455a4" font-size="14">fresh full GDN core</text>
+</svg>

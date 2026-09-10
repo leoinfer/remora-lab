@@ -2,7 +2,7 @@ import unittest
 
 import torch
 
-from remora.donors.neural_ir import qwen_shared_expert_ir
+from remora.donors.neural_ir import qwen_gated_delta_core_ir, qwen_shared_expert_ir
 from remora.donors.payload import QwenSharedExpertOrgan, functional_equivalence, reference_shared_expert
 
 
@@ -34,6 +34,20 @@ class DonorOrganTests(unittest.TestCase):
         ir.validate()
         self.assertEqual(ir.state_contract["kind"], "stateless")
         self.assertEqual(ir.output_contract["names"], ["output"])
+
+    def test_ir_validates_minimal_gdn_core(self):
+        ir = qwen_gated_delta_core_ir(
+            component_id="fixture-gdn-core",
+            source_revision="fixture",
+            tensor_names=["q_weight", "k_weight", "v_weight", "a_weight", "b_weight", "conv_qkv", "A_log", "dt_bias"],
+            layer=17,
+            value_head=10,
+            input_width=96,
+        )
+        ir.validate()
+        self.assertEqual(ir.output_contract["names"], ["core"])
+        self.assertEqual(ir.state_contract["owned_state"]["recurrent"], ["batch", 128, 128])
+        self.assertEqual(ir.metadata["excluded_coadapted_tensors"], ["z_weight", "norm_weight", "out_weight"])
 
 
 if __name__ == "__main__":
