@@ -1,0 +1,79 @@
+{
+  "candidate": {
+    "changed_parameters": {
+      "changed_fraction": 0.8597678916827853,
+      "changed_parameters": 889,
+      "per_top_level_module": {
+        "head": {
+          "changed": 68,
+          "l1": 43.00067090988159,
+          "total": 68
+        },
+        "port": {
+          "changed": 821,
+          "l1": 311.3689126968384,
+          "total": 966
+        }
+      },
+      "total_parameters": 1034
+    },
+    "distillation_loss_first_last": [
+      5.424249172210693,
+      0.006074355915188789
+    ],
+    "external_evaluator": "quadrant labels from held-out inputs",
+    "parameters": 1034,
+    "test_accuracy": 0.9596354365348816
+  },
+  "device": "cpu",
+  "donor": {
+    "frozen_during_candidate": true,
+    "hidden_dim": 48,
+    "id": "synthetic-teacher-v1"
+  },
+  "interpretation": "MEASURED MECHANISM TEST: a frozen foreign representation can be compressed through donor-port-v1 into a trainable small head; this is not Qwen transfer evidence.",
+  "mode": "MECHANISM_ONLY_SYNTHETIC_FROZEN_TEACHER",
+  "port": {
+    "gradient_policy": "donor frozen by default; adapter trainable",
+    "input": [
+      "batch",
+      "time",
+      48
+    ],
+    "latent": [
+      "batch",
+      "time",
+      16
+    ],
+    "metadata": [
+      "confidence",
+      "producer",
+      "version"
+    ],
+    "version": "donor-port-v1"
+  },
+  "promotion": {
+    "decision_authority": "external held-out evaluator",
+    "promoted": false,
+    "reason": "port mechanism is validated, but no real open-weight donor was used",
+    "state": "CANDIDATE"
+  },
+  "raw_input_control": {
+    "parameters": 340,
+    "test_accuracy": 0.9283854365348816,
+    "train_loss_first_last": [
+      1.4085334539413452,
+      0.006535386200994253
+    ]
+  },
+  "schema": "remora-v0-donor-port-result",
+  "seed": 67,
+  "teacher": {
+    "parameters": 2324,
+    "test_accuracy": 0.9596354365348816,
+    "train_loss_first_last": [
+      1.4264737367630005,
+      0.00016749619680922478
+    ]
+  }
+}

@@ -1,0 +1,181 @@
+{
+  "baseline_full_model_control": {
+    "after": {
+      "old": {
+        "loss": 6.453165577528349,
+        "perplexity": 634.7083344374678,
+        "tokens": 118464,
+        "tokens_per_second": 977621.1700194667,
+        "wall_seconds": 0.12117577199933294
+      },
+      "target": {
+        "loss": 0.2868745568162497,
+        "perplexity": 1.3322570804233016,
+        "tokens": 60384,
+        "tokens_per_second": 977483.4650402269,
+        "wall_seconds": 0.06177495800147881
+      }
+    },
+    "before": {
+      "old": {
+        "loss": 0.306416636106454,
+        "perplexity": 1.3585482088882137,
+        "tokens": 118464,
+        "tokens_per_second": 891798.2877922987,
+        "wall_seconds": 0.13283721399966453
+      },
+      "target": {
+        "loss": 4.8213936770853065,
+        "perplexity": 124.13797853308789,
+        "tokens": 60384,
+        "tokens_per_second": 947171.1614346005,
+        "wall_seconds": 0.06375194099928194
+      }
+    },
+    "history_first_last": [
+      4.775807857513428,
+      0.2872473895549774
+    ],
+    "parameter_count": 1675008,
+    "update": {
+      "changed_fraction": 1.0,
+      "changed_parameters": 1675008,
+      "per_top_level_module": {
+        "blocks": {
+          "changed": 1631616,
+          "l1": 16620.228041172028,
+          "total": 1631616
+        },
+        "final_norm": {
+          "changed": 384,
+          "l1": 9.389766216278076,
+          "total": 384
+        },
+        "position_embedding": {
+          "changed": 18432,
+          "l1": 183.86297607421875,
+          "total": 18432
+        },
+        "token_embedding": {
+          "changed": 24576,
+          "l1": 691.3028564453125,
+          "total": 24576
+        }
+      },
+      "total_parameters": 1675008
+    }
+  },
+  "device": "cuda",
+  "interpretation": "MEASURED: replacement recovered target capability under the declared local update scope and passed the old-task retention gate.",
+  "checkpoint": "results/module-replacement-v2.pt",
+  "local_adaptation_loss_first_last": [
+    5.374067306518555,
+    0.8319926857948303
+  ],
+  "local_update": {
+    "changed_fraction": 0.06482317805494406,
+    "changed_parameters": 111456,
+    "per_top_level_module": {
+      "blocks": {
+        "changed": 111456,
+        "l1": 3465.974686741829,
+        "total": 1633944
+      },
+      "bus": {
+        "changed": 0,
+        "l1": 0.0,
+        "total": 42049
+      },
+      "final_norm": {
+        "changed": 0,
+        "l1": 0.0,
+        "total": 384
+      },
+      "position_embedding": {
+        "changed": 0,
+        "l1": 0.0,
+        "total": 18432
+      },
+      "token_embedding": {
+        "changed": 0,
+        "l1": 0.0,
+        "total": 24576
+      }
+    },
+    "total_parameters": 1719385
+  },
+  "original": {
+    "old": {
+      "loss": 0.28183573614836127,
+      "perplexity": 1.325560960353334,
+      "tokens": 118464,
+      "tokens_per_second": 26060.619028141948,
+      "wall_seconds": 4.545709366000665
+    },
+    "target": {
+      "loss": 5.159955294598457,
+      "perplexity": 174.15666968722599,
+      "tokens": 60384,
+      "tokens_per_second": 126127.46579040302,
+      "wall_seconds": 0.47875377200034563
+    }
+  },
+  "replaced_after_local_training": {
+    "old": {
+      "loss": 0.3577003502671877,
+      "perplexity": 1.430037046053237,
+      "tokens": 118464,
+      "tokens_per_second": 127345.86467771149,
+      "wall_seconds": 0.9302540000007866
+    },
+    "target": {
+      "loss": 0.4671048636656308,
+      "perplexity": 1.5953686908546159,
+      "tokens": 60384,
+      "tokens_per_second": 126557.64976259561,
+      "wall_seconds": 0.4771264329992846
+    }
+  },
+  "replaced_before_local_training": {
+    "old": {
+      "loss": 0.2869737583968782,
+      "perplexity": 1.3323892489870401,
+      "tokens": 118464,
+      "tokens_per_second": 128001.45994965408,
+      "wall_seconds": 0.9254894440000498
+    },
+    "target": {
+      "loss": 5.087480209969185,
+      "perplexity": 161.98118879961075,
+      "tokens": 60384,
+      "tokens_per_second": 125890.86067965269,
+      "wall_seconds": 0.4796535639998183
+    }
+  },
+  "replacement_parameter_accounting": {
+    "added_parameters": 37248,
+    "new_expert_parameters": 111456,
+    "new_module_fraction_of_model": 0.06482317805494406,
+    "old_expert_parameters": 74208,
+    "total_model_parameters": 1719385
+  },
+  "retention_weight": 1.0,
+  "schema": "remora-v0-module-replacement-result",
+  "scope": {
+    "replaced": "blocks.1.experts.experts.0",
+    "retrained_prefixes": [
+      "blocks.1.experts.experts.0"
+    ],
+    "selected_parameters": [
+      "blocks.1.experts.experts.0.value.weight",
+      "blocks.1.experts.experts.0.value.bias",
+      "blocks.1.experts.experts.0.gate.weight",
+      "blocks.1.experts.experts.0.gate.bias",
+      "blocks.1.experts.experts.0.down.weight",
+      "blocks.1.experts.experts.0.down.bias"
+    ]
+  },
+  "seed": 53,
+  "source_checkpoint": "checkpoints/remora-v0-scratch-seed7.pt",
+  "source_seed": 7
+}

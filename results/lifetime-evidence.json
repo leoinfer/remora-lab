@@ -1,0 +1,296 @@
+{
+  "adapter_update": {
+    "changed_fraction": 0.3333333333333333,
+    "changed_parameters": 194,
+    "per_top_level_module": {
+      "consolidated": {
+        "changed": 0,
+        "l1": 0.0,
+        "total": 194
+      },
+      "experience_adapter": {
+        "changed": 194,
+        "l1": 55.85777139663696,
+        "total": 194
+      },
+      "inherited": {
+        "changed": 0,
+        "l1": 0.0,
+        "total": 194
+      }
+    },
+    "total_parameters": 582
+  },
+  "archive_records": 13,
+  "consolidated_without_retrieval": {
+    "conditioned_z1_X": 1.0,
+    "old_z0_Y": 1.0
+  },
+  "consolidation": {
+    "consolidation_write_update": {
+      "changed_fraction": 0.3333333333333333,
+      "changed_parameters": 194,
+      "per_top_level_module": {
+        "consolidated": {
+          "changed": 194,
+          "l1": 89.01717042922974,
+          "total": 194
+        },
+        "experience_adapter": {
+          "changed": 0,
+          "l1": 0.0,
+          "total": 194
+        },
+        "inherited": {
+          "changed": 0,
+          "l1": 0.0,
+          "total": 194
+        }
+      },
+      "total_parameters": 582
+    },
+    "local_adaptation_update": {
+      "changed_fraction": 0.3333333333333333,
+      "changed_parameters": 194,
+      "per_top_level_module": {
+        "consolidated": {
+          "changed": 0,
+          "l1": 0.0,
+          "total": 194
+        },
+        "experience_adapter": {
+          "changed": 194,
+          "l1": 55.85777139663696,
+          "total": 194
+        },
+        "inherited": {
+          "changed": 0,
+          "l1": 0.0,
+          "total": 194
+        }
+      },
+      "total_parameters": 582
+    },
+    "parameter_update": {
+      "changed_fraction": 0.3333333333333333,
+      "changed_parameters": 194,
+      "per_top_level_module": {
+        "consolidated": {
+          "changed": 194,
+          "l1": 89.01717042922974,
+          "total": 194
+        },
+        "experience_adapter": {
+          "changed": 0,
+          "l1": 0.0,
+          "total": 194
+        },
+        "inherited": {
+          "changed": 0,
+          "l1": 0.0,
+          "total": 194
+        }
+      },
+      "total_parameters": 582
+    },
+    "provenance_ids": [
+      "episode-00001",
+      "episode-00002",
+      "episode-00003",
+      "episode-00004",
+      "episode-00005",
+      "episode-00006",
+      "episode-00007",
+      "episode-00008",
+      "episode-00009",
+      "episode-00010",
+      "episode-00011",
+      "episode-00012"
+    ],
+    "retrieval_dependency": "disabled_after_consolidation"
+  },
+  "device": "cpu",
+  "evidence_independence": {
+    "correlated": {
+      "cluster_contributions": {
+        "correlated-0": 0.9,
+        "correlated-1": 0.9,
+        "correlated-2": 0.9,
+        "correlated-3": 0.9,
+        "literature-cluster": -0.8
+      },
+      "effective_independent_clusters": 5,
+      "probability_x": 0.9426758241011313,
+      "probability_y": 0.057324175898868734,
+      "query": {
+        "environment": 0,
+        "z": 1
+      },
+      "raw_observations": 25,
+      "source_kind": "combined"
+    },
+    "duplicate": {
+      "cluster_contributions": {
+        "literature-cluster": -0.8,
+        "same-program": 0.9
+      },
+      "effective_independent_clusters": 2,
+      "probability_x": 0.5249791874789399,
+      "probability_y": 0.4750208125210601,
+      "query": {
+        "environment": 0,
+        "z": 1
+      },
+      "raw_observations": 25,
+      "source_kind": "combined"
+    },
+    "independent": {
+      "cluster_contributions": {
+        "independent-0": 0.9,
+        "independent-1": 0.9,
+        "independent-10": 0.9,
+        "independent-11": 0.9,
+        "independent-12": 0.9,
+        "independent-13": 0.9,
+        "independent-14": 0.9,
+        "independent-15": 0.9,
+        "independent-16": 0.9,
+        "independent-17": 0.9,
+        "independent-18": 0.9,
+        "independent-19": 0.9,
+        "independent-2": 0.9,
+        "independent-20": 0.9,
+        "independent-21": 0.9,
+        "independent-22": 0.9,
+        "independent-23": 0.9,
+        "independent-3": 0.9,
+        "independent-4": 0.9,
+        "independent-5": 0.9,
+        "independent-6": 0.9,
+        "independent-7": 0.9,
+        "independent-8": 0.9,
+        "independent-9": 0.9,
+        "literature-cluster": -0.8
+      },
+      "effective_independent_clusters": 25,
+      "probability_x": 0.9999999990738639,
+      "probability_y": 9.261360567336396e-10,
+      "query": {
+        "environment": 0,
+        "z": 1
+      },
+      "raw_observations": 25,
+      "source_kind": "combined"
+    }
+  },
+  "experience_training": {
+    "first_loss": 13.071544647216797,
+    "last_loss": 0.0007264087907969952,
+    "retention_weight": 1.0,
+    "steps": 180
+  },
+  "hypotheses": {
+    "hypotheses": [
+      {
+        "confidence": 0.6699999999999999,
+        "conflicting_evidence": [
+          "experience-aggregate"
+        ],
+        "hypothesis_id": "H1",
+        "statement": "Y is the default rule",
+        "status": "ACTIVE",
+        "supporting_evidence": []
+      },
+      {
+        "confidence": 0.55,
+        "conflicting_evidence": [],
+        "hypothesis_id": "H2",
+        "statement": "X holds when z=1",
+        "status": "ACTIVE",
+        "supporting_evidence": [
+          "experience-aggregate"
+        ]
+      },
+      {
+        "confidence": 0.27,
+        "conflicting_evidence": [
+          "experience-aggregate"
+        ],
+        "hypothesis_id": "H3",
+        "statement": "measurement is biased",
+        "status": "ACTIVE",
+        "supporting_evidence": []
+      }
+    ]
+  },
+  "interpretation": "MEASURED: first naive local update failed retention; old-task rehearsal repaired the tested z=0 case while keeping the update local. Inherited and experienced evidence remain separately inspectable and duplicate clusters are bounded.",
+  "naive_local_update": {
+    "accuracy": {
+      "conditioned_z1_X": true,
+      "old_z0_Y": false
+    },
+    "first_loss": 13.071534156799316,
+    "interpretation": "MEASURED FAILURE: target fit was achieved while old z=0 retention failed in the first run.",
+    "last_loss": 0.0
+  },
+  "neural_after_local_update": {
+    "conditioned_z1_X": true,
+    "old_z0_Y": true
+  },
+  "prior_before_experience": {
+    "z0": 1,
+    "z1": 1
+  },
+  "prior_training": {
+    "first_loss": 0.6323825120925903,
+    "last_loss": 8.538281690562144e-06,
+    "steps": 180
+  },
+  "schema": "remora-v0-lifetime-result",
+  "seed": 31,
+  "separated_evidence": {
+    "combined": {
+      "cluster_contributions": {
+        "experience-cluster-A": 0.9,
+        "literature-cluster": -0.8
+      },
+      "effective_independent_clusters": 2,
+      "probability_x": 0.5249791874789399,
+      "probability_y": 0.4750208125210601,
+      "query": {
+        "environment": 0,
+        "z": 1
+      },
+      "raw_observations": 13,
+      "source_kind": "combined"
+    },
+    "experienced": {
+      "cluster_contributions": {
+        "experience-cluster-A": 0.9
+      },
+      "effective_independent_clusters": 1,
+      "probability_x": 0.7109495026250039,
+      "probability_y": 0.2890504973749961,
+      "query": {
+        "environment": 0,
+        "z": 1
+      },
+      "raw_observations": 12,
+      "source_kind": "experienced"
+    },
+    "inherited": {
+      "cluster_contributions": {
+        "literature-cluster": -0.8
+      },
+      "effective_independent_clusters": 1,
+      "probability_x": 0.31002551887238755,
+      "probability_y": 0.6899744811276125,
+      "query": {
+        "environment": 0,
+        "z": 1
+      },
+      "raw_observations": 1,
+      "source_kind": "inherited"
+    }
+  }
+}

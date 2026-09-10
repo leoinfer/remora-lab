@@ -1,0 +1,695 @@
+{
+  "checkpoint": "checkpoints/remora-v0-scratch-seed7.pt",
+  "device": "cuda",
+  "final_scores": {
+    "old": {
+      "loss": 0.33886813537807864,
+      "perplexity": 1.4033582797022244,
+      "tokens": 118464,
+      "tokens_per_second": 126699.38325857627,
+      "wall_seconds": 0.9350006050008233
+    },
+    "target": {
+      "loss": 0.35273198686267687,
+      "perplexity": 1.4229497231035133,
+      "tokens": 60384,
+      "tokens_per_second": 123704.42665273856,
+      "wall_seconds": 0.4881312790002994
+    }
+  },
+  "generations": [
+    {
+      "adaptation_loss_first_last": [
+        5.355643272399902,
+        1.7214505672454834
+      ],
+      "after_local_rehearsal": {
+        "old": {
+          "loss": 0.5346940287314899,
+          "perplexity": 1.7069258920657637,
+          "tokens": 118464,
+          "tokens_per_second": 125713.91093509924,
+          "wall_seconds": 0.9423300819998985
+        },
+        "target": {
+          "loss": 1.1569422159361726,
+          "perplexity": 3.1801940467984218,
+          "tokens": 60384,
+          "tokens_per_second": 125065.87503818584,
+          "wall_seconds": 0.4828175550010201
+        }
+      },
+      "before_replacement": {
+        "old": {
+          "loss": 0.28382370416890085,
+          "perplexity": 1.328198754207989,
+          "tokens": 118464,
+          "tokens_per_second": 126747.38619058752,
+          "wall_seconds": 0.9346464930004004
+        },
+        "target": {
+          "loss": 5.092924253739689,
+          "perplexity": 162.8654262111305,
+          "tokens": 60384,
+          "tokens_per_second": 127567.04785043334,
+          "wall_seconds": 0.4733510810001462
+        }
+      },
+      "generation": 1,
+      "installed": "expert-layer0-g1",
+      "layer": 0,
+      "local_update": {
+        "changed_fraction": 0.06482317805494406,
+        "changed_parameters": 111456,
+        "per_top_level_module": {
+          "blocks": {
+            "changed": 111456,
+            "l1": 2082.685856819153,
+            "total": 1633944
+          },
+          "bus": {
+            "changed": 0,
+            "l1": 0.0,
+            "total": 42049
+          },
+          "final_norm": {
+            "changed": 0,
+            "l1": 0.0,
+            "total": 384
+          },
+          "position_embedding": {
+            "changed": 0,
+            "l1": 0.0,
+            "total": 18432
+          },
+          "token_embedding": {
+            "changed": 0,
+            "l1": 0.0,
+            "total": 24576
+          }
+        },
+        "total_parameters": 1719385
+      },
+      "new_module_parameters": 111456,
+      "old_module_parameters": 74208,
+      "replaced": "expert-layer0-g0"
+    },
+    {
+      "adaptation_loss_first_last": [
+        1.8143134117126465,
+        0.995166540145874
+      ],
+      "after_local_rehearsal": {
+        "old": {
+          "loss": 0.40227614282788876,
+          "perplexity": 1.49522417110317,
+          "tokens": 118464,
+          "tokens_per_second": 117222.10946844863,
+          "wall_seconds": 1.0105943369999295
+        },
+        "target": {
+          "loss": 0.5853205842509368,
+          "perplexity": 1.7955665237297642,
+          "tokens": 60384,
+          "tokens_per_second": 115694.17769237907,
+          "wall_seconds": 0.5219277340002009
+        }
+      },
+      "before_replacement": {
+        "old": {
+          "loss": 0.6108413572442782,
+          "perplexity": 1.841980510658467,
+          "tokens": 118464,
+          "tokens_per_second": 122350.38004975209,
+          "wall_seconds": 0.9682356520006579
+        },
+        "target": {
+          "loss": 1.2014814564078715,
+          "perplexity": 3.325039176378473,
+          "tokens": 60384,
+          "tokens_per_second": 119671.0762464382,
+          "wall_seconds": 0.504583077999996
+        }
+      },
+      "generation": 2,
+      "installed": "expert-layer1-g2",
+      "layer": 1,
+      "local_update": {
+        "changed_fraction": 0.06344865432904881,
+        "changed_parameters": 111456,
+        "per_top_level_module": {
+          "blocks": {
+            "changed": 111456,
+            "l1": 2516.160100221634,
+            "total": 1671192
+          },
+          "bus": {
+            "changed": 0,
+            "l1": 0.0,
+            "total": 42049
+          },
+          "final_norm": {
+            "changed": 0,
+            "l1": 0.0,
+            "total": 384
+          },
+          "position_embedding": {
+            "changed": 0,
+            "l1": 0.0,
+            "total": 18432
+          },
+          "token_embedding": {
+            "changed": 0,
+            "l1": 0.0,
+            "total": 24576
+          }
+        },
+        "total_parameters": 1756633
+      },
+      "new_module_parameters": 111456,
+      "old_module_parameters": 74208,
+      "replaced": "expert-layer1-g0"
+    },
+    {
+      "adaptation_loss_first_last": [
+        1.0717413425445557,
+        0.8396904468536377
+      ],
+      "after_local_rehearsal": {
+        "old": {
+          "loss": 0.36129614512769676,
+          "perplexity": 1.4351884220088706,
+          "tokens": 118464,
+          "tokens_per_second": 125415.02332236426,
+          "wall_seconds": 0.9445758319998276
+        },
+        "target": {
+          "loss": 0.4453034877113773,
+          "perplexity": 1.560963857302409,
+          "tokens": 60384,
+          "tokens_per_second": 123657.18052752697,
+          "wall_seconds": 0.48831778100066003
+        }
+      },
+      "before_replacement": {
+        "old": {
+          "loss": 0.43360753065183444,
+          "perplexity": 1.5428132423719154,
+          "tokens": 118464,
+          "tokens_per_second": 119276.26072006619,
+          "wall_seconds": 0.9931900889987446
+        },
+        "target": {
+          "loss": 0.6095350527801271,
+          "perplexity": 1.8395758942170533,
+          "tokens": 60384,
+          "tokens_per_second": 119509.94557350093,
+          "wall_seconds": 0.5052633879986388
+        }
+      },
+      "generation": 3,
+      "installed": "expert-layer2-g3",
+      "layer": 2,
+      "local_update": {
+        "changed_fraction": 0.062131211602107383,
+        "changed_parameters": 111456,
+        "per_top_level_module": {
+          "blocks": {
+            "changed": 111456,
+            "l1": 2307.3996800780296,
+            "total": 1708440
+          },
+          "bus": {
+            "changed": 0,
+            "l1": 0.0,
+            "total": 42049
+          },
+          "final_norm": {
+            "changed": 0,
+            "l1": 0.0,
+            "total": 384
+          },
+          "position_embedding": {
+            "changed": 0,
+            "l1": 0.0,
+            "total": 18432
+          },
+          "token_embedding": {
+            "changed": 0,
+            "l1": 0.0,
+            "total": 24576
+          }
+        },
+        "total_parameters": 1793881
+      },
+      "new_module_parameters": 111456,
+      "old_module_parameters": 74208,
+      "replaced": "expert-layer2-g0"
+    },
+    {
+      "adaptation_loss_first_last": [
+        0.9182227253913879,
+        0.6920008659362793
+      ],
+      "after_local_rehearsal": {
+        "old": {
+          "loss": 0.33886813537807864,
+          "perplexity": 1.4033582797022244,
+          "tokens": 118464,
+          "tokens_per_second": 124003.48933151207,
+          "wall_seconds": 0.9553279560004739
+        },
+        "target": {
+          "loss": 0.35273198686267687,
+          "perplexity": 1.4229497231035133,
+          "tokens": 60384,
+          "tokens_per_second": 123949.9084309297,
+          "wall_seconds": 0.4871645390012418
+        }
+      },
+      "before_replacement": {
+        "old": {
+          "loss": 0.38555813357354757,
+          "perplexity": 1.470434791478745,
+          "tokens": 118464,
+          "tokens_per_second": 122102.7195291955,
+          "wall_seconds": 0.9701995209998131
+        },
+        "target": {
+          "loss": 0.48124158799364003,
+          "perplexity": 1.6180821469054314,
+          "tokens": 60384,
+          "tokens_per_second": 124154.38356653923,
+          "wall_seconds": 0.4863622069988196
+        }
+      },
+      "generation": 4,
+      "installed": "expert-layer3-g4",
+      "layer": 3,
+      "local_update": {
+        "changed_fraction": 0.0608673665263343,
+        "changed_parameters": 111456,
+        "per_top_level_module": {
+          "blocks": {
+            "changed": 111456,
+            "l1": 2393.8591715097427,
+            "total": 1745688
+          },
+          "bus": {
+            "changed": 0,
+            "l1": 0.0,
+            "total": 42049
+          },
+          "final_norm": {
+            "changed": 0,
+            "l1": 0.0,
+            "total": 384
+          },
+          "position_embedding": {
+            "changed": 0,
+            "l1": 0.0,
+            "total": 18432
+          },
+          "token_embedding": {
+            "changed": 0,
+            "l1": 0.0,
+            "total": 24576
+          }
+        },
+        "total_parameters": 1831129
+      },
+      "new_module_parameters": 111456,
+      "old_module_parameters": 74208,
+      "replaced": "expert-layer3-g0"
+    }
+  ],
+  "initial_scores": {
+    "old": {
+      "loss": 0.28183573614836127,
+      "perplexity": 1.325560960353334,
+      "tokens": 118464,
+      "tokens_per_second": 26115.395389786023,
+      "wall_seconds": 4.536174859000312
+    },
+    "target": {
+      "loss": 5.157650763355492,
+      "perplexity": 173.755782306929,
+      "tokens": 60384,
+      "tokens_per_second": 127238.86935537773,
+      "wall_seconds": 0.4745719630009262
+    }
+  },
+  "interpretation": "MEASURED: sequential local replacements retained a coherent factual ancestry graph; capability retention is judged against the fixed old stream and is not inferred from lineage alone.",
+  "lineage": {
+    "assembly": {
+      "edges": [
+        {
+          "downstream": "expert-layer0-g0",
+          "kind": "data",
+          "upstream": "language-v1"
+        },
+        {
+          "downstream": "lm-head",
+          "kind": "data",
+          "upstream": "expert-layer0-g0"
+        },
+        {
+          "downstream": "expert-layer1-g0",
+          "kind": "data",
+          "upstream": "language-v1"
+        },
+        {
+          "downstream": "lm-head",
+          "kind": "data",
+          "upstream": "expert-layer1-g0"
+        },
+        {
+          "downstream": "expert-layer2-g0",
+          "kind": "data",
+          "upstream": "language-v1"
+        },
+        {
+          "downstream": "lm-head",
+          "kind": "data",
+          "upstream": "expert-layer2-g0"
+        },
+        {
+          "downstream": "expert-layer3-g0",
+          "kind": "data",
+          "upstream": "language-v1"
+        },
+        {
+          "downstream": "lm-head",
+          "kind": "data",
+          "upstream": "expert-layer3-g0"
+        },
+        {
+          "downstream": "expert-layer0-g1",
+          "kind": "data",
+          "upstream": "language-v1"
+        },
+        {
+          "downstream": "lm-head",
+          "kind": "data",
+          "upstream": "expert-layer0-g1"
+        },
+        {
+          "downstream": "expert-layer1-g2",
+          "kind": "data",
+          "upstream": "language-v1"
+        },
+        {
+          "downstream": "lm-head",
+          "kind": "data",
+          "upstream": "expert-layer1-g2"
+        },
+        {
+          "downstream": "expert-layer2-g3",
+          "kind": "data",
+          "upstream": "language-v1"
+        },
+        {
+          "downstream": "lm-head",
+          "kind": "data",
+          "upstream": "expert-layer2-g3"
+        },
+        {
+          "downstream": "expert-layer3-g4",
+          "kind": "data",
+          "upstream": "language-v1"
+        },
+        {
+          "downstream": "lm-head",
+          "kind": "data",
+          "upstream": "expert-layer3-g4"
+        }
+      ],
+      "experiments": {},
+      "generation": 4,
+      "modules": {
+        "expert-layer0-g0": {
+          "ancestry": [
+            "expert-layer0-g0@g0"
+          ],
+          "benchmarks": {},
+          "content_hash": "75734212f998ceaa3a8b32aec8271e0b1c915b1f969d619c0b49fa0186e407dd",
+          "dependencies": [
+            "language-v1"
+          ],
+          "failures": [],
+          "inputs": [
+            "language-v1"
+          ],
+          "module_id": "expert-layer0-g0",
+          "outputs": [
+            "language-v1"
+          ],
+          "parameter_count": 74208,
+          "replacements": [
+            "expert-layer0-g1"
+          ],
+          "state_owner": "expert-layer0-g0",
+          "status": "DORMANT",
+          "version": "expert-v1"
+        },
+        "expert-layer0-g1": {
+          "ancestry": [
+            "expert-layer0-g0",
+            "expert-layer0-g1@g1"
+          ],
+          "benchmarks": {},
+          "content_hash": "2510b0eccca5afbbb6dafcebdd0e0c6fba4eb1be72e0c9c52a00f0ae9478aaf1",
+          "dependencies": [
+            "language-v1"
+          ],
+          "failures": [],
+          "inputs": [
+            "language-v1"
+          ],
+          "module_id": "expert-layer0-g1",
+          "outputs": [
+            "language-v1"
+          ],
+          "parameter_count": 111456,
+          "replacements": [],
+          "state_owner": "expert-layer0-g1",
+          "status": "ACTIVE",
+          "version": "expert-v1"
+        },
+        "expert-layer1-g0": {
+          "ancestry": [
+            "expert-layer1-g0@g0"
+          ],
+          "benchmarks": {},
+          "content_hash": "adef68258c21726531a03cdf3edf440fd96ec82139d24b7c5aaa8d2146ecaff0",
+          "dependencies": [
+            "language-v1"
+          ],
+          "failures": [],
+          "inputs": [
+            "language-v1"
+          ],
+          "module_id": "expert-layer1-g0",
+          "outputs": [
+            "language-v1"
+          ],
+          "parameter_count": 74208,
+          "replacements": [
+            "expert-layer1-g2"
+          ],
+          "state_owner": "expert-layer1-g0",
+          "status": "DORMANT",
+          "version": "expert-v1"
+        },
+        "expert-layer1-g2": {
+          "ancestry": [
+            "expert-layer1-g0",
+            "expert-layer1-g2@g2"
+          ],
+          "benchmarks": {},
+          "content_hash": "6b1b36440e457178d57a33275aa197585d14135066ca2408e3974e36feb401e0",
+          "dependencies": [
+            "language-v1"
+          ],
+          "failures": [],
+          "inputs": [
+            "language-v1"
+          ],
+          "module_id": "expert-layer1-g2",
+          "outputs": [
+            "language-v1"
+          ],
+          "parameter_count": 111456,
+          "replacements": [],
+          "state_owner": "expert-layer1-g2",
+          "status": "ACTIVE",
+          "version": "expert-v1"
+        },
+        "expert-layer2-g0": {
+          "ancestry": [
+            "expert-layer2-g0@g0"
+          ],
+          "benchmarks": {},
+          "content_hash": "35d98863780683cfa5abe5583b065ae2e66efa8ded4b09195e4506b7427a47b5",
+          "dependencies": [
+            "language-v1"
+          ],
+          "failures": [],
+          "inputs": [
+            "language-v1"
+          ],
+          "module_id": "expert-layer2-g0",
+          "outputs": [
+            "language-v1"
+          ],
+          "parameter_count": 74208,
+          "replacements": [
+            "expert-layer2-g3"
+          ],
+          "state_owner": "expert-layer2-g0",
+          "status": "DORMANT",
+          "version": "expert-v1"
+        },
+        "expert-layer2-g3": {
+          "ancestry": [
+            "expert-layer2-g0",
+            "expert-layer2-g3@g3"
+          ],
+          "benchmarks": {},
+          "content_hash": "fa95e71019ba8b0ff37a4a14310674a3dda9f0aec33ceebf38a67023f166f77d",
+          "dependencies": [
+            "language-v1"
+          ],
+          "failures": [],
+          "inputs": [
+            "language-v1"
+          ],
+          "module_id": "expert-layer2-g3",
+          "outputs": [
+            "language-v1"
+          ],
+          "parameter_count": 111456,
+          "replacements": [],
+          "state_owner": "expert-layer2-g3",
+          "status": "ACTIVE",
+          "version": "expert-v1"
+        },
+        "expert-layer3-g0": {
+          "ancestry": [
+            "expert-layer3-g0@g0"
+          ],
+          "benchmarks": {},
+          "content_hash": "3361eb8f5b4a576897d1ff56548b22fbd82152303a8b01d3d3f145cf66a58f17",
+          "dependencies": [
+            "language-v1"
+          ],
+          "failures": [],
+          "inputs": [
+            "language-v1"
+          ],
+          "module_id": "expert-layer3-g0",
+          "outputs": [
+            "language-v1"
+          ],
+          "parameter_count": 74208,
+          "replacements": [
+            "expert-layer3-g4"
+          ],
+          "state_owner": "expert-layer3-g0",
+          "status": "DORMANT",
+          "version": "expert-v1"
+        },
+        "expert-layer3-g4": {
+          "ancestry": [
+            "expert-layer3-g0",
+            "expert-layer3-g4@g4"
+          ],
+          "benchmarks": {},
+          "content_hash": "b0b6d89f7fd846e94f0829e6e059a6acc51fcd368e3c3b66c8155719df7c5e2f",
+          "dependencies": [
+            "language-v1"
+          ],
+          "failures": [],
+          "inputs": [
+            "language-v1"
+          ],
+          "module_id": "expert-layer3-g4",
+          "outputs": [
+            "language-v1"
+          ],
+          "parameter_count": 111456,
+          "replacements": [],
+          "state_owner": "expert-layer3-g4",
+          "status": "ACTIVE",
+          "version": "expert-v1"
+        },
+        "language-v1": {
+          "ancestry": [
+            "language-v1@g0"
+          ],
+          "benchmarks": {},
+          "content_hash": "a84c4e6fbe5e5574520dfef2de6f13aa621643437c71b61f89f7c54d214cafbe",
+          "dependencies": [],
+          "failures": [],
+          "inputs": [
+            "language-v1"
+          ],
+          "module_id": "language-v1",
+          "outputs": [
+            "language-v1"
+          ],
+          "parameter_count": 42049,
+          "replacements": [],
+          "state_owner": "language-v1",
+          "status": "ACTIVE",
+          "version": "v1"
+        },
+        "lm-head": {
+          "ancestry": [
+            "lm-head@g0"
+          ],
+          "benchmarks": {},
+          "content_hash": "8ec6f8abb874835c43ab52d80187972c3e05095bc0a4315fbc8b779845fc34bc",
+          "dependencies": [
+            "expert-layer0-g0",
+            "expert-layer1-g0",
+            "expert-layer2-g0",
+            "expert-layer3-g0",
+            "expert-layer0-g1",
+            "expert-layer1-g2",
+            "expert-layer2-g3",
+            "expert-layer3-g4"
+          ],
+          "failures": [],
+          "inputs": [
+            "language-v1"
+          ],
+          "module_id": "lm-head",
+          "outputs": [
+            "language-v1"
+          ],
+          "parameter_count": 24576,
+          "replacements": [],
+          "state_owner": "lm-head",
+          "status": "ACTIVE",
+          "version": "v1"
+        }
+      }
+    },
+    "current_modules": {
+      "0": "expert-layer0-g1",
+      "1": "expert-layer1-g2",
+      "2": "expert-layer2-g3",
+      "3": "expert-layer3-g4"
+    },
+    "generation": 4
+  },
+  "output_checkpoint": "results/ship-of-theseus.pt",
+  "retention_gate": {
+    "passed": true,
+    "threshold": 0.5636714722967225
+  },
+  "schema": "remora-v0-ship-of-theseus-result",
+  "seed": 83,
+  "steps_per_generation": 40
+}

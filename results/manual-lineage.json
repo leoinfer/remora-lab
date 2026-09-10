@@ -1,0 +1,251 @@
+{
+  "factual_queries": {
+    "ancestry_of_adapter": {
+      "ancestry": [
+        "adapter-0@g0"
+      ],
+      "module_id": "adapter-0",
+      "source": "ledger"
+    },
+    "dependents_of_expert": {
+      "dependents": [
+        "adapter-0",
+        "lm-head"
+      ],
+      "module_id": "expert-0",
+      "source": "graph"
+    },
+    "dependents_of_language": {
+      "dependents": [
+        "adapter-0",
+        "attention-0",
+        "expert-0",
+        "lm-head",
+        "recurrent-0"
+      ],
+      "module_id": "language-v1",
+      "source": "graph"
+    },
+    "minimum_affected_if_expert_changes": [
+      "expert-0",
+      "adapter-0",
+      "lm-head"
+    ]
+  },
+  "learned_reader": {
+    "graph_authority": "oracle ledger; reader cannot mutate it",
+    "oracle_dependents": [
+      "adapter-0",
+      "attention-0",
+      "expert-0",
+      "lm-head",
+      "recurrent-0"
+    ],
+    "predicted_dependents": [
+      "attention-0",
+      "recurrent-0",
+      "expert-0",
+      "adapter-0",
+      "lm-head"
+    ],
+    "query": "language-v1",
+    "scores": {
+      "adapter-0": 0.9691400527954102,
+      "attention-0": 0.9986133575439453,
+      "expert-0": 0.9960026144981384,
+      "language-v1": 0.0006786802550777793,
+      "lm-head": 0.9470593929290771,
+      "recurrent-0": 0.9977789521217346
+    },
+    "train_loss_first_last": [
+      0.6822910308837891,
+      0.08292815089225769
+    ],
+    "unsupported_predictions": []
+  },
+  "lineage": {
+    "edges": [
+      {
+        "downstream": "attention-0",
+        "kind": "data",
+        "upstream": "language-v1"
+      },
+      {
+        "downstream": "recurrent-0",
+        "kind": "data",
+        "upstream": "language-v1"
+      },
+      {
+        "downstream": "expert-0",
+        "kind": "data",
+        "upstream": "language-v1"
+      },
+      {
+        "downstream": "adapter-0",
+        "kind": "data",
+        "upstream": "expert-0"
+      },
+      {
+        "downstream": "lm-head",
+        "kind": "data",
+        "upstream": "attention-0"
+      },
+      {
+        "downstream": "lm-head",
+        "kind": "data",
+        "upstream": "adapter-0"
+      }
+    ],
+    "experiments": {
+      "E17": {
+        "reason": "language-v1 lacked conditional confidence port",
+        "state": {
+          "bus": "language-v1"
+        },
+        "status": "FAILED"
+      }
+    },
+    "generation": 4,
+    "modules": {
+      "adapter-0": {
+        "ancestry": [
+          "adapter-0@g0"
+        ],
+        "benchmarks": {},
+        "content_hash": "bbabd82411905f05731919696511625a4c4b1395e0d9da58e43cb5ff0c23588d",
+        "dependencies": [
+          "expert-0"
+        ],
+        "failures": [],
+        "inputs": [
+          "bus"
+        ],
+        "module_id": "adapter-0",
+        "outputs": [
+          "bus"
+        ],
+        "parameter_count": 100,
+        "replacements": [],
+        "state_owner": "adapter-0",
+        "status": "ACTIVE",
+        "version": "v1"
+      },
+      "attention-0": {
+        "ancestry": [
+          "attention-0@g0"
+        ],
+        "benchmarks": {},
+        "content_hash": "39e798569795e78c5551f24f02473bba44693927584314bcbb6d778e28691260",
+        "dependencies": [
+          "language-v1"
+        ],
+        "failures": [],
+        "inputs": [
+          "bus"
+        ],
+        "module_id": "attention-0",
+        "outputs": [
+          "bus"
+        ],
+        "parameter_count": 100,
+        "replacements": [],
+        "state_owner": "attention-0",
+        "status": "ACTIVE",
+        "version": "v1"
+      },
+      "expert-0": {
+        "ancestry": [
+          "expert-0@g0"
+        ],
+        "benchmarks": {},
+        "content_hash": "b6209989fd809f7bc0ca2fa22bbb8a83d3010a2ef0dfc8b72d5ba48da2474f44",
+        "dependencies": [
+          "language-v1"
+        ],
+        "failures": [],
+        "inputs": [
+          "bus"
+        ],
+        "module_id": "expert-0",
+        "outputs": [
+          "bus"
+        ],
+        "parameter_count": 100,
+        "replacements": [],
+        "state_owner": "expert-0",
+        "status": "ACTIVE",
+        "version": "v1"
+      },
+      "language-v1": {
+        "ancestry": [
+          "language-v1@g0"
+        ],
+        "benchmarks": {},
+        "content_hash": "8123428df2a57870922706b137b4338f9ac30819ff356d0b5593a889f40b7fdf",
+        "dependencies": [],
+        "failures": [],
+        "inputs": [
+          "bus"
+        ],
+        "module_id": "language-v1",
+        "outputs": [
+          "bus"
+        ],
+        "parameter_count": 100,
+        "replacements": [],
+        "state_owner": "language-v1",
+        "status": "ACTIVE",
+        "version": "v1"
+      },
+      "lm-head": {
+        "ancestry": [
+          "lm-head@g0"
+        ],
+        "benchmarks": {},
+        "content_hash": "d98476997e1fd4da7dac729a1ed9c95719a2545635f9b0a15e7c70ff442766f6",
+        "dependencies": [
+          "attention-0",
+          "adapter-0"
+        ],
+        "failures": [],
+        "inputs": [
+          "bus"
+        ],
+        "module_id": "lm-head",
+        "outputs": [
+          "bus"
+        ],
+        "parameter_count": 100,
+        "replacements": [],
+        "state_owner": "lm-head",
+        "status": "ACTIVE",
+        "version": "v1"
+      },
+      "recurrent-0": {
+        "ancestry": [
+          "recurrent-0@g0"
+        ],
+        "benchmarks": {},
+        "content_hash": "0d288400ac8b47060e0b5a7502bdc497f1de52cc435c697395e45d78e214867b",
+        "dependencies": [
+          "language-v1"
+        ],
+        "failures": [],
+        "inputs": [
+          "bus"
+        ],
+        "module_id": "recurrent-0",
+        "outputs": [
+          "bus"
+        ],
+        "parameter_count": 100,
+        "replacements": [],
+        "state_owner": "recurrent-0",
+        "status": "ACTIVE",
+        "version": "v1"
+      }
+    }
+  },
+  "schema": "remora-v0-manual-lineage-result",
+  "seed": 41
+}
