@@ -27,10 +27,48 @@ loaded.
 **MEASURED:** both models learned from scratch and passed the small overfit
 test. On this one synthetic seed, Remora finished with lower held-out loss.
 
-**DERIVED:** the current Remora implementation is approximately 8.6x slower
-than the baseline on this held-out path. This is a real engineering failure
-for scaling, not evidence against the modular thesis; the custom recurrent,
-routing, and bus operations need profiling and kernel/layout work.
+**DERIVED:** the original reference implementation was approximately 8.6x
+slower than the baseline on this held-out path. The subsequent CUDA scan
+optimization reduced the measured forward gap, but this remains a real
+engineering constraint for scaling; the custom routing and bus operations
+still need profiling and kernel/layout work.
+
+### Multi-seed rerun after the scan optimization
+
+| Aggregate over seeds 7, 19, 31 | Remora-v0 | Monolithic baseline |
+| --- | ---: | ---: |
+| Mean final held-out loss | **0.291099** | 0.306373 |
+| Population loss standard deviation | 0.000609 | 0.002838 |
+| Mean training wall time | 48.57 s | 11.00 s |
+| Mean held-out tokens/s | 211,505 | 1,015,924 |
+
+**MEASURED:** Remora's final held-out loss was lower on all three paired
+seeds. This is stronger than the original single-seed observation, but it is
+still only a controlled synthetic stream, not a general capability result.
+
+**DERIVED:** the scan-enabled Remora takes 4.42x the mean training wall time
+and runs at 0.208x the baseline held-out throughput. The per-seed artifacts and
+post-hoc aggregate are in `results/*multi*.json` and
+`results/multiseed-summary.json`.
+
+### Forward profile and optimization
+
+**MEASURED:** on the RX 9060 XT with identical weights and inputs, the
+reference Remora path took 18.533 ms per batch, while the associative scan
+took 13.009 ms (29.8% faster) with maximum absolute logit difference
+1.19e-6. Manual attention was faster than unconfigured SDPA on this driver;
+the profile keeps both paths available for runtime-specific testing. Full
+measurements are in `results/profile-forward.json`.
+
+**MEASURED:** the first scan optimization was inference-only on this PyTorch
+runtime because associative-scan backward rejected lifted trainable inputs.
+An explicit affine-scan backward now passes reference-loop gradient parity.
+The matched three-seed rerun after that fix reached mean Remora wall time
+25.48 s versus 10.84 s for the baseline at the same 400-step budget, while
+Remora's final held-out loss remained lower on every pair (0.282343 versus
+0.306373). This reduces the training wall-time ratio from 4.42x to 2.35x;
+the detailed artifacts are `results/*scanback*.json` and
+`results/multiseed-scanback-summary.json`.
 
 **LIMITATION:** this corpus and evaluation do not establish general language,
 reasoning, or coding ability. Loss curves are in
@@ -158,9 +196,42 @@ the extracted Qwen mechanisms transfer to Remora.
 parameter leaves. A regression test caught it, the component-path grouping was
 corrected, and the corrected run is recorded as `DONOR-SELECTION-003`.
 
-No Qwen response or hidden-state execution/distillation has been run yet. That
-requires an explicitly launched, resource-budgeted runtime and a fixed external
-evaluator; only the bounded selected tensor payload was read in this phase.
+**MEASURED:** the guarded `donor-activation-v1` bundle round-tripped 16
+synthetic hidden-state records, loaded only the 12 accepted records under a
+2,304-byte budget, and produced zero activation/port drift. This validates the
+on-disk interchange and byte gate, not donor semantics.
+
+**MEASURED CONDITIONAL PASS:** `DONOR-RESPONSE-002` distilled a synthetic
+eight-key lookup donor through the plastic islands. Same-interface held-out
+accuracy was 100% for the adapter-rehearsal arm, with 36,864/1,682,137
+parameters changed (2.19%) and old loss 0.2795 -> 0.4343. The target-only
+adapter also reached 100% but old loss rose to 2.3350. The full-model rehearsal
+control reached 100% with 99.72% of parameters changed and old loss 1.0982.
+The shifted-template test was 0% for every trained arm, exposing protocol
+brittleness.
+
+**MEASURED FAILURE:** `DONOR-RESPONSE-001` used sparse random arithmetic
+responses. Adapter-only accuracy was 0%; the full-model control reached only
+4.6875% on unseen pairs and damaged the old stream. A small adapter cannot be
+treated as a general reasoning distiller without a better-conditioned port,
+more data, or a compatible response curriculum.
+
+**MEASURED RUNTIME PROBE:** the explicit local Transformers boundary loaded the
+resident Nanbeige 3B artifact at approximately 8.4 GB VRAM and generated eight
+bounded greedy responses using the compatibility path. Its custom generation
+helper was incompatible with the installed Transformers 5 cache API, so the
+client used manual `use_cache=False` decoding. Zero of eight strict integer
+answers passed the external verifier; no response was eligible for
+distillation. Qwen3.8 remains un-loaded because its BF16 source is about 360
+GB and is not a safe implicit load on this machine.
+
+**MEASURED ACTIVATION PROBE:** the same explicit runtime hooked only
+`model.layers.0`, recorded that Nanbeige invoked it twice, and selected the
+final invocation for each of four prompts. Four BF16 width-3,072 vectors
+(24,576 bytes) round-tripped through `donor-activation-v1`; the explicit port
+cast produced finite `[4, 1, 96]` bus packets. No donor graph was imported and
+no candidate was promoted. This validates surgical observation, not transfer
+utility.
 
 ## Reproduction
 

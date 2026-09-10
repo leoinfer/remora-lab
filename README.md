@@ -49,6 +49,17 @@ cd /home/leo/research/remora-v0
   --selection results/donor-selection.json \
   --output /tmp/remora-v0-donor-candidate.safetensors \
   --allow-payload
+/home/leo/.venvs/remora-rocm10/bin/python -m experiments.donor_response \
+  --checkpoint checkpoints/remora-v0-scratch-seed7.pt \
+  --device auto
+/home/leo/.venvs/remora-rocm10/bin/python -m experiments.donor_response_lookup \
+  --checkpoint checkpoints/remora-v0-scratch-seed7.pt \
+  --device auto
+/home/leo/.venvs/remora-rocm10/bin/python -m experiments.donor_activation
+/home/leo/.venvs/remora-rocm10/bin/python -m experiments.profile_forward \
+  --device auto
+/home/leo/.venvs/remora-rocm10/bin/python -m experiments.aggregate_multiseed \
+  --glob 'results/*multi*.json'
 ```
 
 For a longer bounded run, use `scripts/run_v0.sh`. It records the exact
@@ -96,3 +107,27 @@ and the import ladder are documented in
 teachers or through learned representation/response ports. Direct tensor grafts
 are allowed only after explicit shape, tokenizer, positional, normalization,
 license, and held-out compatibility checks.
+
+An explicitly selected smaller resident model can be queried through the
+runtime boundary, but it requires a separate model-load acknowledgment and a
+resource-bounded GPU lock. For example, the local Nanbeige 3B artifact can be
+probed with:
+
+```bash
+flock -n /tmp/remora-v0-gpu.lock \
+  /home/leo/.venvs/remora-rocm10/bin/python -m experiments.resident_donor_query \
+  --model-path /home/leo/models/nanbeige4.2-3b \
+  --runtime-id nanbeige4.2-3b-local \
+  --device cuda --max-new-tokens 8 --trust-remote-code --allow-model-load
+flock -n /tmp/remora-v0-gpu.lock \
+  /home/leo/.venvs/remora-rocm10/bin/python -m experiments.resident_donor_activation \
+  --model-path /home/leo/models/nanbeige4.2-3b \
+  --runtime-id nanbeige4.2-3b-local-activation \
+  --layer-name model.layers.0 \
+  --device cuda --trust-remote-code --allow-model-load
+```
+
+This path uses local-only files, manual bounded greedy decoding, external
+verifier-gated response records, layer-scoped activation hooks, and never
+promotes a Remora candidate. The Qwen3.8 source remains inspection/selection-
+only until a runtime can expose a safe, budgeted query or activation hook.

@@ -1,0 +1,1113 @@
+{
+  "candidate": {
+    "old": {
+      "loss": 6.259550042805938,
+      "perplexity": 522.9835669397261,
+      "tokens": 94560,
+      "tokens_per_second": 219924.83003697658,
+      "wall_seconds": 0.42996509300064645
+    },
+    "response": {
+      "accuracy": 0.0,
+      "count": 64,
+      "predictions": [
+        {
+          "prediction": "071",
+          "record_id": "response-98-0000",
+          "verified": false
+        },
+        {
+          "prediction": "077",
+          "record_id": "response-98-0001",
+          "verified": false
+        },
+        {
+          "prediction": "077",
+          "record_id": "response-98-0002",
+          "verified": false
+        },
+        {
+          "prediction": "071",
+          "record_id": "response-98-0003",
+          "verified": false
+        },
+        {
+          "prediction": "071",
+          "record_id": "response-98-0004",
+          "verified": false
+        },
+        {
+          "prediction": "077",
+          "record_id": "response-98-0005",
+          "verified": false
+        },
+        {
+          "prediction": "071",
+          "record_id": "response-98-0006",
+          "verified": false
+        },
+        {
+          "prediction": "077",
+          "record_id": "response-98-0007",
+          "verified": false
+        },
+        {
+          "prediction": "071",
+          "record_id": "response-98-0008",
+          "verified": false
+        },
+        {
+          "prediction": "071",
+          "record_id": "response-98-0009",
+          "verified": false
+        },
+        {
+          "prediction": "077",
+          "record_id": "response-98-0010",
+          "verified": false
+        },
+        {
+          "prediction": "077",
+          "record_id": "response-98-0011",
+          "verified": false
+        },
+        {
+          "prediction": "071",
+          "record_id": "response-98-0012",
+          "verified": false
+        },
+        {
+          "prediction": "071",
+          "record_id": "response-98-0013",
+          "verified": false
+        },
+        {
+          "prediction": "077",
+          "record_id": "response-98-0014",
+          "verified": false
+        },
+        {
+          "prediction": "071",
+          "record_id": "response-98-0015",
+          "verified": false
+        },
+        {
+          "prediction": "071",
+          "record_id": "response-98-0016",
+          "verified": false
+        },
+        {
+          "prediction": "071",
+          "record_id": "response-98-0017",
+          "verified": false
+        },
+        {
+          "prediction": "071",
+          "record_id": "response-98-0018",
+          "verified": false
+        },
+        {
+          "prediction": "071",
+          "record_id": "response-98-0019",
+          "verified": false
+        },
+        {
+          "prediction": "071",
+          "record_id": "response-98-0020",
+          "verified": false
+        },
+        {
+          "prediction": "071",
+          "record_id": "response-98-0021",
+          "verified": false
+        },
+        {
+          "prediction": "071",
+          "record_id": "response-98-0022",
+          "verified": false
+        },
+        {
+          "prediction": "071",
+          "record_id": "response-98-0023",
+          "verified": false
+        },
+        {
+          "prediction": "071",
+          "record_id": "response-98-0024",
+          "verified": false
+        },
+        {
+          "prediction": "071",
+          "record_id": "response-98-0025",
+          "verified": false
+        },
+        {
+          "prediction": "071",
+          "record_id": "response-98-0026",
+          "verified": false
+        },
+        {
+          "prediction": "071",
+          "record_id": "response-98-0027",
+          "verified": false
+        },
+        {
+          "prediction": "071",
+          "record_id": "response-98-0028",
+          "verified": false
+        },
+        {
+          "prediction": "071",
+          "record_id": "response-98-0029",
+          "verified": false
+        },
+        {
+          "prediction": "071",
+          "record_id": "response-98-0030",
+          "verified": false
+        },
+        {
+          "prediction": "071",
+          "record_id": "response-98-0031",
+          "verified": false
+        },
+        {
+          "prediction": "077",
+          "record_id": "response-98-0032",
+          "verified": false
+        },
+        {
+          "prediction": "077",
+          "record_id": "response-98-0033",
+          "verified": false
+        },
+        {
+          "prediction": "071",
+          "record_id": "response-98-0034",
+          "verified": false
+        },
+        {
+          "prediction": "071",
+          "record_id": "response-98-0035",
+          "verified": false
+        },
+        {
+          "prediction": "071",
+          "record_id": "response-98-0036",
+          "verified": false
+        },
+        {
+          "prediction": "071",
+          "record_id": "response-98-0037",
+          "verified": false
+        },
+        {
+          "prediction": "077",
+          "record_id": "response-98-0038",
+          "verified": false
+        },
+        {
+          "prediction": "077",
+          "record_id": "response-98-0039",
+          "verified": false
+        },
+        {
+          "prediction": "071",
+          "record_id": "response-98-0040",
+          "verified": false
+        },
+        {
+          "prediction": "071",
+          "record_id": "response-98-0041",
+          "verified": false
+        },
+        {
+          "prediction": "071",
+          "record_id": "response-98-0042",
+          "verified": false
+        },
+        {
+          "prediction": "077",
+          "record_id": "response-98-0043",
+          "verified": false
+        },
+        {
+          "prediction": "077",
+          "record_id": "response-98-0044",
+          "verified": false
+        },
+        {
+          "prediction": "071",
+          "record_id": "response-98-0045",
+          "verified": false
+        },
+        {
+          "prediction": "071",
+          "record_id": "response-98-0046",
+          "verified": false
+        },
+        {
+          "prediction": "071",
+          "record_id": "response-98-0047",
+          "verified": false
+        },
+        {
+          "prediction": "077",
+          "record_id": "response-98-0048",
+          "verified": false
+        },
+        {
+          "prediction": "071",
+          "record_id": "response-98-0049",
+          "verified": false
+        },
+        {
+          "prediction": "071",
+          "record_id": "response-98-0050",
+          "verified": false
+        },
+        {
+          "prediction": "071",
+          "record_id": "response-98-0051",
+          "verified": false
+        },
+        {
+          "prediction": "071",
+          "record_id": "response-98-0052",
+          "verified": false
+        },
+        {
+          "prediction": "077",
+          "record_id": "response-98-0053",
+          "verified": false
+        },
+        {
+          "prediction": "071",
+          "record_id": "response-98-0054",
+          "verified": false
+        },
+        {
+          "prediction": "077",
+          "record_id": "response-98-0055",
+          "verified": false
+        },
+        {
+          "prediction": "071",
+          "record_id": "response-98-0056",
+          "verified": false
+        },
+        {
+          "prediction": "071",
+          "record_id": "response-98-0057",
+          "verified": false
+        },
+        {
+          "prediction": "071",
+          "record_id": "response-98-0058",
+          "verified": false
+        },
+        {
+          "prediction": "071",
+          "record_id": "response-98-0059",
+          "verified": false
+        },
+        {
+          "prediction": "071",
+          "record_id": "response-98-0060",
+          "verified": false
+        },
+        {
+          "prediction": "071",
+          "record_id": "response-98-0061",
+          "verified": false
+        },
+        {
+          "prediction": "071",
+          "record_id": "response-98-0062",
+          "verified": false
+        },
+        {
+          "prediction": "071",
+          "record_id": "response-98-0063",
+          "verified": false
+        }
+      ],
+      "verified_count": 0,
+      "verifier": "external-sum-verifier-v1"
+    },
+    "train_loss_first_last": [
+      3.1363742351531982,
+      1.6657700538635254
+    ],
+    "trainable_parameters": 36864,
+    "trainable_prefixes": [
+      "blocks.0.plastic",
+      "blocks.1.plastic",
+      "blocks.2.plastic",
+      "blocks.3.plastic"
+    ],
+    "update": {
+      "changed_fraction": 0.021914980765538123,
+      "changed_parameters": 36864,
+      "per_top_level_module": {
+        "blocks": {
+          "changed": 36864,
+          "l1": 5321.355407714844,
+          "total": 1596696
+        },
+        "bus": {
+          "changed": 0,
+          "l1": 0.0,
+          "total": 42049
+        },
+        "final_norm": {
+          "changed": 0,
+          "l1": 0.0,
+          "total": 384
+        },
+        "position_embedding": {
+          "changed": 0,
+          "l1": 0.0,
+          "total": 18432
+        },
+        "token_embedding": {
+          "changed": 0,
+          "l1": 0.0,
+          "total": 24576
+        }
+      },
+      "total_parameters": 1682137
+    }
+  },
+  "device": "cuda",
+  "frozen_control": {
+    "old": {
+      "loss": 0.2794892645729375,
+      "perplexity": 1.3224542156079515,
+      "tokens": 94560,
+      "tokens_per_second": 18363.239324404654,
+      "wall_seconds": 5.149418265998975
+    },
+    "response": {
+      "accuracy": 0.0,
+      "count": 64,
+      "predictions": [
+        {
+          "prediction": "10;",
+          "record_id": "response-98-0000",
+          "verified": false
+        },
+        {
+          "prediction": "10;",
+          "record_id": "response-98-0001",
+          "verified": false
+        },
+        {
+          "prediction": "10;",
+          "record_id": "response-98-0002",
+          "verified": false
+        },
+        {
+          "prediction": "10;",
+          "record_id": "response-98-0003",
+          "verified": false
+        },
+        {
+          "prediction": "100",
+          "record_id": "response-98-0004",
+          "verified": false
+        },
+        {
+          "prediction": "10;",
+          "record_id": "response-98-0005",
+          "verified": false
+        },
+        {
+          "prediction": "10;",
+          "record_id": "response-98-0006",
+          "verified": false
+        },
+        {
+          "prediction": "10;",
+          "record_id": "response-98-0007",
+          "verified": false
+        },
+        {
+          "prediction": "10;",
+          "record_id": "response-98-0008",
+          "verified": false
+        },
+        {
+          "prediction": "100",
+          "record_id": "response-98-0009",
+          "verified": false
+        },
+        {
+          "prediction": "10;",
+          "record_id": "response-98-0010",
+          "verified": false
+        },
+        {
+          "prediction": "10;",
+          "record_id": "response-98-0011",
+          "verified": false
+        },
+        {
+          "prediction": "100",
+          "record_id": "response-98-0012",
+          "verified": false
+        },
+        {
+          "prediction": "100",
+          "record_id": "response-98-0013",
+          "verified": false
+        },
+        {
+          "prediction": "10;",
+          "record_id": "response-98-0014",
+          "verified": false
+        },
+        {
+          "prediction": "100",
+          "record_id": "response-98-0015",
+          "verified": false
+        },
+        {
+          "prediction": "100",
+          "record_id": "response-98-0016",
+          "verified": false
+        },
+        {
+          "prediction": "100",
+          "record_id": "response-98-0017",
+          "verified": false
+        },
+        {
+          "prediction": "10;",
+          "record_id": "response-98-0018",
+          "verified": false
+        },
+        {
+          "prediction": "100",
+          "record_id": "response-98-0019",
+          "verified": false
+        },
+        {
+          "prediction": "10;",
+          "record_id": "response-98-0020",
+          "verified": false
+        },
+        {
+          "prediction": "100",
+          "record_id": "response-98-0021",
+          "verified": false
+        },
+        {
+          "prediction": "10;",
+          "record_id": "response-98-0022",
+          "verified": false
+        },
+        {
+          "prediction": "100",
+          "record_id": "response-98-0023",
+          "verified": false
+        },
+        {
+          "prediction": "100",
+          "record_id": "response-98-0024",
+          "verified": false
+        },
+        {
+          "prediction": "100",
+          "record_id": "response-98-0025",
+          "verified": false
+        },
+        {
+          "prediction": "10;",
+          "record_id": "response-98-0026",
+          "verified": false
+        },
+        {
+          "prediction": "10;",
+          "record_id": "response-98-0027",
+          "verified": false
+        },
+        {
+          "prediction": "10;",
+          "record_id": "response-98-0028",
+          "verified": false
+        },
+        {
+          "prediction": "10;",
+          "record_id": "response-98-0029",
+          "verified": false
+        },
+        {
+          "prediction": "100",
+          "record_id": "response-98-0030",
+          "verified": false
+        },
+        {
+          "prediction": "10\n",
+          "record_id": "response-98-0031",
+          "verified": false
+        },
+        {
+          "prediction": "10;",
+          "record_id": "response-98-0032",
+          "verified": false
+        },
+        {
+          "prediction": "10;",
+          "record_id": "response-98-0033",
+          "verified": false
+        },
+        {
+          "prediction": "10;",
+          "record_id": "response-98-0034",
+          "verified": false
+        },
+        {
+          "prediction": "100",
+          "record_id": "response-98-0035",
+          "verified": false
+        },
+        {
+          "prediction": "100",
+          "record_id": "response-98-0036",
+          "verified": false
+        },
+        {
+          "prediction": "100",
+          "record_id": "response-98-0037",
+          "verified": false
+        },
+        {
+          "prediction": "10;",
+          "record_id": "response-98-0038",
+          "verified": false
+        },
+        {
+          "prediction": "10;",
+          "record_id": "response-98-0039",
+          "verified": false
+        },
+        {
+          "prediction": "100",
+          "record_id": "response-98-0040",
+          "verified": false
+        },
+        {
+          "prediction": "10;",
+          "record_id": "response-98-0041",
+          "verified": false
+        },
+        {
+          "prediction": "100",
+          "record_id": "response-98-0042",
+          "verified": false
+        },
+        {
+          "prediction": "10;",
+          "record_id": "response-98-0043",
+          "verified": false
+        },
+        {
+          "prediction": "10;",
+          "record_id": "response-98-0044",
+          "verified": false
+        },
+        {
+          "prediction": "100",
+          "record_id": "response-98-0045",
+          "verified": false
+        },
+        {
+          "prediction": "10;",
+          "record_id": "response-98-0046",
+          "verified": false
+        },
+        {
+          "prediction": "10;",
+          "record_id": "response-98-0047",
+          "verified": false
+        },
+        {
+          "prediction": "10;",
+          "record_id": "response-98-0048",
+          "verified": false
+        },
+        {
+          "prediction": "100",
+          "record_id": "response-98-0049",
+          "verified": false
+        },
+        {
+          "prediction": "10;",
+          "record_id": "response-98-0050",
+          "verified": false
+        },
+        {
+          "prediction": "10;",
+          "record_id": "response-98-0051",
+          "verified": false
+        },
+        {
+          "prediction": "100",
+          "record_id": "response-98-0052",
+          "verified": false
+        },
+        {
+          "prediction": "10;",
+          "record_id": "response-98-0053",
+          "verified": false
+        },
+        {
+          "prediction": "100",
+          "record_id": "response-98-0054",
+          "verified": false
+        },
+        {
+          "prediction": "10;",
+          "record_id": "response-98-0055",
+          "verified": false
+        },
+        {
+          "prediction": "10;",
+          "record_id": "response-98-0056",
+          "verified": false
+        },
+        {
+          "prediction": "10;",
+          "record_id": "response-98-0057",
+          "verified": false
+        },
+        {
+          "prediction": "10\n",
+          "record_id": "response-98-0058",
+          "verified": false
+        },
+        {
+          "prediction": "100",
+          "record_id": "response-98-0059",
+          "verified": false
+        },
+        {
+          "prediction": "10;",
+          "record_id": "response-98-0060",
+          "verified": false
+        },
+        {
+          "prediction": "10;",
+          "record_id": "response-98-0061",
+          "verified": false
+        },
+        {
+          "prediction": "10;",
+          "record_id": "response-98-0062",
+          "verified": false
+        },
+        {
+          "prediction": "10;",
+          "record_id": "response-98-0063",
+          "verified": false
+        }
+      ],
+      "verified_count": 0,
+      "verifier": "external-sum-verifier-v1"
+    }
+  },
+  "full_model_control": {
+    "old": {
+      "loss": 10.608995280774112,
+      "perplexity": 40497.490198788895,
+      "tokens": 94560,
+      "tokens_per_second": 215167.9129692401,
+      "wall_seconds": 0.4394707309984369
+    },
+    "parameters": 1682137,
+    "response": {
+      "accuracy": 0.046875,
+      "count": 64,
+      "predictions": [
+        {
+          "prediction": "113",
+          "record_id": "response-98-0000",
+          "verified": false
+        },
+        {
+          "prediction": "077",
+          "record_id": "response-98-0001",
+          "verified": false
+        },
+        {
+          "prediction": "083",
+          "record_id": "response-98-0002",
+          "verified": false
+        },
+        {
+          "prediction": "104",
+          "record_id": "response-98-0003",
+          "verified": false
+        },
+        {
+          "prediction": "162",
+          "record_id": "response-98-0004",
+          "verified": false
+        },
+        {
+          "prediction": "022",
+          "record_id": "response-98-0005",
+          "verified": false
+        },
+        {
+          "prediction": "082",
+          "record_id": "response-98-0006",
+          "verified": false
+        },
+        {
+          "prediction": "074",
+          "record_id": "response-98-0007",
+          "verified": false
+        },
+        {
+          "prediction": "182",
+          "record_id": "response-98-0008",
+          "verified": false
+        },
+        {
+          "prediction": "144",
+          "record_id": "response-98-0009",
+          "verified": false
+        },
+        {
+          "prediction": "066",
+          "record_id": "response-98-0010",
+          "verified": false
+        },
+        {
+          "prediction": "062",
+          "record_id": "response-98-0011",
+          "verified": false
+        },
+        {
+          "prediction": "144",
+          "record_id": "response-98-0012",
+          "verified": false
+        },
+        {
+          "prediction": "129",
+          "record_id": "response-98-0013",
+          "verified": false
+        },
+        {
+          "prediction": "022",
+          "record_id": "response-98-0014",
+          "verified": false
+        },
+        {
+          "prediction": "199",
+          "record_id": "response-98-0015",
+          "verified": false
+        },
+        {
+          "prediction": "143",
+          "record_id": "response-98-0016",
+          "verified": false
+        },
+        {
+          "prediction": "092",
+          "record_id": "response-98-0017",
+          "verified": false
+        },
+        {
+          "prediction": "075",
+          "record_id": "response-98-0018",
+          "verified": false
+        },
+        {
+          "prediction": "091",
+          "record_id": "response-98-0019",
+          "verified": false
+        },
+        {
+          "prediction": "082",
+          "record_id": "response-98-0020",
+          "verified": false
+        },
+        {
+          "prediction": "111",
+          "record_id": "response-98-0021",
+          "verified": false
+        },
+        {
+          "prediction": "071",
+          "record_id": "response-98-0022",
+          "verified": false
+        },
+        {
+          "prediction": "092",
+          "record_id": "response-98-0023",
+          "verified": false
+        },
+        {
+          "prediction": "115",
+          "record_id": "response-98-0024",
+          "verified": false
+        },
+        {
+          "prediction": "120",
+          "record_id": "response-98-0025",
+          "verified": false
+        },
+        {
+          "prediction": "076",
+          "record_id": "response-98-0026",
+          "verified": false
+        },
+        {
+          "prediction": "121",
+          "record_id": "response-98-0027",
+          "verified": false
+        },
+        {
+          "prediction": "067",
+          "record_id": "response-98-0028",
+          "verified": false
+        },
+        {
+          "prediction": "104",
+          "record_id": "response-98-0029",
+          "verified": false
+        },
+        {
+          "prediction": "110",
+          "record_id": "response-98-0030",
+          "verified": false
+        },
+        {
+          "prediction": "103",
+          "record_id": "response-98-0031",
+          "verified": false
+        },
+        {
+          "prediction": "029",
+          "record_id": "response-98-0032",
+          "verified": false
+        },
+        {
+          "prediction": "077",
+          "record_id": "response-98-0033",
+          "verified": false
+        },
+        {
+          "prediction": "153",
+          "record_id": "response-98-0034",
+          "verified": true
+        },
+        {
+          "prediction": "162",
+          "record_id": "response-98-0035",
+          "verified": false
+        },
+        {
+          "prediction": "131",
+          "record_id": "response-98-0036",
+          "verified": true
+        },
+        {
+          "prediction": "183",
+          "record_id": "response-98-0037",
+          "verified": false
+        },
+        {
+          "prediction": "076",
+          "record_id": "response-98-0038",
+          "verified": false
+        },
+        {
+          "prediction": "077",
+          "record_id": "response-98-0039",
+          "verified": false
+        },
+        {
+          "prediction": "057",
+          "record_id": "response-98-0040",
+          "verified": false
+        },
+        {
+          "prediction": "082",
+          "record_id": "response-98-0041",
+          "verified": false
+        },
+        {
+          "prediction": "121",
+          "record_id": "response-98-0042",
+          "verified": false
+        },
+        {
+          "prediction": "022",
+          "record_id": "response-98-0043",
+          "verified": false
+        },
+        {
+          "prediction": "081",
+          "record_id": "response-98-0044",
+          "verified": true
+        },
+        {
+          "prediction": "122",
+          "record_id": "response-98-0045",
+          "verified": false
+        },
+        {
+          "prediction": "143",
+          "record_id": "response-98-0046",
+          "verified": false
+        },
+        {
+          "prediction": "077",
+          "record_id": "response-98-0047",
+          "verified": false
+        },
+        {
+          "prediction": "019",
+          "record_id": "response-98-0048",
+          "verified": false
+        },
+        {
+          "prediction": "187",
+          "record_id": "response-98-0049",
+          "verified": false
+        },
+        {
+          "prediction": "121",
+          "record_id": "response-98-0050",
+          "verified": false
+        },
+        {
+          "prediction": "077",
+          "record_id": "response-98-0051",
+          "verified": false
+        },
+        {
+          "prediction": "108",
+          "record_id": "response-98-0052",
+          "verified": false
+        },
+        {
+          "prediction": "022",
+          "record_id": "response-98-0053",
+          "verified": false
+        },
+        {
+          "prediction": "144",
+          "record_id": "response-98-0054",
+          "verified": false
+        },
+        {
+          "prediction": "022",
+          "record_id": "response-98-0055",
+          "verified": false
+        },
+        {
+          "prediction": "187",
+          "record_id": "response-98-0056",
+          "verified": false
+        },
+        {
+          "prediction": "076",
+          "record_id": "response-98-0057",
+          "verified": false
+        },
+        {
+          "prediction": "109",
+          "record_id": "response-98-0058",
+          "verified": false
+        },
+        {
+          "prediction": "138",
+          "record_id": "response-98-0059",
+          "verified": false
+        },
+        {
+          "prediction": "082",
+          "record_id": "response-98-0060",
+          "verified": false
+        },
+        {
+          "prediction": "115",
+          "record_id": "response-98-0061",
+          "verified": false
+        },
+        {
+          "prediction": "091",
+          "record_id": "response-98-0062",
+          "verified": false
+        },
+        {
+          "prediction": "097",
+          "record_id": "response-98-0063",
+          "verified": false
+        }
+      ],
+      "verified_count": 3,
+      "verifier": "external-sum-verifier-v1"
+    },
+    "train_loss_first_last": [
+      3.1363742351531982,
+      0.006551771890372038
+    ],
+    "update": {
+      "changed_fraction": 0.9972029626599974,
+      "changed_parameters": 1677432,
+      "per_top_level_module": {
+        "blocks": {
+          "changed": 1596696,
+          "l1": 35423.8501462657,
+          "total": 1596696
+        },
+        "bus": {
+          "changed": 37344,
+          "l1": 547.584526181221,
+          "total": 42049
+        },
+        "final_norm": {
+          "changed": 384,
+          "l1": 27.436914443969727,
+          "total": 384
+        },
+        "position_embedding": {
+          "changed": 18432,
+          "l1": 87.44087982177734,
+          "total": 18432
+        },
+        "token_embedding": {
+          "changed": 24576,
+          "l1": 958.297607421875,
+          "total": 24576
+        }
+      },
+      "total_parameters": 1682137
+    }
+  },
+  "interpretation": "MEASURED MECHANISM TEST: verified black-box donor responses were encoded through a tokenizer boundary and learned by Remora plastic islands; this is not Qwen transfer evidence.",
+  "mode": "MECHANISM_ONLY_SYNTHETIC_BLACKBOX_RESPONSE_DONOR",
+  "promotion": {
+    "decision_authority": "external held-out verifier",
+    "promoted": false,
+    "state": "CANDIDATE"
+  },
+  "records": {
+    "accepted": 256,
+    "donor_id": "synthetic-blackbox-donor-v1",
+    "records_path": "results/donor-response-records.jsonl",
+    "test": 64,
+    "train": 192,
+    "verifier": "external-sum-verifier-v1"
+  },
+  "response_contract": "donor-response-v1",
+  "schema": "remora-v0-donor-response-result",
+  "seed": 97,
+  "source_checkpoint": "checkpoints/remora-v0-scratch-seed7.pt"
+}

@@ -10,6 +10,14 @@ from remora.donors.port import TeacherPortAdapter, teacher_logit_distillation_lo
 from remora.donors.registry import DonorRegistry
 from remora.donors.selection import select_components
 from remora.donors.extract import extract_selected_tensors
+from remora.donors.response import DonorResponseRecord, load_response_records
+from remora.donors.activation import (
+    DonorActivationRecord,
+    load_activation_bundle,
+    write_activation_bundle,
+    write_activation_records,
+)
+from remora.donors.runtime import DonorRuntimeSpec
 
 
 class DonorTests(unittest.TestCase):
@@ -37,6 +45,13 @@ class DonorTests(unittest.TestCase):
         self.assertEqual(packet.version, "donor-port-v1")
         packet.latent.square().mean().backward()
         self.assertTrue(any(parameter.grad is not None for parameter in port.parameters()))
+
+    def test_teacher_port_explicitly_casts_bfloat16_activations(self):
+        port = TeacherPortAdapter(12, 6)
+        features = torch.randn(2, 5, 12, dtype=torch.bfloat16)
+        packet = port(features)
+        self.assertEqual(packet.latent.dtype, torch.float32)
+        self.assertTrue(torch.isfinite(packet.latent).all())
 
     def test_logit_distillation_rejects_unaligned_vocabularies(self):
         with self.assertRaises(ValueError):
@@ -101,6 +116,70 @@ class DonorTests(unittest.TestCase):
             self.assertFalse(receipt["model_loader_called"])
             self.assertEqual(receipt["tensor_names"], ["layer.0.weight"])
             self.assertTrue(output.is_file())
+
+    def test_response_records_verify_hashes_and_external_acceptance(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            record = DonorResponseRecord.create(
+                "r1",
+                "donor-test",
+                "prompt",
+                "response",
+                lineage_key="run-1",
+                runtime={"runtime_id": "fixture-runtime"},
+                verifier={"verifier_id": "fixture-verifier", "passed": True},
+                accepted=True,
+            )
+            path = Path(tmp) / "responses.jsonl"
+            path.write_text(__import__("json").dumps(__import__("dataclasses").asdict(record)) + "\n")
+            loaded = load_response_records(path, verifier=lambda item: item.verifier["passed"])
+            self.assertEqual([item.record_id for item in loaded], ["r1"])
+            tampered = __import__("dataclasses").asdict(record)
+            tampered["response"] = "tampered"
+            path.write_text(__import__("json").dumps(tampered) + "\n")
+            with self.assertRaises(ValueError):
+                load_response_records(path)
+
+    def test_activation_bundle_is_bounded_and_hash_checked(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            activations = {
+                "a1": torch.arange(6, dtype=torch.float32).reshape(2, 3),
+                "a2": torch.arange(6, 12, dtype=torch.float32).reshape(2, 3),
+            }
+            records = [
+                DonorActivationRecord.create(
+                    record_id,
+                    "donor-test",
+                    "layer.0.hidden",
+                    f"prompt-{record_id}",
+                    tensor,
+                    lineage_key="run-1",
+                    runtime={"runtime_id": "fixture-runtime"},
+                    accepted=True,
+                )
+                for record_id, tensor in activations.items()
+            ]
+            record_path = root / "activations.jsonl"
+            bundle_path = root / "activations.safetensors"
+            write_activation_records(record_path, records)
+            self.assertEqual(write_activation_bundle(bundle_path, records, activations), 48)
+            loaded = load_activation_bundle(bundle_path, record_path, max_payload_bytes=48)
+            self.assertEqual(loaded["payload_bytes"], 48)
+            self.assertTrue(torch.equal(loaded["activations"]["a2"], activations["a2"]))
+            with self.assertRaises(MemoryError):
+                load_activation_bundle(bundle_path, record_path, max_payload_bytes=47)
+
+            tampered = records[0].__class__(**{**records[0].__dict__, "activation_sha256": "0" * 64})
+            write_activation_records(record_path, [tampered, records[1]])
+            with self.assertRaises(ValueError):
+                load_activation_bundle(bundle_path, record_path, max_payload_bytes=48)
+
+    def test_resident_runtime_requires_explicit_load_opt_in(self):
+        with self.assertRaises(PermissionError):
+            DonorRuntimeSpec(
+                model_path="/tmp/not-loaded",
+                runtime_id="fixture-runtime",
+            ).validate()
 
 
 if __name__ == "__main__":
