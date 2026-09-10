@@ -1,0 +1,1421 @@
+{
+  "policy": {
+    "delete_after_accept": true,
+    "full_source_shard_hashes": true,
+    "one_source_shard_at_a_time": true,
+    "one_staging_bundle_per_selected_shard": true,
+    "source_files_mutated": false,
+    "source_tree_immutable": true,
+    "staging_root": "/tmp/remora-donor-safetensor-stream/qwen-gdn-core-001"
+  },
+  "recovery_recipe": {
+    "index_path": "/home/leo/models/Qwen3.8-Flash-Next-BF16-source/model.safetensors.index.json",
+    "note": "Payload staging copies may be deleted; re-read the pinned source shard and exact offsets/slices to reconstruct.",
+    "reassembly_contract": {
+      "excluded_coadapted_siblings": [
+        "model.language_model.layers.17.linear_attn.in_proj_z.weight",
+        "model.language_model.layers.17.linear_attn.norm.weight",
+        "model.language_model.layers.17.linear_attn.out_proj.weight"
+      ],
+      "group": "qwen-gdn-core-native",
+      "steps": [
+        {
+          "from": "q_weight",
+          "operation": "identity",
+          "output": "q_weight"
+        },
+        {
+          "from": "k_weight",
+          "operation": "identity",
+          "output": "k_weight"
+        },
+        {
+          "from": "v_weight",
+          "operation": "identity",
+          "output": "v_weight"
+        },
+        {
+          "from": "a_weight",
+          "operation": "identity",
+          "output": "a_weight"
+        },
+        {
+          "from": "b_weight",
+          "operation": "identity",
+          "output": "b_weight"
+        },
+        {
+          "axis": 0,
+          "from": [
+            "conv_q",
+            "conv_k",
+            "conv_v"
+          ],
+          "operation": "concatenate",
+          "order": [
+            "conv_q",
+            "conv_k",
+            "conv_v"
+          ],
+          "output": "conv_qkv"
+        },
+        {
+          "from": "A_log",
+          "operation": "identity",
+          "output": "A_log"
+        },
+        {
+          "from": "dt_bias",
+          "operation": "identity",
+          "output": "dt_bias"
+        }
+      ]
+    },
+    "requests": [
+      {
+        "context": {
+          "input_width": 2560,
+          "key_head": 3,
+          "output_width": 128,
+          "source_rows": [
+            384,
+            512
+          ]
+        },
+        "depends_on": [
+          "in_proj_qkv.weight"
+        ],
+        "operation": "row_slice",
+        "reassembly": {
+          "axis": 0,
+          "group": "qwen-gdn-core-native",
+          "order": 0
+        },
+        "request_id": "q_weight",
+        "role": "query_projection",
+        "slice": {
+          "rows": [
+            384,
+            512
+          ]
+        },
+        "source_shard": "model-00051-of-00131.safetensors",
+        "tensor_name": "model.language_model.layers.17.linear_attn.in_proj_qkv.weight"
+      },
+      {
+        "context": {
+          "input_width": 2560,
+          "key_head": 3,
+          "output_width": 128,
+          "source_rows": [
+            2432,
+            2560
+          ]
+        },
+        "depends_on": [
+          "in_proj_qkv.weight"
+        ],
+        "operation": "row_slice",
+        "reassembly": {
+          "axis": 0,
+          "group": "qwen-gdn-core-native",
+          "order": 1
+        },
+        "request_id": "k_weight",
+        "role": "key_projection",
+        "slice": {
+          "rows": [
+            2432,
+            2560
+          ]
+        },
+        "source_shard": "model-00051-of-00131.safetensors",
+        "tensor_name": "model.language_model.layers.17.linear_attn.in_proj_qkv.weight"
+      },
+      {
+        "context": {
+          "input_width": 2560,
+          "output_width": 128,
+          "source_rows": [
+            5376,
+            5504
+          ],
+          "value_head": 10
+        },
+        "depends_on": [
+          "in_proj_qkv.weight"
+        ],
+        "operation": "row_slice",
+        "reassembly": {
+          "axis": 0,
+          "group": "qwen-gdn-core-native",
+          "order": 2
+        },
+        "request_id": "v_weight",
+        "role": "value_projection",
+        "slice": {
+          "rows": [
+            5376,
+            5504
+          ]
+        },
+        "source_shard": "model-00051-of-00131.safetensors",
+        "tensor_name": "model.language_model.layers.17.linear_attn.in_proj_qkv.weight"
+      },
+      {
+        "context": {
+          "input_width": 2560,
+          "output_width": 1,
+          "source_rows": [
+            10,
+            11
+          ]
+        },
+        "depends_on": [
+          "in_proj_a.weight"
+        ],
+        "operation": "row_slice",
+        "reassembly": {
+          "axis": 0,
+          "group": "qwen-gdn-core-native",
+          "order": 3
+        },
+        "request_id": "a_weight",
+        "role": "decay_projection",
+        "slice": {
+          "rows": [
+            10,
+            11
+          ]
+        },
+        "source_shard": "model-00051-of-00131.safetensors",
+        "tensor_name": "model.language_model.layers.17.linear_attn.in_proj_a.weight"
+      },
+      {
+        "context": {
+          "input_width": 2560,
+          "output_width": 1,
+          "source_rows": [
+            10,
+            11
+          ]
+        },
+        "depends_on": [
+          "in_proj_b.weight"
+        ],
+        "operation": "row_slice",
+        "reassembly": {
+          "axis": 0,
+          "group": "qwen-gdn-core-native",
+          "order": 4
+        },
+        "request_id": "b_weight",
+        "role": "beta_projection",
+        "slice": {
+          "rows": [
+            10,
+            11
+          ]
+        },
+        "source_shard": "model-00051-of-00131.safetensors",
+        "tensor_name": "model.language_model.layers.17.linear_attn.in_proj_b.weight"
+      },
+      {
+        "context": {
+          "channels": 128,
+          "kernel": 4,
+          "source_rows": [
+            384,
+            512
+          ]
+        },
+        "depends_on": [
+          "conv1d.weight",
+          "q_weight"
+        ],
+        "operation": "row_slice",
+        "reassembly": {
+          "axis": 0,
+          "group": "qwen-gdn-core-native",
+          "order": 5
+        },
+        "request_id": "conv_q",
+        "role": "query_convolution",
+        "slice": {
+          "rows": [
+            384,
+            512
+          ]
+        },
+        "source_shard": "model-00051-of-00131.safetensors",
+        "tensor_name": "model.language_model.layers.17.linear_attn.conv1d.weight"
+      },
+      {
+        "context": {
+          "channels": 128,
+          "kernel": 4,
+          "source_rows": [
+            2432,
+            2560
+          ]
+        },
+        "depends_on": [
+          "conv1d.weight",
+          "k_weight"
+        ],
+        "operation": "row_slice",
+        "reassembly": {
+          "axis": 0,
+          "group": "qwen-gdn-core-native",
+          "order": 6
+        },
+        "request_id": "conv_k",
+        "role": "key_convolution",
+        "slice": {
+          "rows": [
+            2432,
+            2560
+          ]
+        },
+        "source_shard": "model-00051-of-00131.safetensors",
+        "tensor_name": "model.language_model.layers.17.linear_attn.conv1d.weight"
+      },
+      {
+        "context": {
+          "channels": 128,
+          "kernel": 4,
+          "source_rows": [
+            5376,
+            5504
+          ]
+        },
+        "depends_on": [
+          "conv1d.weight",
+          "v_weight"
+        ],
+        "operation": "row_slice",
+        "reassembly": {
+          "axis": 0,
+          "group": "qwen-gdn-core-native",
+          "order": 7
+        },
+        "request_id": "conv_v",
+        "role": "value_convolution",
+        "slice": {
+          "rows": [
+            5376,
+            5504
+          ]
+        },
+        "source_shard": "model-00051-of-00131.safetensors",
+        "tensor_name": "model.language_model.layers.17.linear_attn.conv1d.weight"
+      },
+      {
+        "context": {
+          "source_rows": [
+            10,
+            11
+          ],
+          "state_role": "decay_parameter"
+        },
+        "depends_on": [
+          "a_weight"
+        ],
+        "operation": "row_slice",
+        "reassembly": {
+          "axis": 0,
+          "group": "qwen-gdn-core-native",
+          "order": 8
+        },
+        "request_id": "A_log",
+        "role": "log_decay_scalar",
+        "slice": {
+          "rows": [
+            10,
+            11
+          ]
+        },
+        "source_shard": "model-00051-of-00131.safetensors",
+        "tensor_name": "model.language_model.layers.17.linear_attn.A_log"
+      },
+      {
+        "context": {
+          "source_rows": [
+            10,
+            11
+          ],
+          "state_role": "decay_parameter"
+        },
+        "depends_on": [
+          "a_weight"
+        ],
+        "operation": "row_slice",
+        "reassembly": {
+          "axis": 0,
+          "group": "qwen-gdn-core-native",
+          "order": 9
+        },
+        "request_id": "dt_bias",
+        "role": "decay_bias_scalar",
+        "slice": {
+          "rows": [
+            10,
+            11
+          ]
+        },
+        "source_shard": "model-00051-of-00131.safetensors",
+        "tensor_name": "model.language_model.layers.17.linear_attn.dt_bias"
+      }
+    ],
+    "required_shards": [
+      "model-00051-of-00131.safetensors"
+    ],
+    "source": {
+      "index_path": "/home/leo/models/Qwen3.8-Flash-Next-BF16-source/model.safetensors.index.json",
+      "index_sha256": "99e815241ef03325536b0aaa4441deea45174c17fae31e10f0bb456410c590de",
+      "integrity_status": "PASS",
+      "metadata_files": {
+        "FLASH_NEXT_BF16_SOURCE_MANIFEST.json": {
+          "bytes": 93657,
+          "sha256": "15aa2c0adc9b8baca3d1dba34628443a8fd29fe2a03533a0c592c049d97d5a26"
+        },
+        "config.json": {
+          "bytes": 4745,
+          "sha256": "889658f2508e8c61d409b02e70e0d78d8d4452ec65aaafbe129805d213d2e74b"
+        },
+        "model.safetensors.index.json": {
+          "bytes": 170726,
+          "sha256": "99e815241ef03325536b0aaa4441deea45174c17fae31e10f0bb456410c590de"
+        }
+      },
+      "path": "/home/leo/models/Qwen3.8-Flash-Next-BF16-source",
+      "repository": "Qwen/Qwen3.8-Flash-Next",
+      "revision": "f5d08274bafd880402bd16f5e3e6c514136ec06c",
+      "revision_type": "commit_sha"
+    }
+  },
+  "schema": "remora-donor-ephemeral-safetensor-stream-v1",
+  "selection": {
+    "component_id": "Qwen/Qwen3.8-Flash-Next:layer17:linear-attn:value-head10:gdn-core",
+    "contract": {
+      "input": {
+        "dtype": "BF16_or_FP32",
+        "semantic": "Qwen layer-17 linear-attention hidden state",
+        "shape": [
+          "batch",
+          "time",
+          2560
+        ]
+      },
+      "normalization": [
+        "L2-normalize q and k after causal convolution"
+      ],
+      "output": {
+        "semantic": "value-head recurrent core",
+        "shape": [
+          "batch",
+          "time",
+          128
+        ]
+      },
+      "residual_assumptions": [
+        "core ends before z gate, RMS norm, and out projection"
+      ],
+      "state": {
+        "convolution": [
+          "batch",
+          384,
+          3
+        ],
+        "owner": "qwen-gdn-core",
+        "recurrent": [
+          "batch",
+          128,
+          128
+        ]
+      }
+    },
+    "reassembly": {
+      "excluded_coadapted_siblings": [
+        "model.language_model.layers.17.linear_attn.in_proj_z.weight",
+        "model.language_model.layers.17.linear_attn.norm.weight",
+        "model.language_model.layers.17.linear_attn.out_proj.weight"
+      ],
+      "group": "qwen-gdn-core-native",
+      "steps": [
+        {
+          "from": "q_weight",
+          "operation": "identity",
+          "output": "q_weight"
+        },
+        {
+          "from": "k_weight",
+          "operation": "identity",
+          "output": "k_weight"
+        },
+        {
+          "from": "v_weight",
+          "operation": "identity",
+          "output": "v_weight"
+        },
+        {
+          "from": "a_weight",
+          "operation": "identity",
+          "output": "a_weight"
+        },
+        {
+          "from": "b_weight",
+          "operation": "identity",
+          "output": "b_weight"
+        },
+        {
+          "axis": 0,
+          "from": [
+            "conv_q",
+            "conv_k",
+            "conv_v"
+          ],
+          "operation": "concatenate",
+          "order": [
+            "conv_q",
+            "conv_k",
+            "conv_v"
+          ],
+          "output": "conv_qkv"
+        },
+        {
+          "from": "A_log",
+          "operation": "identity",
+          "output": "A_log"
+        },
+        {
+          "from": "dt_bias",
+          "operation": "identity",
+          "output": "dt_bias"
+        }
+      ]
+    },
+    "requests": [
+      {
+        "context": {
+          "input_width": 2560,
+          "key_head": 3,
+          "output_width": 128,
+          "source_rows": [
+            384,
+            512
+          ]
+        },
+        "depends_on": [
+          "in_proj_qkv.weight"
+        ],
+        "operation": "row_slice",
+        "reassembly": {
+          "axis": 0,
+          "group": "qwen-gdn-core-native",
+          "order": 0
+        },
+        "request_id": "q_weight",
+        "role": "query_projection",
+        "slice": {
+          "rows": [
+            384,
+            512
+          ]
+        },
+        "source_shard": "model-00051-of-00131.safetensors",
+        "tensor_name": "model.language_model.layers.17.linear_attn.in_proj_qkv.weight"
+      },
+      {
+        "context": {
+          "input_width": 2560,
+          "key_head": 3,
+          "output_width": 128,
+          "source_rows": [
+            2432,
+            2560
+          ]
+        },
+        "depends_on": [
+          "in_proj_qkv.weight"
+        ],
+        "operation": "row_slice",
+        "reassembly": {
+          "axis": 0,
+          "group": "qwen-gdn-core-native",
+          "order": 1
+        },
+        "request_id": "k_weight",
+        "role": "key_projection",
+        "slice": {
+          "rows": [
+            2432,
+            2560
+          ]
+        },
+        "source_shard": "model-00051-of-00131.safetensors",
+        "tensor_name": "model.language_model.layers.17.linear_attn.in_proj_qkv.weight"
+      },
+      {
+        "context": {
+          "input_width": 2560,
+          "output_width": 128,
+          "source_rows": [
+            5376,
+            5504
+          ],
+          "value_head": 10
+        },
+        "depends_on": [
+          "in_proj_qkv.weight"
+        ],
+        "operation": "row_slice",
+        "reassembly": {
+          "axis": 0,
+          "group": "qwen-gdn-core-native",
+          "order": 2
+        },
+        "request_id": "v_weight",
+        "role": "value_projection",
+        "slice": {
+          "rows": [
+            5376,
+            5504
+          ]
+        },
+        "source_shard": "model-00051-of-00131.safetensors",
+        "tensor_name": "model.language_model.layers.17.linear_attn.in_proj_qkv.weight"
+      },
+      {
+        "context": {
+          "input_width": 2560,
+          "output_width": 1,
+          "source_rows": [
+            10,
+            11
+          ]
+        },
+        "depends_on": [
+          "in_proj_a.weight"
+        ],
+        "operation": "row_slice",
+        "reassembly": {
+          "axis": 0,
+          "group": "qwen-gdn-core-native",
+          "order": 3
+        },
+        "request_id": "a_weight",
+        "role": "decay_projection",
+        "slice": {
+          "rows": [
+            10,
+            11
+          ]
+        },
+        "source_shard": "model-00051-of-00131.safetensors",
+        "tensor_name": "model.language_model.layers.17.linear_attn.in_proj_a.weight"
+      },
+      {
+        "context": {
+          "input_width": 2560,
+          "output_width": 1,
+          "source_rows": [
+            10,
+            11
+          ]
+        },
+        "depends_on": [
+          "in_proj_b.weight"
+        ],
+        "operation": "row_slice",
+        "reassembly": {
+          "axis": 0,
+          "group": "qwen-gdn-core-native",
+          "order": 4
+        },
+        "request_id": "b_weight",
+        "role": "beta_projection",
+        "slice": {
+          "rows": [
+            10,
+            11
+          ]
+        },
+        "source_shard": "model-00051-of-00131.safetensors",
+        "tensor_name": "model.language_model.layers.17.linear_attn.in_proj_b.weight"
+      },
+      {
+        "context": {
+          "channels": 128,
+          "kernel": 4,
+          "source_rows": [
+            384,
+            512
+          ]
+        },
+        "depends_on": [
+          "conv1d.weight",
+          "q_weight"
+        ],
+        "operation": "row_slice",
+        "reassembly": {
+          "axis": 0,
+          "group": "qwen-gdn-core-native",
+          "order": 5
+        },
+        "request_id": "conv_q",
+        "role": "query_convolution",
+        "slice": {
+          "rows": [
+            384,
+            512
+          ]
+        },
+        "source_shard": "model-00051-of-00131.safetensors",
+        "tensor_name": "model.language_model.layers.17.linear_attn.conv1d.weight"
+      },
+      {
+        "context": {
+          "channels": 128,
+          "kernel": 4,
+          "source_rows": [
+            2432,
+            2560
+          ]
+        },
+        "depends_on": [
+          "conv1d.weight",
+          "k_weight"
+        ],
+        "operation": "row_slice",
+        "reassembly": {
+          "axis": 0,
+          "group": "qwen-gdn-core-native",
+          "order": 6
+        },
+        "request_id": "conv_k",
+        "role": "key_convolution",
+        "slice": {
+          "rows": [
+            2432,
+            2560
+          ]
+        },
+        "source_shard": "model-00051-of-00131.safetensors",
+        "tensor_name": "model.language_model.layers.17.linear_attn.conv1d.weight"
+      },
+      {
+        "context": {
+          "channels": 128,
+          "kernel": 4,
+          "source_rows": [
+            5376,
+            5504
+          ]
+        },
+        "depends_on": [
+          "conv1d.weight",
+          "v_weight"
+        ],
+        "operation": "row_slice",
+        "reassembly": {
+          "axis": 0,
+          "group": "qwen-gdn-core-native",
+          "order": 7
+        },
+        "request_id": "conv_v",
+        "role": "value_convolution",
+        "slice": {
+          "rows": [
+            5376,
+            5504
+          ]
+        },
+        "source_shard": "model-00051-of-00131.safetensors",
+        "tensor_name": "model.language_model.layers.17.linear_attn.conv1d.weight"
+      },
+      {
+        "context": {
+          "source_rows": [
+            10,
+            11
+          ],
+          "state_role": "decay_parameter"
+        },
+        "depends_on": [
+          "a_weight"
+        ],
+        "operation": "row_slice",
+        "reassembly": {
+          "axis": 0,
+          "group": "qwen-gdn-core-native",
+          "order": 8
+        },
+        "request_id": "A_log",
+        "role": "log_decay_scalar",
+        "slice": {
+          "rows": [
+            10,
+            11
+          ]
+        },
+        "source_shard": "model-00051-of-00131.safetensors",
+        "tensor_name": "model.language_model.layers.17.linear_attn.A_log"
+      },
+      {
+        "context": {
+          "source_rows": [
+            10,
+            11
+          ],
+          "state_role": "decay_parameter"
+        },
+        "depends_on": [
+          "a_weight"
+        ],
+        "operation": "row_slice",
+        "reassembly": {
+          "axis": 0,
+          "group": "qwen-gdn-core-native",
+          "order": 9
+        },
+        "request_id": "dt_bias",
+        "role": "decay_bias_scalar",
+        "slice": {
+          "rows": [
+            10,
+            11
+          ]
+        },
+        "source_shard": "model-00051-of-00131.safetensors",
+        "tensor_name": "model.language_model.layers.17.linear_attn.dt_bias"
+      }
+    ],
+    "schema": "remora-ephemeral-donor-selection-v1",
+    "source": {
+      "repository": "Qwen/Qwen3.8-Flash-Next",
+      "revision": "f5d08274bafd880402bd16f5e3e6c514136ec06c"
+    }
+  },
+  "shards": [
+    {
+      "header": {
+        "data_start": 3272,
+        "header_length": 3264,
+        "header_sha256": "11e675dabaae4df3b7d48b963df0152fbd2357bb307720b743e481c6c12cc486",
+        "payload_bytes": 1832515008,
+        "tensor_count": 23
+      },
+      "requests": [
+        {
+          "context": {
+            "source_rows": [
+              10,
+              11
+            ],
+            "state_role": "decay_parameter"
+          },
+          "depends_on": [
+            "a_weight"
+          ],
+          "materialized_dtype": "BF16",
+          "materialized_nbytes": 2,
+          "materialized_shape": [
+            1
+          ],
+          "materialized_tensor_sha256": "83b22796eda8c3522a0cb9268fd30f9142b1fe1738a2e6e2c3dde787c70b4eda",
+          "operation": "row_slice",
+          "reassembly": {
+            "axis": 0,
+            "group": "qwen-gdn-core-native",
+            "order": 8
+          },
+          "request_id": "A_log",
+          "role": "log_decay_scalar",
+          "slice": {
+            "axes": {
+              "0": [
+                10,
+                11
+              ]
+            },
+            "kind": "slice"
+          },
+          "source_absolute_file_offsets": [
+            1716601032,
+            1716601128
+          ],
+          "source_data_offsets": [
+            1716597760,
+            1716597856
+          ],
+          "source_dtype": "BF16",
+          "source_read_bytes": 2,
+          "source_shape": [
+            48
+          ],
+          "source_shard": "model-00051-of-00131.safetensors",
+          "source_tensor_nbytes": 96,
+          "source_tensor_payload_sha256": "c574bd5741d22c3e5d227ab8a247bd66fee348ea62e9f3fd3ffd84e749c7527f",
+          "tensor_name": "model.language_model.layers.17.linear_attn.A_log"
+        },
+        {
+          "context": {
+            "input_width": 2560,
+            "output_width": 1,
+            "source_rows": [
+              10,
+              11
+            ]
+          },
+          "depends_on": [
+            "in_proj_a.weight"
+          ],
+          "materialized_dtype": "BF16",
+          "materialized_nbytes": 5120,
+          "materialized_shape": [
+            1,
+            2560
+          ],
+          "materialized_tensor_sha256": "a3f0a474af9ba8c69ab681fab2a9327a8c6fa30a148e0db90c4f895c09859949",
+          "operation": "row_slice",
+          "reassembly": {
+            "axis": 0,
+            "group": "qwen-gdn-core-native",
+            "order": 3
+          },
+          "request_id": "a_weight",
+          "role": "decay_projection",
+          "slice": {
+            "axes": {
+              "0": [
+                10,
+                11
+              ]
+            },
+            "kind": "slice"
+          },
+          "source_absolute_file_offsets": [
+            1716683144,
+            1716928904
+          ],
+          "source_data_offsets": [
+            1716679872,
+            1716925632
+          ],
+          "source_dtype": "BF16",
+          "source_read_bytes": 5120,
+          "source_shape": [
+            48,
+            2560
+          ],
+          "source_shard": "model-00051-of-00131.safetensors",
+          "source_tensor_nbytes": 245760,
+          "source_tensor_payload_sha256": "d55cac50bafc21f2993dd643ddf3082f30400e2d52f6c70cfb1527ee015d76e8",
+          "tensor_name": "model.language_model.layers.17.linear_attn.in_proj_a.weight"
+        },
+        {
+          "context": {
+            "input_width": 2560,
+            "output_width": 1,
+            "source_rows": [
+              10,
+              11
+            ]
+          },
+          "depends_on": [
+            "in_proj_b.weight"
+          ],
+          "materialized_dtype": "BF16",
+          "materialized_nbytes": 5120,
+          "materialized_shape": [
+            1,
+            2560
+          ],
+          "materialized_tensor_sha256": "173e52fd648976c0ce73dc9b70d75f97fd70316ae8be71aa23d8c00a8d24048f",
+          "operation": "row_slice",
+          "reassembly": {
+            "axis": 0,
+            "group": "qwen-gdn-core-native",
+            "order": 4
+          },
+          "request_id": "b_weight",
+          "role": "beta_projection",
+          "slice": {
+            "axes": {
+              "0": [
+                10,
+                11
+              ]
+            },
+            "kind": "slice"
+          },
+          "source_absolute_file_offsets": [
+            1716928904,
+            1717174664
+          ],
+          "source_data_offsets": [
+            1716925632,
+            1717171392
+          ],
+          "source_dtype": "BF16",
+          "source_read_bytes": 5120,
+          "source_shape": [
+            48,
+            2560
+          ],
+          "source_shard": "model-00051-of-00131.safetensors",
+          "source_tensor_nbytes": 245760,
+          "source_tensor_payload_sha256": "2a4133de35464d3085031bf7b95d477008e4f9ac9c8b0180e680ed31b83a7946",
+          "tensor_name": "model.language_model.layers.17.linear_attn.in_proj_b.weight"
+        },
+        {
+          "context": {
+            "channels": 128,
+            "kernel": 4,
+            "source_rows": [
+              2432,
+              2560
+            ]
+          },
+          "depends_on": [
+            "conv1d.weight",
+            "k_weight"
+          ],
+          "materialized_dtype": "BF16",
+          "materialized_nbytes": 1024,
+          "materialized_shape": [
+            128,
+            1,
+            4
+          ],
+          "materialized_tensor_sha256": "dee51e627a8fde52bbd366318611f1d7a199499bdfcc8c4f70c8cf80712b9b85",
+          "operation": "row_slice",
+          "reassembly": {
+            "axis": 0,
+            "group": "qwen-gdn-core-native",
+            "order": 6
+          },
+          "request_id": "conv_k",
+          "role": "key_convolution",
+          "slice": {
+            "axes": {
+              "0": [
+                2432,
+                2560
+              ]
+            },
+            "kind": "slice"
+          },
+          "source_absolute_file_offsets": [
+            1716601128,
+            1716683048
+          ],
+          "source_data_offsets": [
+            1716597856,
+            1716679776
+          ],
+          "source_dtype": "BF16",
+          "source_read_bytes": 1024,
+          "source_shape": [
+            10240,
+            1,
+            4
+          ],
+          "source_shard": "model-00051-of-00131.safetensors",
+          "source_tensor_nbytes": 81920,
+          "source_tensor_payload_sha256": "7312daf5d3a5bdfdeb4ff02588c4f1b627c2f6a7435aced9f1c6cf46bf4f5b77",
+          "tensor_name": "model.language_model.layers.17.linear_attn.conv1d.weight"
+        },
+        {
+          "context": {
+            "channels": 128,
+            "kernel": 4,
+            "source_rows": [
+              384,
+              512
+            ]
+          },
+          "depends_on": [
+            "conv1d.weight",
+            "q_weight"
+          ],
+          "materialized_dtype": "BF16",
+          "materialized_nbytes": 1024,
+          "materialized_shape": [
+            128,
+            1,
+            4
+          ],
+          "materialized_tensor_sha256": "5ba373b918d2b62e658a076aba83d772917e0bd91d255be883ace39da407bfa6",
+          "operation": "row_slice",
+          "reassembly": {
+            "axis": 0,
+            "group": "qwen-gdn-core-native",
+            "order": 5
+          },
+          "request_id": "conv_q",
+          "role": "query_convolution",
+          "slice": {
+            "axes": {
+              "0": [
+                384,
+                512
+              ]
+            },
+            "kind": "slice"
+          },
+          "source_absolute_file_offsets": [
+            1716601128,
+            1716683048
+          ],
+          "source_data_offsets": [
+            1716597856,
+            1716679776
+          ],
+          "source_dtype": "BF16",
+          "source_read_bytes": 1024,
+          "source_shape": [
+            10240,
+            1,
+            4
+          ],
+          "source_shard": "model-00051-of-00131.safetensors",
+          "source_tensor_nbytes": 81920,
+          "source_tensor_payload_sha256": "7312daf5d3a5bdfdeb4ff02588c4f1b627c2f6a7435aced9f1c6cf46bf4f5b77",
+          "tensor_name": "model.language_model.layers.17.linear_attn.conv1d.weight"
+        },
+        {
+          "context": {
+            "channels": 128,
+            "kernel": 4,
+            "source_rows": [
+              5376,
+              5504
+            ]
+          },
+          "depends_on": [
+            "conv1d.weight",
+            "v_weight"
+          ],
+          "materialized_dtype": "BF16",
+          "materialized_nbytes": 1024,
+          "materialized_shape": [
+            128,
+            1,
+            4
+          ],
+          "materialized_tensor_sha256": "0a42df78a72723505ab405bd1ee42b074a78c023d913893cff7d8bba68fc48f6",
+          "operation": "row_slice",
+          "reassembly": {
+            "axis": 0,
+            "group": "qwen-gdn-core-native",
+            "order": 7
+          },
+          "request_id": "conv_v",
+          "role": "value_convolution",
+          "slice": {
+            "axes": {
+              "0": [
+                5376,
+                5504
+              ]
+            },
+            "kind": "slice"
+          },
+          "source_absolute_file_offsets": [
+            1716601128,
+            1716683048
+          ],
+          "source_data_offsets": [
+            1716597856,
+            1716679776
+          ],
+          "source_dtype": "BF16",
+          "source_read_bytes": 1024,
+          "source_shape": [
+            10240,
+            1,
+            4
+          ],
+          "source_shard": "model-00051-of-00131.safetensors",
+          "source_tensor_nbytes": 81920,
+          "source_tensor_payload_sha256": "7312daf5d3a5bdfdeb4ff02588c4f1b627c2f6a7435aced9f1c6cf46bf4f5b77",
+          "tensor_name": "model.language_model.layers.17.linear_attn.conv1d.weight"
+        },
+        {
+          "context": {
+            "source_rows": [
+              10,
+              11
+            ],
+            "state_role": "decay_parameter"
+          },
+          "depends_on": [
+            "a_weight"
+          ],
+          "materialized_dtype": "BF16",
+          "materialized_nbytes": 2,
+          "materialized_shape": [
+            1
+          ],
+          "materialized_tensor_sha256": "ad6d6c69097703946ee1dc5c59ee05af6a303adc71f6c5e1b1f18947e008e63e",
+          "operation": "row_slice",
+          "reassembly": {
+            "axis": 0,
+            "group": "qwen-gdn-core-native",
+            "order": 9
+          },
+          "request_id": "dt_bias",
+          "role": "decay_bias_scalar",
+          "slice": {
+            "axes": {
+              "0": [
+                10,
+                11
+              ]
+            },
+            "kind": "slice"
+          },
+          "source_absolute_file_offsets": [
+            1716683048,
+            1716683144
+          ],
+          "source_data_offsets": [
+            1716679776,
+            1716679872
+          ],
+          "source_dtype": "BF16",
+          "source_read_bytes": 2,
+          "source_shape": [
+            48
+          ],
+          "source_shard": "model-00051-of-00131.safetensors",
+          "source_tensor_nbytes": 96,
+          "source_tensor_payload_sha256": "a09d8f8a0866d7ecb51fc74dcfa3f5881206d48e75da09075d2d952ea6124347",
+          "tensor_name": "model.language_model.layers.17.linear_attn.dt_bias"
+        },
+        {
+          "context": {
+            "input_width": 2560,
+            "key_head": 3,
+            "output_width": 128,
+            "source_rows": [
+              2432,
+              2560
+            ]
+          },
+          "depends_on": [
+            "in_proj_qkv.weight"
+          ],
+          "materialized_dtype": "BF16",
+          "materialized_nbytes": 655360,
+          "materialized_shape": [
+            128,
+            2560
+          ],
+          "materialized_tensor_sha256": "4cadabe6ff316957985ae37f35cf1a20b7da670053fb2c93ec10d86fb577e234",
+          "operation": "row_slice",
+          "reassembly": {
+            "axis": 0,
+            "group": "qwen-gdn-core-native",
+            "order": 1
+          },
+          "request_id": "k_weight",
+          "role": "key_projection",
+          "slice": {
+            "axes": {
+              "0": [
+                2432,
+                2560
+              ]
+            },
+            "kind": "slice"
+          },
+          "source_absolute_file_offsets": [
+            1717174664,
+            1769603464
+          ],
+          "source_data_offsets": [
+            1717171392,
+            1769600192
+          ],
+          "source_dtype": "BF16",
+          "source_read_bytes": 655360,
+          "source_shape": [
+            10240,
+            2560
+          ],
+          "source_shard": "model-00051-of-00131.safetensors",
+          "source_tensor_nbytes": 52428800,
+          "source_tensor_payload_sha256": "ae1d0b9c16680ff377b08b352fc55468ae852e9481846ece4f1a9d788504399a",
+          "tensor_name": "model.language_model.layers.17.linear_attn.in_proj_qkv.weight"
+        },
+        {
+          "context": {
+            "input_width": 2560,
+            "key_head": 3,
+            "output_width": 128,
+            "source_rows": [
+              384,
+              512
+            ]
+          },
+          "depends_on": [
+            "in_proj_qkv.weight"
+          ],
+          "materialized_dtype": "BF16",
+          "materialized_nbytes": 655360,
+          "materialized_shape": [
+            128,
+            2560
+          ],
+          "materialized_tensor_sha256": "41b31f28c0799b25ae6bb6203625bc072c260ce6f3513f9aadf9185da8637b90",
+          "operation": "row_slice",
+          "reassembly": {
+            "axis": 0,
+            "group": "qwen-gdn-core-native",
+            "order": 0
+          },
+          "request_id": "q_weight",
+          "role": "query_projection",
+          "slice": {
+            "axes": {
+              "0": [
+                384,
+                512
+              ]
+            },
+            "kind": "slice"
+          },
+          "source_absolute_file_offsets": [
+            1717174664,
+            1769603464
+          ],
+          "source_data_offsets": [
+            1717171392,
+            1769600192
+          ],
+          "source_dtype": "BF16",
+          "source_read_bytes": 655360,
+          "source_shape": [
+            10240,
+            2560
+          ],
+          "source_shard": "model-00051-of-00131.safetensors",
+          "source_tensor_nbytes": 52428800,
+          "source_tensor_payload_sha256": "ae1d0b9c16680ff377b08b352fc55468ae852e9481846ece4f1a9d788504399a",
+          "tensor_name": "model.language_model.layers.17.linear_attn.in_proj_qkv.weight"
+        },
+        {
+          "context": {
+            "input_width": 2560,
+            "output_width": 128,
+            "source_rows": [
+              5376,
+              5504
+            ],
+            "value_head": 10
+          },
+          "depends_on": [
+            "in_proj_qkv.weight"
+          ],
+          "materialized_dtype": "BF16",
+          "materialized_nbytes": 655360,
+          "materialized_shape": [
+            128,
+            2560
+          ],
+          "materialized_tensor_sha256": "b9350182347e6d996e9f42ef2bc66fa033e4fe0b03702383a41dfe95bce22a69",
+          "operation": "row_slice",
+          "reassembly": {
+            "axis": 0,
+            "group": "qwen-gdn-core-native",
+            "order": 2
+          },
+          "request_id": "v_weight",
+          "role": "value_projection",
+          "slice": {
+            "axes": {
+              "0": [
+                5376,
+                5504
+              ]
+            },
+            "kind": "slice"
+          },
+          "source_absolute_file_offsets": [
+            1717174664,
+            1769603464
+          ],
+          "source_data_offsets": [
+            1717171392,
+            1769600192
+          ],
+          "source_dtype": "BF16",
+          "source_read_bytes": 655360,
+          "source_shape": [
+            10240,
+            2560
+          ],
+          "source_shard": "model-00051-of-00131.safetensors",
+          "source_tensor_nbytes": 52428800,
+          "source_tensor_payload_sha256": "ae1d0b9c16680ff377b08b352fc55468ae852e9481846ece4f1a9d788504399a",
+          "tensor_name": "model.language_model.layers.17.linear_attn.in_proj_qkv.weight"
+        }
+      ],
+      "sequence": 1,
+      "source_file": {
+        "bytes": 1832518280,
+        "path": "/home/leo/models/Qwen3.8-Flash-Next-BF16-source/model-00051-of-00131.safetensors",
+        "sha256": "6c37a65336970acd022ba03c0d219aa7598e652d2a88f482c590497b49da927c",
+        "sha256_status": "MEASURED",
+        "source_mutated": false
+      },
+      "source_shard": "model-00051-of-00131.safetensors",
+      "staging": {
+        "bytes": 1980580,
+        "path": "/tmp/remora-donor-safetensor-stream/qwen-gdn-core-001/.remora-qwen-gdn-core-ephemeral-001-0001-wurkh6_r.safetensors",
+        "payload_keys": [
+          "A_log",
+          "a_weight",
+          "b_weight",
+          "conv_k",
+          "conv_q",
+          "conv_v",
+          "dt_bias",
+          "k_weight",
+          "q_weight",
+          "v_weight"
+        ],
+        "sha256": "e63410bb5515d0e771639be48f2731551ef21c682069fa380eb8c08b5c74607d",
+        "status": "STAGED"
+      }
+    }
+  ],
+  "source": {
+    "index_path": "/home/leo/models/Qwen3.8-Flash-Next-BF16-source/model.safetensors.index.json",
+    "index_sha256": "99e815241ef03325536b0aaa4441deea45174c17fae31e10f0bb456410c590de",
+    "integrity_status": "PASS",
+    "metadata_files": {
+      "FLASH_NEXT_BF16_SOURCE_MANIFEST.json": {
+        "bytes": 93657,
+        "sha256": "15aa2c0adc9b8baca3d1dba34628443a8fd29fe2a03533a0c592c049d97d5a26"
+      },
+      "config.json": {
+        "bytes": 4745,
+        "sha256": "889658f2508e8c61d409b02e70e0d78d8d4452ec65aaafbe129805d213d2e74b"
+      },
+      "model.safetensors.index.json": {
+        "bytes": 170726,
+        "sha256": "99e815241ef03325536b0aaa4441deea45174c17fae31e10f0bb456410c590de"
+      }
+    },
+    "path": "/home/leo/models/Qwen3.8-Flash-Next-BF16-source",
+    "repository": "Qwen/Qwen3.8-Flash-Next",
+    "revision": "f5d08274bafd880402bd16f5e3e6c514136ec06c",
+    "revision_type": "commit_sha"
+  },
+  "started_at": "2026-09-10T17:57:34.508429+00:00",
+  "stream_id": "qwen-gdn-core-ephemeral-001"
+}

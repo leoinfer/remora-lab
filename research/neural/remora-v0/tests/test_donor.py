@@ -10,6 +10,7 @@ from remora.donors.port import TeacherPortAdapter, teacher_logit_distillation_lo
 from remora.donors.registry import DonorRegistry
 from remora.donors.selection import select_components
 from remora.donors.extract import extract_selected_tensors
+from remora.donors.ephemeral import read_safetensors_header, scan_safetensor_shards, stream_selected_payload
 from remora.donors.response import DonorResponseRecord, load_response_records
 from remora.donors.activation import (
     DonorActivationRecord,
@@ -18,6 +19,7 @@ from remora.donors.activation import (
     write_activation_records,
 )
 from remora.donors.runtime import DonorRuntimeSpec
+from remora.utils import tensor_sha256
 
 
 class DonorTests(unittest.TestCase):
@@ -192,6 +194,163 @@ class DonorTests(unittest.TestCase):
                     prompt_format="unbounded-template",
                     allow_model_load=True,
                 ).validate()
+
+    def test_ephemeral_stream_logs_reassembly_context_and_deletes_only_staging(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp) / "donor"
+            root.mkdir()
+            from safetensors.torch import save_file
+
+            source_shard = root / "model-00001-of-00002.safetensors"
+            other_shard = root / "model-00002-of-00002.safetensors"
+            save_file(
+                {
+                    "a.weight": torch.arange(24, dtype=torch.float32).reshape(6, 4),
+                    "unused": torch.ones(3, dtype=torch.float32),
+                },
+                str(source_shard),
+            )
+            save_file({"other": torch.arange(5, dtype=torch.float32)}, str(other_shard))
+            (root / "model.safetensors.index.json").write_text(
+                __import__("json").dumps(
+                    {
+                        "metadata": {"total_size": source_shard.stat().st_size + other_shard.stat().st_size},
+                        "weight_map": {
+                            "a.weight": source_shard.name,
+                            "unused": source_shard.name,
+                            "other": other_shard.name,
+                        },
+                    }
+                )
+            )
+            header = read_safetensors_header(source_shard)
+            self.assertEqual(header["tensor_count"], 2)
+            self.assertFalse(header.get("weights_materialized", False))
+            sweep = scan_safetensor_shards(root)
+            self.assertEqual(sweep["shard_count"], 2)
+            self.assertFalse(sweep["inspection"]["weights_materialized"])
+            source_hash_before = __import__("hashlib").sha256(source_shard.read_bytes()).hexdigest()
+
+            selection = {
+                "schema": "remora-ephemeral-donor-selection-v1",
+                "component_id": "fixture-organ",
+                "requests": [
+                    {
+                        "request_id": "organ_rows",
+                        "role": "projection",
+                        "tensor_name": "a.weight",
+                        "source_shard": source_shard.name,
+                        "slice": {"rows": [1, 4]},
+                        "operation": "row_slice",
+                        "reassembly": {"group": "organ", "axis": 0, "order": 0},
+                        "depends_on": ["organ_gate"],
+                        "context": {"input_width": 4, "output_width": 4},
+                    }
+                ],
+                "reassembly": {"organ": "concatenate row slices in order"},
+            }
+            receipt = Path(tmp) / "receipt.json"
+            events = Path(tmp) / "events.jsonl"
+            staging = Path(tmp) / "staging"
+
+            def accept(bundle_path, tensors, context):
+                from safetensors import safe_open
+
+                with safe_open(str(bundle_path), framework="pt", device="cpu") as handle:
+                    reloaded = handle.get_tensor("organ_rows")
+                self.assertTrue(torch.equal(reloaded, tensors["organ_rows"]))
+                self.assertEqual(context["requests"][0]["source_data_offsets"][1] - context["requests"][0]["source_data_offsets"][0], 96)
+                return {
+                    "accepted": True,
+                    "verifier_id": "fixture-organ-integrity",
+                    "reason": "reloaded_exact_slice",
+                    "metrics": {"rows": 3},
+                    "satisfied_context": {"dependency_graph_checked": True},
+                }
+
+            result = stream_selected_payload(
+                root,
+                selection,
+                staging_dir=staging,
+                receipt_path=receipt,
+                event_log_path=events,
+                allow_payload=True,
+                delete_after_accept=True,
+                consumer=accept,
+                stream_id="fixture-stream",
+            )
+            self.assertEqual(result["summary"]["deleted_ephemeral_bundle_count"], 1)
+            self.assertFalse(any(staging.glob("*.safetensors")))
+            self.assertTrue(source_shard.is_file())
+            self.assertEqual(__import__("hashlib").sha256(source_shard.read_bytes()).hexdigest(), source_hash_before)
+            self.assertEqual(result["shards"][0]["staging"]["status"], "DELETED_AFTER_ACCEPT")
+            request_record = result["shards"][0]["requests"][0]
+            self.assertEqual(request_record["slice"]["axes"]["0"], [1, 4])
+            self.assertEqual(len(request_record["source_tensor_payload_sha256"]), 64)
+            self.assertTrue(events.is_file())
+            self.assertTrue(receipt.is_file())
+
+    def test_ephemeral_stream_retains_rejected_bundle_and_refuses_source_staging(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp) / "donor"
+            root.mkdir()
+            from safetensors.torch import save_file
+
+            shard = root / "model.safetensors"
+            save_file({"x": torch.ones(2)}, str(shard))
+            (root / "model.safetensors.index.json").write_text(
+                __import__("json").dumps({"weight_map": {"x": shard.name}})
+            )
+            selection = {
+                "schema": "remora-ephemeral-donor-selection-v1",
+                "component_id": "fixture-rejected",
+                "requests": [{"request_id": "x", "tensor_name": "x", "source_shard": shard.name}],
+            }
+            with self.assertRaises(ValueError):
+                stream_selected_payload(
+                    root,
+                    selection,
+                    staging_dir=root / "unsafe",
+                    allow_payload=True,
+                    delete_after_accept=True,
+                    consumer=lambda *_: {"accepted": True},
+                )
+            staging = Path(tmp) / "staging"
+            result = stream_selected_payload(
+                root,
+                selection,
+                staging_dir=staging,
+                allow_payload=True,
+                delete_after_accept=True,
+                consumer=lambda *_: {"accepted": False, "verifier_id": "fixture-reject"},
+                stream_id="fixture-rejected-stream",
+            )
+            self.assertEqual(result["shards"][0]["staging"]["status"], "RETAINED_REJECTED_FOR_REVIEW")
+            self.assertEqual(len(list(staging.glob("*.safetensors"))), 1)
+
+            error_staging = Path(tmp) / "error-staging"
+            error_receipt = Path(tmp) / "error-receipt.json"
+            with self.assertRaises(RuntimeError):
+                stream_selected_payload(
+                    root,
+                    selection,
+                    staging_dir=error_staging,
+                    receipt_path=error_receipt,
+                    allow_payload=True,
+                    delete_after_accept=True,
+                    consumer=lambda *_: (_ for _ in ()).throw(RuntimeError("fixture verifier failure")),
+                    stream_id="fixture-error-stream",
+                )
+            error_result = __import__("json").loads(error_receipt.read_text())
+            self.assertEqual(error_result["shards"][0]["staging"]["status"], "RETAINED_CONSUMER_ERROR")
+            self.assertFalse(error_result["shards"][0]["decision"]["accepted"])
+            self.assertEqual(len(list(error_staging.glob("*.safetensors"))), 1)
+
+    def test_tensor_sha256_supports_bfloat16_raw_bytes(self):
+        value = torch.tensor([1.0, -2.0, 3.5], dtype=torch.bfloat16)
+        digest = tensor_sha256(value)
+        self.assertEqual(len(digest), 64)
+        self.assertEqual(digest, tensor_sha256(value.clone()))
 
 
 if __name__ == "__main__":
