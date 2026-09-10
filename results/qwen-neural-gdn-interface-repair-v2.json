@@ -1,0 +1,1374 @@
+{
+  "accounting": {
+    "donor_core_parameters_modified": 0,
+    "donor_core_parameters_resident": 38594,
+    "rank4_port_parameters": 2432,
+    "rank96_port_parameters": 58368,
+    "source_payload_bytes_bf16": 3290372
+  },
+  "experiment_family": "QWEN-DONOR-GDN-INTERFACE-REPAIR-002+",
+  "experiment_id": "QWEN-DONOR-GDN-INTERFACE-REPAIR-002",
+  "hypothesis": "The shifted-interface failure is a bounded port-compatibility problem: a sufficiently small local repair should recover the actual donor core faster than a random core under the same repair budget.",
+  "interpretation": "The result distinguishes local compatibility repair from semantic interface transfer; promotion requires actual donor/random separation at a bounded port cost and does not follow from rank-96 recovery alone.",
+  "labels": {
+    "DERIVED": [
+      "threshold arrays and port parameter counts"
+    ],
+    "MEASURED": [
+      "shifted-interface repair curves for actual and random frozen cores",
+      "threshold records, changed parameters, tokens, and wall time",
+      "bounded source extraction and checkpoint hashes"
+    ],
+    "MODELED": [],
+    "UNMEASURED": [
+      "semantic bus abstraction",
+      "original donor training compute avoided",
+      "energy"
+    ]
+  },
+  "per_seed": {
+    "19": {
+      "checkpoint": {
+        "bytes": 7705454,
+        "path": "/home/leo/research/remora-v0/checkpoints/aged-surgery-remora-seed19.pt",
+        "schema": "remora-v1-aged-surgery-checkpoint",
+        "seed": 19,
+        "sha256": "5c6c4fff217be18671d375521e779e41308ab9164b81597fc7da62b8b382a7be"
+      },
+      "curves": {
+        "actual": {
+          "4": {
+            "interface": "cyclic bus permutation by 7 plus scale 0.9",
+            "repair_rank": 4,
+            "steps": [
+              {
+                "accuracy": 0.2578125,
+                "changed_fraction_total_model": 0.0,
+                "changed_parameters": 0,
+                "gradient_steps": 0,
+                "loss_last": null,
+                "mean_target_cosine": -0.01687186397612095,
+                "tokens": 0,
+                "trainable_parameters": 2432,
+                "wall_seconds": 0.1134696079971036
+              },
+              {
+                "accuracy": 0.25,
+                "changed_fraction_total_model": 0.0005103642097984232,
+                "changed_parameters": 896,
+                "gradient_steps": 1,
+                "loss_last": 2.3493456840515137,
+                "mean_target_cosine": -0.014166316948831081,
+                "tokens": 640,
+                "trainable_parameters": 2432,
+                "wall_seconds": 0.2364412250026362
+              },
+              {
+                "accuracy": 0.2578125,
+                "changed_fraction_total_model": 0.001239455938081885,
+                "changed_parameters": 2176,
+                "gradient_steps": 2,
+                "loss_last": 1.9113974571228027,
+                "mean_target_cosine": -0.011146429926156998,
+                "tokens": 1280,
+                "trainable_parameters": 2432,
+                "wall_seconds": 0.3278576169977896
+              },
+              {
+                "accuracy": 0.265625,
+                "changed_fraction_total_model": 0.001239455938081885,
+                "changed_parameters": 2176,
+                "gradient_steps": 4,
+                "loss_last": 0.7146719098091125,
+                "mean_target_cosine": -0.0008644297486171126,
+                "tokens": 2560,
+                "trainable_parameters": 2432,
+                "wall_seconds": 0.5178720950061688
+              },
+              {
+                "accuracy": 0.2421875,
+                "changed_fraction_total_model": 0.001239455938081885,
+                "changed_parameters": 2176,
+                "gradient_steps": 8,
+                "loss_last": 0.18688426911830902,
+                "mean_target_cosine": -0.0059102303348481655,
+                "tokens": 5120,
+                "trainable_parameters": 2432,
+                "wall_seconds": 0.9175347019991023
+              },
+              {
+                "accuracy": 0.2734375,
+                "changed_fraction_total_model": 0.001239455938081885,
+                "changed_parameters": 2176,
+                "gradient_steps": 16,
+                "loss_last": 0.08580809831619263,
+                "mean_target_cosine": -0.0006866711191833019,
+                "tokens": 10240,
+                "trainable_parameters": 2432,
+                "wall_seconds": 1.764987207003287
+              },
+              {
+                "accuracy": 0.25,
+                "changed_fraction_total_model": 0.001239455938081885,
+                "changed_parameters": 2176,
+                "gradient_steps": 32,
+                "loss_last": 0.034757792949676514,
+                "mean_target_cosine": -0.006891021504998207,
+                "tokens": 20480,
+                "trainable_parameters": 2432,
+                "wall_seconds": 3.1591878479957813
+              },
+              {
+                "accuracy": 0.234375,
+                "changed_fraction_total_model": 0.001239455938081885,
+                "changed_parameters": 2176,
+                "gradient_steps": 64,
+                "loss_last": 0.015184616670012474,
+                "mean_target_cosine": -0.008174273185431957,
+                "tokens": 40960,
+                "trainable_parameters": 2432,
+                "wall_seconds": 6.16586051700142
+              }
+            ],
+            "threshold_steps": null,
+            "trainable_parameters": 2432
+          },
+          "96": {
+            "interface": "cyclic bus permutation by 7 plus scale 0.9",
+            "repair_rank": 96,
+            "steps": [
+              {
+                "accuracy": 0.2578125,
+                "changed_fraction_total_model": 0.0,
+                "changed_parameters": 0,
+                "gradient_steps": 0,
+                "loss_last": null,
+                "mean_target_cosine": -0.01687186397612095,
+                "tokens": 0,
+                "trainable_parameters": 58368,
+                "wall_seconds": 0.11498911100352416
+              },
+              {
+                "accuracy": 0.3359375,
+                "changed_fraction_total_model": 0.011870530403605762,
+                "changed_parameters": 21504,
+                "gradient_steps": 1,
+                "loss_last": 2.3493456840515137,
+                "mean_target_cosine": 0.020206790417432785,
+                "tokens": 640,
+                "trainable_parameters": 58368,
+                "wall_seconds": 0.22707448599976487
+              },
+              {
+                "accuracy": 0.234375,
+                "changed_fraction_total_model": 0.02882843098018542,
+                "changed_parameters": 52224,
+                "gradient_steps": 2,
+                "loss_last": 0.4992547035217285,
+                "mean_target_cosine": 0.01739133521914482,
+                "tokens": 1280,
+                "trainable_parameters": 58368,
+                "wall_seconds": 0.3388347399959457
+              },
+              {
+                "accuracy": 0.2265625,
+                "changed_fraction_total_model": 0.02882843098018542,
+                "changed_parameters": 52224,
+                "gradient_steps": 4,
+                "loss_last": 0.2350929230451584,
+                "mean_target_cosine": -0.002691243775188923,
+                "tokens": 2560,
+                "trainable_parameters": 58368,
+                "wall_seconds": 0.5087689560023136
+              },
+              {
+                "accuracy": 0.2109375,
+                "changed_fraction_total_model": 0.02882843098018542,
+                "changed_parameters": 52224,
+                "gradient_steps": 8,
+                "loss_last": 0.03855171799659729,
+                "mean_target_cosine": 0.0018431381322443485,
+                "tokens": 5120,
+                "trainable_parameters": 58368,
+                "wall_seconds": 0.9046028159937123
+              },
+              {
+                "accuracy": 0.25,
+                "changed_fraction_total_model": 0.02882843098018542,
+                "changed_parameters": 52224,
+                "gradient_steps": 16,
+                "loss_last": 0.014008967205882072,
+                "mean_target_cosine": 0.006204811856150627,
+                "tokens": 10240,
+                "trainable_parameters": 58368,
+                "wall_seconds": 1.6071136079990538
+              },
+              {
+                "accuracy": 0.296875,
+                "changed_fraction_total_model": 0.02882843098018542,
+                "changed_parameters": 52224,
+                "gradient_steps": 32,
+                "loss_last": 0.00577775202691555,
+                "mean_target_cosine": 0.016747713088989258,
+                "tokens": 20480,
+                "trainable_parameters": 58368,
+                "wall_seconds": 3.167442737001693
+              },
+              {
+                "accuracy": 0.296875,
+                "changed_fraction_total_model": 0.02882843098018542,
+                "changed_parameters": 52224,
+                "gradient_steps": 64,
+                "loss_last": 0.0031620333902537823,
+                "mean_target_cosine": 0.017286669462919235,
+                "tokens": 40960,
+                "trainable_parameters": 58368,
+                "wall_seconds": 6.105154543001845
+              }
+            ],
+            "threshold_steps": null,
+            "trainable_parameters": 58368
+          }
+        },
+        "random": {
+          "4": {
+            "interface": "cyclic bus permutation by 7 plus scale 0.9",
+            "repair_rank": 4,
+            "steps": [
+              {
+                "accuracy": 0.2421875,
+                "changed_fraction_total_model": 0.0,
+                "changed_parameters": 0,
+                "gradient_steps": 0,
+                "loss_last": null,
+                "mean_target_cosine": -0.002486898796632886,
+                "tokens": 0,
+                "trainable_parameters": 2432,
+                "wall_seconds": 0.11330253699998138
+              },
+              {
+                "accuracy": 0.2578125,
+                "changed_fraction_total_model": 0.0005103642097984232,
+                "changed_parameters": 896,
+                "gradient_steps": 1,
+                "loss_last": 1.4806983470916748,
+                "mean_target_cosine": 0.0011385197285562754,
+                "tokens": 640,
+                "trainable_parameters": 2432,
+                "wall_seconds": 0.22569489300076384
+              },
+              {
+                "accuracy": 0.25,
+                "changed_fraction_total_model": 0.001239455938081885,
+                "changed_parameters": 2176,
+                "gradient_steps": 2,
+                "loss_last": 1.4089620113372803,
+                "mean_target_cosine": 9.995978325605392e-05,
+                "tokens": 1280,
+                "trainable_parameters": 2432,
+                "wall_seconds": 0.31838143799541285
+              },
+              {
+                "accuracy": 0.2890625,
+                "changed_fraction_total_model": 0.001239455938081885,
+                "changed_parameters": 2176,
+                "gradient_steps": 4,
+                "loss_last": 1.1692787408828735,
+                "mean_target_cosine": 0.008624143898487091,
+                "tokens": 2560,
+                "trainable_parameters": 2432,
+                "wall_seconds": 0.48996521599474363
+              },
+              {
+                "accuracy": 0.2734375,
+                "changed_fraction_total_model": 0.001239455938081885,
+                "changed_parameters": 2176,
+                "gradient_steps": 8,
+                "loss_last": 0.6087400913238525,
+                "mean_target_cosine": 0.012748259119689465,
+                "tokens": 5120,
+                "trainable_parameters": 2432,
+                "wall_seconds": 0.9095454269991023
+              },
+              {
+                "accuracy": 0.3203125,
+                "changed_fraction_total_model": 0.001239455938081885,
+                "changed_parameters": 2176,
+                "gradient_steps": 16,
+                "loss_last": 0.30203837156295776,
+                "mean_target_cosine": -0.002247183583676815,
+                "tokens": 10240,
+                "trainable_parameters": 2432,
+                "wall_seconds": 1.5983698399941204
+              },
+              {
+                "accuracy": 0.25,
+                "changed_fraction_total_model": 0.001239455938081885,
+                "changed_parameters": 2176,
+                "gradient_steps": 32,
+                "loss_last": 0.11388729512691498,
+                "mean_target_cosine": 0.005199078936129808,
+                "tokens": 20480,
+                "trainable_parameters": 2432,
+                "wall_seconds": 3.1313117829995463
+              },
+              {
+                "accuracy": 0.2421875,
+                "changed_fraction_total_model": 0.001239455938081885,
+                "changed_parameters": 2176,
+                "gradient_steps": 64,
+                "loss_last": 0.05361513793468475,
+                "mean_target_cosine": -0.0003243332030251622,
+                "tokens": 40960,
+                "trainable_parameters": 2432,
+                "wall_seconds": 6.438654265002697
+              }
+            ],
+            "threshold_steps": null,
+            "trainable_parameters": 2432
+          },
+          "96": {
+            "interface": "cyclic bus permutation by 7 plus scale 0.9",
+            "repair_rank": 96,
+            "steps": [
+              {
+                "accuracy": 0.2421875,
+                "changed_fraction_total_model": 0.0,
+                "changed_parameters": 0,
+                "gradient_steps": 0,
+                "loss_last": null,
+                "mean_target_cosine": -0.002486898796632886,
+                "tokens": 0,
+                "trainable_parameters": 58368,
+                "wall_seconds": 0.11545674200169742
+              },
+              {
+                "accuracy": 0.3046875,
+                "changed_fraction_total_model": 0.011870530403605762,
+                "changed_parameters": 21504,
+                "gradient_steps": 1,
+                "loss_last": 1.4806983470916748,
+                "mean_target_cosine": 0.0035561276599764824,
+                "tokens": 640,
+                "trainable_parameters": 58368,
+                "wall_seconds": 0.23209316599968588
+              },
+              {
+                "accuracy": 0.2890625,
+                "changed_fraction_total_model": 0.02882843098018542,
+                "changed_parameters": 52224,
+                "gradient_steps": 2,
+                "loss_last": 1.6341071128845215,
+                "mean_target_cosine": -0.0069519695825874805,
+                "tokens": 1280,
+                "trainable_parameters": 58368,
+                "wall_seconds": 0.3545292229973711
+              },
+              {
+                "accuracy": 0.2109375,
+                "changed_fraction_total_model": 0.02882843098018542,
+                "changed_parameters": 52224,
+                "gradient_steps": 4,
+                "loss_last": 1.1374294757843018,
+                "mean_target_cosine": -0.0057416921481490135,
+                "tokens": 2560,
+                "trainable_parameters": 58368,
+                "wall_seconds": 0.5243940000000293
+              },
+              {
+                "accuracy": 0.1875,
+                "changed_fraction_total_model": 0.02882843098018542,
+                "changed_parameters": 52224,
+                "gradient_steps": 8,
+                "loss_last": 0.8536897897720337,
+                "mean_target_cosine": -0.01998797245323658,
+                "tokens": 5120,
+                "trainable_parameters": 58368,
+                "wall_seconds": 0.8967051599975093
+              },
+              {
+                "accuracy": 0.1796875,
+                "changed_fraction_total_model": 0.02882843098018542,
+                "changed_parameters": 52224,
+                "gradient_steps": 16,
+                "loss_last": 0.4821208715438843,
+                "mean_target_cosine": -0.00974238384515047,
+                "tokens": 10240,
+                "trainable_parameters": 58368,
+                "wall_seconds": 1.744498346997716
+              },
+              {
+                "accuracy": 0.2421875,
+                "changed_fraction_total_model": 0.02882843098018542,
+                "changed_parameters": 52224,
+                "gradient_steps": 32,
+                "loss_last": 0.26695168018341064,
+                "mean_target_cosine": 0.0021526601631194353,
+                "tokens": 20480,
+                "trainable_parameters": 58368,
+                "wall_seconds": 3.30416882699501
+              },
+              {
+                "accuracy": 0.2421875,
+                "changed_fraction_total_model": 0.02882843098018542,
+                "changed_parameters": 52224,
+                "gradient_steps": 64,
+                "loss_last": 0.03254843130707741,
+                "mean_target_cosine": 0.0035760165192186832,
+                "tokens": 40960,
+                "trainable_parameters": 58368,
+                "wall_seconds": 6.396315679005056
+              }
+            ],
+            "threshold_steps": null,
+            "trainable_parameters": 58368
+          }
+        }
+      },
+      "dataset": {
+        "memory_delay": 9,
+        "memory_items": 4,
+        "query_synthesis": "same donor-key analytic synthesis as QWEN-DONOR-GDN-REMORA-PATH-004; no donor training",
+        "test_samples": 128,
+        "time": 10,
+        "train_samples": 64
+      },
+      "shifted_zero_repair_baseline": {
+        "actual": {
+          "accuracy": 0.2578125,
+          "changed_fraction_total_model": 0.0,
+          "changed_parameters": 0,
+          "gradient_steps": 0,
+          "loss_last": null,
+          "mean_target_cosine": -0.01687186397612095,
+          "tokens": 0,
+          "trainable_parameters": 2432,
+          "wall_seconds": 0.11294734599505318
+        },
+        "random": {
+          "accuracy": 0.2421875,
+          "changed_fraction_total_model": 0.0,
+          "changed_parameters": 0,
+          "gradient_steps": 0,
+          "loss_last": null,
+          "mean_target_cosine": -0.002486898796632886,
+          "tokens": 0,
+          "trainable_parameters": 2432,
+          "wall_seconds": 0.11196144499990623
+        }
+      }
+    },
+    "31": {
+      "checkpoint": {
+        "bytes": 7705454,
+        "path": "/home/leo/research/remora-v0/checkpoints/aged-surgery-remora-seed31.pt",
+        "schema": "remora-v1-aged-surgery-checkpoint",
+        "seed": 31,
+        "sha256": "6ff858324bbc3aac8b50d087ca4e6632e8c2888206dacad465f34609b8aa2d9f"
+      },
+      "curves": {
+        "actual": {
+          "4": {
+            "interface": "cyclic bus permutation by 7 plus scale 0.9",
+            "repair_rank": 4,
+            "steps": [
+              {
+                "accuracy": 0.171875,
+                "changed_fraction_total_model": 0.0,
+                "changed_parameters": 0,
+                "gradient_steps": 0,
+                "loss_last": null,
+                "mean_target_cosine": -0.03536289185285568,
+                "tokens": 0,
+                "trainable_parameters": 2432,
+                "wall_seconds": 0.11952996000036364
+              },
+              {
+                "accuracy": 0.1875,
+                "changed_fraction_total_model": 0.0005103642097984232,
+                "changed_parameters": 896,
+                "gradient_steps": 1,
+                "loss_last": 2.6935834884643555,
+                "mean_target_cosine": -0.03357838839292526,
+                "tokens": 640,
+                "trainable_parameters": 2432,
+                "wall_seconds": 0.21716736500093248
+              },
+              {
+                "accuracy": 0.203125,
+                "changed_fraction_total_model": 0.001239455938081885,
+                "changed_parameters": 2176,
+                "gradient_steps": 2,
+                "loss_last": 2.272416830062866,
+                "mean_target_cosine": -0.031076524406671524,
+                "tokens": 1280,
+                "trainable_parameters": 2432,
+                "wall_seconds": 0.3138119680006639
+              },
+              {
+                "accuracy": 0.171875,
+                "changed_fraction_total_model": 0.001239455938081885,
+                "changed_parameters": 2176,
+                "gradient_steps": 4,
+                "loss_last": 0.83845454454422,
+                "mean_target_cosine": -0.01727626658976078,
+                "tokens": 2560,
+                "trainable_parameters": 2432,
+                "wall_seconds": 0.4707501169978059
+              },
+              {
+                "accuracy": 0.234375,
+                "changed_fraction_total_model": 0.001239455938081885,
+                "changed_parameters": 2176,
+                "gradient_steps": 8,
+                "loss_last": 0.22512519359588623,
+                "mean_target_cosine": 0.002048519439995289,
+                "tokens": 5120,
+                "trainable_parameters": 2432,
+                "wall_seconds": 0.9088281549993553
+              },
+              {
+                "accuracy": 0.2421875,
+                "changed_fraction_total_model": 0.001239455938081885,
+                "changed_parameters": 2176,
+                "gradient_steps": 16,
+                "loss_last": 0.09254913032054901,
+                "mean_target_cosine": 0.019090348854660988,
+                "tokens": 10240,
+                "trainable_parameters": 2432,
+                "wall_seconds": 1.6543358490016544
+              },
+              {
+                "accuracy": 0.28125,
+                "changed_fraction_total_model": 0.001239455938081885,
+                "changed_parameters": 2176,
+                "gradient_steps": 32,
+                "loss_last": 0.03981751203536987,
+                "mean_target_cosine": 0.02423965558409691,
+                "tokens": 20480,
+                "trainable_parameters": 2432,
+                "wall_seconds": 3.119635802002449
+              },
+              {
+                "accuracy": 0.25,
+                "changed_fraction_total_model": 0.001239455938081885,
+                "changed_parameters": 2176,
+                "gradient_steps": 64,
+                "loss_last": 0.019645148888230324,
+                "mean_target_cosine": 0.031149297952651978,
+                "tokens": 40960,
+                "trainable_parameters": 2432,
+                "wall_seconds": 6.166812012001174
+              }
+            ],
+            "threshold_steps": null,
+            "trainable_parameters": 2432
+          },
+          "96": {
+            "interface": "cyclic bus permutation by 7 plus scale 0.9",
+            "repair_rank": 96,
+            "steps": [
+              {
+                "accuracy": 0.171875,
+                "changed_fraction_total_model": 0.0,
+                "changed_parameters": 0,
+                "gradient_steps": 0,
+                "loss_last": null,
+                "mean_target_cosine": -0.03536289185285568,
+                "tokens": 0,
+                "trainable_parameters": 58368,
+                "wall_seconds": 0.11828022800182225
+              },
+              {
+                "accuracy": 0.25,
+                "changed_fraction_total_model": 0.011870530403605762,
+                "changed_parameters": 21504,
+                "gradient_steps": 1,
+                "loss_last": 2.6935834884643555,
+                "mean_target_cosine": -0.0010442484635859728,
+                "tokens": 640,
+                "trainable_parameters": 58368,
+                "wall_seconds": 0.21783402699657017
+              },
+              {
+                "accuracy": 0.3046875,
+                "changed_fraction_total_model": 0.02882843098018542,
+                "changed_parameters": 52224,
+                "gradient_steps": 2,
+                "loss_last": 0.6562144160270691,
+                "mean_target_cosine": 0.010809365659952164,
+                "tokens": 1280,
+                "trainable_parameters": 58368,
+                "wall_seconds": 0.3054320910014212
+              },
+              {
+                "accuracy": 0.28125,
+                "changed_fraction_total_model": 0.02882843098018542,
+                "changed_parameters": 52224,
+                "gradient_steps": 4,
+                "loss_last": 0.37047699093818665,
+                "mean_target_cosine": 0.016616323962807655,
+                "tokens": 2560,
+                "trainable_parameters": 58368,
+                "wall_seconds": 0.49154425100277876
+              },
+              {
+                "accuracy": 0.2890625,
+                "changed_fraction_total_model": 0.02882843098018542,
+                "changed_parameters": 52224,
+                "gradient_steps": 8,
+                "loss_last": 0.06328081339597702,
+                "mean_target_cosine": 0.0031572161242365837,
+                "tokens": 5120,
+                "trainable_parameters": 58368,
+                "wall_seconds": 0.8645017630042275
+              },
+              {
+                "accuracy": 0.28125,
+                "changed_fraction_total_model": 0.02882843098018542,
+                "changed_parameters": 52224,
+                "gradient_steps": 16,
+                "loss_last": 0.030550722032785416,
+                "mean_target_cosine": -0.003797648474574089,
+                "tokens": 10240,
+                "trainable_parameters": 58368,
+                "wall_seconds": 1.6401342199969804
+              },
+              {
+                "accuracy": 0.265625,
+                "changed_fraction_total_model": 0.02882843098018542,
+                "changed_parameters": 52224,
+                "gradient_steps": 32,
+                "loss_last": 0.009700409136712551,
+                "mean_target_cosine": 0.00946255773305893,
+                "tokens": 20480,
+                "trainable_parameters": 58368,
+                "wall_seconds": 3.1707553599990206
+              },
+              {
+                "accuracy": 0.25,
+                "changed_fraction_total_model": 0.02882843098018542,
+                "changed_parameters": 52224,
+                "gradient_steps": 64,
+                "loss_last": 0.0042593814432621,
+                "mean_target_cosine": 0.017294127494096756,
+                "tokens": 40960,
+                "trainable_parameters": 58368,
+                "wall_seconds": 6.241013810998993
+              }
+            ],
+            "threshold_steps": null,
+            "trainable_parameters": 58368
+          }
+        },
+        "random": {
+          "4": {
+            "interface": "cyclic bus permutation by 7 plus scale 0.9",
+            "repair_rank": 4,
+            "steps": [
+              {
+                "accuracy": 0.2421875,
+                "changed_fraction_total_model": 0.0,
+                "changed_parameters": 0,
+                "gradient_steps": 0,
+                "loss_last": null,
+                "mean_target_cosine": 0.005979351699352264,
+                "tokens": 0,
+                "trainable_parameters": 2432,
+                "wall_seconds": 0.11151609400258167
+              },
+              {
+                "accuracy": 0.2109375,
+                "changed_fraction_total_model": 0.0005103642097984232,
+                "changed_parameters": 896,
+                "gradient_steps": 1,
+                "loss_last": 1.413297414779663,
+                "mean_target_cosine": 0.006356033496558666,
+                "tokens": 640,
+                "trainable_parameters": 2432,
+                "wall_seconds": 0.20356181699753506
+              },
+              {
+                "accuracy": 0.234375,
+                "changed_fraction_total_model": 0.001239455938081885,
+                "changed_parameters": 2176,
+                "gradient_steps": 2,
+                "loss_last": 1.306566834449768,
+                "mean_target_cosine": 0.004961775150150061,
+                "tokens": 1280,
+                "trainable_parameters": 2432,
+                "wall_seconds": 0.2894378780038096
+              },
+              {
+                "accuracy": 0.265625,
+                "changed_fraction_total_model": 0.001239455938081885,
+                "changed_parameters": 2176,
+                "gradient_steps": 4,
+                "loss_last": 1.0574228763580322,
+                "mean_target_cosine": -0.001941165653988719,
+                "tokens": 2560,
+                "trainable_parameters": 2432,
+                "wall_seconds": 0.47750761099450756
+              },
+              {
+                "accuracy": 0.2734375,
+                "changed_fraction_total_model": 0.001239455938081885,
+                "changed_parameters": 2176,
+                "gradient_steps": 8,
+                "loss_last": 0.5566793084144592,
+                "mean_target_cosine": 0.0027620699256658554,
+                "tokens": 5120,
+                "trainable_parameters": 2432,
+                "wall_seconds": 0.8515039359990624
+              },
+              {
+                "accuracy": 0.328125,
+                "changed_fraction_total_model": 0.001239455938081885,
+                "changed_parameters": 2176,
+                "gradient_steps": 16,
+                "loss_last": 0.3207894265651703,
+                "mean_target_cosine": 0.010184526443481445,
+                "tokens": 10240,
+                "trainable_parameters": 2432,
+                "wall_seconds": 1.658395639002265
+              },
+              {
+                "accuracy": 0.3515625,
+                "changed_fraction_total_model": 0.001239455938081885,
+                "changed_parameters": 2176,
+                "gradient_steps": 32,
+                "loss_last": 0.142911896109581,
+                "mean_target_cosine": 0.016924960538744926,
+                "tokens": 20480,
+                "trainable_parameters": 2432,
+                "wall_seconds": 3.053825795999728
+              },
+              {
+                "accuracy": 0.2890625,
+                "changed_fraction_total_model": 0.001239455938081885,
+                "changed_parameters": 2176,
+                "gradient_steps": 64,
+                "loss_last": 0.06572683900594711,
+                "mean_target_cosine": 0.012939047068357468,
+                "tokens": 40960,
+                "trainable_parameters": 2432,
+                "wall_seconds": 6.20886890499969
+              }
+            ],
+            "threshold_steps": null,
+            "trainable_parameters": 2432
+          },
+          "96": {
+            "interface": "cyclic bus permutation by 7 plus scale 0.9",
+            "repair_rank": 96,
+            "steps": [
+              {
+                "accuracy": 0.2421875,
+                "changed_fraction_total_model": 0.0,
+                "changed_parameters": 0,
+                "gradient_steps": 0,
+                "loss_last": null,
+                "mean_target_cosine": 0.005979351699352264,
+                "tokens": 0,
+                "trainable_parameters": 58368,
+                "wall_seconds": 0.11460395000176504
+              },
+              {
+                "accuracy": 0.2578125,
+                "changed_fraction_total_model": 0.011870530403605762,
+                "changed_parameters": 21504,
+                "gradient_steps": 1,
+                "loss_last": 1.413297414779663,
+                "mean_target_cosine": 0.0080195851624012,
+                "tokens": 640,
+                "trainable_parameters": 58368,
+                "wall_seconds": 0.2186104980064556
+              },
+              {
+                "accuracy": 0.265625,
+                "changed_fraction_total_model": 0.02882843098018542,
+                "changed_parameters": 52224,
+                "gradient_steps": 2,
+                "loss_last": 1.6214066743850708,
+                "mean_target_cosine": -0.007155705243349075,
+                "tokens": 1280,
+                "trainable_parameters": 58368,
+                "wall_seconds": 0.31236142499983544
+              },
+              {
+                "accuracy": 0.265625,
+                "changed_fraction_total_model": 0.02882843098018542,
+                "changed_parameters": 52224,
+                "gradient_steps": 4,
+                "loss_last": 1.5476489067077637,
+                "mean_target_cosine": 0.011320581659674644,
+                "tokens": 2560,
+                "trainable_parameters": 58368,
+                "wall_seconds": 0.4998295889963629
+              },
+              {
+                "accuracy": 0.3046875,
+                "changed_fraction_total_model": 0.02882843098018542,
+                "changed_parameters": 52224,
+                "gradient_steps": 8,
+                "loss_last": 1.0163021087646484,
+                "mean_target_cosine": 0.02613043040037155,
+                "tokens": 5120,
+                "trainable_parameters": 58368,
+                "wall_seconds": 0.8567641180052306
+              },
+              {
+                "accuracy": 0.2265625,
+                "changed_fraction_total_model": 0.02882843098018542,
+                "changed_parameters": 52224,
+                "gradient_steps": 16,
+                "loss_last": 0.1771232932806015,
+                "mean_target_cosine": -0.0004273243248462677,
+                "tokens": 10240,
+                "trainable_parameters": 58368,
+                "wall_seconds": 1.6204055799971684
+              },
+              {
+                "accuracy": 0.2109375,
+                "changed_fraction_total_model": 0.02882843098018542,
+                "changed_parameters": 52224,
+                "gradient_steps": 32,
+                "loss_last": 0.029760213568806648,
+                "mean_target_cosine": 0.0046168724074959755,
+                "tokens": 20480,
+                "trainable_parameters": 58368,
+                "wall_seconds": 3.094682073002332
+              },
+              {
+                "accuracy": 0.2421875,
+                "changed_fraction_total_model": 0.02882843098018542,
+                "changed_parameters": 52224,
+                "gradient_steps": 64,
+                "loss_last": 0.010350414551794529,
+                "mean_target_cosine": -0.0030772099271416664,
+                "tokens": 40960,
+                "trainable_parameters": 58368,
+                "wall_seconds": 6.155867526998918
+              }
+            ],
+            "threshold_steps": null,
+            "trainable_parameters": 58368
+          }
+        }
+      },
+      "dataset": {
+        "memory_delay": 9,
+        "memory_items": 4,
+        "query_synthesis": "same donor-key analytic synthesis as QWEN-DONOR-GDN-REMORA-PATH-004; no donor training",
+        "test_samples": 128,
+        "time": 10,
+        "train_samples": 64
+      },
+      "shifted_zero_repair_baseline": {
+        "actual": {
+          "accuracy": 0.171875,
+          "changed_fraction_total_model": 0.0,
+          "changed_parameters": 0,
+          "gradient_steps": 0,
+          "loss_last": null,
+          "mean_target_cosine": -0.03536289185285568,
+          "tokens": 0,
+          "trainable_parameters": 2432,
+          "wall_seconds": 0.11714611500065075
+        },
+        "random": {
+          "accuracy": 0.2421875,
+          "changed_fraction_total_model": 0.0,
+          "changed_parameters": 0,
+          "gradient_steps": 0,
+          "loss_last": null,
+          "mean_target_cosine": 0.005979351699352264,
+          "tokens": 0,
+          "trainable_parameters": 2432,
+          "wall_seconds": 0.11731213700113585
+        }
+      }
+    },
+    "7": {
+      "checkpoint": {
+        "bytes": 7705275,
+        "path": "/home/leo/research/remora-v0/checkpoints/aged-surgery-remora-seed7.pt",
+        "schema": "remora-v1-aged-surgery-checkpoint",
+        "seed": 7,
+        "sha256": "cccdfaff0a208fce56fcc64ed48b475bd374a577b48ea65d50a3ada559f09b08"
+      },
+      "curves": {
+        "actual": {
+          "4": {
+            "interface": "cyclic bus permutation by 7 plus scale 0.9",
+            "repair_rank": 4,
+            "steps": [
+              {
+                "accuracy": 0.25,
+                "changed_fraction_total_model": 0.0,
+                "changed_parameters": 0,
+                "gradient_steps": 0,
+                "loss_last": null,
+                "mean_target_cosine": -0.01985480636358261,
+                "tokens": 0,
+                "trainable_parameters": 2432,
+                "wall_seconds": 0.11968333100230666
+              },
+              {
+                "accuracy": 0.2421875,
+                "changed_fraction_total_model": 0.0005103642097984232,
+                "changed_parameters": 896,
+                "gradient_steps": 1,
+                "loss_last": 2.297863721847534,
+                "mean_target_cosine": -0.01373494602739811,
+                "tokens": 640,
+                "trainable_parameters": 2432,
+                "wall_seconds": 0.22653617399919312
+              },
+              {
+                "accuracy": 0.2734375,
+                "changed_fraction_total_model": 0.001239455938081885,
+                "changed_parameters": 2176,
+                "gradient_steps": 2,
+                "loss_last": 1.8658974170684814,
+                "mean_target_cosine": 0.0011285452637821436,
+                "tokens": 1280,
+                "trainable_parameters": 2432,
+                "wall_seconds": 0.3364981440026895
+              },
+              {
+                "accuracy": 0.2734375,
+                "changed_fraction_total_model": 0.001239455938081885,
+                "changed_parameters": 2176,
+                "gradient_steps": 4,
+                "loss_last": 0.7268883585929871,
+                "mean_target_cosine": 0.01524779386818409,
+                "tokens": 2560,
+                "trainable_parameters": 2432,
+                "wall_seconds": 0.4957748770029866
+              },
+              {
+                "accuracy": 0.2890625,
+                "changed_fraction_total_model": 0.001239455938081885,
+                "changed_parameters": 2176,
+                "gradient_steps": 8,
+                "loss_last": 0.19007818400859833,
+                "mean_target_cosine": 0.02158232405781746,
+                "tokens": 5120,
+                "trainable_parameters": 2432,
+                "wall_seconds": 0.8587036769968108
+              },
+              {
+                "accuracy": 0.28125,
+                "changed_fraction_total_model": 0.001239455938081885,
+                "changed_parameters": 2176,
+                "gradient_steps": 16,
+                "loss_last": 0.07910807430744171,
+                "mean_target_cosine": 0.009576360695064068,
+                "tokens": 10240,
+                "trainable_parameters": 2432,
+                "wall_seconds": 1.6240916589958942
+              },
+              {
+                "accuracy": 0.25,
+                "changed_fraction_total_model": 0.001239455938081885,
+                "changed_parameters": 2176,
+                "gradient_steps": 32,
+                "loss_last": 0.033708181232213974,
+                "mean_target_cosine": -0.0018125548958778381,
+                "tokens": 20480,
+                "trainable_parameters": 2432,
+                "wall_seconds": 3.2805883350010845
+              },
+              {
+                "accuracy": 0.265625,
+                "changed_fraction_total_model": 0.001239455938081885,
+                "changed_parameters": 2176,
+                "gradient_steps": 64,
+                "loss_last": 0.016536574810743332,
+                "mean_target_cosine": 0.007167203351855278,
+                "tokens": 40960,
+                "trainable_parameters": 2432,
+                "wall_seconds": 6.166618716000812
+              }
+            ],
+            "threshold_steps": null,
+            "trainable_parameters": 2432
+          },
+          "96": {
+            "interface": "cyclic bus permutation by 7 plus scale 0.9",
+            "repair_rank": 96,
+            "steps": [
+              {
+                "accuracy": 0.25,
+                "changed_fraction_total_model": 0.0,
+                "changed_parameters": 0,
+                "gradient_steps": 0,
+                "loss_last": null,
+                "mean_target_cosine": -0.01985480636358261,
+                "tokens": 0,
+                "trainable_parameters": 58368,
+                "wall_seconds": 0.11639773400384001
+              },
+              {
+                "accuracy": 0.2890625,
+                "changed_fraction_total_model": 0.011870530403605762,
+                "changed_parameters": 21504,
+                "gradient_steps": 1,
+                "loss_last": 2.297863721847534,
+                "mean_target_cosine": 0.007783323526382446,
+                "tokens": 640,
+                "trainable_parameters": 58368,
+                "wall_seconds": 0.23069784200197319
+              },
+              {
+                "accuracy": 0.2578125,
+                "changed_fraction_total_model": 0.02882843098018542,
+                "changed_parameters": 52224,
+                "gradient_steps": 2,
+                "loss_last": 0.44076964259147644,
+                "mean_target_cosine": 0.012404034845530987,
+                "tokens": 1280,
+                "trainable_parameters": 58368,
+                "wall_seconds": 0.32911594900360797
+              },
+              {
+                "accuracy": 0.28125,
+                "changed_fraction_total_model": 0.02882843098018542,
+                "changed_parameters": 52224,
+                "gradient_steps": 4,
+                "loss_last": 0.2876415252685547,
+                "mean_target_cosine": -0.006466622464358807,
+                "tokens": 2560,
+                "trainable_parameters": 58368,
+                "wall_seconds": 0.5145766569985426
+              },
+              {
+                "accuracy": 0.2890625,
+                "changed_fraction_total_model": 0.02882843098018542,
+                "changed_parameters": 52224,
+                "gradient_steps": 8,
+                "loss_last": 0.08039511740207672,
+                "mean_target_cosine": 0.004320312291383743,
+                "tokens": 5120,
+                "trainable_parameters": 58368,
+                "wall_seconds": 0.9060896070004674
+              },
+              {
+                "accuracy": 0.21875,
+                "changed_fraction_total_model": 0.02882843098018542,
+                "changed_parameters": 52224,
+                "gradient_steps": 16,
+                "loss_last": 0.036421436816453934,
+                "mean_target_cosine": -0.0002476288937032223,
+                "tokens": 10240,
+                "trainable_parameters": 58368,
+                "wall_seconds": 1.6328149080000003
+              },
+              {
+                "accuracy": 0.2578125,
+                "changed_fraction_total_model": 0.02882843098018542,
+                "changed_parameters": 52224,
+                "gradient_steps": 32,
+                "loss_last": 0.010281870141625404,
+                "mean_target_cosine": 0.0033238371834158897,
+                "tokens": 20480,
+                "trainable_parameters": 58368,
+                "wall_seconds": 3.226040921996173
+              },
+              {
+                "accuracy": 0.28125,
+                "changed_fraction_total_model": 0.02882843098018542,
+                "changed_parameters": 52224,
+                "gradient_steps": 64,
+                "loss_last": 0.004805467091500759,
+                "mean_target_cosine": 0.0073025040328502655,
+                "tokens": 40960,
+                "trainable_parameters": 58368,
+                "wall_seconds": 6.440317011998559
+              }
+            ],
+            "threshold_steps": null,
+            "trainable_parameters": 58368
+          }
+        },
+        "random": {
+          "4": {
+            "interface": "cyclic bus permutation by 7 plus scale 0.9",
+            "repair_rank": 4,
+            "steps": [
+              {
+                "accuracy": 0.21875,
+                "changed_fraction_total_model": 0.0,
+                "changed_parameters": 0,
+                "gradient_steps": 0,
+                "loss_last": null,
+                "mean_target_cosine": -0.0032330460380762815,
+                "tokens": 0,
+                "trainable_parameters": 2432,
+                "wall_seconds": 0.12080947299546096
+              },
+              {
+                "accuracy": 0.21875,
+                "changed_fraction_total_model": 0.0005103642097984232,
+                "changed_parameters": 896,
+                "gradient_steps": 1,
+                "loss_last": 1.688320517539978,
+                "mean_target_cosine": -0.0017708821687847376,
+                "tokens": 640,
+                "trainable_parameters": 2432,
+                "wall_seconds": 0.2337982489989372
+              },
+              {
+                "accuracy": 0.203125,
+                "changed_fraction_total_model": 0.001239455938081885,
+                "changed_parameters": 2176,
+                "gradient_steps": 2,
+                "loss_last": 1.5823931694030762,
+                "mean_target_cosine": -0.0029366416856646538,
+                "tokens": 1280,
+                "trainable_parameters": 2432,
+                "wall_seconds": 0.33900672999880044
+              },
+              {
+                "accuracy": 0.2265625,
+                "changed_fraction_total_model": 0.001239455938081885,
+                "changed_parameters": 2176,
+                "gradient_steps": 4,
+                "loss_last": 1.1206727027893066,
+                "mean_target_cosine": -0.006311800796538591,
+                "tokens": 2560,
+                "trainable_parameters": 2432,
+                "wall_seconds": 0.520897979993606
+              },
+              {
+                "accuracy": 0.296875,
+                "changed_fraction_total_model": 0.001239455938081885,
+                "changed_parameters": 2176,
+                "gradient_steps": 8,
+                "loss_last": 0.5723809599876404,
+                "mean_target_cosine": -0.0024679522030055523,
+                "tokens": 5120,
+                "trainable_parameters": 2432,
+                "wall_seconds": 0.8648557210035506
+              },
+              {
+                "accuracy": 0.203125,
+                "changed_fraction_total_model": 0.001239455938081885,
+                "changed_parameters": 2176,
+                "gradient_steps": 16,
+                "loss_last": 0.25612884759902954,
+                "mean_target_cosine": -0.00899320188909769,
+                "tokens": 10240,
+                "trainable_parameters": 2432,
+                "wall_seconds": 1.601835993998975
+              },
+              {
+                "accuracy": 0.2109375,
+                "changed_fraction_total_model": 0.001239455938081885,
+                "changed_parameters": 2176,
+                "gradient_steps": 32,
+                "loss_last": 0.10823746025562286,
+                "mean_target_cosine": -0.017702747136354446,
+                "tokens": 20480,
+                "trainable_parameters": 2432,
+                "wall_seconds": 3.176670580993232
+              },
+              {
+                "accuracy": 0.2578125,
+                "changed_fraction_total_model": 0.001239455938081885,
+                "changed_parameters": 2176,
+                "gradient_steps": 64,
+                "loss_last": 0.053765617311000824,
+                "mean_target_cosine": -0.014945534989237785,
+                "tokens": 40960,
+                "trainable_parameters": 2432,
+                "wall_seconds": 6.330793125998753
+              }
+            ],
+            "threshold_steps": null,
+            "trainable_parameters": 2432
+          },
+          "96": {
+            "interface": "cyclic bus permutation by 7 plus scale 0.9",
+            "repair_rank": 96,
+            "steps": [
+              {
+                "accuracy": 0.21875,
+                "changed_fraction_total_model": 0.0,
+                "changed_parameters": 0,
+                "gradient_steps": 0,
+                "loss_last": null,
+                "mean_target_cosine": -0.0032330460380762815,
+                "tokens": 0,
+                "trainable_parameters": 58368,
+                "wall_seconds": 0.11464091999368975
+              },
+              {
+                "accuracy": 0.2265625,
+                "changed_fraction_total_model": 0.011870530403605762,
+                "changed_parameters": 21504,
+                "gradient_steps": 1,
+                "loss_last": 1.688320517539978,
+                "mean_target_cosine": 0.0003531897673383355,
+                "tokens": 640,
+                "trainable_parameters": 58368,
+                "wall_seconds": 0.23605207500077086
+              },
+              {
+                "accuracy": 0.1875,
+                "changed_fraction_total_model": 0.02882843098018542,
+                "changed_parameters": 52224,
+                "gradient_steps": 2,
+                "loss_last": 1.138100504875183,
+                "mean_target_cosine": -0.009562515653669834,
+                "tokens": 1280,
+                "trainable_parameters": 58368,
+                "wall_seconds": 0.34768727800110355
+              },
+              {
+                "accuracy": 0.3515625,
+                "changed_fraction_total_model": 0.02882843098018542,
+                "changed_parameters": 52224,
+                "gradient_steps": 4,
+                "loss_last": 1.712152361869812,
+                "mean_target_cosine": 0.014644836075603962,
+                "tokens": 2560,
+                "trainable_parameters": 58368,
+                "wall_seconds": 0.5009500089945504
+              },
+              {
+                "accuracy": 0.2890625,
+                "changed_fraction_total_model": 0.02882843098018542,
+                "changed_parameters": 52224,
+                "gradient_steps": 8,
+                "loss_last": 0.9594637155532837,
+                "mean_target_cosine": 0.00535763893276453,
+                "tokens": 5120,
+                "trainable_parameters": 58368,
+                "wall_seconds": 0.8751175029974547
+              },
+              {
+                "accuracy": 0.296875,
+                "changed_fraction_total_model": 0.02882843098018542,
+                "changed_parameters": 52224,
+                "gradient_steps": 16,
+                "loss_last": 0.8406580686569214,
+                "mean_target_cosine": -0.0028660441748797894,
+                "tokens": 10240,
+                "trainable_parameters": 58368,
+                "wall_seconds": 1.6335301109938882
+              },
+              {
+                "accuracy": 0.265625,
+                "changed_fraction_total_model": 0.02882843098018542,
+                "changed_parameters": 52224,
+                "gradient_steps": 32,
+                "loss_last": 0.5384491086006165,
+                "mean_target_cosine": -0.016720106825232506,
+                "tokens": 20480,
+                "trainable_parameters": 58368,
+                "wall_seconds": 3.1877740759955486
+              },
+              {
+                "accuracy": 0.2890625,
+                "changed_fraction_total_model": 0.02882843098018542,
+                "changed_parameters": 52224,
+                "gradient_steps": 64,
+                "loss_last": 0.1302710473537445,
+                "mean_target_cosine": 0.001652121776714921,
+                "tokens": 40960,
+                "trainable_parameters": 58368,
+                "wall_seconds": 6.276249334994645
+              }
+            ],
+            "threshold_steps": null,
+            "trainable_parameters": 58368
+          }
+        }
+      },
+      "dataset": {
+        "memory_delay": 9,
+        "memory_items": 4,
+        "query_synthesis": "same donor-key analytic synthesis as QWEN-DONOR-GDN-REMORA-PATH-004; no donor training",
+        "test_samples": 128,
+        "time": 10,
+        "train_samples": 64
+      },
+      "shifted_zero_repair_baseline": {
+        "actual": {
+          "accuracy": 0.25,
+          "changed_fraction_total_model": 0.0,
+          "changed_parameters": 0,
+          "gradient_steps": 0,
+          "loss_last": null,
+          "mean_target_cosine": -0.01985480636358261,
+          "tokens": 0,
+          "trainable_parameters": 2432,
+          "wall_seconds": 0.11447882000356913
+        },
+        "random": {
+          "accuracy": 0.21875,
+          "changed_fraction_total_model": 0.0,
+          "changed_parameters": 0,
+          "gradient_steps": 0,
+          "loss_last": null,
+          "mean_target_cosine": -0.0032330460380762815,
+          "tokens": 0,
+          "trainable_parameters": 2432,
+          "wall_seconds": 0.13986790199851384
+        }
+      }
+    }
+  },
+  "predeclared_gates": {
+    "against_hypothesis": [
+      "rank-4 actual repair remains at chance while random is comparable",
+      "rank-96 actual does not recover or does not separate from random",
+      "recovery requires changing frozen donor weights",
+      "port parameter cost dominates without donor/random separation"
+    ],
+    "interpretation_rule": "Any recovery with a large port is interface repair evidence, not common-language abstraction evidence; actual-vs-random and parameter cost must be reported together."
+  },
+  "runtime": {
+    "cwd": "/home/leo/research/remora-v0",
+    "device": "cpu",
+    "hostname": "cachyos-x8664",
+    "mode": "shifted_gdn_socket_repair_cpu",
+    "pid": 285689,
+    "platform": "Linux-7.2.3-1-cachyos-x86_64-with-glibc2.44",
+    "python": "3.14.7",
+    "timestamp_utc": "2026-09-10T17:40:19.955548+00:00",
+    "torch": "2.13.0+cpu"
+  },
+  "schema": "remora-qwen-neural-gdn-interface-repair-result-v1",
+  "source": {
+    "full_model_materialized": false,
+    "layer": 17,
+    "model_loader_called": false,
+    "path": "/home/leo/models/Qwen3.8-Flash-Next-BF16-source",
+    "repository": "Qwen/Qwen3.8-Flash-Next",
+    "revision": "f5d08274bafd880402bd16f5e3e6c514136ec06c",
+    "selected_payload_materialized_bytes_fp32": 6580744,
+    "source_payload_bytes_bf16": 3290372,
+    "source_shard": "model-00051-of-00131.safetensors",
+    "value_head": 10
+  },
+  "thresholds": {
+    "actual_rank4": [
+      null,
+      null,
+      null
+    ],
+    "actual_rank96": [
+      null,
+      null,
+      null
+    ],
+    "random_rank4": [
+      null,
+      null,
+      null
+    ]
+  }
+}
