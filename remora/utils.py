@@ -104,7 +104,11 @@ def changed_parameter_stats(
 
 
 def tensor_sha256(tensor: torch.Tensor) -> str:
-    data = tensor.detach().cpu().contiguous().numpy().tobytes()
+    # Hash the tensor's raw contiguous representation.  Going through a
+    # uint8 view also supports BF16, which NumPy cannot materialize on all
+    # supported versions, and makes the byte-level provenance contract
+    # explicit for donor payloads.
+    data = tensor.detach().cpu().contiguous().view(torch.uint8).numpy().tobytes()
     return hashlib.sha256(data).hexdigest()
 
 

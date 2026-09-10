@@ -12,6 +12,7 @@ from .port import TeacherPortAdapter, teacher_logit_distillation_loss
 from .registry import DonorRegistry
 from .selection import group_components, select_components
 from .extract import extract_selected_tensors
+from .ephemeral import read_safetensors_header, scan_safetensor_shards, stream_selected_payload
 from .response import DonorResponseRecord, load_response_records, response_contract_signature
 from .activation import (
     DonorActivationRecord,
@@ -58,6 +59,9 @@ __all__ = [
     "group_components",
     "select_components",
     "extract_selected_tensors",
+    "read_safetensors_header",
+    "scan_safetensor_shards",
+    "stream_selected_payload",
     "DonorResponseRecord",
     "load_response_records",
     "response_contract_signature",
