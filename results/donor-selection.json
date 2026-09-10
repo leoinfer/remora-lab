@@ -1,0 +1,683 @@
+{
+  "interpretation": "MEASURED MECHANISM CONTROL: donor component selection is deterministic and value-free; no selected tensor has been copied or promoted.",
+  "manifest": "results/donor-inspection.json",
+  "registry": {
+    "candidates": {
+      "donor-caf113033f49-component-candidate": {
+        "candidate_id": "donor-caf113033f49-component-candidate",
+        "donor_id": "donor-caf113033f49",
+        "external_decision": false,
+        "failure_reason": "",
+        "import_mode": "frozen_teacher_or_activation_distillation",
+        "interface_version": "donor-port-v1",
+        "metrics": {},
+        "module_id": "donor-component-candidate",
+        "provenance": {
+          "selected_component_keys": [
+            "model.language_model.layers.0.linear_attn",
+            "model.language_model.layers.1.linear_attn",
+            "model.language_model.hyper_connection_mixer",
+            "model.language_model.layers.0.attn_hyper_connection"
+          ]
+        },
+        "state": "CANDIDATE_EXTRACTED"
+      }
+    },
+    "schema": "remora-donor-registry-v1",
+    "sources": {
+      "donor-caf113033f49": {
+        "donor_id": "donor-caf113033f49",
+        "license_name": "Qwen Community License 1.0",
+        "manifest_digest": "caf113033f49ba9c68f41d6ddde69f05c2e75e164c2f9e011b093980ce5d5f12",
+        "metadata_only": true,
+        "path": "/home/leo/models/Qwen3.8-Flash-Next-BF16-source",
+        "repository": "Qwen/Qwen3.8-Flash-Next",
+        "revision": "f5d08274bafd880402bd16f5e3e6c514136ec06c",
+        "shard_count": 131,
+        "state": "DONOR_OBSERVED",
+        "tensor_count": 1658,
+        "total_bytes": 360000192888
+      }
+    }
+  },
+  "schema": "remora-v0-donor-selection-result",
+  "selection": {
+    "max_components": 4,
+    "max_payload_bytes": 268435456,
+    "preferred_classes": [
+      "recurrent_or_gated_linear_attention",
+      "residual_hyperconnection"
+    ],
+    "recommended_import": "frozen_teacher_or_activation_distillation",
+    "schema": "remora-donor-selection-v1",
+    "selected": [
+      {
+        "component_key": "model.language_model.layers.0.linear_attn",
+        "payload_bytes": 115917248,
+        "tensor_class": "recurrent_or_gated_linear_attention",
+        "tensor_names": [
+          "model.language_model.layers.0.linear_attn.A_log",
+          "model.language_model.layers.0.linear_attn.conv1d.weight",
+          "model.language_model.layers.0.linear_attn.dt_bias",
+          "model.language_model.layers.0.linear_attn.in_proj_a.weight",
+          "model.language_model.layers.0.linear_attn.in_proj_b.weight",
+          "model.language_model.layers.0.linear_attn.in_proj_qkv.weight",
+          "model.language_model.layers.0.linear_attn.in_proj_z.weight",
+          "model.language_model.layers.0.linear_attn.norm.weight",
+          "model.language_model.layers.0.linear_attn.out_proj.weight"
+        ]
+      },
+      {
+        "component_key": "model.language_model.layers.1.linear_attn",
+        "payload_bytes": 115917248,
+        "tensor_class": "recurrent_or_gated_linear_attention",
+        "tensor_names": [
+          "model.language_model.layers.1.linear_attn.A_log",
+          "model.language_model.layers.1.linear_attn.conv1d.weight",
+          "model.language_model.layers.1.linear_attn.dt_bias",
+          "model.language_model.layers.1.linear_attn.in_proj_a.weight",
+          "model.language_model.layers.1.linear_attn.in_proj_b.weight",
+          "model.language_model.layers.1.linear_attn.in_proj_qkv.weight",
+          "model.language_model.layers.1.linear_attn.in_proj_z.weight",
+          "model.language_model.layers.1.linear_attn.norm.weight",
+          "model.language_model.layers.1.linear_attn.out_proj.weight"
+        ]
+      },
+      {
+        "component_key": "model.language_model.hyper_connection_mixer",
+        "payload_bytes": 13127680,
+        "tensor_class": "residual_hyperconnection",
+        "tensor_names": [
+          "model.language_model.hyper_connection_mixer.hc_norm.weight",
+          "model.language_model.hyper_connection_mixer.input_mix_weight_down.weight",
+          "model.language_model.hyper_connection_mixer.input_mix_weight_up.weight"
+        ]
+      },
+      {
+        "component_key": "model.language_model.layers.0.attn_hyper_connection",
+        "payload_bytes": 13209600,
+        "tensor_class": "residual_hyperconnection",
+        "tensor_names": [
+          "model.language_model.layers.0.attn_hyper_connection.block_inject_weight.weight",
+          "model.language_model.layers.0.attn_hyper_connection.hc_norm.weight",
+          "model.language_model.layers.0.attn_hyper_connection.input_mix_weight_down.weight",
+          "model.language_model.layers.0.attn_hyper_connection.input_mix_weight_up.weight"
+        ]
+      }
+    ],
+    "selected_payload_bytes": 258171776,
+    "selection_is_value_free": true,
+    "skipped": [
+      {
+        "component_key": "model.language_model.layers.10.linear_attn",
+        "payload_bytes": 115917248,
+        "reason": "byte_budget"
+      },
+      {
+        "component_key": "model.language_model.layers.12.linear_attn",
+        "payload_bytes": 115917248,
+        "reason": "byte_budget"
+      },
+      {
+        "component_key": "model.language_model.layers.13.linear_attn",
+        "payload_bytes": 115917248,
+        "reason": "byte_budget"
+      },
+      {
+        "component_key": "model.language_model.layers.14.linear_attn",
+        "payload_bytes": 115917248,
+        "reason": "byte_budget"
+      },
+      {
+        "component_key": "model.language_model.layers.16.linear_attn",
+        "payload_bytes": 115917248,
+        "reason": "byte_budget"
+      },
+      {
+        "component_key": "model.language_model.layers.17.linear_attn",
+        "payload_bytes": 115917248,
+        "reason": "byte_budget"
+      },
+      {
+        "component_key": "model.language_model.layers.18.linear_attn",
+        "payload_bytes": 115917248,
+        "reason": "byte_budget"
+      },
+      {
+        "component_key": "model.language_model.layers.2.linear_attn",
+        "payload_bytes": 115917248,
+        "reason": "byte_budget"
+      },
+      {
+        "component_key": "model.language_model.layers.20.linear_attn",
+        "payload_bytes": 115917248,
+        "reason": "byte_budget"
+      },
+      {
+        "component_key": "model.language_model.layers.21.linear_attn",
+        "payload_bytes": 115917248,
+        "reason": "byte_budget"
+      },
+      {
+        "component_key": "model.language_model.layers.22.linear_attn",
+        "payload_bytes": 115917248,
+        "reason": "byte_budget"
+      },
+      {
+        "component_key": "model.language_model.layers.24.linear_attn",
+        "payload_bytes": 115917248,
+        "reason": "byte_budget"
+      },
+      {
+        "component_key": "model.language_model.layers.25.linear_attn",
+        "payload_bytes": 115917248,
+        "reason": "byte_budget"
+      },
+      {
+        "component_key": "model.language_model.layers.26.linear_attn",
+        "payload_bytes": 115917248,
+        "reason": "byte_budget"
+      },
+      {
+        "component_key": "model.language_model.layers.28.linear_attn",
+        "payload_bytes": 115917248,
+        "reason": "byte_budget"
+      },
+      {
+        "component_key": "model.language_model.layers.29.linear_attn",
+        "payload_bytes": 115917248,
+        "reason": "byte_budget"
+      },
+      {
+        "component_key": "model.language_model.layers.30.linear_attn",
+        "payload_bytes": 115917248,
+        "reason": "byte_budget"
+      },
+      {
+        "component_key": "model.language_model.layers.32.linear_attn",
+        "payload_bytes": 115917248,
+        "reason": "byte_budget"
+      },
+      {
+        "component_key": "model.language_model.layers.33.linear_attn",
+        "payload_bytes": 115917248,
+        "reason": "byte_budget"
+      },
+      {
+        "component_key": "model.language_model.layers.34.linear_attn",
+        "payload_bytes": 115917248,
+        "reason": "byte_budget"
+      },
+      {
+        "component_key": "model.language_model.layers.36.linear_attn",
+        "payload_bytes": 115917248,
+        "reason": "byte_budget"
+      },
+      {
+        "component_key": "model.language_model.layers.37.linear_attn",
+        "payload_bytes": 115917248,
+        "reason": "byte_budget"
+      },
+      {
+        "component_key": "model.language_model.layers.38.linear_attn",
+        "payload_bytes": 115917248,
+        "reason": "byte_budget"
+      },
+      {
+        "component_key": "model.language_model.layers.4.linear_attn",
+        "payload_bytes": 115917248,
+        "reason": "byte_budget"
+      },
+      {
+        "component_key": "model.language_model.layers.40.linear_attn",
+        "payload_bytes": 115917248,
+        "reason": "byte_budget"
+      },
+      {
+        "component_key": "model.language_model.layers.41.linear_attn",
+        "payload_bytes": 115917248,
+        "reason": "byte_budget"
+      },
+      {
+        "component_key": "model.language_model.layers.42.linear_attn",
+        "payload_bytes": 115917248,
+        "reason": "byte_budget"
+      },
+      {
+        "component_key": "model.language_model.layers.44.linear_attn",
+        "payload_bytes": 115917248,
+        "reason": "byte_budget"
+      },
+      {
+        "component_key": "model.language_model.layers.45.linear_attn",
+        "payload_bytes": 115917248,
+        "reason": "byte_budget"
+      },
+      {
+        "component_key": "model.language_model.layers.46.linear_attn",
+        "payload_bytes": 115917248,
+        "reason": "byte_budget"
+      },
+      {
+        "component_key": "model.language_model.layers.5.linear_attn",
+        "payload_bytes": 115917248,
+        "reason": "byte_budget"
+      },
+      {
+        "component_key": "model.language_model.layers.6.linear_attn",
+        "payload_bytes": 115917248,
+        "reason": "byte_budget"
+      },
+      {
+        "component_key": "model.language_model.layers.8.linear_attn",
+        "payload_bytes": 115917248,
+        "reason": "byte_budget"
+      },
+      {
+        "component_key": "model.language_model.layers.9.linear_attn",
+        "payload_bytes": 115917248,
+        "reason": "byte_budget"
+      },
+      {
+        "component_key": "model.language_model.layers.0.mlp_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.1.attn_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.1.mlp_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.10.attn_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.10.mlp_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.11.attn_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.11.mlp_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.12.attn_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.12.mlp_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.13.attn_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.13.mlp_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.14.attn_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.14.mlp_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.15.attn_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.15.mlp_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.16.attn_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.16.mlp_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.17.attn_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.17.mlp_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.18.attn_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.18.mlp_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.19.attn_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.19.mlp_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.2.attn_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.2.mlp_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.20.attn_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.20.mlp_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.21.attn_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.21.mlp_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.22.attn_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.22.mlp_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.23.attn_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.23.mlp_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.24.attn_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.24.mlp_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.25.attn_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.25.mlp_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.26.attn_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.26.mlp_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.27.attn_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.27.mlp_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.28.attn_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.28.mlp_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.29.attn_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.29.mlp_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.3.attn_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.3.mlp_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.30.attn_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.30.mlp_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.31.attn_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.31.mlp_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.32.attn_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.32.mlp_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.33.attn_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.33.mlp_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.34.attn_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.34.mlp_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.35.attn_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.35.mlp_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.36.attn_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.36.mlp_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.37.attn_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.37.mlp_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.38.attn_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.38.mlp_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.39.attn_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.39.mlp_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.4.attn_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.4.mlp_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.40.attn_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.40.mlp_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.41.attn_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.41.mlp_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.42.attn_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.42.mlp_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.43.attn_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.43.mlp_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.44.attn_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.44.mlp_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.45.attn_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.45.mlp_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.46.attn_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.46.mlp_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.47.attn_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.47.mlp_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.5.attn_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.5.mlp_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.6.attn_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.6.mlp_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.7.attn_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.7.mlp_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.8.attn_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.8.mlp_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.9.attn_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "model.language_model.layers.9.mlp_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "mtp.hyper_connection_mixer.hc_norm",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "mtp.hyper_connection_mixer.input_mix_weight_down",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "mtp.hyper_connection_mixer.input_mix_weight_up",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "mtp.layers.0.attn_hyper_connection",
+        "reason": "max_components"
+      },
+      {
+        "component_key": "mtp.layers.0.mlp_hyper_connection",
+        "reason": "max_components"
+      }
+    ]
+  }
+}
