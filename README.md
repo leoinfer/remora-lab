@@ -20,6 +20,44 @@ so many measured results are hardware-specific rather than portability claims.
 - **Not claimed:** universal portability, a finished full-model Flash-Next
   path, a dense 10M-token context, or a performance win over llama.cpp.
 
+## Current work: Qwen3.8 Flash-Next
+
+The repository is active. The current systems question is whether HAR can make
+hybrid-attention/MoE models inspectable and practical on constrained hardware
+without hiding storage, residency, correctness, or state-transaction costs.
+The public-safe [current research log](research/flash-next/CURRENT_RESEARCH_LOG.md)
+records the evidence boundary and dated roadmap.
+
+- **HAR scope:** native Rust runtime and control plane, Rust Vulkan resources and
+  dispatch, storage, scheduling, residency, and correctness gates. Research-only
+  scripts and external reference runtimes are evidence sources, not HAR
+  production dependencies.
+- **Primary lane:** native trained MTP reconstruction, real-artifact loading,
+  graph parity, recurrent/KV/QSA rollback, and matched real `MTP_NET`.
+- **Secondary lane:** MIX34/R4X 49-block geometry, paired quality, and explicit
+  hot/warm/cold expert residency. The adjacent Qwen3.8-27B design keeps ready
+  expert slots device-local; host memory and storage are refill tiers, not a
+  CPU-offload execution claim.
+- **Current evidence:** MIX34 geometry is reconciled at 49 blocks,
+  63,968,378,880 expert bytes, 4.15 bpw, and 192,675,840 scanned selector
+  blocks. Warm-cache traffic is modeled on a partial trace; resident full-model
+  throughput and corrected-49 quality parity remain unmeasured or blocked.
+- **Negative result preserved:** 0.3495 and 0.3718766 tokens/s are NVMe-thrash
+  controls, not MIX34 kernel throughput or a resident slowdown claim.
+- **Target discipline:** 250 tokens/s is a falsifiable research target derived
+  from model metadata and data-movement constraints, not a benchmark or promise.
+  The log derives the coarse 12 GOP/token arithmetic roof and explains why it
+  must not be confused with physical bandwidth.
+- **Automation motivation:** local researcher automation freezes artifact
+  identity, command/resource provenance, lane ownership, and negative results;
+  it reduces coordination cost but never substitutes for correctness evidence.
+
+Near-term order: close real MTP artifact and transaction gates, run matched
+quality/traffic measurements, integrate live route-aware residency, then assess
+the target. The requested February 2026 MIX34 warm-cache label is retained in
+the log as an unverified historical pointer; recovered authority receipts are
+dated 2026-09-12/13 and are not back-dated.
+
 Start with the [research idea index](RESEARCH_IDEA_INDEX.md),
 [implementation map](research/implementation-map.md), [claims ledger](CLAIMS.md),
 [falsified work](research/falsified/), [methodology](docs/methodology.md),
