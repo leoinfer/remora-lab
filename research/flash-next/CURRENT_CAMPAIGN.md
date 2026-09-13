@@ -1,12 +1,18 @@
 # Current Flash-Next campaign
 
-**Status:** active bring-up; 48-layer GPU assembly is pending.
+**Status:** active split-lane research; full-model generation remains pending.
+
+The detailed public-safe Qwen3.8 Flash-Next log is
+[`CURRENT_RESEARCH_LOG.md`](CURRENT_RESEARCH_LOG.md). It records the current
+MTP-primary/MIX34-secondary prioritization, the reconciled 49-block geometry,
+the warm-cache model, the negative NVMe-thrash control, and the real-versus-
+synthetic MTP boundary.
 
 This is a sanitized campaign summary. It contains methodology and bounded
-results only. Model weights, the large R4F container, raw receipts, private
-machine identifiers, private paths, and dirty worktree contents are not part
-of this repository. The current campaign is not a full-model generation
-result and it has no throughput claim.
+results only. Model weights, large containers, raw receipts, private machine
+identifiers, private paths, and dirty worktree contents are not part of this
+repository. Neither this page nor the current log makes a full-model
+generation, quality, latency, or throughput claim.
 
 ## What is verified
 
