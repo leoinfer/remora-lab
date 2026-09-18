@@ -570,18 +570,37 @@ fn generic_privacy_findings(text: &str) -> Vec<&'static str> {
 }
 
 fn runtime_identity_markers() -> Vec<String> {
+    // The check below exists to catch a leaked *personal* username or hostname.
+    // Continuous-integration and service accounts are not personal
+    // identifiers, and their account names are ordinary words that also occur
+    // in prose ("runner-up", "queue runner") and in file names. Treating them
+    // as identity markers makes the release gate fail on public text for no
+    // privacy reason, so they are excluded here by name.
+    const GENERIC_ACCOUNT_NAMES: &[&str] = &[
+        "root",
+        "user",
+        "users",
+        "localhost",
+        "unknown",
+        "admin",
+        "administrator",
+        "builder",
+        "build",
+        "runner",
+        "ubuntu",
+        "vagrant",
+        "jenkins",
+        "docker",
+        "circleci",
+        "buildkite",
+        "leoinfer",
+    ];
+
     ["USER", "USERNAME", "HOSTNAME", "COMPUTERNAME"]
         .iter()
         .filter_map(|variable| env::var(variable).ok())
         .map(|value| value.trim().to_ascii_lowercase())
-        .filter(|value| {
-            value.len() >= 3
-                && value != "root"
-                && value != "user"
-                && value != "localhost"
-                && value != "unknown"
-                && value != "leoinfer"
-        })
+        .filter(|value| value.len() >= 3 && !GENERIC_ACCOUNT_NAMES.contains(&value.as_str()))
         .collect()
 }
 
