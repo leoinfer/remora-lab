@@ -1,0 +1,33 @@
+{
+  "schema": "remora.repro.expected.v1",
+  "lane": "flash-next/deployment-2026-09-18",
+  "status": "EXCLUDED_WEIGHTS_DATA",
+  "expected_stdout_markers": [
+    "lane=flash-next/deployment-2026-09-18",
+    "status=EXCLUDED_WEIGHTS_DATA",
+    "model_payload_published=false",
+    "runtime_branch_published=false"
+  ],
+  "asserted_values": {
+    "canaries_correct": 12,
+    "canaries_total": 12,
+    "sustained_completions": 2,
+    "sustained_decode_tokens_each": 128,
+    "context_tokens": 262144,
+    "context_result": "pass",
+    "prefetch_decode_tps": [3.86, 4.07],
+    "control_decode_tps": [1.28, 0.81],
+    "hot_units_fraction": 0.42,
+    "traffic_mass_covered": 0.9019590358841332,
+    "hot_region_bits_per_weight": 4.5
+  },
+  "not_asserted": {
+    "quality_retention": null,
+    "final_v2_quality": null,
+    "final_v2_sustained_speed": null,
+    "context_384k": null,
+    "mtp_acceptance": null,
+    "resident_throughput": null
+  },
+  "interpretation": "The public lane must report that the deployment measurements exist and are sanitized, that the model payload and executing runtime branch are excluded, and that the remaining quality, 384K, MTP, and resident-throughput results are not measured."
+}

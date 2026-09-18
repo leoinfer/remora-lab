@@ -17,7 +17,9 @@ declared disposition are required to remain zero.
 | MTP acceptance accounting | `FULLY_REPRODUCIBLE` | `./repro/mtp/accounting/run.sh` | Rust receipt | Synthetic acceptance bookkeeping; not neural MTP throughput |
 | N-gram replay accounting | `FULLY_REPRODUCIBLE` | `./repro/ngram/accounting/run.sh` | Rust receipt | Synthetic replay; throughput intentionally not measured |
 | Qwen historical decode baseline | `UNRECOVERABLE_HISTORICAL_RESULT` | `./repro/qwen27b/historical-baseline/run.sh` | [bounded receipt](repro/qwen27b/historical-baseline/sanitized_receipt.json) | Historical 20.6/33.8 labels are not asserted as public throughput |
-| Flash-Next full-model generation | `BLOCKED_PROVENANCE` | `./repro/flash-next/full-model/run.sh` | [bounded receipt](repro/flash-next/full-model/sanitized_receipt.json) | First-token and generation gates remain incomplete |
+| Flash-Next native full-model generation (HAR/R4F) | `BLOCKED_PROVENANCE` | `./repro/flash-next/full-model/run.sh` | [bounded receipt](repro/flash-next/full-model/sanitized_receipt.json) | Native first-token and generation gates remain incomplete; the deployment lane generates on a separate external research runtime |
+| Flash-Next deployment record, 2026-09-18 | `EXCLUDED_WEIGHTS_DATA` | `./repro/flash-next/deployment-2026-09-18/run.sh` | [sanitized receipt](repro/flash-next/deployment-2026-09-18/sanitized_receipt.json) | Coherence, canaries, sustained completions, context pass, matched prefetch pair, route distribution, V2 hot region; model payload and runtime branch excluded |
+| Flash-Next representation panel, 2026-09-18 | `EXCLUDED_WEIGHTS_DATA` | `./repro/flash-next/representation-panel/run.sh` | [sanitized receipt](repro/flash-next/representation-panel/sanitized_receipt.json) | Tensor- and activation-level fidelity only; no capability or quality result |
 | SWMMAC falsifier | `FALSIFIED_REPRODUCIBLE` | `./repro/swmmac/falsifier/run.sh` | Rust receipt | Accumulator known-answer falsifier; no TOPS claim |
 
 The broader Qwen and Flash-Next full-model lanes remain historical, blocked, or

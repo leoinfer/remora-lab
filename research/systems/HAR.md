@@ -2,10 +2,18 @@
 
 **Status:** `PARTIALLY_IMPLEMENTED`
 
-HAR is the production runtime of this candidate. Its host and execution code
-is Rust-only. Bundled GPU program material is limited to required shader
-source and SPIR-V; Vulkan and operating-system driver libraries are the
-platform boundary reached through Rust bindings.
+HAR is an experimental native-Rust runtime and control-plane project, developed
+as a research side lane inside REMORA Lab. Its host and execution code is
+Rust-only. Bundled GPU program material is limited to required shader source and
+SPIR-V; Vulkan and operating-system driver libraries are the platform boundary
+reached through Rust bindings.
+
+Two scoping statements matter. First, HAR is not the runtime that executes most
+current model experiments in this repository: those run on external
+llama.cpp-derived research branches, which HAR neither contains nor depends on.
+Second, HAR's own native full-model Flash-Next generation gate is not closed;
+the bounded disposition is
+[`repro/flash-next/full-model/`](../../repro/flash-next/full-model/).
 
 The production contract excludes Python, C or C++ host execution,
 llama.cpp, GGML execution libraries, subprocess helpers, C ABI inference

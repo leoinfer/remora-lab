@@ -1,0 +1,92 @@
+{
+  "schema": "remora.repro.sanitized-receipt.v1",
+  "lane": "flash-next/representation-panel",
+  "status": "EXCLUDED_WEIGHTS_DATA",
+  "evidence_date": "2026-09-18",
+  "evidence_class": "MEASURED",
+  "excluded_from_publication": [
+    "BF16 source weights and the quantized container",
+    "panel scripts and captured activation sets",
+    "raw run receipts, local paths, and host identity"
+  ],
+  "metrics": {
+    "weight_rel_rms": "sqrt(mean((reconstruction - W_bf16)^2)) / sqrt(mean(W_bf16^2)); unweighted mean over (layer, expert, role) slices",
+    "activation_error": "Frobenius ||teacher - candidate|| / ||teacher|| on captured routed-MoE inputs; gate and up consume the captured hidden, down consumes silu(gate(x)) * up(x)",
+    "activation_source": "2048-token calibration pass over all 48 layers at the routed-expert input, plus a 512-token holdout pass, CPU executor, captured 2026-09-16",
+    "not_a_capability_metric": "teacher-KL for these candidates is BLOCKED_NOT_CAPTURED; fidelity is not capability"
+  },
+  "byte_basis": {
+    "values_per_slice": 1638400,
+    "t1_bytes_per_slice": 358400,
+    "t1_bits_per_weight": 1.75,
+    "donor_bytes_per_slice": 460800,
+    "donor_bits_per_weight": 2.25,
+    "t1_plus_t2_bytes_per_slice": 716800,
+    "t1_plus_t2_bits_per_weight": 3.5,
+    "island_total_bytes": 5222400,
+    "island_bytes_per_role": 1740800,
+    "island_bits_per_weight_effective": 10.25,
+    "note": "a single receipt recorded a per-role T1 payload as 1433600 B; that is a float32 byte-count unit error and the correct value is 358400 B"
+  },
+  "bases": [
+    {"name": "raw ternary T1 (absmax group-128)", "bits_per_weight": 1.75, "weight_rel_rms": 0.7759926998216656, "activation_error_gaussian": 0.7776990445941039, "activation_error_heavy": 0.7815988768461436, "slices": 27},
+    {"name": "LS-reencoded T1, identical bytes", "bits_per_weight": 1.75, "weight_rel_rms": 0.6088750649975844, "activation_error_gaussian": 0.6107, "activation_error_heavy": 0.6066, "slices": 27, "note": "least-squares group scale at the same container size as raw T1"},
+    {"name": "Q2_0 donor scaffold (block 64)", "bits_per_weight": 2.25, "weight_rel_rms_panel": 0.4884035626817038, "weight_rel_rms_27_slices": 0.4585512827946997, "activation_error": 0.4442155706851143, "slices": 9, "note": "decoded from the real container bytes, not a same-rate re-encode; a fresh Q2_0 re-encode of the same BF16 source measures 0.723464018510421 weight relRMS"}
+  ],
+  "dense_t1_t2": {
+    "bits_per_weight": 3.5,
+    "weight_rel_rms_measured_slice": 0.4375660024882962,
+    "slice": "layer 0 / expert 283, gate role",
+    "panel_mean_available": false,
+    "note": "the panel stores activation gains per candidate but no mean weight relRMS per candidate, so the 0.4376 value is a per-slice measurement and must not be quoted as a panel mean"
+  },
+  "equal_added_byte_panel": {
+    "added_bytes_per_role": 358400,
+    "byte_constraint_verified": true,
+    "max_deviation_fraction_of_budget": 0.005580357142857143,
+    "tolerance": 0.01,
+    "byte_charge_basis": "format-only payload, identical for every base",
+    "targets": ["layer 0 / expert 283 (positive)", "layer 11 / expert 393 (negative)", "layer 47 / expert 393 (neutral)"],
+    "slices": 9,
+    "over_donor_base": [
+      {"format": "dense ternary T2 residual plane", "activation_error_removed": 0.2078325443681933},
+      {"format": "uniform 2-bit / 4-level residual codebook", "activation_error_removed": 0.4765565737068022},
+      {"format": "rotated 2-bit codebook, two FWHT-128 stages", "activation_error_removed": 0.47775480083065663}
+    ],
+    "over_t1_base": [
+      {"format": "dense ternary T2 residual plane", "activation_error_removed": 0.45956471109531943},
+      {"format": "LS-scale ternary re-encode at identical bytes", "activation_error_removed": 0.6294007046858362}
+    ],
+    "conclusions": [
+      "the 2-bit residual codebook removed roughly 2.3x more activation error than dense ternary T2 for the same added bytes over the donor base",
+      "rotation contributed almost nothing on top of the 2-bit codebook",
+      "at equal bytes over T1, LS-scale re-encoding beat the dense ternary T2 plane"
+    ]
+  },
+  "residual_island": {
+    "target": "layer 0 / expert 283",
+    "roles": ["gate", "up", "down"],
+    "format": "q8_0 additive residual plane over a T1 base",
+    "weight_rel_rms_t1_mean": 0.7789445146647025,
+    "weight_rel_rms_with_island_mean": 0.003223275091664197,
+    "per_role": {
+      "gate": {"t1": 0.783774173674932, "island": 0.0032995940206662724},
+      "up": {"t1": 0.779896836422054, "island": 0.0032229092699095365},
+      "down": {"t1": 0.7731625338971214, "island": 0.0031473219844167827}
+    },
+    "payload_bytes_total": 5222400,
+    "payload_bytes_per_role": 1740800,
+    "over_budget_by_factor": 4.857142857142857,
+    "disposition": "mechanism evidence that optional high-fidelity corrective payloads work; explicitly not the final representation, because a stronger base codec reaches better fidelity for far fewer bytes"
+  },
+  "defects_recorded": [
+    "one receipt recorded a per-role T1 payload as 1433600 B (a float32 byte-count unit error); the correct payload is 358400 B",
+    "an earlier prose summary printed the donor's activation error (~0.444) in a weight relRMS column; the donor's weight relRMS is ~0.459 (27 slices) or ~0.488 (panel)"
+  ],
+  "not_measured": [
+    "full BF16 capability retention",
+    "benchmark retention of any kind",
+    "end-to-end quality of the final bank",
+    "teacher-KL for these candidates"
+  ]
+}

@@ -70,8 +70,22 @@
       "id": "r4f-format-bringup-2026-08-27",
       "path": "repro/flash-next/full-model",
       "status": "BLOCKED_PROVENANCE",
-      "claim": "Flash-Next/R4F full-model first-token and generation gates remain incomplete.",
-      "metric_boundary": "format/bring-up documentation, not full-model generation readiness"
+      "claim": "Flash-Next/R4F native full-model first-token and generation gates remain incomplete. The deployment lane generates coherently on a separate external research runtime; that does not close this native gate.",
+      "metric_boundary": "format/bring-up documentation, not native full-model generation readiness"
+    },
+    {
+      "id": "flash-next-deployment-2026-09-18",
+      "path": "repro/flash-next/deployment-2026-09-18",
+      "status": "EXCLUDED_WEIGHTS_DATA",
+      "claim": "Sanitized 2026-09-18 deployment record: coherent end-to-end generation, 12/12 deployment canaries correct, two 128-token completions, a 262144-token Q8 KV context pass, a matched control/prefetch pair, the route distribution, and the BF16-derived V2 hot region.",
+      "metric_boundary": "measured on the reference machine with excluded model payload and runtime branch; no quality-retention, 384K, MTP, or resident-throughput result"
+    },
+    {
+      "id": "flash-next-representation-panel-2026-09-18",
+      "path": "repro/flash-next/representation-panel",
+      "status": "EXCLUDED_WEIGHTS_DATA",
+      "claim": "Sanitized representation panels: base codec comparison, equal-added-byte correction panel over the donor and T1 bases, and a Q8_0 residual island on layer 0 / expert 283.",
+      "metric_boundary": "tensor- and activation-level fidelity only; no capability, quality, or whole-model result, and no teacher-KL capture"
     },
     {
       "id": "gfx1200-swmmac-falsifier-2026-08-27",

@@ -44,6 +44,19 @@ without file-level provenance review. The excluded source IDs and reasons are
 recorded in [`research/SOURCE_REGISTER.md`](research/SOURCE_REGISTER.md) and
 [`research_idea_index.json`](research_idea_index.json).
 
+## Refresh log
+
+- **2026-09-18:** README and status pages rewritten to lead with the current
+  Flash-Next work instead of the runtime taxonomy. HAR is documented as an
+  experimental native-Rust runtime side lane rather than the runtime of record;
+  the deployment lane, route-aware prefetch result, route distribution, V2
+  hot-region experiment, and representation panels are published with sanitized
+  receipts in [`repro/flash-next/deployment-2026-09-18/`](repro/flash-next/deployment-2026-09-18/)
+  and [`repro/flash-next/representation-panel/`](repro/flash-next/representation-panel/).
+  The claim ledger now runs to C-026, and defects found in earlier notes while
+  publishing are recorded in
+  [`research/flash-next/CURRENT_RESEARCH_LOG.md`](research/flash-next/CURRENT_RESEARCH_LOG.md).
+
 ## Status vocabulary
 
 Every indexed item uses one of the public statuses `IMPLEMENTED`,

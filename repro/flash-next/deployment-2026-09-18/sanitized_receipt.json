@@ -1,0 +1,154 @@
+{
+  "schema": "remora.repro.sanitized-receipt.v1",
+  "lane": "flash-next/deployment-2026-09-18",
+  "status": "EXCLUDED_WEIGHTS_DATA",
+  "evidence_date": "2026-09-18",
+  "evidence_class": "MEASURED",
+  "excluded_from_publication": [
+    "model weights and the quantized scaffold container",
+    "the research runtime branch that executed the runs",
+    "raw run logs, route traces, and raw machine receipts",
+    "host identity, local paths, and raw command lines"
+  ],
+  "counter_provenance": {
+    "peak_vram_gtt": "device memory counters sampled every 10 s during each run",
+    "peak_rss": "resident set size of the model process, sampled every 10 s",
+    "mem_available_floor": "minimum host MemAvailable observed during the run",
+    "device_read_bytes": "system-wide NVMe sector counters differenced over the run window; unrelated I/O in the window is attributed to the run",
+    "page_faults": "process minor/major fault counters, lifecycle-cumulative and sampled rather than differenced",
+    "note": "no prefetch emission counters were logged in this configuration"
+  },
+  "model": {
+    "name": "Qwen3.8 Flash-Next",
+    "total_parameters": "125B (public model card)",
+    "activated_parameters": "approximately 6B",
+    "experts": 512,
+    "routed_experts_per_token": 10,
+    "trunk_layers": 48,
+    "native_mtp_layers": 1,
+    "deployed_representation": "Q2_0 donor scaffold, labelled TEMPORARY CONTROL / FALLBACK",
+    "quality_authority": "BF16 source"
+  },
+  "deployment": {
+    "coherent_end_to_end": true,
+    "canaries": {
+      "total": 12,
+      "correct_outputs": 12,
+      "verdict_basis": "evaluation of printed outputs against expected answers",
+      "automated_grader": false,
+      "process_returncode": 0,
+      "wall_seconds": 318.3
+    },
+    "sustained_generation": {
+      "prompts": 2,
+      "decode_tokens_each": 128,
+      "both_reached_token_budget": true,
+      "decode_tps_by_prompt": [1.39, 0.8],
+      "process_returncode": 0
+    },
+    "context_pass": {
+      "context_tokens": 262144,
+      "kv_format": "q8_0",
+      "kv_bytes": "3264.00 MiB plus 1224.00 MiB in two sections",
+      "result": "pass",
+      "wall_seconds": 27.7,
+      "boundary": "capacity and coherence smoke only; no long-context quality claim",
+      "not_run": "a 384K profile was defined but never executed"
+    },
+    "memory_peaks": [
+      {"run": "12 canaries", "peak_rss_gib": 11.55, "peak_vram_gib": 4.47, "peak_gtt_gib": 0.133, "mem_available_floor_gib": 19.64},
+      {"run": "sustained 2x128 tokens", "peak_rss_gib": 11.73, "peak_vram_gib": 4.42, "peak_gtt_gib": 0.109, "mem_available_floor_gib": 20.59},
+      {"run": "12 canaries, final", "peak_rss_gib": 12.56, "peak_vram_gib": 4.42, "peak_gtt_gib": 0.129, "mem_available_floor_gib": 19.4},
+      {"run": "262144-context Q8", "peak_rss_gib": 5.2, "peak_vram_gib": 10.5, "peak_gtt_gib": 0.504, "mem_available_floor_gib": 20.37}
+    ],
+    "host_tier_expert_bank": {
+      "loader_accounting": "CPU_Mapped model buffer size = 35129.29 MiB (approximately 34.3 GiB)",
+      "backing": "file-mapped and page-backed; RSS counts only resident pages",
+      "unreconciled_alternative_figure": "an earlier safety-stop record states 32,400 MiB for the same bank"
+    },
+    "caveats": [
+      "swap was in use throughout the window, so 'no OOM' is true and 'no memory pressure' would be false",
+      "a full all-layer offload attempt on this host failed as a residency failure, not as evidence about representation quality"
+    ]
+  },
+  "prefetch_pair": {
+    "design": "same model file and digest, same binary build, same prompts, same flags; only the route-aware prefetch setting differs",
+    "ordering": "the prefetch arm started immediately after the control arm finished",
+    "control": {
+      "decode_tps": [1.28, 0.81],
+      "token_latency_p50_ms": [702, 1189],
+      "token_latency_p95_ms": [1634, 2089],
+      "wall_seconds": 325.4,
+      "device_read_bytes": 151721033728,
+      "major_page_faults": 3931682,
+      "minor_page_faults": 561636
+    },
+    "prefetch": {
+      "decode_tps": [3.86, 4.07],
+      "token_latency_p50_ms": [224, 233],
+      "token_latency_p95_ms": [475, 362],
+      "wall_seconds": 127.0,
+      "device_read_bytes": 74699780096,
+      "major_page_faults": 13714,
+      "minor_page_faults": 967122,
+      "emission_counters_logged": false
+    },
+    "derived_ratios": {
+      "decode": [3.02, 5.02],
+      "wall_clock": 2.56,
+      "device_read_bytes": 2.03,
+      "major_faults": 286.7,
+      "class": "DERIVED"
+    },
+    "interpretation": "storage and residency path result on identical weights, not a quantization gain",
+    "corroboration_not_part_of_pair": "a control-plus-prefetch run on a harder 12-prompt panel, on a later binary build, measured 3.49-4.30 t/s decode"
+  },
+  "storage_path": {
+    "cold_pread_slice_bytes": 460800,
+    "cold_pread_gbps": {"readers_1": 0.2103, "readers_8": 1.1883},
+    "runtime_effective_expert_read_gbps": {"low": 0.11, "high": 0.36, "class": "ESTIMATE", "note": "restated band; the primary run artifact was not recovered"},
+    "python_mmap_rows": "GIL-bound floors; not a like-for-like measurement of the runtime page-fault path",
+    "boundary": "indicates storage-path headroom, not an automatic decode multiplier"
+  },
+  "route_trace": {
+    "workload_classes": 6,
+    "decode_steps": 1542,
+    "layers": 48,
+    "experts": 512,
+    "top_k": 10,
+    "routed_selections": 740160,
+    "layer_expert_units": 24576,
+    "role_slices": 73728,
+    "hot_units_fraction": 0.42,
+    "hot_units": 10321,
+    "traffic_mass_covered": 0.9019590358841332,
+    "units_for_90_percent_mass": 10241,
+    "population_fraction_for_90_percent_mass": 0.4167073567708333,
+    "per_layer_top64_share": {"min": 0.36757457846952013, "median": 0.5356355382619974, "max": 0.6998054474708171}
+  },
+  "v2_hot_region": {
+    "role_codec": {"gate": "q4_K", "up": "q4_K", "down": "q4_0"},
+    "down_codec_reason": "ggml K-quant blocks are 256 wide and the down rows are 640 wide",
+    "bits_per_weight_all_roles": 4.5,
+    "bytes_per_role_slice": 921600,
+    "bytes_per_unit": 2764800,
+    "ancestry": "rebuilt directly from the BF16 authority with no intermediate quantization; verified by byte-identical re-encode on sampled slices",
+    "ancestry_check": {"sampled_slices": 4, "byte_identical": 4},
+    "built_footprint_bytes": 28535500800,
+    "sparse_file_apparent_bytes": 67947724800,
+    "measured_fidelity_weight_relrms": {"gate": 0.0724, "up": 0.0723, "down": 0.0868, "scope": "means over all 48 layers"},
+    "remaining_regions": "the cold 58% of the population and the entire non-expert core still run on the temporary Q2 scaffold",
+    "streamed_arms": {
+      "hot_bank_plus_prefetch_decode_tps": [1.29, 1.05],
+      "hot_bank_plus_prefetch_device_read_bytes_per_token": 701223540.2,
+      "twelve_prompt_panel_mean_decode_tps": 0.937,
+      "twelve_prompt_panel_device_read_bytes_per_token": 1667317258.3,
+      "scaffold_control_device_read_bytes_per_token": 465401944.0,
+      "scaffold_prefetch_device_read_bytes_per_token": 229140429.7,
+      "modeled_hot_bank_mb_per_token": 1262.0,
+      "class_of_modeled_value": "MODELED",
+      "disposition": "streaming the hot bank is REJECTED as the intended architecture"
+    },
+    "attribution_note": "an earlier internal note attributed 1.34 GB/token to this configuration; that figure belongs to a different, earlier base-closure decode cell"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "schema": "remora.repro.expected.v1",
+  "lane": "flash-next/representation-panel",
+  "status": "EXCLUDED_WEIGHTS_DATA",
+  "expected_stdout_markers": [
+    "lane=flash-next/representation-panel",
+    "status=EXCLUDED_WEIGHTS_DATA",
+    "weights_published=false",
+    "teacher_kl=NOT_CAPTURED"
+  ],
+  "asserted_values": {
+    "raw_t1_bits_per_weight": 1.75,
+    "raw_t1_weight_rel_rms": 0.7759926998216656,
+    "ls_t1_bits_per_weight": 1.75,
+    "ls_t1_weight_rel_rms": 0.6088750649975844,
+    "t1_plus_t2_bits_per_weight": 3.5,
+    "donor_bits_per_weight": 2.25,
+    "donor_activation_error": 0.4442155706851143,
+    "donor_weight_rel_rms_panel": 0.4884035626817038,
+    "equal_byte_added_bytes_per_role": 358400,
+    "gain_over_donor_dense_t2": 0.2078325443681933,
+    "gain_over_donor_two_bit_codebook": 0.4765565737068022,
+    "gain_over_donor_rotated_two_bit_codebook": 0.47775480083065663,
+    "gain_over_t1_ls_ternary": 0.6294007046858362,
+    "gain_over_t1_dense_t2": 0.45956471109531943,
+    "island_weight_rel_rms": 0.003223275091664197,
+    "island_payload_bytes_total": 5222400,
+    "island_over_budget_factor": 4.857142857142857
+  },
+  "not_asserted": {
+    "bf16_capability_retention": null,
+    "benchmark_retention": null,
+    "final_v2_quality": null,
+    "teacher_kl": null,
+    "end_to_end_quality": null
+  },
+  "interpretation": "The public lane must report bounded tensor- and activation-level fidelity measurements with their metric definitions, and must not present them as capability, quality, or whole-model results."
+}

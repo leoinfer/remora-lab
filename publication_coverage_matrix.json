@@ -16109,7 +16109,7 @@
       "NAME": "HAR",
       "CATEGORY": "mandatory-family/runtime",
       "SOURCE LOCATION / SOURCE REGISTER ID": "mandatory-family-crosswalk:FAM-001",
-      "CURRENT STATUS": "Rust production runtime boundary",
+      "CURRENT STATUS": "native-Rust runtime research lane (not the lane executing current model experiments)",
       "PUBLIC DISPOSITION": "PUBLIC",
       "PUBLIC PATH": "research/systems/HAR.md",
       "IMPLEMENTATION PATH": "har/crates/har-runtime/src/policy.rs; har/crates/har-serve/src/",

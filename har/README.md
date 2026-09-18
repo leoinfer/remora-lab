@@ -1,8 +1,21 @@
 # Hardware-Aware Runtime (HAR)
 
-HAR is a Rust-only production runtime for local model execution. This
+HAR is an experimental, Rust-only runtime and control-plane project for local
+model execution, developed as a research side lane inside REMORA Lab. This
 directory is intentionally separate from the broader research notes at the
 repository root.
+
+Two boundaries matter to a reader arriving here first. Most current model
+experiments in this repository execute on external llama.cpp-derived research
+branches rather than on HAR, and HAR does not depend on them. HAR's own
+native full-model Flash-Next generation gate is not yet closed; its bounded
+disposition is
+[`repro/flash-next/full-model/`](../repro/flash-next/full-model/).
+
+Within this directory, "production path" means the boundary rules below: what
+HAR is allowed to load and execute. That is a policy statement about this
+codebase, not a claim that HAR is the runtime of record for the research
+program.
 
 The production boundary contains Rust crates, reviewed GPU shader source,
 small synthetic metadata fixtures, and caller-supplied model-file readers. It does

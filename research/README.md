@@ -53,7 +53,10 @@ related ideas, provenance/originality status, and next experiment. Missing
 fields are intentionally marked unknown or not established rather than filled
 from inference.
 
-Research-only source material is not a runtime dependency. The production HAR
-path remains the Rust-only tree under [`../har/`](../har/); no research note,
-Python prototype, C/C++ source, llama.cpp/GGML tree, CMake component, or
-foreign execution backend is loaded by the cargo-built runtime.
+Research-only source material is not a runtime dependency. The native Rust-only
+tree under [`../har/`](../har/) is a research side lane rather than the runtime
+of record for the program: no research note, Python prototype, C/C++ source,
+llama.cpp/GGML tree, CMake component, or foreign execution backend is loaded by
+the cargo-built HAR runtime, and correspondingly HAR is not the runtime that
+executes most current model experiments. Those execute on external
+llama.cpp-derived research branches.

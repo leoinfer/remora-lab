@@ -14,7 +14,7 @@ kept as a method or question when the implementation source is not cleared.
 
 | IDEA | SPEC | IMPLEMENTATION | EXPERIMENTS | EVIDENCE | FAILURE CASES | ROADMAP |
 | --- | --- | --- | --- | --- | --- | --- |
-| HAR native runtime | [`research/systems/HAR.md`](systems/HAR.md) | `har/crates/har-runtime/src/policy.rs`, `har/crates/har-serve/src/`, `har/crates/har-vulkan/src/lib.rs` | `research/experiments/`, workspace tests | [`CLAIMS.md`](../CLAIMS.md), [`PUBLIC_HAR_RELEASE_AUDIT.md`](../PUBLIC_HAR_RELEASE_AUDIT.md) | fallback rejection and bounded-kernel limits | complete caller-supplied model fixtures and production serving gates |
+| HAR native runtime | [`research/systems/HAR.md`](systems/HAR.md) | `har/crates/har-runtime/src/policy.rs`, `har/crates/har-serve/src/`, `har/crates/har-vulkan/src/lib.rs` | `research/experiments/`, workspace tests | [`CLAIMS.md`](../CLAIMS.md), [`PUBLIC_HAR_RELEASE_AUDIT.md`](../PUBLIC_HAR_RELEASE_AUDIT.md) | fallback rejection and bounded-kernel limits | complete caller-supplied model fixtures and native serving gates; this is a runtime research side lane, not the lane executing current model experiments |
 | R4X | [`formats/r4x/FORMAT.md`](../formats/r4x/FORMAT.md) | bounded geometry/parser representation in `formats/r4x`; package-slice support in `har/crates/har-package-slice/` | `research/r4x/`, [`repro/r4x/width-sweep/`](../repro/r4x/width-sweep/) | `CLAIMS.md` C-004, format tests, recovered sanitized logical-prefill-row receipt | no ecosystem compatibility or full model claim; exact throughput rerun awaits Rust-only executor | independent decoder, public vectors, quality and end-to-end tests |
 | R4X-D / R4X-H / R4X-S / R4X-D32A | [`research/systems/R4X.md`](systems/R4X.md), [`formats/r4x/FORMAT.md`](../formats/r4x/FORMAT.md) | D32A geometry is public; wider/aggressive tracks remain research-only | `research/r4x/`, [`repro/r4x/width-sweep/`](../repro/r4x/width-sweep/), falsified-result cards | bounded parser tests and documented accounting; `llama-bench -p W` logical prefill-row receipt W64..W2048 | regional quality, packing, and execution results are not interchangeable; no logical prefill-row W4096 measurement | clear each variant's provenance, vectors, quality floor, and kernel coverage |
 | XP-S | [`research/systems/R4X.md`](systems/R4X.md) | no production implementation claimed; research map only | R4X experiment cards | methodology and negative knowledge | model-specific and quality evidence is omitted | publish a clean-room variant specification only after review |
@@ -48,22 +48,53 @@ kept as a method or question when the implementation source is not cleared.
 | 2:4 / false multi-POPS / quarter-result / accumulator / all falsified kernel work | [`research/falsified/GFX1200_SPARSE_MATRIX_ANOMALY.md`](falsified/GFX1200_SPARSE_MATRIX_ANOMALY.md), [`research/falsified/README.md`](falsified/README.md) | no accepted production kernel claim | falsification ledger and experiment cards | repeated-accumulator overcount is documented | apparent throughput was invalidated; methodology, not the number, survives | publish independent known-answer harness and committed-work accounting |
 | Laguna / HAR-X / hardware phenotype compilation / benchmark / moonshot / falsification | [`research/laguna/README.md`](laguna/README.md), [`research/har-x/README.md`](har-x/README.md), [`HARDWARE_PROFILE.md`](../HARDWARE_PROFILE.md) | `har/crates/har-model-compiler/`, `benchmarks/local-bench/`, `har/crates/har-vulkan/` where applicable | benchmark and phenotype cards | claims ledger, hardware profile, falsified results | license, model, and raw receipt boundaries remain explicit | clean-room compilation examples, public benchmark fixtures, and adversarial replication |
 
+## Current Flash-Next working set
+
+| IDEA | SPEC | IMPLEMENTATION | EXPERIMENTS | EVIDENCE | FAILURE CASES | ROADMAP |
+| --- | --- | --- | --- | --- | --- | --- |
+| Route-aware prefetch on the expert read path | [`research/flash-next/PREFETCH_RESULT.md`](flash-next/PREFETCH_RESULT.md) | external llama.cpp-derived research branch (not published in this tree) | matched control/prefetch pair, 2026-09-18 | [`repro/flash-next/deployment-2026-09-18/`](../repro/flash-next/deployment-2026-09-18/) sanitized receipt | single pair, back-to-back ordering, machine-wide counters, no emission counters | turn the hot region into a persistent cache hit instead of a per-token stream |
+| Representation palette: BF16 base + optional correction | [`research/representation/README.md`](representation/README.md) | panel scripts outside this tree; sanitized receipts in the repository | equal-byte correction panel, codec ladder, residual island | [`repro/flash-next/representation-panel/`](../repro/flash-next/representation-panel/) sanitized receipt | fidelity is not capability; the island is byte-inefficient; no teacher-KL captured | replace donor-derived regions with BF16-derived bases, then re-measure deployment behaviour |
+| Heterogeneous hot/warm/cold residency | [`research/moe-residency/README.md`](moe-residency/README.md) | research runtime masks and manifests; HAR residency contracts are separate | route trace, V2 hot region, streamed arms | `CLAIMS.md` C-021, C-022 | streaming the hot bank was slower than the scaffold; cache tiers are modeled, not deployed | deploy persistent hot/warm caching and re-measure resident throughput |
+| V2 hot region from BF16 | [`research/flash-next/CURRENT_RESEARCH_LOG.md`](flash-next/CURRENT_RESEARCH_LOG.md) | research runtime bank builder (not published) | ancestry re-encode check, streamed arms | `CLAIMS.md` C-022 | cold 58% and the core remain on the temporary Q2 scaffold | rebuild every permanent region from BF16 |
+
 ## Current Flash-Next boundary
 
-The current campaign is represented by
-[`research/flash-next/CURRENT_CAMPAIGN.md`](flash-next/CURRENT_CAMPAIGN.md).
-It records R4F codec/container bring-up, embedding, GDN/recurrent state, QSA
-indexing and selected-KV attention, PLE page caching, routed MoE, Q8F routing,
-Q4F expert capsules, routed accumulation, and CPU replay/oracle evidence. The
-source worktree that produced these seams is dirty and is therefore not
-silently promoted into this candidate. The first-token oracle remains the
-gate; full-model generation and throughput are not claimed.
+Two lanes must be read separately.
+
+**Deployment and measurement lane.** Qwen3.8 Flash-Next generates coherent text
+end to end on the reference machine through external llama.cpp-derived research
+branches and the surrounding measurement tooling: 12/12 deployment canaries
+produced correct outputs, two 128-token completions ran to budget, and a
+262,144-token Q8 KV context passed. Those runs also produced the route-aware
+prefetch pair, the route distribution, and the BF16-derived V2 hot-region
+experiment. The dated record is
+[`research/flash-next/CURRENT_RESEARCH_LOG.md`](flash-next/CURRENT_RESEARCH_LOG.md),
+with the mechanism result in
+[`research/flash-next/PREFETCH_RESULT.md`](flash-next/PREFETCH_RESULT.md), the
+representation panels in [`research/representation/`](representation/), and the
+executable dispositions in
+[`repro/flash-next/deployment-2026-09-18/`](../repro/flash-next/deployment-2026-09-18/)
+and [`repro/flash-next/representation-panel/`](../repro/flash-next/representation-panel/).
+
+**Native lane (R4F/HAR).** The campaign record in
+[`research/flash-next/CURRENT_CAMPAIGN.md`](flash-next/CURRENT_CAMPAIGN.md)
+carries the native seam evidence: R4F codec/container bring-up, embedding,
+GDN/recurrent state, QSA indexing and selected-KV attention, PLE page caching,
+routed MoE, Q8F routing, Q4F expert capsules, routed accumulation, and CPU
+replay/oracle evidence. The source worktree that produced these seams is dirty
+and is therefore not silently promoted into this candidate. The first-token
+oracle remains the native gate; native full-model generation and throughput are
+not claimed.
 
 ## Rust path rule
 
-`har/` is the only production runtime boundary. Research notes and the
-reviewed Rust benchmark may describe other systems, but Python, C++,
-llama.cpp, GGML, CMake-built components, subprocess helpers, C ABI execution,
-and foreign inference backends are not runtime dependencies. GPU shader/SPIR-V
-material and Vulkan/OS driver libraries remain the only non-Rust execution
-boundaries called out by the release audit.
+`har/` is the HAR runtime boundary. Research notes and the reviewed Rust
+benchmark may describe other systems, but Python, C++, llama.cpp, GGML,
+CMake-built components, subprocess helpers, C ABI execution, and foreign
+inference backends are not HAR runtime dependencies. GPU shader/SPIR-V material
+and Vulkan/OS driver libraries remain the only non-Rust execution boundaries
+called out by the release audit.
+
+This rule constrains what HAR may load. It does not mean HAR executes the
+program's current model experiments: those run on external llama.cpp-derived
+research branches, which are independent of HAR in both directions.

@@ -1,20 +1,74 @@
 # Current Flash-Next campaign
 
-**Status:** active split-lane research; full-model generation remains pending.
+**Status:** active split-lane research. The model generates coherently end to
+end through the deployment lane; the native HAR/R4F lane's full-model gate
+remains open.
 
-The detailed public-safe Qwen3.8 Flash-Next log is
-[`CURRENT_RESEARCH_LOG.md`](CURRENT_RESEARCH_LOG.md). It records the current
-MTP-primary/MIX34-secondary prioritization, the reconciled 49-block geometry,
-the warm-cache model, the negative NVMe-thrash control, and the real-versus-
-synthetic MTP boundary.
+The detailed public-safe log is
+[`CURRENT_RESEARCH_LOG.md`](CURRENT_RESEARCH_LOG.md), and the storage-path
+mechanism result is [`PREFETCH_RESULT.md`](PREFETCH_RESULT.md).
 
-This is a sanitized campaign summary. It contains methodology and bounded
-results only. Model weights, large containers, raw receipts, private machine
-identifiers, private paths, and dirty worktree contents are not part of this
-repository. Neither this page nor the current log makes a full-model
-generation, quality, latency, or throughput claim.
+This is a sanitized campaign summary: methodology and bounded results only.
+Model weights, large containers, raw receipts, private machine identifiers,
+private paths, and dirty worktree contents are not part of this repository.
 
-## What is verified
+## The two lanes
+
+| Lane | Status | What it is |
+| --- | --- | --- |
+| Deployment / measurement | generating coherently | llama.cpp-derived research branches plus measurement tooling. Produces every current result. An external reference implementation used as a research platform; not part of HAR, and HAR does not depend on it. |
+| Native HAR / R4F | gate open | The native-Rust runtime and its experimental Flash-Next container direction. Bounded seam evidence exists; native full-model generation is not closed. |
+
+## Current deployment record (2026-09-18, `MEASURED`)
+
+- Coherent end-to-end generation on the reference machine.
+- 12/12 deployment canaries produced correct outputs (evaluated against expected
+  answers; the harness has no automated grader).
+- Two 128-token completions in one sustained run, both reaching the token budget.
+- 262,144-token context passes with the Q8 KV configuration. Capacity and
+  coherence only; no long-context quality claim.
+- Scaffold memory profile: VRAM ~4.42–4.47 GiB, GTT ~0.109–0.133 GiB, RSS
+  ~11.5–12.6 GiB, `MemAvailable` floor 19.40 GiB, host-tier expert bank
+  accounted by the loader at 35,129.29 MiB (≈34.3 GiB) page-backed.
+- The deployed bank is a **temporary Q2 scaffold / control**. The manifest
+  labels it `TEMPORARY CONTROL / FALLBACK`; it is not the quality authority and
+  is to be replaced region by region with BF16-derived representations.
+
+## Route-aware prefetch (`MEASURED`, matched pair)
+
+Same weights, same build, same prompts, same flags; only the prefetch setting
+differs. Decode moved from 1.28/0.81 t/s to 3.86/4.07 t/s, wall clock from
+325.4 s to 127.0 s, major faults from 3,931,682 to 13,714, and device reads from
+151,721,033,728 B to 74,699,780,096 B. This is a storage and residency path
+result, not a quantization gain; see [`PREFETCH_RESULT.md`](PREFETCH_RESULT.md)
+for the caveat list.
+
+## Route distribution and V2 hot region
+
+The trace set covers 1,542 decode steps across 6 workload classes over 48
+layers, 512 experts, top-10 routing: 740,160 routed selections across 24,576
+`(layer, expert)` units. The hottest 42% of units (10,321) carry 90.2% of routed
+access mass.
+
+The V2 experiment rebuilds that region directly from BF16 — `gate` and `up` as
+`q4_K`, `down` as `q4_0` (the K-quant block geometry cannot cover 640-wide
+`down` rows) — with ancestry verified by byte-identical re-encode from the BF16
+authority. Built footprint: 28,535,500,800 B for the hot 42%.
+
+The remaining 58% of the population and the non-expert core still run on the Q2
+scaffold. **This is a migration configuration, not final ancestry.**
+
+Streaming that hot bank through the slow tier is `REJECTED` as an architecture:
+the streamed V2 arms measured 0.73–1.29 t/s decode at 0.229–1.667 GB/token of
+device-normalized reads, against a modeled 1,262 MB/token for the 42% mask.
+High-route-mass expert weights have to become persistent hot/warm cache hits
+rather than per-token streams; that residency integration is designed and
+modeled but not yet deployed.
+
+## Native-lane seam record (2026-08 / 2026-09, `EXPERIMENTAL`)
+
+This table describes the R4F/native work and is retained as the native lane's
+own evidence record. None of these seams claim full-model generation.
 
 | Seam | Boundary and result | Public disposition |
 | --- | --- | --- |
@@ -28,29 +82,32 @@ generation, quality, latency, or throughput claim.
 | Q8F router, top-10, and routed accumulation | The latest guarded campaign scoreboard records route, top-k, ten expert outputs, and weighted accumulation passing primary and replay checks; representative maximum errors are `1.49e-8` for routing and `4.47e-8` for accumulation, without the earlier device fault. | Multi-expert seam evidence; 48-layer composition remains pending. |
 | CPU replay/oracle | CPU 3/3, multi-prompt 9/9, and long-16 16/16 parity/replay records exist for the bounded text executor and route hashes. | Research evidence, not a production-generation claim. |
 
-## Precision and failure boundaries
+## Native-lane precision and failure boundaries
 
-The frozen R4F-MVP precision policy failed isolated QSA-only and PLE-only
-tests at early layers. A combined all-active BF16 fallback passed the bounded
-CPU parity set. This is a precision-isolation result, not evidence that the
-fallback is a finished model policy.
+The frozen R4F-MVP precision policy failed isolated QSA-only and PLE-only tests
+at early layers. A combined all-active BF16 fallback passed the bounded CPU
+parity set. This is a precision-isolation result, not evidence that the fallback
+is a finished model policy.
 
-Earlier GPU cooperative-matrix mismatch/device-fault behavior is retained as
+Earlier GPU cooperative-matrix mismatch/device-fault behaviour is retained as
 negative evidence; the campaign recovered for later bounded probes. A stale
 storage-admission receipt is not treated as current execution evidence. The
-selected-expert path includes a one-ULP BF16 boundary, so “matches” means the
+selected-expert path includes a one-ULP BF16 boundary, so "matches" means the
 stated tolerance, not bitwise identity. The false multi-POPS sparse result and
 its repeated-accumulator overcount remain documented in
 [`research/falsified/GFX1200_SPARSE_MATRIX_ANOMALY.md`](../falsified/GFX1200_SPARSE_MATRIX_ANOMALY.md).
 
-## The first-token gate
+## The native first-token gate
 
-The CPU reference currently reaches the expected first-token sequence
-`[80692, 58649, 220]` in the private campaign environment. The GPU path has
-not yet produced the first correct oracle token. The remaining gate is
-completion through final normalization, `lm_head`, sampler, and oracle-token
-comparison. Until that gate passes, this campaign makes no full-model
-generation, quality, latency, or throughput claim.
+The CPU reference reaches the expected first-token sequence `[80692, 58649, 220]`
+in the private campaign environment. The native GPU path has not yet produced
+the first correct oracle token. The remaining gate is completion through final
+normalization, `lm_head`, sampler, and oracle-token comparison.
+
+This gate applies to the native lane only. The deployment lane already produces
+coherent generation; the two must not be quoted as if one implied the other.
+
+## Public Rust boundaries
 
 The public Rust boundaries that provide reusable adjacent contracts are
 [`har/crates/har-model-package`](../../har/crates/har-model-package/),

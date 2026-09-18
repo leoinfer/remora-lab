@@ -8,9 +8,17 @@ benchmark and does not describe Flash-Next end-to-end throughput.
 The archived roofline work was recovered to keep three different quantities
 separate:
 
-1. physical memory bandwidth;
-2. compute-equivalent parameter bandwidth; and
-3. useful generated-token throughput.
+1. physical memory bandwidth — actual VRAM, PCIe, RAM, and NVMe movement;
+2. compute-equivalent (logical) parameter bandwidth — a normalization
+   describing how many logical weight uses matrix hardware can service under
+   reuse; and
+3. useful generated-token throughput — the actual end-to-end rate.
+
+These are **not** interchangeable, and no quantity in this note may be quoted as
+another. In particular, speculative decoding and multi-token prediction do not
+create bandwidth: they may expose more reuse and move execution closer to the
+matrix roof, which is a statement about scheduling and grouping, not about
+physical data movement.
 
 The repository's general rule is in [`methodology.md`](methodology.md): a
 narrow kernel, synthetic model, reduced byte count, or arithmetic normalization
@@ -50,6 +58,24 @@ The resulting approximately 7,600 traversals/s is an arithmetic roof, not a
 claim that a batch-1 decoder emits 7,600 tokens/s. A one-full-weight-stream
 memory roof, cache reuse, target width, matrix utilization, dequantization,
 state updates, and acceptance all remain separate terms.
+
+## Research targets, not results
+
+The 80 and 250 tokens/s figures used in this repository are explicit **research
+targets**: not benchmarks, not forecasts, not promises. They are derived from
+model metadata and data-movement constraints so that they can be falsified, and
+they are useful because they force an end-to-end answer for residency, storage,
+state transactions, scheduling, and kernel efficiency.
+
+For scale, under the same shorthand 250 tokens/s is about 3 TOPS of useful
+arithmetic — roughly 0.73% of the published 410-TOPS dense headline — and is
+therefore far below the idealized arithmetic roof even though it is far above
+anything currently measured.
+
+Grouped or multi-position execution on RDNA4 is one direction that may expose
+more reuse per loaded weight, and the approximately 154 TB/s normalization is
+the quantity such work would be moving closer to. It is not a bandwidth budget
+that any mechanism can spend.
 
 ## Provenance and disposition
 

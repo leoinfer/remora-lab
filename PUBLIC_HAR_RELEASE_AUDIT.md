@@ -17,12 +17,18 @@ maps HAR, R4X, R4KV, and R4F research/implementation boundaries explicitly.
 
 ## Scope and publication gates
 
-`har/` is the production runtime. Its host and runtime implementation is Rust;
+`har/` is the HAR runtime tree. Its host and runtime implementation is Rust;
 the only bundled non-Rust program material is reviewed GPU shader source and
 SPIR-V. Vulkan and operating-system libraries are reached through Rust
-bindings. The production path contains no Python, C++, llama.cpp, GGML,
+bindings. The HAR runtime path contains no Python, C++, llama.cpp, GGML,
 CMake-built HAR component, subprocess inference helper, C ABI execution
 backend, or hidden foreign fallback.
+
+HAR is a long-running native-Rust runtime research track, not the runtime that
+executes most current model experiments in this repository. Those experiments
+run on external llama.cpp-derived research branches, which are separate from
+HAR and are not a HAR dependency. See [`README.md`](README.md) and
+[`research/flash-next/CURRENT_RESEARCH_LOG.md`](research/flash-next/CURRENT_RESEARCH_LOG.md).
 
 The `research/` tree is a public-safe research library and is not a runtime
 dependency. `benchmarks/local-bench/` is a separately licensed, research-only

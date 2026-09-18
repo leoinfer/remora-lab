@@ -1,6 +1,9 @@
 # Glossary
 
-- **HAR** — Hardware-Aware Runtime, the Rust production runtime in `har/`.
+- **HAR** — Hardware-Aware Runtime: an experimental native-Rust runtime and
+  control-plane side lane in `har/`, developed inside the REMORA Lab research
+  program. Most current model experiments execute on external llama.cpp-derived
+  research branches instead, and HAR is not a dependency of them.
 - **R4X** — An experimental weight/block representation used by one research
   lane; its D32A profile is not presented as a standard.
 - **R4F** — The experimental Flash-Next bring-up/container direction.

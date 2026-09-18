@@ -33,6 +33,8 @@ jobs:
           ./repro/ngram/accounting/run.sh >/tmp/ngram-accounting.json
           ./repro/qwen27b/historical-baseline/run.sh >/tmp/qwen-historical-baseline.json
           ./repro/flash-next/full-model/run.sh >/tmp/flash-next-full-model.json
+          ./repro/flash-next/deployment-2026-09-18/run.sh >/tmp/flash-next-deployment-2026-09-18.txt
+          ./repro/flash-next/representation-panel/run.sh >/tmp/flash-next-representation-panel.txt
           ./repro/swmmac/falsifier/run.sh >/tmp/swmmac-falsifier.json
       - name: publication audit
         run: cargo run -p publication-audit -- .
