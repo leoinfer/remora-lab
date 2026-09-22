@@ -1,6 +1,6 @@
 {
   "schema": "remora.technical_artifact_index.v1",
-  "generated_at_utc": "2026-09-18T20:36:09Z",
+  "generated_at_utc": "2026-09-22T22:00:00Z",
   "repository": "leoinfer/remora-lab",
   "purpose": "Artifact-level index for public implementations, experiments, receipts, reproduction commands, and explicit evidence gaps. This is separate from the idea index.",
   "status_vocabulary": [
@@ -564,6 +564,349 @@
         "activation error"
       ],
       "notes": "Two defects found while publishing are recorded in the receipt and in research/representation/README.md: a float32 byte-count unit error (1433600 B versus the correct 358400 B) and a donor activation error previously printed in a weight relRMS column."
+    },
+    {
+      "artifact_id": "ALICE-ARTIFACT-RESIDENCY-2026-09-22",
+      "artifact_type": "measurement-lane",
+      "research_family": "Alice campaign",
+      "experiment_series": "artifact-and-residency",
+      "experiment_id": "alice-artifact-and-residency-2026-09-22",
+      "claim_ids": [
+        "C-027",
+        "C-028",
+        "C-029"
+      ],
+      "implementation_path": [
+        "research/alice/README.md"
+      ],
+      "repro_path": "repro/alice/artifact-and-residency-2026-09-22/run.sh",
+      "receipt_path": "repro/alice/artifact-and-residency-2026-09-22/sanitized_receipt.json",
+      "status": "EXCLUDED_WEIGHTS_DATA",
+      "metric_boundary": "Model identity, artifact composition, host/device expert split and explicit host arena. Not a runnable public benchmark: weights and container bytes are excluded.",
+      "keywords": [
+        "Alice",
+        "alice_ai",
+        "KDA",
+        "512 experts",
+        "top-10",
+        "Q3.9-MIX",
+        "arena",
+        "O_DIRECT",
+        "hit rate",
+        "residency"
+      ],
+      "notes": "The invalidated 99.536% hit-rate figure is retained as a correction record; the corrected range is 98.545-98.771% at 16 GiB."
+    },
+    {
+      "artifact_id": "ALICE-BACKEND-PREFILL-2026-09-22",
+      "artifact_type": "measurement-lane",
+      "research_family": "Alice campaign",
+      "experiment_series": "backend-speed-and-prefill",
+      "experiment_id": "alice-backend-speed-and-prefill-2026-09-22",
+      "claim_ids": [
+        "C-030",
+        "C-031",
+        "C-032"
+      ],
+      "implementation_path": [
+        "research/alice/README.md"
+      ],
+      "repro_path": "repro/alice/backend-speed-and-prefill-2026-09-22/run.sh",
+      "receipt_path": "repro/alice/backend-speed-and-prefill-2026-09-22/sanitized_receipt.json",
+      "status": "EXCLUDED_WEIGHTS_DATA",
+      "metric_boundary": "Backend-labelled decode records (Vulkan historical 18.430 with an 18.360 re-anchor; ROCm/HIP raw K0 15.374-15.422) and the prefill record including the 662.7437 hot run. Raw, accepted and prefill rates are never blended.",
+      "keywords": [
+        "18.430",
+        "18.360",
+        "15.374",
+        "15.422",
+        "prefill",
+        "662.74",
+        "ub4096",
+        "ub512",
+        "ROCm",
+        "HIP",
+        "Vulkan"
+      ],
+      "notes": "18.430 is the historical Vulkan configuration of record, not current HIP performance; 662.7437 is a hot-run measurement."
+    },
+    {
+      "artifact_id": "ALICE-MTP-STAGING-2026-09-22",
+      "artifact_type": "correctness-lane",
+      "research_family": "Alice campaign",
+      "experiment_series": "mtp-and-staging",
+      "experiment_id": "alice-mtp-and-staging-2026-09-22",
+      "claim_ids": [
+        "C-033",
+        "C-034"
+      ],
+      "implementation_path": [
+        "research/alice/README.md",
+        "research/falsified/ALICE_CAMPAIGN_NEGATIVES.md"
+      ],
+      "repro_path": "repro/alice/mtp-and-staging-2026-09-22/run.sh",
+      "receipt_path": "repro/alice/mtp-and-staging-2026-09-22/sanitized_receipt.json",
+      "status": "EXCLUDED_WEIGHTS_DATA",
+      "metric_boundary": "MTP rollback correctness (KAT 276/682 failing to 0/682, greedy parity at K=0/2/3/4) plus the staging/overlap programme's measured null. Correctness and the null are separate conclusions.",
+      "keywords": [
+        "MTP",
+        "rollback",
+        "snapshot plane",
+        "KAT",
+        "682",
+        "overlap",
+        "F2",
+        "copy stream",
+        "staging",
+        "null"
+      ],
+      "notes": "The KAT is a model-free test in an unpublished tree; the overlap result is a null, not a win."
+    },
+    {
+      "artifact_id": "ALICE-WORKHORSE-2026-09-22",
+      "artifact_type": "packaging-lane",
+      "research_family": "Alice campaign",
+      "experiment_series": "workhorse-packaging",
+      "experiment_id": "alice-workhorse-packaging-2026-09-22",
+      "claim_ids": [
+        "C-050"
+      ],
+      "implementation_path": [
+        "research/alice/README.md"
+      ],
+      "repro_path": "repro/alice/workhorse-packaging-2026-09-22/run.sh",
+      "receipt_path": "repro/alice/workhorse-packaging-2026-09-22/sanitized_receipt.json",
+      "status": "EXCLUDED_WEIGHTS_DATA",
+      "metric_boundary": "Local worker packaging: OpenAI-compatible endpoint, lifecycle commands, health checks, agent-harness integration, native 262144 context with host-RAM KV. Capability boundary is a base checkpoint with no chat template.",
+      "keywords": [
+        "workhorse",
+        "OpenAI-compatible",
+        "server",
+        "health check",
+        "chat template",
+        "base checkpoint",
+        "OMP"
+      ],
+      "notes": "Packaging only; no quality, capability or long-context quality claim."
+    },
+    {
+      "artifact_id": "MOE-EXPERT-MAJOR-GROUPING-2026-09-22",
+      "artifact_type": "kernel-lane",
+      "research_family": "MoE residency",
+      "experiment_series": "expert-major-grouping",
+      "experiment_id": "moe-expert-major-grouping-2026-09-22",
+      "claim_ids": [
+        "C-035",
+        "C-036"
+      ],
+      "implementation_path": [
+        "research/alice/README.md",
+        "research/moe-residency/README.md"
+      ],
+      "repro_path": "repro/moe/expert-major-grouping-2026-09-22/run.sh",
+      "receipt_path": "repro/moe/expert-major-grouping-2026-09-22/sanitized_receipt.json",
+      "status": "EXCLUDED_WEIGHTS_DATA",
+      "metric_boundary": "Single-layer expert-major grouping (0.185 to 6.115 TMAC/s), bit-exact same-kernel parity, and the retired CPU-MoE prefill regression. Local kernel measurement, not a full-model multiplier.",
+      "keywords": [
+        "expert-major",
+        "grouped GEMM",
+        "TMAC",
+        "mul_mat_id",
+        "MMVQ",
+        "MMQ",
+        "Amdahl",
+        "parity",
+        "CPU-MoE"
+      ],
+      "notes": "The Amdahl ceiling for this lever is ~1.65x and the deployed-configuration gate returned REVERT."
+    },
+    {
+      "artifact_id": "HOST-KV-ROCM-REUSE-2026-09-22",
+      "artifact_type": "kernel-lane",
+      "research_family": "Host-KV",
+      "experiment_series": "rocm-reuse",
+      "experiment_id": "host-kv-rocm-reuse-2026-09-22",
+      "claim_ids": [
+        "C-037",
+        "C-038",
+        "C-039"
+      ],
+      "implementation_path": [
+        "research/host-kv/README.md"
+      ],
+      "repro_path": "repro/host-kv/rocm-reuse-2026-09-22/run.sh",
+      "receipt_path": "repro/host-kv/rocm-reuse-2026-09-22/sanitized_receipt.json",
+      "status": "EXCLUDED_WEIGHTS_DATA",
+      "metric_boundary": "ROCm/HIP block-stationary host-KV reuse: physical host read at the link roof with logical service scaling with reuse width, exact-attention parity, and the registered-host-memory prerequisite.",
+      "keywords": [
+        "host KV",
+        "block reuse",
+        "logical bandwidth",
+        "physical bandwidth",
+        "K sweep",
+        "246.89",
+        "244.944",
+        "parity",
+        "hipHostRegister",
+        "page fault"
+      ],
+      "notes": "Logical bandwidth is not physical bandwidth; the two arms disagree at K>=32 and the registered-pageable JSON receipt is absent from disk."
+    },
+    {
+      "artifact_id": "HOST-KV-PRODUCTION-CONTEXT-2026-09-22",
+      "artifact_type": "measurement-lane",
+      "research_family": "Host-KV",
+      "experiment_series": "production-context",
+      "experiment_id": "host-kv-production-context-2026-09-22",
+      "claim_ids": [
+        "C-040"
+      ],
+      "implementation_path": [
+        "research/host-kv/README.md"
+      ],
+      "repro_path": "repro/host-kv/production-context-2026-09-22/run.sh",
+      "receipt_path": "repro/host-kv/production-context-2026-09-22/sanitized_receipt.json",
+      "status": "EXCLUDED_WEIGHTS_DATA",
+      "metric_boundary": "Engine-level production context behaviour: 262144 with host-RAM KV against 114688 with VRAM KV, with pinning and async staging as measured nulls and a Vulkan control.",
+      "keywords": [
+        "262144",
+        "114688",
+        "host KV",
+        "RAM KV",
+        "VRAM KV",
+        "pinning",
+        "async staging",
+        "Vulkan control",
+        "context"
+      ],
+      "notes": "The 8.4-8.7 row exists as a ledger table rather than a machine-readable receipt; the reuse kernel is not integrated."
+    },
+    {
+      "artifact_id": "QWEN27B-ROCM-LADDER-2026-09-22",
+      "artifact_type": "measurement-lane",
+      "research_family": "Qwen3.8-27B",
+      "experiment_series": "rocm-ladder",
+      "experiment_id": "qwen27b-rocm-ladder-2026-09-22",
+      "claim_ids": [
+        "C-041",
+        "C-042",
+        "C-043"
+      ],
+      "implementation_path": [
+        "research/qwen27b/README.md"
+      ],
+      "repro_path": "repro/qwen27b/rocm-ladder-2026-09-22/run.sh",
+      "receipt_path": "repro/qwen27b/rocm-ladder-2026-09-22/sanitized_receipt.json",
+      "status": "EXCLUDED_WEIGHTS_DATA",
+      "metric_boundary": "The HIP ladder (raw K0 17.35; accepted 29.19/34.25/33.90 at K=1/2/4), the iq4_nl KV defect, and the wide-M verification bandwidth decay. Raw, accepted and prefill rates are separate columns.",
+      "keywords": [
+        "17.35",
+        "29.19",
+        "34.25",
+        "33.90",
+        "42.11",
+        "MTP",
+        "acceptance",
+        "iq4_nl",
+        "q4_0",
+        "wide-M",
+        "flash attention"
+      ],
+      "notes": "The historical 42.11 belongs to a different artifact, backend and session; 34.25 and 42.11 must not be merged."
+    },
+    {
+      "artifact_id": "NGRAM-ACTION-MEMORY-2026-09-22",
+      "artifact_type": "measurement-lane",
+      "research_family": "SSD action memory",
+      "experiment_series": "action-memory",
+      "experiment_id": "ngram-action-memory-alice-2026-09-22",
+      "claim_ids": [
+        "C-044"
+      ],
+      "implementation_path": [
+        "research/ssd-action-memory/README.md"
+      ],
+      "repro_path": "repro/ngram/action-memory-2026-09-22/run.sh",
+      "receipt_path": "repro/ngram/action-memory-2026-09-22/sanitized_receipt.json",
+      "status": "EXCLUDED_WEIGHTS_DATA",
+      "metric_boundary": "Symbolic action memory on the cold tier: frozen-panel hit/miss A/B, the retraction of the 5.10x headline, the admissible 1.771x clean multiplier, and packed-extent I/O reduction.",
+      "keywords": [
+        "action memory",
+        "n-gram",
+        "replay",
+        "hit",
+        "miss",
+        "packed extents",
+        "1.771",
+        "5.10",
+        "retracted",
+        "identity gate"
+      ],
+      "notes": "The 5.10x headline is retracted as contaminated; the token/forward figures are a timing proxy."
+    },
+    {
+      "artifact_id": "ALICE-CAMPAIGN-NEGATIVES-2026-09-22",
+      "artifact_type": "negative-lane",
+      "research_family": "Falsified and negative knowledge",
+      "experiment_series": "alice-campaign-negatives",
+      "experiment_id": "alice-campaign-negatives-2026-09-22",
+      "claim_ids": [
+        "C-045",
+        "C-046",
+        "C-047"
+      ],
+      "implementation_path": [
+        "research/falsified/ALICE_CAMPAIGN_NEGATIVES.md"
+      ],
+      "repro_path": "repro/falsified/alice-campaign-negatives-2026-09-22/run.sh",
+      "receipt_path": "repro/falsified/alice-campaign-negatives-2026-09-22/sanitized_receipt.json",
+      "status": "EXCLUDED_WEIGHTS_DATA",
+      "metric_boundary": "Measured rejections and retractions: Laya sidecar, 100k raw decode, structured sparsity, ALICE_MOE_BLOCK, F2 copy stream, CPU-MoE prefill, coarse double staging, and the campaign's internal retractions.",
+      "keywords": [
+        "Laya",
+        "sidecar",
+        "100k",
+        "structured sparsity",
+        "MOE_BLOCK",
+        "F2",
+        "null",
+        "regression",
+        "OOM",
+        "retraction"
+      ],
+      "notes": "Rejections of specific implementations and configurations; directions closed by physics are labelled as such."
+    },
+    {
+      "artifact_id": "REPRESENTATION-UTILIZATION-2026-09-22",
+      "artifact_type": "analysis-lane",
+      "research_family": "Representation",
+      "experiment_series": "utilization",
+      "experiment_id": "representation-utilization-2026-09-22",
+      "claim_ids": [
+        "C-048",
+        "C-049"
+      ],
+      "implementation_path": [
+        "research/representation/UTILIZATION.md",
+        "research/representation/README.md"
+      ],
+      "repro_path": "repro/representation/utilization-2026-09-22/run.sh",
+      "receipt_path": "repro/representation/utilization-2026-09-22/sanitized_receipt.json",
+      "status": "EXCLUDED_WEIGHTS_DATA",
+      "metric_boundary": "Utilization-first representation research: the measured unpack-cost ordering, modelled per-weight ALU estimates, the pc4 projection, GSQ/RCO prior art, and the modelled Flash-Next compression target.",
+      "keywords": [
+        "utilization",
+        "unpack",
+        "ALU",
+        "pc4",
+        "GSQ",
+        "RCO",
+        "bpw",
+        "Flash-Next",
+        "2.25-2.5 bpw",
+        "projection"
+      ],
+      "notes": "Only the unpack ordering is measured; everything else is modelled or projected and no GSQ/RCO synthesis is implemented."
     }
   ],
   "claim_coverage": [
@@ -832,6 +1175,246 @@
       "repro_path": "repro/flash-next/deployment-2026-09-18/run.sh",
       "status": "EXCLUDED_WEIGHTS_DATA",
       "receipt_path": "repro/flash-next/deployment-2026-09-18/sanitized_receipt.json"
+    },
+    {
+      "claim_id": "C-027",
+      "artifact_ids": [
+        "ALICE-ARTIFACT-RESIDENCY-2026-09-22"
+      ],
+      "experiment_id": "alice-artifact-and-residency-2026-09-22",
+      "repro_path": "repro/alice/artifact-and-residency-2026-09-22/run.sh",
+      "status": "EXCLUDED_WEIGHTS_DATA",
+      "receipt_path": "repro/alice/artifact-and-residency-2026-09-22/sanitized_receipt.json"
+    },
+    {
+      "claim_id": "C-028",
+      "artifact_ids": [
+        "ALICE-ARTIFACT-RESIDENCY-2026-09-22"
+      ],
+      "experiment_id": "alice-artifact-and-residency-2026-09-22",
+      "repro_path": "repro/alice/artifact-and-residency-2026-09-22/run.sh",
+      "status": "EXCLUDED_WEIGHTS_DATA",
+      "receipt_path": "repro/alice/artifact-and-residency-2026-09-22/sanitized_receipt.json"
+    },
+    {
+      "claim_id": "C-029",
+      "artifact_ids": [
+        "ALICE-ARTIFACT-RESIDENCY-2026-09-22"
+      ],
+      "experiment_id": "alice-artifact-and-residency-2026-09-22",
+      "repro_path": "repro/alice/artifact-and-residency-2026-09-22/run.sh",
+      "status": "EXCLUDED_WEIGHTS_DATA",
+      "receipt_path": "repro/alice/artifact-and-residency-2026-09-22/sanitized_receipt.json"
+    },
+    {
+      "claim_id": "C-030",
+      "artifact_ids": [
+        "ALICE-BACKEND-PREFILL-2026-09-22"
+      ],
+      "experiment_id": "alice-backend-speed-and-prefill-2026-09-22",
+      "repro_path": "repro/alice/backend-speed-and-prefill-2026-09-22/run.sh",
+      "status": "EXCLUDED_WEIGHTS_DATA",
+      "receipt_path": "repro/alice/backend-speed-and-prefill-2026-09-22/sanitized_receipt.json"
+    },
+    {
+      "claim_id": "C-031",
+      "artifact_ids": [
+        "ALICE-BACKEND-PREFILL-2026-09-22"
+      ],
+      "experiment_id": "alice-backend-speed-and-prefill-2026-09-22",
+      "repro_path": "repro/alice/backend-speed-and-prefill-2026-09-22/run.sh",
+      "status": "EXCLUDED_WEIGHTS_DATA",
+      "receipt_path": "repro/alice/backend-speed-and-prefill-2026-09-22/sanitized_receipt.json"
+    },
+    {
+      "claim_id": "C-032",
+      "artifact_ids": [
+        "ALICE-BACKEND-PREFILL-2026-09-22"
+      ],
+      "experiment_id": "alice-backend-speed-and-prefill-2026-09-22",
+      "repro_path": "repro/alice/backend-speed-and-prefill-2026-09-22/run.sh",
+      "status": "EXCLUDED_WEIGHTS_DATA",
+      "receipt_path": "repro/alice/backend-speed-and-prefill-2026-09-22/sanitized_receipt.json"
+    },
+    {
+      "claim_id": "C-033",
+      "artifact_ids": [
+        "ALICE-MTP-STAGING-2026-09-22"
+      ],
+      "experiment_id": "alice-mtp-and-staging-2026-09-22",
+      "repro_path": "repro/alice/mtp-and-staging-2026-09-22/run.sh",
+      "status": "EXCLUDED_WEIGHTS_DATA",
+      "receipt_path": "repro/alice/mtp-and-staging-2026-09-22/sanitized_receipt.json"
+    },
+    {
+      "claim_id": "C-034",
+      "artifact_ids": [
+        "ALICE-MTP-STAGING-2026-09-22"
+      ],
+      "experiment_id": "alice-mtp-and-staging-2026-09-22",
+      "repro_path": "repro/alice/mtp-and-staging-2026-09-22/run.sh",
+      "status": "EXCLUDED_WEIGHTS_DATA",
+      "receipt_path": "repro/alice/mtp-and-staging-2026-09-22/sanitized_receipt.json"
+    },
+    {
+      "claim_id": "C-035",
+      "artifact_ids": [
+        "MOE-EXPERT-MAJOR-GROUPING-2026-09-22"
+      ],
+      "experiment_id": "moe-expert-major-grouping-2026-09-22",
+      "repro_path": "repro/moe/expert-major-grouping-2026-09-22/run.sh",
+      "status": "EXCLUDED_WEIGHTS_DATA",
+      "receipt_path": "repro/moe/expert-major-grouping-2026-09-22/sanitized_receipt.json"
+    },
+    {
+      "claim_id": "C-036",
+      "artifact_ids": [
+        "MOE-EXPERT-MAJOR-GROUPING-2026-09-22"
+      ],
+      "experiment_id": "moe-expert-major-grouping-2026-09-22",
+      "repro_path": "repro/moe/expert-major-grouping-2026-09-22/run.sh",
+      "status": "EXCLUDED_WEIGHTS_DATA",
+      "receipt_path": "repro/moe/expert-major-grouping-2026-09-22/sanitized_receipt.json"
+    },
+    {
+      "claim_id": "C-037",
+      "artifact_ids": [
+        "HOST-KV-ROCM-REUSE-2026-09-22"
+      ],
+      "experiment_id": "host-kv-rocm-reuse-2026-09-22",
+      "repro_path": "repro/host-kv/rocm-reuse-2026-09-22/run.sh",
+      "status": "EXCLUDED_WEIGHTS_DATA",
+      "receipt_path": "repro/host-kv/rocm-reuse-2026-09-22/sanitized_receipt.json"
+    },
+    {
+      "claim_id": "C-038",
+      "artifact_ids": [
+        "HOST-KV-ROCM-REUSE-2026-09-22"
+      ],
+      "experiment_id": "host-kv-rocm-reuse-2026-09-22",
+      "repro_path": "repro/host-kv/rocm-reuse-2026-09-22/run.sh",
+      "status": "EXCLUDED_WEIGHTS_DATA",
+      "receipt_path": "repro/host-kv/rocm-reuse-2026-09-22/sanitized_receipt.json"
+    },
+    {
+      "claim_id": "C-039",
+      "artifact_ids": [
+        "HOST-KV-ROCM-REUSE-2026-09-22"
+      ],
+      "experiment_id": "host-kv-rocm-reuse-2026-09-22",
+      "repro_path": "repro/host-kv/rocm-reuse-2026-09-22/run.sh",
+      "status": "EXCLUDED_WEIGHTS_DATA",
+      "receipt_path": "repro/host-kv/rocm-reuse-2026-09-22/sanitized_receipt.json"
+    },
+    {
+      "claim_id": "C-040",
+      "artifact_ids": [
+        "HOST-KV-PRODUCTION-CONTEXT-2026-09-22"
+      ],
+      "experiment_id": "host-kv-production-context-2026-09-22",
+      "repro_path": "repro/host-kv/production-context-2026-09-22/run.sh",
+      "status": "EXCLUDED_WEIGHTS_DATA",
+      "receipt_path": "repro/host-kv/production-context-2026-09-22/sanitized_receipt.json"
+    },
+    {
+      "claim_id": "C-041",
+      "artifact_ids": [
+        "QWEN27B-ROCM-LADDER-2026-09-22"
+      ],
+      "experiment_id": "qwen27b-rocm-ladder-2026-09-22",
+      "repro_path": "repro/qwen27b/rocm-ladder-2026-09-22/run.sh",
+      "status": "EXCLUDED_WEIGHTS_DATA",
+      "receipt_path": "repro/qwen27b/rocm-ladder-2026-09-22/sanitized_receipt.json"
+    },
+    {
+      "claim_id": "C-042",
+      "artifact_ids": [
+        "QWEN27B-ROCM-LADDER-2026-09-22"
+      ],
+      "experiment_id": "qwen27b-rocm-ladder-2026-09-22",
+      "repro_path": "repro/qwen27b/rocm-ladder-2026-09-22/run.sh",
+      "status": "EXCLUDED_WEIGHTS_DATA",
+      "receipt_path": "repro/qwen27b/rocm-ladder-2026-09-22/sanitized_receipt.json"
+    },
+    {
+      "claim_id": "C-043",
+      "artifact_ids": [
+        "QWEN27B-ROCM-LADDER-2026-09-22"
+      ],
+      "experiment_id": "qwen27b-rocm-ladder-2026-09-22",
+      "repro_path": "repro/qwen27b/rocm-ladder-2026-09-22/run.sh",
+      "status": "EXCLUDED_WEIGHTS_DATA",
+      "receipt_path": "repro/qwen27b/rocm-ladder-2026-09-22/sanitized_receipt.json"
+    },
+    {
+      "claim_id": "C-044",
+      "artifact_ids": [
+        "NGRAM-ACTION-MEMORY-2026-09-22"
+      ],
+      "experiment_id": "ngram-action-memory-alice-2026-09-22",
+      "repro_path": "repro/ngram/action-memory-2026-09-22/run.sh",
+      "status": "EXCLUDED_WEIGHTS_DATA",
+      "receipt_path": "repro/ngram/action-memory-2026-09-22/sanitized_receipt.json"
+    },
+    {
+      "claim_id": "C-045",
+      "artifact_ids": [
+        "ALICE-CAMPAIGN-NEGATIVES-2026-09-22"
+      ],
+      "experiment_id": "alice-campaign-negatives-2026-09-22",
+      "repro_path": "repro/falsified/alice-campaign-negatives-2026-09-22/run.sh",
+      "status": "EXCLUDED_WEIGHTS_DATA",
+      "receipt_path": "repro/falsified/alice-campaign-negatives-2026-09-22/sanitized_receipt.json"
+    },
+    {
+      "claim_id": "C-046",
+      "artifact_ids": [
+        "ALICE-CAMPAIGN-NEGATIVES-2026-09-22"
+      ],
+      "experiment_id": "alice-campaign-negatives-2026-09-22",
+      "repro_path": "repro/falsified/alice-campaign-negatives-2026-09-22/run.sh",
+      "status": "EXCLUDED_WEIGHTS_DATA",
+      "receipt_path": "repro/falsified/alice-campaign-negatives-2026-09-22/sanitized_receipt.json"
+    },
+    {
+      "claim_id": "C-047",
+      "artifact_ids": [
+        "ALICE-CAMPAIGN-NEGATIVES-2026-09-22"
+      ],
+      "experiment_id": "alice-campaign-negatives-2026-09-22",
+      "repro_path": "repro/falsified/alice-campaign-negatives-2026-09-22/run.sh",
+      "status": "EXCLUDED_WEIGHTS_DATA",
+      "receipt_path": "repro/falsified/alice-campaign-negatives-2026-09-22/sanitized_receipt.json"
+    },
+    {
+      "claim_id": "C-048",
+      "artifact_ids": [
+        "REPRESENTATION-UTILIZATION-2026-09-22"
+      ],
+      "experiment_id": "representation-utilization-2026-09-22",
+      "repro_path": "repro/representation/utilization-2026-09-22/run.sh",
+      "status": "EXCLUDED_WEIGHTS_DATA",
+      "receipt_path": "repro/representation/utilization-2026-09-22/sanitized_receipt.json"
+    },
+    {
+      "claim_id": "C-049",
+      "artifact_ids": [
+        "REPRESENTATION-UTILIZATION-2026-09-22"
+      ],
+      "experiment_id": "representation-utilization-2026-09-22",
+      "repro_path": "repro/representation/utilization-2026-09-22/run.sh",
+      "status": "EXCLUDED_WEIGHTS_DATA",
+      "receipt_path": "repro/representation/utilization-2026-09-22/sanitized_receipt.json"
+    },
+    {
+      "claim_id": "C-050",
+      "artifact_ids": [
+        "ALICE-WORKHORSE-2026-09-22"
+      ],
+      "experiment_id": "alice-workhorse-packaging-2026-09-22",
+      "repro_path": "repro/alice/workhorse-packaging-2026-09-22/run.sh",
+      "status": "EXCLUDED_WEIGHTS_DATA",
+      "receipt_path": "repro/alice/workhorse-packaging-2026-09-22/sanitized_receipt.json"
     }
   ],
   "closure": {

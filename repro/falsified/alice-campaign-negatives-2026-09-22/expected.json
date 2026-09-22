@@ -1,0 +1,45 @@
+{
+  "schema": "remora.repro.expected.v1",
+  "command": "./repro/falsified/alice-campaign-negatives-2026-09-22/run.sh",
+  "expected_status": "EXCLUDED_WEIGHTS_DATA",
+  "expected_values": {
+    "laya_decisions": 73,
+    "laya_agreement": 0.384,
+    "constant_baseline_agreement": 0.849,
+    "laya_lead_better": 10,
+    "laya_sidecar_better": 1,
+    "laya_seconds_per_decision": [
+      1.8,
+      3.0
+    ],
+    "laya_rss_gib": 2.1,
+    "laya_outcome": "model, checkpoint, and dependencies removed; receipt retained",
+    "f2_verdict": "NULL",
+    "f2_control_hot_median_pp_tps": 515.858,
+    "f2_candidate_hot_median_pp_tps": 507.085,
+    "cpu_moe_prefill_regression": -0.851,
+    "cpu_moe_prefill_pp4096_tps": [
+      581.3,
+      87.1
+    ],
+    "coarse_double_staging_failure_mib": 49326.56,
+    "alice_moe_block_verdict": "REVERT",
+    "alice_moe_block_retired_projection": 2.7,
+    "alice_moe_block_adjacent_pairs": [
+      0.062,
+      0.178
+    ],
+    "alice_moe_block_control_spread": 1.64,
+    "target_100k_raw_decode": "CLOSED (676.9 op-TOPS required vs a 590-630 band; 18.0-20.25 GiB vs an 11.38 GiB budget)",
+    "structured_sparsity": "CLOSED (1.90-2.10x on the same logical GEMM; 563-637 credited op-TOPS against 821; loses 1.56x to eligible dense 2-bit)",
+    "wide_mtp_verifier": "DIMINISHING (wide-M bandwidth 197 -> 184 -> 164 -> 129 GB/s as M goes 1 -> 5)",
+    "internal_retractions": [
+      "arena serves the wrong slices",
+      "15.58 settled rate not reproducible",
+      "phantom CPU-backend overhead",
+      "5.25 submissions per copy",
+      "dispatch attribution 91.09% self-retracted to 26%"
+    ]
+  },
+  "interpretation": "Negative knowledge is preserved so the directions are not re-derived from scratch."
+}

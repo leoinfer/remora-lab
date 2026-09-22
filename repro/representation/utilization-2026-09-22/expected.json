@@ -1,0 +1,58 @@
+{
+  "schema": "remora.repro.expected.v1",
+  "command": "./repro/representation/utilization-2026-09-22/run.sh",
+  "expected_status": "EXCLUDED_WEIGHTS_DATA",
+  "expected_values": {
+    "unpack_probe_gbps": {
+      "int8_resident": 297.6,
+      "packed4_4_5bpw": 229.7,
+      "w4x_symmetric_4_25bpw": 188.8,
+      "w4x_affine_4_25bpw": 169.3
+    },
+    "probe_shape": {
+      "K": 2048,
+      "N": 1024,
+      "M": 128
+    },
+    "alu_ops_per_weight_modelled": {
+      "Q6_K": 2.75,
+      "Q4_K": 2.9,
+      "IQ3_S": 3.3,
+      "Q3_K": [
+        4.4,
+        5.7
+      ]
+    },
+    "pc4": "projection only; no measured throughput exists",
+    "prior_art": {
+      "GSQ": "https://huggingface.co/papers/2604.18556",
+      "RCO": "https://huggingface.co/papers/2605.00649"
+    },
+    "synthesis_implemented": false,
+    "flash_bf16_body_bytes": 359999963128,
+    "flash_expert_gate_up_gib": 153.125,
+    "flash_ple_ngram_gib": 95.429,
+    "flash_expert_down_gib": 76.562,
+    "flash_neural_budget_gib": 31.74,
+    "cheapest_legal_format_gib": 25.12,
+    "flash_compressed_neural_body_projected_gb": [
+      40.0,
+      56.0
+    ],
+    "flash_stretch_target_bpw": [
+      2.25,
+      2.5
+    ],
+    "quality_gate_list": [
+      "KL/logits",
+      "perplexity",
+      "task quality",
+      "router top-k behaviour",
+      "MTP acceptance",
+      "agent/coding behaviour",
+      "long-generation stability"
+    ],
+    "preserved_negative": "compact expert formats at 4.25-4.27 bpw: documented negative; 2.0-2.25 bpw quality-fatal"
+  },
+  "interpretation": "A measured unpack-cost ordering plus explicitly modelled targets; no measured compression result is asserted."
+}

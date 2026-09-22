@@ -21,6 +21,28 @@ command, and receipt or explicit limitation. Current lanes are:
   first-token/generation disposition.
 - [SWMMAC falsifier](swmmac/falsifier/) — independent-accumulator known-answer
   gate for the invalidated sparse-throughput claim.
+- [Alice artifact and residency](alice/artifact-and-residency-2026-09-22/) —
+  identity, artifact composition, expert split, and host arena values.
+- [Alice backend speed and prefill](alice/backend-speed-and-prefill-2026-09-22/) —
+  backend-labelled decode records plus the state-sensitive prefill hot run.
+- [Alice MTP and staging](alice/mtp-and-staging-2026-09-22/) — MTP rollback
+  correctness and the measured null in the overlap programme.
+- [Alice workhorse packaging](alice/workhorse-packaging-2026-09-22/) —
+  packaging and capability boundary of a base checkpoint.
+- [Host-KV ROCm reuse](host-kv/rocm-reuse-2026-09-22/) — physical versus
+  logical host-KV bandwidth, parity, and the registration prerequisite.
+- [Host-KV production context](host-kv/production-context-2026-09-22/) —
+  engine-level huge-context behaviour with its null controls.
+- [Qwen3.8-27B ROCm ladder](qwen27b/rocm-ladder-2026-09-22/) — raw, accepted,
+  and prefill rates as separate columns, plus the `iq4_nl` KV defect.
+- [Expert-major grouping](moe/expert-major-grouping-2026-09-22/) — single-layer
+  grouped-kernel throughput, parity, and the Amdahl bound.
+- [SSD action memory](ngram/action-memory-2026-09-22/) — frozen-panel A/B, the
+  retracted headline, and the admissible clean multiplier.
+- [Alice-campaign negatives](falsified/alice-campaign-negatives-2026-09-22/) —
+  measured rejections and retractions.
+- [Representation utilization](representation/utilization-2026-09-22/) — the
+  measured unpack ordering plus explicitly modelled projections.
 
 Run [`setup/verify-environment.sh`](setup/verify-environment.sh) before lanes
 that require a specific hardware phenotype. No lane may make Python, C++,

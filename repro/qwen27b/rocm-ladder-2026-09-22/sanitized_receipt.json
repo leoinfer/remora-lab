@@ -1,0 +1,54 @@
+{
+  "schema": "remora.repro.sanitized_receipt.v1",
+  "lane": "repro/qwen27b/rocm-ladder-2026-09-22",
+  "status": "EXCLUDED_WEIGHTS_DATA",
+  "recorded_utc": "2026-09-22T21:45:00Z",
+  "classification": "MEASURED (quiet and loaded sessions) + HISTORICAL (Vulkan frontier)",
+  "values": {
+    "file_bytes": 12120016960,
+    "weight_bpw": 3.549,
+    "parameters": 27320697856,
+    "weights_bytes_per_k0_token": 11335307136,
+    "k0_raw_tps_quiet": 17.35,
+    "k0_raw_tps_loaded": 16.41,
+    "k1_accepted_tps_quiet": 29.19,
+    "k1_acceptance": 1.0,
+    "k2_accepted_tps_quiet": 34.25,
+    "k2_acceptance": 0.9286,
+    "k4_accepted_tps_quiet": 33.9,
+    "k4_acceptance": 0.75,
+    "k2_accepted_tps_loaded": 26.03,
+    "k2_acceptance_loaded": 0.8229,
+    "pp512_quiet": 484.9,
+    "pp2048_quiet": 576.4,
+    "historical_vulkan_k2_accepted_tps": 42.11,
+    "historical_vulkan_artifact": "UD-Q3_K_XL (different artifact, backend, and session)",
+    "historical_ladder_model_tps": 42.45,
+    "wide_m_effective_gbps_m1_to_m5": [
+      197.0,
+      184.0,
+      164.0,
+      129.0
+    ],
+    "demonstrated_best_effective_gbps": 354.0,
+    "capability_class_gbps": [
+      364.0,
+      374.0
+    ],
+    "k0_fraction_of_capability": 0.54,
+    "iq4_nl_kv_prefill_ms": 3717.469,
+    "q4_0_kv_prefill_ms": 942.428,
+    "iq4_nl_kv_prefill_slowdown": 3.9,
+    "iq4_nl_kv_outcome": "no HIP flash-attention kernel; silent CPU fallback then a GPU fault",
+    "target_50_raw": "closed by bandwidth",
+    "target_60_accepted": "open, wide-M limited",
+    "target_100_accepted": "blocked by wide-M efficiency",
+    "target_100_raw": "physically closed"
+  },
+  "boundaries": [
+    "34.25 and 42.11 must not be merged: different artifact, backend, and session.",
+    "The 42.11 record is HISTORICAL and its build was deleted.",
+    "The wide-M decay is a property of the verification pass, not a memory-system limit.",
+    "No ROCm production start command exists for this family; production runs Vulkan."
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "schema": "remora.repro.experiment.v1",
+  "quant_format_version": "not applicable to this disposition lane",
+  "quant_hash": null,
+  "model_hashes": {},
+  "os": "Linux reference workstation",
+  "kernel": "not applicable to this disposition lane",
+  "mesa": "not applicable to this disposition lane",
+  "radv": "not applicable to this disposition lane",
+  "vulkan": "not applicable to this disposition lane",
+  "rust": "not applicable to this disposition lane",
+  "compiler": "not applicable to this disposition lane",
+  "power_limit": "not applicable to this disposition lane",
+  "clock_configuration": "not applicable to this disposition lane",
+  "memory_clock": "not applicable to this disposition lane",
+  "voltage_offset": "not applicable to this disposition lane",
+  "environment_variables": {},
+  "prompt_hash": null,
+  "ttft_ms": null,
+  "tokens_generated": null,
+  "prefill_tokens": null,
+  "decode_tokens": null,
+  "acceptance_metrics": null,
+  "raw_output_digest": null,
+  "claim_id": "C-048",
+  "experiment_id": "representation-utilization-2026-09-22",
+  "status": "EXCLUDED_WEIGHTS_DATA",
+  "description": "Bounded public disposition for the utilization-first representation research: the four-arm unpack probe at a real expert shape (297.6 / 229.7 / 188.8 / 169.3 GB/s as the representation becomes harder to unpack), the modelled per-weight ALU estimates, the pc4 candidate as a projection only, the GSQ and RCO prior art, and the modelled Flash-Next compression target. The executing runtime tree, model weights, container bytes, and raw receipts are excluded from publication; values below are sanitized summaries of campaign-local receipts.",
+  "source_commit": "1d137b265c2b00d337dcbc4b6daa8eb363541946",
+  "source_paths": [
+    "research/representation/UTILIZATION.md",
+    "research/representation/README.md",
+    "repro/representation/utilization-2026-09-22/run.sh",
+    "repro/representation/utilization-2026-09-22/sanitized_receipt.json"
+  ],
+  "model_name": "Alice expert geometry for the unpack probe; Qwen3.8 Flash-Next byte budget for the modelled target",
+  "model_revision": "campaign artifacts; no weight payload or activation capture is part of this repository",
+  "model_download_source": "public model cards exist; no weight payload is part of this repository",
+  "quant_name": "int8-resident, packed 4-bit 4.5 bpw, 4.25 bpw symmetric, 4.25 bpw affine (probe arms)",
+  "hardware_phenotype": "RX9060XT16-NITRO-GFX1200-RADV-2026.08.27-v1; RX 9060 XT 16 GB, gfx1200; INT8-WMMA probe at a real expert shape",
+  "gpu_configuration": "RX 9060 XT 16 GB, gfx1200; INT8-WMMA probe at a real expert shape",
+  "command": "./repro/representation/utilization-2026-09-22/run.sh",
+  "prompt": "not applicable; the probe holds the output fixed and varies the representation",
+  "context_size": "not applicable",
+  "batch_size": "128 rows",
+  "ubatch_size": "not applicable",
+  "kv_format": "not applicable",
+  "mtp_enabled": false,
+  "ngram_enabled": false,
+  "warmup": "repeated passes; the probe is a same-shape comparison",
+  "measurement_start": "2026-09-22T00:00:00Z",
+  "measurement_end": "2026-09-22T22:00:00Z",
+  "prefill_tps": null,
+  "decode_tps": null,
+  "expected_range": {
+    "unpack_probe_gbps": {
+      "int8_resident": 297.6,
+      "packed4_4_5bpw": 229.7,
+      "w4x_symmetric_4_25bpw": 188.8,
+      "w4x_affine_4_25bpw": 169.3
+    },
+    "probe_shape": {
+      "K": 2048,
+      "N": 1024,
+      "M": 128
+    },
+    "alu_ops_per_weight_modelled": {
+      "Q6_K": 2.75,
+      "Q4_K": 2.9,
+      "IQ3_S": 3.3,
+      "Q3_K": [
+        4.4,
+        5.7
+      ]
+    },
+    "pc4": "projection only; no measured throughput exists",
+    "prior_art": {
+      "GSQ": "https://huggingface.co/papers/2604.18556",
+      "RCO": "https://huggingface.co/papers/2605.00649"
+    },
+    "synthesis_implemented": false,
+    "flash_bf16_body_bytes": 359999963128,
+    "flash_expert_gate_up_gib": 153.125,
+    "flash_ple_ngram_gib": 95.429,
+    "flash_expert_down_gib": 76.562,
+    "flash_neural_budget_gib": 31.74,
+    "cheapest_legal_format_gib": 25.12,
+    "flash_compressed_neural_body_projected_gb": [
+      40.0,
+      56.0
+    ],
+    "flash_stretch_target_bpw": [
+      2.25,
+      2.5
+    ],
+    "quality_gate_list": [
+      "KL/logits",
+      "perplexity",
+      "task quality",
+      "router top-k behaviour",
+      "MTP acceptance",
+      "agent/coding behaviour",
+      "long-generation stability"
+    ],
+    "preserved_negative": "compact expert formats at 4.25-4.27 bpw: documented negative; 2.0-2.25 bpw quality-fatal",
+    "status": "EXCLUDED_WEIGHTS_DATA"
+  },
+  "tolerance": {
+    "unpack_probe": "single-shape kernel measurement; not an end-to-end speedup",
+    "alu_estimates": "modelled ordinal estimates, not measurements"
+  },
+  "known_limitations": [
+    "The pc4 performance is a projection; nothing about it is measured.",
+    "No GSQ, RCO, or combined implementation exists in this repository.",
+    "The Flash-Next 40-56 GB and 2.25-2.5 bpw figures are projections from another model's ratios.",
+    "Quality is not weight-MSE; the capability gate list is proposed and not yet run."
+  ],
+  "receipt_path": "repro/representation/utilization-2026-09-22/sanitized_receipt.json"
+}

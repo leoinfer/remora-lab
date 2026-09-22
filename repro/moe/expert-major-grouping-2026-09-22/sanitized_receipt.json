@@ -1,0 +1,32 @@
+{
+  "schema": "remora.repro.sanitized_receipt.v1",
+  "lane": "repro/moe/expert-major-grouping-2026-09-22",
+  "status": "EXCLUDED_WEIGHTS_DATA",
+  "recorded_utc": "2026-09-22T21:30:00Z",
+  "classification": "MEASURED (single-layer kernel) + MEASURED (deployed-configuration gate)",
+  "values": {
+    "tmac_per_s_before": 0.185,
+    "tmac_per_s_after": 6.115,
+    "speedup": 33.0,
+    "speedup_lower_bound_after_copy_correction": 43.0,
+    "batch_size_at_measurement": 4096,
+    "helper_rewrite_step_reduction_b4096": 0.193,
+    "helper_rewrite_step_reduction_b5796": 0.295,
+    "same_kernel_parity": "32/32 bit-exact at every batch size",
+    "earlier_apparent_delta": 0.0114,
+    "apparent_delta_cause": "runtime kernel selection: MMVQ at 1 row, MMQ at B >= 32",
+    "expert_gemm_share_of_step": 0.446,
+    "amdahl_ceiling": 1.652,
+    "amdahl_ceiling_conservative": 1.277,
+    "deployed_configuration_gate": "REVERT",
+    "cpu_moe_prefill_pp4096_before_tps": 581.3,
+    "cpu_moe_prefill_pp4096_after_tps": 87.1,
+    "cpu_moe_prefill_regression": -0.851
+  },
+  "boundaries": [
+    "A local kernel win is not a full-model multiplier; the deployed-configuration gate returned REVERT.",
+    "The Amdahl ceiling for this lever is ~1.65x because the grouped expert GEMM is ~44.6% of the step.",
+    "The CPU-MoE prefill path is a -85.1% regression and is retired.",
+    "Expert slabs and the instrumenting runtime are excluded, so this lane is a disposition."
+  ]
+}

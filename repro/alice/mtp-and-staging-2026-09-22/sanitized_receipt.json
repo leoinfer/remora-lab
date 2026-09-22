@@ -1,0 +1,42 @@
+{
+  "schema": "remora.repro.sanitized_receipt.v1",
+  "lane": "repro/alice/mtp-and-staging-2026-09-22",
+  "status": "EXCLUDED_WEIGHTS_DATA",
+  "recorded_utc": "2026-09-22T21:20:00Z",
+  "classification": "MEASURED (KAT, parity) + MEASURED/INVALIDATED (staging programme)",
+  "values": {
+    "kat_failures_before_fix": 276,
+    "kat_checks_total": 682,
+    "kat_failures_after_fix": 0,
+    "defect_location": "Alice-local recurrent conv snapshot plane convention",
+    "defect_expression": "offset used min(slot, n_seq_tokens) instead of n_seq_tokens - slot",
+    "shared_delta_net_operator_checks": 682,
+    "shared_delta_net_operator_failures": 0,
+    "greedy_parity_K": [
+      0,
+      2,
+      3,
+      4
+    ],
+    "invariant": "snapshot plane written for token j must be the plane rollback selects for depth j",
+    "overlap_probe_kernel_only_ms": 56,
+    "overlap_probe_copy_only_ms": 55,
+    "overlap_probe_same_stream_ms": 110,
+    "overlap_probe_separate_stream_exposed_ms": [
+      0.0,
+      0.6
+    ],
+    "f2_control_hot_median_pp_tps": 515.858,
+    "f2_candidate_hot_median_pp_tps": 507.085,
+    "f2_relative_deficit": -0.017,
+    "sync_drain_share_of_prefill_pass": 0.002,
+    "coarse_duplication_failure_mib": 49326.56,
+    "targeted_second_slot_outcome": "did not load: two allocator failures then segfault before readiness"
+  },
+  "boundaries": [
+    "The KAT is a model-free test in a tree that is not published, so the lane is a disposition, not a rerunnable public test.",
+    "The F2 programme produced no speedup: the candidate arm is a deficit, not a win.",
+    "The standalone probe proves the overlap mechanism in isolation only; no production win follows from it.",
+    "The coarse and targeted second-slot designs both failed to produce a loaded candidate arm."
+  ]
+}

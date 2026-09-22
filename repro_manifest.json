@@ -93,6 +93,83 @@
       "status": "FALSIFIED_REPRODUCIBLE",
       "claim": "Rust known-answer reproduction of the accumulator-replay falsifier for the historical sparse-matrix anomaly.",
       "metric_boundary": "useful committed work validation, not instruction activity or TOPS"
+    },
+    {
+      "id": "alice-artifact-and-residency-2026-09-22",
+      "path": "repro/alice/artifact-and-residency-2026-09-22",
+      "status": "EXCLUDED_WEIGHTS_DATA",
+      "claim": "Alice identity, mixed-quantization artifact composition, host/device expert residency split and the explicit host expert arena (4.49 to 15.58 tokens/s across configurations, 95.308% hit, destructive parity max|diff| = 0.0).",
+      "metric_boundary": "identity/composition/residency accounting; no rerunnable benchmark, no quality result"
+    },
+    {
+      "id": "alice-backend-speed-and-prefill-2026-09-22",
+      "path": "repro/alice/backend-speed-and-prefill-2026-09-22",
+      "status": "EXCLUDED_WEIGHTS_DATA",
+      "claim": "Backend-labelled Alice decode records (historical Vulkan 18.430 with an 18.360 re-anchor; ROCm/HIP raw K0 15.374-15.422) and the prefill record including the 662.7437 hot run.",
+      "metric_boundary": "decode tokens/s by backend plus a state-sensitive prefill hot run; raw, accepted and prefill rates never blended"
+    },
+    {
+      "id": "alice-mtp-and-staging-2026-09-22",
+      "path": "repro/alice/mtp-and-staging-2026-09-22",
+      "status": "EXCLUDED_WEIGHTS_DATA",
+      "claim": "Alice MTP rollback correctness (KAT 276/682 failing to 0/682; greedy parity at K=0/2/3/4) and the staging/overlap programme's measured null.",
+      "metric_boundary": "correctness parity and a null A/B; no MTP multiplier and no staging speedup"
+    },
+    {
+      "id": "alice-workhorse-packaging-2026-09-22",
+      "path": "repro/alice/workhorse-packaging-2026-09-22",
+      "status": "EXCLUDED_WEIGHTS_DATA",
+      "claim": "Alice packaged as a local worker with an OpenAI-compatible endpoint and lifecycle commands, on a base checkpoint with no tokenizer chat template.",
+      "metric_boundary": "packaging and capability boundary; no quality or capability claim"
+    },
+    {
+      "id": "moe-expert-major-grouping-2026-09-22",
+      "path": "repro/moe/expert-major-grouping-2026-09-22",
+      "status": "EXCLUDED_WEIGHTS_DATA",
+      "claim": "Single-layer expert-major grouping from 0.185 to 6.115 TMAC/s with bit-exact same-kernel parity, plus the retired CPU-MoE prefill regression.",
+      "metric_boundary": "single-layer kernel throughput and parity; not a full-model multiplier"
+    },
+    {
+      "id": "host-kv-rocm-reuse-2026-09-22",
+      "path": "repro/host-kv/rocm-reuse-2026-09-22",
+      "status": "EXCLUDED_WEIGHTS_DATA",
+      "claim": "ROCm/HIP host-KV block reuse: physical host read at the link roof with logical service scaling with reuse width, exact-attention parity, and the registered-host-memory prerequisite.",
+      "metric_boundary": "kernel-level physical and logical bandwidth plus parity; not physical link bandwidth and not end-to-end tokens/s"
+    },
+    {
+      "id": "host-kv-production-context-2026-09-22",
+      "path": "repro/host-kv/production-context-2026-09-22",
+      "status": "EXCLUDED_WEIGHTS_DATA",
+      "claim": "Engine-level huge-context behaviour: 262144 with host-RAM KV against 114688 with VRAM KV, with pinning and async staging as measured nulls.",
+      "metric_boundary": "engine-level decode and prefill at two context shapes; no long-context quality claim"
+    },
+    {
+      "id": "qwen27b-rocm-ladder-2026-09-22",
+      "path": "repro/qwen27b/rocm-ladder-2026-09-22",
+      "status": "EXCLUDED_WEIGHTS_DATA",
+      "claim": "The Qwen3.8-27B ROCm ladder (raw K0 17.35; accepted 29.19/34.25/33.90 at K=1/2/4), the iq4_nl KV defect, and the wide-M verification bandwidth decay.",
+      "metric_boundary": "raw, accepted and prefill rates as separate columns; the historical 42.11 belongs to a different artifact and backend"
+    },
+    {
+      "id": "ngram-action-memory-alice-2026-09-22",
+      "path": "repro/ngram/action-memory-2026-09-22",
+      "status": "EXCLUDED_WEIGHTS_DATA",
+      "claim": "Symbolic action memory on the cold tier with the retraction of the 5.10x headline and the admissible 1.771x clean multiplier, plus packed-extent I/O reduction.",
+      "metric_boundary": "task-level wall-clock A/B on a frozen panel; not neural decode throughput"
+    },
+    {
+      "id": "alice-campaign-negatives-2026-09-22",
+      "path": "repro/falsified/alice-campaign-negatives-2026-09-22",
+      "status": "EXCLUDED_WEIGHTS_DATA",
+      "claim": "Measured rejections and retractions from the Alice campaign and adjacent lanes, including the Laya sidecar and the closed 100k and structured-sparsity directions.",
+      "metric_boundary": "negative results carry instrument readings, not tolerance bands"
+    },
+    {
+      "id": "representation-utilization-2026-09-22",
+      "path": "repro/representation/utilization-2026-09-22",
+      "status": "EXCLUDED_WEIGHTS_DATA",
+      "claim": "Utilization-first representation research: measured unpack-cost ordering, modelled per-weight ALU estimates, the pc4 projection and the modelled Flash-Next compression target.",
+      "metric_boundary": "single-shape unpack measurement plus explicitly modelled projections; no measured compression result"
     }
   ]
 }

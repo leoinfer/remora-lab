@@ -1,0 +1,23 @@
+{
+  "schema": "remora.repro.sanitized_receipt.v1",
+  "lane": "repro/alice/workhorse-packaging-2026-09-22",
+  "status": "EXCLUDED_WEIGHTS_DATA",
+  "recorded_utc": "2026-09-22T21:25:00Z",
+  "classification": "MEASURED (packaging) + MEASURED (artifact metadata)",
+  "values": {
+    "gguf_metadata_keys_parsed": 36,
+    "tokenizer_chat_template_present": false,
+    "served_context": 262144,
+    "kv_in_host_ram": true,
+    "api": "OpenAI-compatible local server plus the runtime's native API on the same port",
+    "lifecycle": "one-command start / stop / status with health checks, logs, and refusal codes",
+    "expert_layers_on_host": 33,
+    "capability_path": "client-side native-format renderer with a tool catalog and a machine-checkable answer line",
+    "measured_degradation": "raw instruction-shaped chat prompts degenerate; the checkpoint is a base model"
+  },
+  "boundaries": [
+    "The artifact is a base checkpoint with no chat template; it is not an instruction-tuned agent model.",
+    "No quality, capability, or long-context quality result is asserted.",
+    "The lane is a packaging disposition; the server, weights, and runtime are excluded."
+  ]
+}

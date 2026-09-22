@@ -1,8 +1,10 @@
 # Research status
 
-**Updated:** 2026-09-18. This page is the current-state summary. Dated results
+**Updated:** 2026-09-22. This page is the current-state summary. Dated results
 remain in the [Flash-Next research log](research/flash-next/CURRENT_RESEARCH_LOG.md),
-and claim-level wording is governed by [CLAIMS.md](CLAIMS.md).
+and claim-level wording is governed by [CLAIMS.md](CLAIMS.md). The Alice,
+host-KV, and Qwen3.8-27B records live in [`research/alice/`](research/alice/),
+[`research/host-kv/`](research/host-kv/), and [`research/qwen27b/`](research/qwen27b/).
 
 ## Current primary target: Qwen3.8 Flash-Next
 
@@ -24,6 +26,28 @@ and claim-level wording is governed by [CLAIMS.md](CLAIMS.md).
 The current deployment runs a **temporary Q2 scaffold/control**. The Q2 donor is
 a known-good runtime control, BF16 is the quality authority, and the final V2
 bank is being regenerated directly from BF16.
+
+## New since 2026-09-18: Alice, host-KV, and the ROCm pivot
+
+| Area | Status | What is supported | What is not claimed |
+| --- | --- | --- | --- |
+| Alice campaign | `MEASURED`, campaign ~3 days old | A second model family brought up end to end: custom hybrid KDA linear-attention + MoE, 48 blocks, 512 routed experts top-10, 262144 context, 79.64 B counted parameters | Any quality result; the artifact has no imatrix and no capability gate |
+| Alice artifact | `MEASURED` | 39,913,721,760 B at 4.003 effective bpw; expert bank 34.7227 GiB (93.41% of bytes) at 3.862 bpw | Final representation, or a quality claim |
+| Alice host expert arena | `MEASURED` | Explicit 12 GiB arena over a packed `O_DIRECT` store: 4.49 → 13.99 → 14.93 → 15.58 t/s across configurations, 95.308% hit, destructive parity `max|diff| = 0.0` | Generalization to other traces or configurations |
+| Alice MTP correctness | `MEASURED` | KAT 276/682 failing → 0/682 after fixing an Alice-local conv snapshot plane convention; greedy parity at K = 0/2/3/4 | Any MTP multiplier; the K=1 accepted figure is historical and not reproducible |
+| Alice backend records | `HISTORICAL` (Vulkan) + `MEASURED` (HIP) | Historical Vulkan config of record 18.430 t/s with an 18.360 re-anchor; current clean ROCm/HIP raw K0 15.374–15.422 t/s | That 18.430 is current HIP performance |
+| Alice prefill | `HISTORICAL`, state-sensitive | 662.7437 t/s hot run at `pp2048`/ubatch 4096, with 245.614 warm and 91.345 cold in the same arm; ub512 band 486.9–533.0 t/s | A stable baseline, or the cross-session 9.3× ratio |
+| Backend policy | directive | ROCm/HIP as production and performance backend; Vulkan as parity oracle, debug path, and mechanism donor | A retroactive change to historical Vulkan numbers |
+| Host-KV block reuse | `MEASURED` | Physical host read at the ~14 GB/s link roof with logical KV service to 244.944–246.89 GB/s; exact-attention parity rel_rms 4.5e-6, max_abs ≤ 2.4e-7 | Physical PCIe bandwidth, llama.cpp integration, or end-to-end tokens/s |
+| Registered host memory | `MEASURED` (prerequisite) | `hipHostRegister`/`hipHostMalloc` is required for direct host-KV kernel reads; unregistered pageable memory faults the GPU | A tuning recommendation — it is a correctness prerequisite |
+| Production huge context | `HISTORICAL` | 262144 with host-RAM KV at 8.4–8.7 t/s versus 114688 with VRAM KV at 18.53 t/s; pinning and async staging both null | Long-context quality, or a 384K result |
+| Qwen3.8-27B ROCm ladder | `MEASURED` / `HISTORICAL` | Raw K0 17.35 t/s; accepted 29.19 / 34.25 / 33.90 at K=1/2/4; K=2 is the HIP optimum | Merging the historical 42.11 (different artifact, backend, session) with 34.25 |
+| KV format coverage on HIP | `MEASURED` (defect) | `q4_0` KV works on the HIP flash-attention path; `iq4_nl` KV has no HIP FA kernel and silently falls back to the CPU (~3.9× slower prefill) before faulting | That KV format choice is free |
+| Expert-major grouping | `EXPERIMENTAL` | Single-layer local GEMM 0.185 → 6.115 TMAC/s with bit-exact same-kernel parity; route-materialisation rewrite removing 19.3%/29.5% of the step | A full-model multiplier; Amdahl ceiling ~1.65× and the deployed gate returned `REVERT` |
+| CPU-MoE prefill | `INVALIDATED` | Measured −85.1% and retired | Revisiting without a fundamentally different mechanism |
+| SSD action memory | `EXPERIMENTAL` | Frozen-panel hit stratum 84.508 → 16.574 s with 20/20 solved, miss stratum 0.9981×, packed extents cutting physical read bytes 72.1% | The retracted 5.10× headline; state reuse has no identity gate |
+| Representation utilization | `MEASURED` + `MODELED` | Measured unpack ordering 297.6 → 229.7 → 188.8 GB/s at a real expert shape; modelled per-weight ALU costs; GSQ/RCO prior art | Any measured `pc4`, GSQ, RCO, or combined result; the Flash-Next compression target is modelled |
+| New negative results | `INVALIDATED` / `RETRACTED` | F2 null, CPU-MoE regression, coarse double-staging OOM, `ALICE_MOE_BLOCK` revert, 100k raw decode closed, structured sparsity closed, Laya sidecar negative | That a rejection of one implementation closes the mechanism |
 
 ## Runtime boundary
 

@@ -1,0 +1,51 @@
+{
+  "schema": "remora.repro.sanitized_receipt.v1",
+  "lane": "repro/host-kv/production-context-2026-09-22",
+  "status": "EXCLUDED_WEIGHTS_DATA",
+  "recorded_utc": "2026-09-22T21:40:00Z",
+  "classification": "MEASURED (engine-level, campaign ledger)",
+  "values": {
+    "ram_kv_ctx262144_decode_tps": [
+      8.4,
+      8.7
+    ],
+    "ram_kv_ctx262144_prefill_tps": [
+      306.0,
+      335.0
+    ],
+    "ram_kv_prefill_ub512_tps": [
+      328.0,
+      364.0
+    ],
+    "vram_kv_ctx114688_decode_tps": 18.53,
+    "vram_kv_ctx114688_prefill_tps": [
+      532.0,
+      548.0
+    ],
+    "vram_kv_ctx98304_decode_tps": [
+      18.3,
+      18.5
+    ],
+    "pinned_host_kv_decode_tps": 8.75,
+    "pinned_host_kv_delta": "+0%",
+    "async_staging_decode_tps": 8.39,
+    "async_staging_delta": "0% (flag verified engaged: sync=0.281 MB async=192.565 MB)",
+    "vulkan_control_ctx262144_decode_tps": 5.38,
+    "vulkan_control_ctx262144_prefill_tps": 229.3,
+    "threads_16_decode_tps": [
+      4.7,
+      5.7
+    ],
+    "kv_bytes_per_token_q8_0": 36992,
+    "kv_gib_at_262144": 9.0,
+    "kv_gib_at_114688": 3.96,
+    "kv_gib_at_65536": 2.26,
+    "retracted_projection": "a 262K host-resident q8_0 cache was claimed not viable at any MTP width; retracted (16x layer overcount)"
+  },
+  "boundaries": [
+    "The 8.4-8.7 t/s row exists as a campaign ledger table rather than a machine-readable receipt.",
+    "No end-to-end tokens/s with the reuse kernel enabled exists; this is the un-integrated engine.",
+    "The Vulkan control is a single receipt.",
+    "The earlier 'not viable at any MTP width' projection is retracted."
+  ]
+}

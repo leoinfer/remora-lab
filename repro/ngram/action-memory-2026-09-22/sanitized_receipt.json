@@ -1,0 +1,54 @@
+{
+  "schema": "remora.repro.sanitized_receipt.v1",
+  "lane": "repro/ngram/action-memory-2026-09-22",
+  "status": "EXCLUDED_WEIGHTS_DATA",
+  "recorded_utc": "2026-09-22T21:50:00Z",
+  "classification": "MEASURED (real-model panel A/B) + RETRACTED (panel headline) + MEASURED (packing)",
+  "values": {
+    "panel_tasks_usable": 20,
+    "panel_tasks_solved": 20,
+    "hit_stratum_n": 12,
+    "hit_baseline_mean_wall_s": 84.50785308899867,
+    "hit_enabled_mean_wall_s": 16.574470545747317,
+    "hit_ratio": 5.0995,
+    "miss_stratum_n": 8,
+    "miss_baseline_mean_wall_s": 127.40075500699822,
+    "miss_enabled_mean_wall_s": 127.63919652062395,
+    "miss_ratio": 0.9981,
+    "headline_5_10x": "RETRACTED (contaminated measurement window)",
+    "admissible_clean_multiplier": 1.771,
+    "timing_proxy_tokens": [
+      30,
+      8
+    ],
+    "timing_proxy_forwards": [
+      12,
+      4
+    ],
+    "clean_single_task_ab_s": [
+      22.158,
+      12.511
+    ],
+    "clean_single_task_forwards_removed": 1,
+    "clean_single_task_tokens_removed": 64,
+    "clean_single_task_ssd_bytes": 649,
+    "packed_v2_vs_v1_physical_read_mb": [
+      62.25,
+      17.4
+    ],
+    "packed_reduction": -0.721,
+    "action_extent_compression_bytes": [
+      565,
+      73
+    ],
+    "action_extent_compression_ratio": 0.129,
+    "workload_conditioned_class_multiplier": 1.354,
+    "state_reuse": "NOT CLAIMABLE - no identity gate exists in the runtime"
+  },
+  "boundaries": [
+    "The 5.10x headline is retracted; the admissible clean multiplier is 1.771x.",
+    "The 30->8 token and 12->4 forward figures are a timing proxy, not model inference.",
+    "Accuracy is preserved only in the tested cases (20/20 panel).",
+    "State reuse has no identity gate and is not claimable today."
+  ]
+}

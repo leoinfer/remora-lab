@@ -1,0 +1,107 @@
+{
+  "schema": "remora.repro.experiment.v1",
+  "quant_format_version": "not applicable to this disposition lane",
+  "quant_hash": null,
+  "model_hashes": {},
+  "os": "Linux reference workstation",
+  "kernel": "not applicable to this disposition lane",
+  "mesa": "not applicable to this disposition lane",
+  "radv": "not applicable to this disposition lane",
+  "vulkan": "not applicable to this disposition lane",
+  "rust": "not applicable to this disposition lane",
+  "compiler": "not applicable to this disposition lane",
+  "power_limit": "not applicable to this disposition lane",
+  "clock_configuration": "not applicable to this disposition lane",
+  "memory_clock": "not applicable to this disposition lane",
+  "voltage_offset": "not applicable to this disposition lane",
+  "environment_variables": {},
+  "prompt_hash": null,
+  "ttft_ms": null,
+  "tokens_generated": null,
+  "prefill_tokens": null,
+  "decode_tokens": null,
+  "acceptance_metrics": null,
+  "raw_output_digest": null,
+  "claim_id": "C-044",
+  "experiment_id": "ngram-action-memory-alice-2026-09-22",
+  "status": "EXCLUDED_WEIGHTS_DATA",
+  "description": "Bounded public disposition for the SSD action-memory path on a real model: the frozen 22-task panel A/B (hit stratum 84.508 s to 16.574 s, 20/20 solved; miss stratum 0.9981), the audit retraction of the 5.10x headline as contaminated with an admissible clean multiplier of 1.771x, the packed-extent reduction of instrumented physical read bytes by 72.1%, and the missing state-reuse identity gate. The executing runtime tree, model weights, container bytes, and raw receipts are excluded from publication; values below are sanitized summaries of campaign-local receipts.",
+  "source_commit": "1d137b265c2b00d337dcbc4b6daa8eb363541946",
+  "source_paths": [
+    "research/ssd-action-memory/README.md",
+    "repro/ngram/action-memory-2026-09-22/run.sh",
+    "repro/ngram/action-memory-2026-09-22/sanitized_receipt.json"
+  ],
+  "model_name": "AliceAI-Foundation-80B-A3B-Base (custom alice_ai hybrid KDA linear-attention + MoE)",
+  "model_revision": "campaign artifact; no weight payload is part of this repository",
+  "model_download_source": "public base checkpoint exists; no weight payload or container byte is part of this repository",
+  "quant_name": "Q3.9-MIX (52 x Q4_K + 44 x Q3_K expert tensors, trunk q8_0, control f32)",
+  "hardware_phenotype": "RX9060XT16-NITRO-GFX1200-RADV-2026.08.27-v1; RX 9060 XT 16 GB, gfx1200; frozen server configuration; NVMe cold tier",
+  "gpu_configuration": "RX 9060 XT 16 GB, gfx1200; frozen server configuration; NVMe cold tier",
+  "command": "./repro/ngram/action-memory-2026-09-22/run.sh",
+  "prompt": "frozen 22-task panel; the task prompts are excluded from publication",
+  "context_size": "2048",
+  "batch_size": "2048",
+  "ubatch_size": "256",
+  "kv_format": "q8_0",
+  "mtp_enabled": false,
+  "ngram_enabled": true,
+  "warmup": "one A/B per task (baseline row then enabled row) on a frozen panel",
+  "measurement_start": "2026-09-22T00:00:00Z",
+  "measurement_end": "2026-09-22T21:50:00Z",
+  "prefill_tps": null,
+  "decode_tps": null,
+  "expected_range": {
+    "panel_tasks_usable": 20,
+    "panel_tasks_solved": 20,
+    "hit_stratum_n": 12,
+    "hit_baseline_mean_wall_s": 84.50785308899867,
+    "hit_enabled_mean_wall_s": 16.574470545747317,
+    "hit_ratio": 5.0995,
+    "miss_stratum_n": 8,
+    "miss_baseline_mean_wall_s": 127.40075500699822,
+    "miss_enabled_mean_wall_s": 127.63919652062395,
+    "miss_ratio": 0.9981,
+    "headline_5_10x": "RETRACTED (contaminated measurement window)",
+    "admissible_clean_multiplier": 1.771,
+    "timing_proxy_tokens": [
+      30,
+      8
+    ],
+    "timing_proxy_forwards": [
+      12,
+      4
+    ],
+    "clean_single_task_ab_s": [
+      22.158,
+      12.511
+    ],
+    "clean_single_task_forwards_removed": 1,
+    "clean_single_task_tokens_removed": 64,
+    "clean_single_task_ssd_bytes": 649,
+    "packed_v2_vs_v1_physical_read_mb": [
+      62.25,
+      17.4
+    ],
+    "packed_reduction": -0.721,
+    "action_extent_compression_bytes": [
+      565,
+      73
+    ],
+    "action_extent_compression_ratio": 0.129,
+    "workload_conditioned_class_multiplier": 1.354,
+    "state_reuse": "NOT CLAIMABLE - no identity gate exists in the runtime",
+    "status": "EXCLUDED_WEIGHTS_DATA"
+  },
+  "tolerance": {
+    "panel_ratio": "one A/B per task on a frozen panel; the miss path is ~1.00x by design",
+    "packing": "instrumented physical read bytes, not modelled"
+  },
+  "known_limitations": [
+    "The 5.10x headline is retracted; the admissible clean multiplier is 1.771x.",
+    "The 30->8 token and 12->4 forward figures are a timing proxy, not model inference.",
+    "Accuracy is preserved only in the tested cases (20/20 panel).",
+    "State reuse has no identity gate and is not claimable today."
+  ],
+  "receipt_path": "repro/ngram/action-memory-2026-09-22/sanitized_receipt.json"
+}

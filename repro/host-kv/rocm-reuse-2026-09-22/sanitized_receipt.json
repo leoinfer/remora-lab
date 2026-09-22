@@ -1,0 +1,50 @@
+{
+  "schema": "remora.repro.sanitized_receipt.v1",
+  "lane": "repro/host-kv/rocm-reuse-2026-09-22",
+  "status": "EXCLUDED_WEIGHTS_DATA",
+  "recorded_utc": "2026-09-22T21:35:00Z",
+  "classification": "MEASURED (HIP kernel microbenchmark, two arms)",
+  "values": {
+    "geometry_physical_bytes_per_pass": 1140850688,
+    "pinned_k1_physical_gbps": 13.997,
+    "pinned_k8_physical_gbps": 14.01,
+    "pinned_k16_physical_gbps": 12.929,
+    "pinned_k32_physical_gbps": 5.77,
+    "pinned_k96_physical_gbps": 2.552,
+    "pinned_k1_logical_gbps": 13.997,
+    "pinned_k8_logical_gbps": 112.081,
+    "pinned_k32_logical_gbps": 184.649,
+    "pinned_k96_logical_gbps": 244.944,
+    "pageable_registered_k1_physical_gbps": 14.02,
+    "pageable_registered_k8_physical_gbps": 14.0,
+    "pageable_registered_k32_physical_gbps": 4.5,
+    "pageable_registered_k96_physical_gbps": 2.57,
+    "pageable_registered_k1_logical_gbps": 14.02,
+    "pageable_registered_k8_logical_gbps": 112.04,
+    "pageable_registered_k32_logical_gbps": 143.94,
+    "pageable_registered_k96_logical_gbps": 246.89,
+    "parity_rel_rms_range": [
+      4.511e-06,
+      4.955e-06
+    ],
+    "parity_max_abs_ceiling": 2.3935e-07,
+    "q8_0_quantization_rel_rms": 0.0040951,
+    "staging_only_kernel_ms": [
+      81.0,
+      82.0
+    ],
+    "pure_read_gbps": 13.7922,
+    "pageable_raw": "kernel page fault: Page not present or supervisor privilege",
+    "registered_pageable_fraction_of_pinned": [
+      0.88,
+      0.9
+    ]
+  },
+  "boundaries": [
+    "The two arms disagree at K>=32 (4.50 vs 5.770 GB/s physical); they must not be averaged.",
+    "The JSON receipt for the registered-pageable arm is absent from disk; only the run log survives.",
+    "No llama.cpp integration, no real model tensors, no GQA head sharing, and no end-to-end tokens/s.",
+    "Each byte is read once by construction plus rate agreement, not by a hardware page counter.",
+    "Logical bandwidth is block reuse, not physical link bandwidth."
+  ]
+}

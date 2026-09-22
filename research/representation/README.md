@@ -4,6 +4,12 @@ How should 125B parameters of MoE expert weights be stored on a machine with
 16 GB of VRAM, 32 GB of RAM, and an NVMe device? This family records what has
 actually been measured and what has been decided so far.
 
+This file covers the **fidelity panels** (what a given representation costs in
+local error). The newer, differently-posed thread — utilization first,
+bits-per-weight second, quality as a hard constraint, with the measured unpack
+cost ordering and the GSQ/RCO prior art — is in
+[`UTILIZATION.md`](UTILIZATION.md).
+
 **Evidence class of everything below:** `MEASURED`, tensor- and
 activation-level, on a bounded panel. **Not** capability evidence: no
 end-to-end quality, benchmark-retention, or whole-model result is implied, and

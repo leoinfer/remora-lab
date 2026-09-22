@@ -22,6 +22,16 @@ Start with:
 - [`../docs/remora_metabolism/PROVENANCE_AND_SCOPE.md`](../docs/remora_metabolism/PROVENANCE_AND_SCOPE.md)
   — frozen public scope and verification map for the native REMORA metabolism
   subsystem;
+- [`alice/`](alice/) — the 2026-09-19 → 2026-09-22 Alice campaign: a second
+  model family, its MTP rollback defect, backend records, prefill, and host
+  arena;
+- [`host-kv/`](host-kv/) — block-stationary host-KV reuse: physical host read
+  at the link roof, logical service by reuse, and the registered-memory
+  prerequisite;
+- [`qwen27b/`](qwen27b/) — the Qwen3.8-27B ROCm side campaign: ladder, KV
+  format defects, and wide-M verification economics;
+- [`ssd-action-memory/`](ssd-action-memory/) — symbolic action memory on the
+  cold tier, including the retraction of its 5.10× headline;
 - [`ideas/`](ideas/) — H/N atlas cards and thematic mechanism notes;
 - [`open-problems/`](open-problems/) and [`conjectures/`](conjectures/) —
   exact section-level records;

@@ -46,6 +46,17 @@ recorded in [`research/SOURCE_REGISTER.md`](research/SOURCE_REGISTER.md) and
 
 ## Refresh log
 
+- **2026-09-22:** Alice campaign, host-KV, and the ROCm pivot published. New
+  research records: [`research/alice/`](research/alice/),
+  [`research/host-kv/`](research/host-kv/),
+  [`research/qwen27b/`](research/qwen27b/),
+  [`research/ssd-action-memory/`](research/ssd-action-memory/),
+  [`research/representation/UTILIZATION.md`](research/representation/UTILIZATION.md),
+  and [`research/falsified/ALICE_CAMPAIGN_NEGATIVES.md`](research/falsified/ALICE_CAMPAIGN_NEGATIVES.md).
+  Eleven new bounded disposition lanes were added under
+  [`repro/`](repro/) and the claim ledger now runs to C-050. The Alice campaign
+  is dated 2026-09-19 → 2026-09-22 and is described as ~3 days of active work,
+  not as a long-running campaign.
 - **2026-09-18:** README and status pages rewritten to lead with the current
   Flash-Next work instead of the runtime taxonomy. HAR is documented as an
   experimental native-Rust runtime side lane rather than the runtime of record;

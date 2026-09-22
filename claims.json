@@ -256,6 +256,246 @@
         "research/flash-next/CURRENT_RESEARCH_LOG.md"
       ],
       "caveat": "The streaming measurements are MEASURED; the architectural rejection is an interpretation recorded alongside them."
+    },
+    {
+      "id": "C-027",
+      "status": "EXPERIMENTAL",
+      "statement": "Alice is AliceAI-Foundation-80B-A3B-Base, a custom hybrid KDA linear-attention plus MoE model with 48 blocks (36 linear-attention, 12 full-attention at interval 4), 512 routed experts with top-10 routing plus one shared expert, hidden 2048, expert_ff 512, vocab 129024 and a 262144-token context; its counted parameter total is 79,635,961,472.",
+      "evidence": [
+        "repro/alice/artifact-and-residency-2026-09-22/sanitized_receipt.json",
+        "research/alice/README.md"
+      ],
+      "caveat": "A server load log prints 81.29 B for the same artifact; the 1.65 B difference is unreconciled and both readings are recorded. No weight payload is published."
+    },
+    {
+      "id": "C-028",
+      "status": "EXPERIMENTAL",
+      "statement": "The deployed Alice artifact is a mixed-quantization GGUF of 39,913,721,760 B (37.1726 GiB) at 4.003 effective bpw whose expert bank is 34.7227 GiB, i.e. 93.41% of artifact bytes, at 3.862 bpw; at the deployed split 32 expert layers are host-resident (23.15 GiB) and 16 are device-resident (11.57 GiB).",
+      "evidence": [
+        "repro/alice/artifact-and-residency-2026-09-22/sanitized_receipt.json",
+        "research/alice/README.md"
+      ],
+      "caveat": "Only the 93.41% share is arithmetic over two receipt fields; the container itself is excluded from publication."
+    },
+    {
+      "id": "C-029",
+      "status": "EXPERIMENTAL",
+      "statement": "An explicit 12 GiB host expert arena over a packed O_DIRECT store moved Alice decode from 4.49 t/s cold-mmap to 13.99 (8 GiB), 14.93 (12 GiB shipped) and 15.58 t/s (12 GiB pinned), with a 95.308% hit rate and a destructive parity test measuring max|diff| = 0.0; an earlier 99.536% hit-rate figure was invalidated by a per-layer unit-size bug and corrected to 98.545-98.771% at 16 GiB.",
+      "evidence": [
+        "repro/alice/artifact-and-residency-2026-09-22/sanitized_receipt.json",
+        "research/alice/README.md"
+      ],
+      "caveat": "The arena is a bounded redirect over a packed store, not mmap, and the hit rate is a property of one workload trace and one deployed configuration."
+    },
+    {
+      "id": "C-030",
+      "status": "HISTORICAL",
+      "statement": "18.430 tokens/s decode-only is the historical Vulkan configuration of record for Alice, reproduced by an independent 18.360 tokens/s re-anchor (0.4% agreement), and the gain came from batching Vulkan-to-host split-input readbacks into one synchronization boundary (100.8 to 36.9 boundaries per token, waits -33%, submissions -5.7%).",
+      "evidence": [
+        "repro/alice/backend-speed-and-prefill-2026-09-22/sanitized_receipt.json",
+        "research/alice/README.md"
+      ],
+      "caveat": "This is a HISTORICAL Vulkan figure and is not current HIP performance; the two source trees differ, so the delta is not a backend attribution."
+    },
+    {
+      "id": "C-031",
+      "status": "EXPERIMENTAL",
+      "statement": "The current clean ROCm/HIP raw K0 reading for Alice is 15.374-15.422 tokens/s against 18.360 tokens/s Vulkan in the same broader comparison, and the standing campaign policy is ROCm/HIP as the production and performance backend with Vulkan as the parity oracle and mechanism donor.",
+      "evidence": [
+        "repro/alice/backend-speed-and-prefill-2026-09-22/sanitized_receipt.json",
+        "research/alice/README.md"
+      ],
+      "caveat": "Single-run cross-commit comparison with within-arm spread; the policy is a directive, not a measurement."
+    },
+    {
+      "id": "C-032",
+      "status": "HISTORICAL",
+      "statement": "Alice prefill measured 662.7437 tokens/s prompt-eval on pp2048 at ubatch 4096 as the third (hot) request of a warm-repeat in one session, against 245.614 warm and 91.345 cold in the same arm; the controlled ub512 A/B setting sits in a 486.9-533.0 tokens/s hot band while ub2048 is unusable as a control (84-298% spread).",
+      "evidence": [
+        "repro/alice/backend-speed-and-prefill-2026-09-22/sanitized_receipt.json",
+        "research/alice/README.md"
+      ],
+      "caveat": "662.7437 is a real measured hot run in the high-throughput regime, not a universally reproducible stable baseline; the cross-session 71.105 tokens/s baseline and the derived 9.3x ratio are inadmissible."
+    },
+    {
+      "id": "C-033",
+      "status": "EXPERIMENTAL",
+      "statement": "The Alice MTP K>1 rollback failure was an Alice-local recurrent conv snapshot plane convention (offset min(slot, n_seq_tokens) instead of n_seq_tokens - slot) rather than a defect in shared infrastructure; the known-answer test moved from 276 of 682 checks failing to 0 of 682, and the corrected lane shows greedy parity at K = 0, 2, 3 and 4.",
+      "evidence": [
+        "repro/alice/mtp-and-staging-2026-09-22/sanitized_receipt.json",
+        "research/alice/README.md"
+      ],
+      "caveat": "The shared gated-delta-net operator was proven correct independently (682 checks, 0 failures). No MTP multiplier is claimed: the K=1 accepted figure is retained as HISTORICAL and is not reproducible."
+    },
+    {
+      "id": "C-034",
+      "status": "INVALIDATED",
+      "statement": "The FreeToken-inspired staging/overlap programme produced no production win: the standalone HIP probe hides the copy on a separate stream (exposed 0.00-0.60 ms) but the controlled ub512 A/B measured 515.858 pp/s control against 507.085 pp/s candidate, the synchronization drains it was built to hide price out at ~0.2% of a prefill pass, and both the coarse (49,326.56 MiB allocation failure) and targeted second-slot designs failed to produce a loaded candidate arm.",
+      "evidence": [
+        "repro/alice/mtp-and-staging-2026-09-22/sanitized_receipt.json",
+        "research/falsified/ALICE_CAMPAIGN_NEGATIVES.md"
+      ],
+      "caveat": "The mechanism is proven in isolation only; the production experiment is a measured null with named prerequisites (event ordering, non-aliasing staging slots) for any retry."
+    },
+    {
+      "id": "C-035",
+      "status": "EXPERIMENTAL",
+      "statement": "Expert-major grouping of routed experts raised single-layer local GEMM throughput from 0.185 to 6.115 TMAC/s at B=4096 (33.0x, lower bound ~43x after copy correction), a route-materialisation helper rewrite removed 19.3%/29.5% of the grouped step at B=4096/5796, and the same-kernel parity gate is 32/32 bit-exact at every batch size.",
+      "evidence": [
+        "repro/moe/expert-major-grouping-2026-09-22/sanitized_receipt.json",
+        "research/alice/README.md"
+      ],
+      "caveat": "A local mechanism win is not a full-model multiplier: the grouped expert GEMM is ~44.6% of the step (Amdahl ceiling ~1.65x) and the deployed-configuration gate returned REVERT. An earlier apparent 1.14e-2 delta was kernel selection (MMVQ at one row, MMQ at B>=32), not a grouping error."
+    },
+    {
+      "id": "C-036",
+      "status": "INVALIDATED",
+      "statement": "Forcing prefill MoE onto the CPU path measured a -85.1% regression (581.3 to 87.1 tokens/s at pp4096) and is retired; a compact MoE v2 prefill variant measured 0.164x and was reverted.",
+      "evidence": [
+        "repro/moe/expert-major-grouping-2026-09-22/sanitized_receipt.json",
+        "research/falsified/ALICE_CAMPAIGN_NEGATIVES.md"
+      ],
+      "caveat": "Rejected for a specific implementation and configuration; a fundamentally different mechanism would be a new experiment."
+    },
+    {
+      "id": "C-037",
+      "status": "EXPERIMENTAL",
+      "statement": "On ROCm/HIP, block-stationary host-KV reuse holds physical host read at the link roof while logical KV service scales with reuse width: the pinned arm measures 13.997 physical / 13.997 logical GB/s at K=1 rising to 2.552 physical / 244.944 logical GB/s at K=96, and the registered-pageable arm measures 14.02/14.02 at K=1 and 2.57/246.89 at K=96.",
+      "evidence": [
+        "repro/host-kv/rocm-reuse-2026-09-22/sanitized_receipt.json",
+        "research/host-kv/README.md"
+      ],
+      "caveat": "Logical bandwidth is block reuse, NOT physical link bandwidth. The two arms disagree at K>=32 (4.50 vs 5.770 GB/s physical) and must not be averaged; the JSON receipt for the registered-pageable arm is absent from disk and only its run log survives."
+    },
+    {
+      "id": "C-038",
+      "status": "EXPERIMENTAL",
+      "statement": "ROCm/HIP host-KV attention is numerically exact against a VRAM fp32 reference with a different loop order and softmax formulation: rel_rms 4.511e-6 to 4.955e-6 and max_abs <= 2.3935e-7 at every K tested, three orders of magnitude tighter than the q8_0 cache's own quantization rel_rms of 4.1e-3.",
+      "evidence": [
+        "repro/host-kv/rocm-reuse-2026-09-22/sanitized_receipt.json",
+        "research/host-kv/README.md"
+      ],
+      "caveat": "Kernel-level parity only; no llama.cpp integration, no real model tensors, no GQA head sharing and no end-to-end tokens/s."
+    },
+    {
+      "id": "C-039",
+      "status": "EXPERIMENTAL",
+      "statement": "An unregistered pageable host buffer is not kernel-readable on this path: the GPU faults with 'Page not present or supervisor privilege', while a registered buffer is readable and runs at 88-90% of pinned rate, making hipHostRegister or hipHostMalloc a correctness prerequisite for direct host-KV kernel access rather than a tuning knob.",
+      "evidence": [
+        "repro/host-kv/rocm-reuse-2026-09-22/sanitized_receipt.json",
+        "research/host-kv/README.md"
+      ],
+      "caveat": "Recorded as a prerequisite derived from a measured negative; the error text is reproduced verbatim from the run log."
+    },
+    {
+      "id": "C-040",
+      "status": "HISTORICAL",
+      "statement": "Production huge-context behaviour on the 27B family: 262144 context with q8_0 KV in host RAM decoded 8.4-8.7 tokens/s at 306-335 tokens/s prefill, while 114688 context with KV in VRAM decoded 18.53 tokens/s at 532-548 tokens/s; pinning the host KV (+0%) and async host staging (0%, flag verified engaged) were both null, and a Vulkan control on the same shape decoded 5.38 tokens/s.",
+      "evidence": [
+        "repro/host-kv/production-context-2026-09-22/sanitized_receipt.json",
+        "research/host-kv/README.md"
+      ],
+      "caveat": "The 8.4-8.7 row exists as a campaign ledger table rather than a machine-readable receipt. An earlier projection that a 262K host-resident cache is 'not viable at any MTP width' is retracted (16x layer overcount)."
+    },
+    {
+      "id": "C-041",
+      "status": "HISTORICAL",
+      "statement": "The Qwen3.8-27B ROCm ladder measures raw K0 at 17.35 tokens/s and accepted 29.19 / 34.25 / 33.90 tokens/s at K=1/2/4 in a quiet session with acceptance 1.0000 / 0.9286 / 0.7500, making K=2 the measured HIP optimum; a loaded session moves the same configuration by about 32%.",
+      "evidence": [
+        "repro/qwen27b/rocm-ladder-2026-09-22/sanitized_receipt.json",
+        "research/qwen27b/README.md"
+      ],
+      "caveat": "A committed historical 42.11 tokens/s K=2 receipt belongs to a different artifact, backend and session and must not be merged with 34.25. Raw K0, accepted decode and prefill are never blended."
+    },
+    {
+      "id": "C-042",
+      "status": "EXPERIMENTAL",
+      "statement": "iq4_nl KV has no HIP flash-attention kernel: attention falls back to the CPU silently (457-token prefill 3717.5 ms versus 942.4 ms for q4_0, about 3.9x slower) and the cross-backend bridge then faults on the GPU; q4_0 KV works on the HIP flash-attention path.",
+      "evidence": [
+        "repro/qwen27b/rocm-ladder-2026-09-22/sanitized_receipt.json",
+        "research/qwen27b/README.md"
+      ],
+      "caveat": "The failure mode is silent degradation before the fault, which is the part worth preserving."
+    },
+    {
+      "id": "C-043",
+      "status": "HISTORICAL",
+      "statement": "MTP verification economics are not free: the wide-M verification pass falls from 197 to 184 to 164 to 129 GB/s effective as M goes 1 to 5, and at K=2 the round needs ~283 GB/s through the round, i.e. 78% of the 354 GB/s this machine demonstrably delivers.",
+      "evidence": [
+        "repro/qwen27b/rocm-ladder-2026-09-22/sanitized_receipt.json",
+        "research/qwen27b/README.md"
+      ],
+      "caveat": "Derived from per-arm receipts; the accepted-token targets are limited by wide-M GEMM efficiency, not by the memory system."
+    },
+    {
+      "id": "C-044",
+      "status": "EXPERIMENTAL",
+      "statement": "SSD action memory is a real measurable mechanism: on a frozen 22-task panel the hit stratum moved 84.508 s to 16.574 s (5.0995x) with 20/20 tasks solved and the miss stratum measured 0.9981x, packed action extents cut instrumented physical read bytes from 62.25 MB to 17.40 MB (-72.1%), and the audit's admissible clean multiplier is 1.771x.",
+      "evidence": [
+        "repro/ngram/action-memory-2026-09-22/sanitized_receipt.json",
+        "research/ssd-action-memory/README.md"
+      ],
+      "caveat": "The 5.10x headline is RETRACTED as contaminated by a documented serving-path degradation in the same window; the 30-to-8-token and 12-to-4-forward figures are a timing proxy, not model inference. State reuse has no identity gate and is not claimable."
+    },
+    {
+      "id": "C-045",
+      "status": "INVALIDATED",
+      "statement": "A Laya/System-1 decision sidecar agreed with the lead on 38.4% of 73 decisions against an 84.9% constant baseline, with lead-better 10 versus sidecar-better 1, 1.8-3.0 s per decision and 2.1 GiB RSS; the model, checkpoint and dependencies were removed and only the receipt is retained.",
+      "evidence": [
+        "repro/falsified/alice-campaign-negatives-2026-09-22/sanitized_receipt.json",
+        "research/falsified/ALICE_CAMPAIGN_NEGATIVES.md"
+      ],
+      "caveat": "A sidecar that agrees with the lead less often than a constant baseline cannot add value regardless of gating."
+    },
+    {
+      "id": "C-046",
+      "status": "INVALIDATED",
+      "statement": "Two directions are closed by measurement: a 100k raw-decode target under ordinary execution (676.9 op-TOPS required against a 590-630 band, and 18.0-20.25 GiB needed against an 11.38 GiB budget) and structured sparsity as that lever (1.90-2.10x on the same logical GEMM, 563-637 credited op-TOPS against 821, losing 1.56x to eligible dense 2-bit).",
+      "evidence": [
+        "repro/falsified/alice-campaign-negatives-2026-09-22/sanitized_receipt.json",
+        "research/falsified/ALICE_CAMPAIGN_NEGATIVES.md"
+      ],
+      "caveat": "Closed for the stated execution model; the physical argument is stated separately from implementation limits."
+    },
+    {
+      "id": "C-047",
+      "status": "INVALIDATED",
+      "statement": "The ALICE_MOE_BLOCK lane was reverted: adjacent-pair effects of +6.2% and +17.8% sit inside a 1.64x control spread, routing parity held across 384 layer-steps, several taps were voided, and the 2.7x projection that motivated the lane is retired.",
+      "evidence": [
+        "repro/falsified/alice-campaign-negatives-2026-09-22/sanitized_receipt.json",
+        "research/falsified/ALICE_CAMPAIGN_NEGATIVES.md"
+      ],
+      "caveat": "A projection is not a measurement; the lane never produced a reproducible arm."
+    },
+    {
+      "id": "C-048",
+      "status": "EXPERIMENTAL",
+      "statement": "Holding the output fixed and varying only the representation at a real expert shape (K=2048, N=1024, M=128), effective throughput falls from 297.6 to 229.7 to 188.8 GB/s as the representation becomes harder to unpack, so smaller formats can be slower despite fewer bytes.",
+      "evidence": [
+        "repro/representation/utilization-2026-09-22/sanitized_receipt.json",
+        "research/representation/UTILIZATION.md"
+      ],
+      "caveat": "A single-shape kernel measurement, not an end-to-end speedup."
+    },
+    {
+      "id": "C-049",
+      "status": "EXPERIMENTAL",
+      "statement": "Per-weight ALU cost estimates (Q6_K ~2.75, Q4_K ~2.9, IQ3_S ~3.3, Q3_K ~4.4-5.7 ops/weight), a simple per-channel 4-bit pc4 candidate, and a GSQ/RCO prior-art synthesis are recorded as modelled direction rather than results, and the Flash-Next compression target of ~40-56 GB at 2.25-2.5 effective bpw is a projection from another model's ratios.",
+      "evidence": [
+        "repro/representation/utilization-2026-09-22/sanitized_receipt.json",
+        "research/representation/UTILIZATION.md"
+      ],
+      "caveat": "No measured pc4 performance exists, no GSQ/RCO combination is implemented, and no compressed Flash-Next result exists. Quality is not weight-MSE; the capability gate list is proposed."
+    },
+    {
+      "id": "C-050",
+      "status": "EXPERIMENTAL",
+      "statement": "Alice is packaged as a local worker (OpenAI-compatible endpoint, one-command start/stop/status, health checks, logs, agent-harness integration, native 262144 context with q8_0 KV in host RAM), and the artifact is a base checkpoint whose GGUF header carries no tokenizer chat template at all.",
+      "evidence": [
+        "repro/alice/workhorse-packaging-2026-09-22/sanitized_receipt.json",
+        "research/alice/README.md"
+      ],
+      "caveat": "It is a completion endpoint, not an instruction-tuned agent model, and no quality or capability result is asserted."
     }
   ]
 }

@@ -1,0 +1,104 @@
+{
+  "schema": "remora.repro.experiment.v1",
+  "quant_format_version": "not applicable to this disposition lane",
+  "quant_hash": null,
+  "model_hashes": {},
+  "os": "Linux reference workstation",
+  "kernel": "not applicable to this disposition lane",
+  "mesa": "not applicable to this disposition lane",
+  "radv": "not applicable to this disposition lane",
+  "vulkan": "not applicable to this disposition lane",
+  "rust": "not applicable to this disposition lane",
+  "compiler": "not applicable to this disposition lane",
+  "power_limit": "not applicable to this disposition lane",
+  "clock_configuration": "not applicable to this disposition lane",
+  "memory_clock": "not applicable to this disposition lane",
+  "voltage_offset": "not applicable to this disposition lane",
+  "environment_variables": {},
+  "prompt_hash": null,
+  "ttft_ms": null,
+  "tokens_generated": null,
+  "prefill_tokens": null,
+  "decode_tokens": null,
+  "acceptance_metrics": null,
+  "raw_output_digest": null,
+  "claim_id": "C-040",
+  "experiment_id": "host-kv-production-context-2026-09-22",
+  "status": "EXCLUDED_WEIGHTS_DATA",
+  "description": "Bounded public disposition for production huge-context behaviour: 262144 context with q8_0 KV in host RAM decoding 8.4-8.7 t/s at 306-335 t/s prefill, against 18.53 t/s decode at 114688 with KV in VRAM; pinning the host KV and async host staging both measured null; a Vulkan control on the same shape decoded 5.38 t/s. The executing runtime tree, model weights, container bytes, and raw receipts are excluded from publication; values below are sanitized summaries of campaign-local receipts.",
+  "source_commit": "1d137b265c2b00d337dcbc4b6daa8eb363541946",
+  "source_paths": [
+    "research/host-kv/README.md",
+    "repro/host-kv/production-context-2026-09-22/run.sh",
+    "repro/host-kv/production-context-2026-09-22/sanitized_receipt.json"
+  ],
+  "model_name": "Qwen3.8-27B (GSQ-RCO artifact family)",
+  "model_revision": "campaign artifact; no weight payload is part of this repository",
+  "model_download_source": "public artifact exists; no weight payload or container byte is part of this repository",
+  "quant_name": "q8_0 KV cache; mixed-precision weight artifacts",
+  "hardware_phenotype": "RX9060XT16-NITRO-GFX1200-RADV-2026.08.27-v1; RX 9060 XT 16 GB, gfx1200; ROCm/HIP and a Vulkan control build",
+  "gpu_configuration": "RX 9060 XT 16 GB, gfx1200; ROCm/HIP and a Vulkan control build",
+  "command": "./repro/host-kv/production-context-2026-09-22/run.sh",
+  "prompt": "campaign prompts are excluded; a 6201-token prompt was used for the ubatch sweep",
+  "context_size": "262144 host-RAM KV and 114688 VRAM KV (both reported)",
+  "batch_size": "512",
+  "ubatch_size": "512 best; 1024/2048 measured",
+  "kv_format": "q8_0",
+  "mtp_enabled": false,
+  "ngram_enabled": false,
+  "warmup": "warm passes; prefill ubatch sweep includes one cold run",
+  "measurement_start": "2026-09-22T18:00:00Z",
+  "measurement_end": "2026-09-22T21:40:00Z",
+  "prefill_tps": 335.0,
+  "decode_tps": 18.53,
+  "expected_range": {
+    "ram_kv_ctx262144_decode_tps": [
+      8.4,
+      8.7
+    ],
+    "ram_kv_ctx262144_prefill_tps": [
+      306.0,
+      335.0
+    ],
+    "ram_kv_prefill_ub512_tps": [
+      328.0,
+      364.0
+    ],
+    "vram_kv_ctx114688_decode_tps": 18.53,
+    "vram_kv_ctx114688_prefill_tps": [
+      532.0,
+      548.0
+    ],
+    "vram_kv_ctx98304_decode_tps": [
+      18.3,
+      18.5
+    ],
+    "pinned_host_kv_decode_tps": 8.75,
+    "pinned_host_kv_delta": "+0%",
+    "async_staging_decode_tps": 8.39,
+    "async_staging_delta": "0% (flag verified engaged: sync=0.281 MB async=192.565 MB)",
+    "vulkan_control_ctx262144_decode_tps": 5.38,
+    "vulkan_control_ctx262144_prefill_tps": 229.3,
+    "threads_16_decode_tps": [
+      4.7,
+      5.7
+    ],
+    "kv_bytes_per_token_q8_0": 36992,
+    "kv_gib_at_262144": 9.0,
+    "kv_gib_at_114688": 3.96,
+    "kv_gib_at_65536": 2.26,
+    "retracted_projection": "a 262K host-resident q8_0 cache was claimed not viable at any MTP width; retracted (16x layer overcount)",
+    "status": "EXCLUDED_WEIGHTS_DATA"
+  },
+  "tolerance": {
+    "decode_tps": "single-session comparisons only; ambient load moves this configuration by ~30%",
+    "context": "capacity and decode only; no long-context quality claim"
+  },
+  "known_limitations": [
+    "The 8.4-8.7 t/s row exists as a campaign ledger table rather than a machine-readable receipt.",
+    "No end-to-end tokens/s with the reuse kernel enabled exists; this is the un-integrated engine.",
+    "The Vulkan control is a single receipt.",
+    "The earlier 'not viable at any MTP width' projection is retracted."
+  ],
+  "receipt_path": "repro/host-kv/production-context-2026-09-22/sanitized_receipt.json"
+}

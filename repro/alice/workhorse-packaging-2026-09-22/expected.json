@@ -1,0 +1,17 @@
+{
+  "schema": "remora.repro.expected.v1",
+  "command": "./repro/alice/workhorse-packaging-2026-09-22/run.sh",
+  "expected_status": "EXCLUDED_WEIGHTS_DATA",
+  "expected_values": {
+    "gguf_metadata_keys_parsed": 36,
+    "tokenizer_chat_template_present": false,
+    "served_context": 262144,
+    "kv_in_host_ram": true,
+    "api": "OpenAI-compatible local server plus the runtime's native API on the same port",
+    "lifecycle": "one-command start / stop / status with health checks, logs, and refusal codes",
+    "expert_layers_on_host": 33,
+    "capability_path": "client-side native-format renderer with a tool catalog and a machine-checkable answer line",
+    "measured_degradation": "raw instruction-shaped chat prompts degenerate; the checkpoint is a base model"
+  },
+  "interpretation": "Alice is packaged as a usable local worker; the capability boundary is stated rather than implied."
+}

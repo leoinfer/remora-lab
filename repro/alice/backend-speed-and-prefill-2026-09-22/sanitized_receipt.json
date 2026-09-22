@@ -1,0 +1,41 @@
+{
+  "schema": "remora.repro.sanitized_receipt.v1",
+  "lane": "repro/alice/backend-speed-and-prefill-2026-09-22",
+  "status": "EXCLUDED_WEIGHTS_DATA",
+  "recorded_utc": "2026-09-22T21:15:00Z",
+  "classification": "HISTORICAL (Vulkan record of record) + MEASURED (HIP raw K0) + MEASURED (prefill hot run)",
+  "values": {
+    "vulkan_decode_tps_historical_config_of_record": 18.43,
+    "vulkan_decode_tps_independent_reanchor": 18.36,
+    "vulkan_reanchor_agreement_fraction": 0.996,
+    "hip_raw_k0_decode_tps": [
+      15.374,
+      15.422
+    ],
+    "hip_vs_vulkan_same_comparison_vulkan_tps": 18.36,
+    "sync_boundaries_per_token_before": 100.8,
+    "sync_boundaries_per_token_after": 36.9,
+    "waits_reduction_fraction": 0.33,
+    "submissions_reduction_fraction": 0.057,
+    "prefill_pp2048_ub4096_hot_tps": 662.7437,
+    "prefill_pp2048_ub4096_warm_tps": 245.614,
+    "prefill_pp2048_ub4096_cold_tps": 91.345,
+    "prefill_pp2048_ub512_hot_band_tps": [
+      486.9,
+      533.0
+    ],
+    "prefill_pp2048_ub2048_control_spread_fraction": [
+      0.84,
+      2.98
+    ],
+    "cross_session_baseline_tps_inadmissible": 71.105,
+    "ub8192_ctx16384": "OOM before readiness (measured ceiling)"
+  },
+  "boundaries": [
+    "18.430 t/s is a HISTORICAL Vulkan figure and is not current HIP performance.",
+    "The HIP comparison and the Vulkan record come from different source trees, so the delta is not yet a backend attribution.",
+    "662.7437 t/s is the third request of a warm-repeat and must not be advertised as a universally reproducible baseline.",
+    "The 71.105 t/s baseline belongs to a different session, ubatch, and offload configuration; the derived 9.3x ratio is inadmissible.",
+    "ub2048 is unusable as a control (84-298% spread)."
+  ]
+}

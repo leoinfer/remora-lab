@@ -20,6 +20,7 @@ Reader shortcut, in roughly the order a new visitor should ask:
 | Question | Where to look |
 | --- | --- |
 | What currently works? | [Current verified results](#current-verified-results), [`RESEARCH_STATUS.md`](RESEARCH_STATUS.md) |
+| What changed after 2026-09-18? | [Since the last update](#since-the-last-update-2026-09-19--2026-09-22), [Alice campaign](research/alice/README.md), [host-KV](research/host-kv/README.md) |
 | What is being tested right now? | [current Flash-Next log](research/flash-next/CURRENT_RESEARCH_LOG.md), [campaign summary](research/flash-next/CURRENT_CAMPAIGN.md) |
 | What failed, and what was killed? | [falsified and bounded results](docs/research/falsified-results.md), [`research/falsified/`](research/falsified/) |
 | Which results are real, and at what scope? | [`CLAIMS.md`](CLAIMS.md), [methodology and evidence labels](docs/methodology.md) |
@@ -58,8 +59,11 @@ prerequisites for understanding the current work.
 Current target configuration:
 
 ```text
-model      Qwen3.8 Flash-Next (125B total / ~6B active, 512-expert MoE)
-gpu        RX 9060 XT 16 GB (gfx1200 / RDNA4), RADV / Vulkan
+models     Qwen3.8 Flash-Next (125B total / ~6B active, 512-expert MoE)
+           Alice (80B-A3B, 48 blocks, 512 experts top-10, 262144 context)
+           Qwen3.8-27B (ROCm side campaign, MTP ladder)
+gpu        RX 9060 XT 16 GB (gfx1200 / RDNA4)
+backends   ROCm/HIP production, RADV/Vulkan as parity oracle and donor
 host       32 GB system RAM, NVMe storage, Linux
 question   how close to BF16 quality, and how fast, can this get?
 ```
@@ -67,14 +71,15 @@ question   how close to BF16 quality, and how fast, can this get?
 Current themes:
 
 - heterogeneous precision across expert roles and layers;
-- MoE expert residency across VRAM, RAM, and NVMe;
+- MoE expert residency across VRAM, RAM, and NVMe, with an explicit host arena;
 - route-aware prefetch and expert caching;
-- BF16-derived compression and additive correction representations;
+- utilization-first representation design: keep execution fast, then descend bits;
 - storage-path measurement, page-cache behaviour, and fault accounting;
-- MTP / speculative future-state research;
+- MTP / speculative future-state research, including rollback correctness;
 - grouped and RDNA4-native execution;
-- effective (logical) bandwidth versus physical bandwidth;
-- context systems and long-context KV behaviour;
+- effective (logical) bandwidth versus physical bandwidth — and block reuse that
+  converts one into the other;
+- context systems, long-context KV behaviour, and host-resident KV;
 - falsifiable roofline targets.
 
 The question is no longer "can it run?". It is how much quality can be kept
@@ -166,6 +171,55 @@ Q2 donor/scaffold   known-good runtime control; not a quality target
 BF16                the quality authority
 final V2 bank       being regenerated directly from BF16
 ```
+
+## Since the last update (2026-09-19 → 2026-09-22)
+
+The previous public refresh was the 2026-09-18 Flash deployment record. Since
+then the program added a second model campaign, a backend pivot, and the
+strongest mechanism result in the corpus so far. Short version, with the full
+records linked:
+
+**Alice campaign — active for about three days.** A second model family
+(`AliceAI-Foundation-80B-A3B-Base`, a custom hybrid KDA linear-attention + MoE
+model, 48 blocks, 512 routed experts with top-10 routing, 262144 context) was
+brought up, quantized to a 39.91 GB expert-dominated artifact at 4.003 effective
+bits per weight, and run behind an explicit 12 GiB host expert arena that moved
+decode from 4.49 to 15.58 t/s. Its `K > 1` MTP rollback failure was traced to an
+Alice-local recurrent conv snapshot plane convention — not shared
+infrastructure — and fixed, taking a model-free known-answer test from 276 of
+682 checks failing to zero, with greedy parity at `K = 0/2/3/4`. Its prefill
+record includes a 662.74 t/s hot run that is explicitly **not** a stable
+baseline. Everything is in [`research/alice/README.md`](research/alice/README.md).
+
+**Backend pivot.** ROCm/HIP is now the production and performance backend, with
+Vulkan kept as the parity oracle, debug path, and mechanism donor. New
+optimizations target HIP first. This does not retroactively change the
+historical Vulkan numbers: the 18.430 t/s Alice decode record stays labelled as
+the historical Vulkan configuration of record.
+
+**Host-KV block reuse — the strongest mechanism result.** Fetching a host KV
+block once and serving many query rows from it converts a ~14 GB/s physical
+host read path into up to ~245 GB/s of *logical* KV service at exact-attention
+parity (rel_rms 4.5e-6), on both backends. Physical bandwidth never moved; the
+reuse did. Registered host memory turned out to be a correctness prerequisite
+for direct host-KV kernel access, not a tuning knob. Integration into the
+production attention path is the named remaining work. See
+[`research/host-kv/README.md`](research/host-kv/README.md).
+
+**Utilization-first representation.** The representation objective is now
+stated as maximum fidelity × minimum bytes × maximum execution speed, in that
+priority order: utilization first, bits-per-weight second, quality as a hard
+constraint. A measured unpack-cost ordering shows smaller formats can be
+*slower*, GSQ and RCO are adopted as prior art, and the Flash-Next compression
+target is explicitly `MODELED`. See
+[`research/representation/UTILIZATION.md`](research/representation/UTILIZATION.md).
+
+**Also new:** a Qwen3.8-27B ROCm side campaign with its own ladder and KV
+defects ([`research/qwen27b/`](research/qwen27b/)), SSD action memory with a
+retracted headline and an admissible clean multiplier
+([`research/ssd-action-memory/`](research/ssd-action-memory/)), and a substantial
+set of new negative results
+([`research/falsified/ALICE_CAMPAIGN_NEGATIVES.md`](research/falsified/ALICE_CAMPAIGN_NEGATIVES.md)).
 
 ## Why VRAM / RAM / NVMe tiering?
 
@@ -358,6 +412,15 @@ Negative results are kept, not tidied away.
 | T1 + Q8 residual island as the final representation | **Byte-inefficient.** Kept as mechanism evidence, not as a proposal. |
 | Faster-than-baseline claims | **Not claimed.** Historical comparable paths sometimes trailed llama.cpp by several tokens per second; the project makes no speedup claim without a public receipt. |
 | Effective "10M context" | **Hypothesis only.** Not a run of dense attention over ten million positions. |
+| FreeToken-inspired copy-stream overlap (F2) | **Null.** 515.858 pp/s control vs 507.085 pp/s candidate at ubatch 512; the synchronization drains it targeted price out at ~0.2% of a prefill pass. |
+| CPU-MoE prefill path | **Retired.** −85.1% (581.3 → 87.1 t/s at `pp4096`). |
+| Coarse double staging (`n_copies = 2`) | **Memory-infeasible.** Allocation failure at 49,326.56 MiB (~48.2 GiB). |
+| `ALICE_MOE_BLOCK` | **Reverted.** +6.2%/+17.8% adjacent pairs sit inside a 1.64× control spread; the motivating 2.7× projection is retired. |
+| 100k raw decode under ordinary execution | **Closed by physics.** 676.9 op-TOPS required against a 590–630 band, and 18.0–20.25 GiB needed against an 11.38 GiB budget. |
+| Structured sparsity as that lever | **Closed.** 563–637 credited op-TOPS against 821, and the representation loses 1.56× to eligible dense 2-bit. |
+| Laya / System-1 decision sidecar | **Negative.** 38.4% agreement against an 84.9% constant baseline; model and dependencies removed. |
+| SSD action-memory 5.10× headline | **Retracted as contaminated.** Admissible clean multiplier: 1.771×. |
+| Copying the Vulkan reuse kernel to ROCm to recover decode speed | **Killed.** At full context the host-KV path is already faster on ROCm than on Vulkan (8.4–8.7 vs 5.38 t/s); single-stream decode has no rows to reuse. |
 
 The full record: [`docs/research/falsified-results.md`](docs/research/falsified-results.md)
 and [`research/falsified/`](research/falsified/).
@@ -367,6 +430,10 @@ and [`research/falsified/`](research/falsified/).
 | Path | What is in it |
 | --- | --- |
 | [`research/flash-next/`](research/flash-next/) | Current Flash-Next campaign, dated research log, prefetch result |
+| [`research/alice/`](research/alice/) | Alice campaign: custom hybrid linear-attention MoE, MTP correctness, backend records, prefill, arena |
+| [`research/host-kv/`](research/host-kv/) | Host-KV block reuse, huge-context behaviour, registered-host-memory prerequisite |
+| [`research/qwen27b/`](research/qwen27b/) | Qwen3.8-27B ROCm side campaign: ladder, KV defects, wide-M economics |
+| [`research/ssd-action-memory/`](research/ssd-action-memory/) | Symbolic action memory on the cold tier, with its retraction record |
 | [`research/representation/`](research/representation/) | Representation research: bases, corrections, islands, palette |
 | [`research/falsified/`](research/falsified/) | Negative knowledge, counterexamples, failure ledgers |
 | [`research/ideas/`](research/ideas/), [`research/systems/`](research/systems/) | Idea atlas and named-system notes (HERMES, REMORA, R4X, R4KV, R4F, ContextFold, ExpertPack, …) |

@@ -1,6 +1,7 @@
 # Qwen3.8 Flash research log
 
-**Updated:** 2026-09-18 evidence freeze.
+**Updated:** 2026-09-18 evidence freeze, extended 2026-09-22 with the Alice
+campaign, the host-KV result, and the ROCm pivot.
 **Scope:** public-safe research summary; no model payloads, raw receipts, private
 paths, host identifiers, or unpublished identities are reproduced here.
 
@@ -398,6 +399,42 @@ MTP multiplier.
 | 2026-09-18 | Deployment coherence | Coherent end-to-end generation; 12/12 canaries correct; two 128-token completions; 262,144-token Q8 KV pass. `MEASURED`, short-context evaluation. |
 | 2026-09-18 | Route-aware prefetch pair | Matched control/prefetch pair on identical weights: 3–5× decode, 2.56× wall clock, ~287× fewer major faults. `MEASURED`, single pair with stated caveats. |
 | 2026-09-18 | V2 hot region and streamed arms | BF16-derived q4_K/q4_K/q4_0 hot bank over the hottest 42% of units; streamed arms measured 0.73–1.29 t/s. `EXPERIMENTAL`; streaming `REJECTED` as architecture. |
+| 2026-09-19 | Alice bring-up | Loader receipt at `2026-09-19T11:05:00Z`: a second model family, custom hybrid KDA linear-attention + MoE, 48 blocks, 512 routed experts top-10 plus one shared, 262144 context, 1,287/1,287 trunk tensors mapped. `MEASURED`, campaign start. |
+| 2026-09-19 | Alice artifact | Mixed-quantization GGUF built: 39,913,721,760 B at 4.003 effective bpw, expert bank 34.7227 GiB (93.41 % of artifact bytes) at 3.862 bpw. `MEASURED`. |
+| 2026-09-19 → 2026-09-21 | Alice host arena | Explicit arena over a packed `O_DIRECT` store: 4.49 t/s cold mmap → 13.99 (8 GiB) → 14.93 (12 GiB shipped) → 15.58 (pinned); 95.308 % hit; destructive parity `max|diff| = 0.0`. `MEASURED`. |
+| 2026-09-22 | Alice MTP rollback root cause | Alice-local recurrent conv snapshot plane convention (`min(slot, n_seq_tokens)` instead of `n_seq_tokens - slot`), not shared infrastructure; KAT 276/682 failing → 0/682; greedy parity at K = 0/2/3/4. `MEASURED`. |
+| 2026-09-22 | Alice prefill hot run | 662.7437 t/s at `pp2048`/ubatch 4096 as the hot request of a warm-repeat (cold 91.345, warm 245.614); ub512 band 486.9–533.0 t/s; ub2048 unusable as a control. `MEASURED`, state-sensitive, not a stable baseline. |
+| 2026-09-22 | Backend pivot | ROCm/HIP adopted as the production and performance backend with Vulkan as parity oracle and mechanism donor; current clean HIP raw K0 15.374–15.422 t/s against the historical Vulkan 18.430 configuration of record. `MEASURED` + `HISTORICAL`. |
+| 2026-09-22 | Host-KV reuse on ROCm | Physical host read held at the ~14 GB/s link roof with logical KV service to 244.944–246.89 GB/s; exact-attention parity rel_rms 4.5e-6, max_abs ≤ 2.4e-7; unregistered pageable host memory faults the GPU, so registration is a correctness prerequisite. `MEASURED`. |
+| 2026-09-22 | Staging/overlap null | F2 copy stream measured 515.858 pp/s control against 507.085 pp/s candidate; the synchronization drains it targeted priced out at ~0.2 % of a prefill pass; coarse duplication failed allocation at 49,326.56 MiB. `MEASURED`, null. |
+| 2026-09-22 | Expert-major grouping | Single-layer local GEMM 0.185 → 6.115 TMAC/s with 32/32 bit-exact same-kernel parity; deployed-configuration gate `REVERT`; CPU-MoE prefill measured −85.1 %. `MEASURED` locally, `INVALIDATED` for deployment. |
+| 2026-09-22 | Qwen3.8-27B ROCm ladder | Raw K0 17.35 t/s; accepted 29.19 / 34.25 / 33.90 at K=1/2/4; `iq4_nl` KV has no HIP flash-attention kernel and falls back to the CPU silently before faulting. `MEASURED`. |
+| 2026-09-22 | Representation utilization | Measured unpack ordering 297.6 → 229.7 → 188.8 GB/s at a real expert shape; GSQ and RCO adopted as prior art; the Flash-Next compression target is `MODELED` only. `MEASURED` + `MODELED`. |
+
+## 2026-09-19 → 2026-09-22: second campaign and the backend pivot
+
+The records above are summarized here and documented in full in
+[`research/alice/`](../alice/), [`research/host-kv/`](../host-kv/),
+[`research/qwen27b/`](../qwen27b/), [`research/ssd-action-memory/`](../ssd-action-memory/),
+and [`research/representation/UTILIZATION.md`](../representation/UTILIZATION.md).
+
+Three points about this window are easy to get wrong and are therefore stated
+explicitly:
+
+- **The Alice campaign is about three days old** (2026-09-19 → 2026-09-22), not
+  months. The surrounding program is older; this campaign is not.
+- **Alice throughput records are backend-labelled.** The 18.430 t/s figure is
+  the historical *Vulkan* configuration of record; current clean ROCm/HIP raw
+  K0 is 15.374–15.422 t/s. They are different backends and different source
+  trees.
+- **The 662.74 t/s prefill figure is a hot run**, the third request of a
+  warm-repeat in one session. It is not a universally reproducible stable
+  baseline, and the cross-session 71.105 t/s comparison behind the "9.3×"
+  headline is inadmissible.
+
+The window also produced a large set of rejections, which are recorded rather
+than dropped:
+[`research/falsified/ALICE_CAMPAIGN_NEGATIVES.md`](../falsified/ALICE_CAMPAIGN_NEGATIVES.md).
 
 ## Current status
 
