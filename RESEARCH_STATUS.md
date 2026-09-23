@@ -31,7 +31,7 @@ bank is being regenerated directly from BF16.
 
 | Area | Status | What is supported | What is not claimed |
 | --- | --- | --- | --- |
-| Alice campaign | `MEASURED`, campaign ~3 days old | A second model family brought up end to end: custom hybrid KDA linear-attention + MoE, 48 blocks, 512 routed experts top-10, 262144 context, 79.64 B counted parameters | Any quality result; the artifact has no imatrix and no capability gate |
+| Alice campaign | `MEASURED`, campaign ~3 days old | A second model family brought up end to end: custom hybrid KDA linear-attention + MoE, 48 blocks, 512 routed experts top-10, 262144 context, 79.64 B counted parameters | Any quality result; no calibration-derived quality basis or capability gate is recorded |
 | Alice artifact | `MEASURED` | 39,913,721,760 B at 4.003 effective bpw; expert bank 34.7227 GiB (93.41% of bytes) at 3.862 bpw | Final representation, or a quality claim |
 | Alice host expert arena | `MEASURED` | Explicit 12 GiB arena over a packed `O_DIRECT` store: 4.49 → 13.99 → 14.93 → 15.58 t/s across configurations, 95.308% hit, destructive parity `max|diff| = 0.0` | Generalization to other traces or configurations |
 | Alice MTP correctness | `MEASURED` | KAT 276/682 failing → 0/682 after fixing an Alice-local conv snapshot plane convention; greedy parity at K = 0/2/3/4 | Any MTP multiplier; the K=1 accepted figure is historical and not reproducible |

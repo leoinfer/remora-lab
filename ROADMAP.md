@@ -37,8 +37,6 @@
   daily-driver result.
 - Finish the real MTP artifact/load gate and measure real acceptance and paired
   `MTP_NET` under matched base/MTP conditions.
-- Land a single consolidated public runtime fork so a visitor can build and run
-  the RDNA4/ROCm path instead of reconstructing it from branches.
 - Publish model-free reproduction lanes for each new measurement family as the
   receipts are sanitized.
 

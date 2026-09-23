@@ -265,8 +265,9 @@ must not be described as an instruction-tuned agent model.
 ## What is not claimed
 
 - No portability claim: every number is one reference machine.
-- No quality claim for the mixed-quantization artifact; it has no imatrix, and
-  no teacher-KL, perplexity, or task-quality gate was captured.
+- No quality claim for the mixed-quantization artifact: no calibration-derived
+  quality basis is recorded for it, and no teacher-KL, perplexity, or
+  task-quality gate was captured.
 - No MTP multiplier: the corrected lane proves parity, not economics.
 - No staging/overlap win: the production A/B is a null.
 - No end-to-end effect from the expert-major grouping result.

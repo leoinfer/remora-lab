@@ -89,9 +89,15 @@ to the CPU and degrades the run before it faults.
 
 | Anchor | Value | Boundary |
 | --- | --- | --- |
-| Card capability class | 364–374 GB/s | measured memory-bandwidth anchors, conditions-dependent |
-| Demonstrated best effective rate | 354 GB/s (97 %) | Vulkan draft step on this machine |
-| `K0` achieved on ROCm (quiet) | 197 GB/s (54 %) | the actionable gap |
+| Demonstrated by this machine | 354 GB/s (97 % of the 364 figure) | `MEASURED` — a Vulkan draft step streams 1.225 GB in 3.43 ms inside a real graph |
+| Owner-reported card capability | 364–374 GB/s | `REPORTED` — supplied as the hardware's capability, **not** measured here |
+| Other measured anchors in the corpus | 364.4 and 317.8 GB/s | `MEASURED`, conditions-dependent |
+| `K0` achieved on ROCm (quiet) | 197 GB/s (54 % of the 364 figure) | the actionable gap |
+
+A widely repeated "355 GB/s" figure has **no receipt** in the corpus and is not
+used here. Nothing on this page treats the capability figure as a measurement,
+and no physical roof is derived from the DPM clock marker, which never selects
+its top level under load yet still delivers 354 GB/s.
 
 The 54 % vs 97 % difference is the campaign's headline deficit and it is
 isolated to the ROCm `K0` path, not to the memory system.
