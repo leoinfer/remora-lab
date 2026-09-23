@@ -56,6 +56,7 @@ bank is being regenerated directly from BF16.
 | Research runtime (llama.cpp-derived branches) | `EXPERIMENTAL` | Executes the current model experiments and measurement tooling | That it is part of HAR, or that HAR depends on it |
 | HAR native runtime and control plane | `EXPERIMENTAL` | Rust host/runtime code, Rust Vulkan resource and dispatch layer, storage/package contracts, scheduling, residency accounting | Full-model Flash-Next generation (native gate not closed) |
 | HAR Rust-only release gates | `VERIFIED FOR THIS CANDIDATE` | Policy gates, dependency metadata, Rust-only source gate | Production serving coverage |
+| Consolidated RDNA4/ROCm runtime fork | published | Public fork of llama.cpp (`leoinfer/llama.cpp`, branch `rdna4-rocm-2026-09-22`): `alice_ai` architecture, the recurrent-snapshot correctness fix with its model-free KAT, host expert tier and arena, readback batching, MIX34; builds ROCm/HIP and Vulkan from one tree | That it is a proposed upstream change, or that its defaults are production-tuned |
 
 HAR is a long-running native-Rust runtime research track inside this program,
 not the runtime most current model experiments execute on. See

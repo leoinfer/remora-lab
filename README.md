@@ -221,6 +221,20 @@ retracted headline and an admissible clean multiplier
 set of new negative results
 ([`research/falsified/ALICE_CAMPAIGN_NEGATIVES.md`](research/falsified/ALICE_CAMPAIGN_NEGATIVES.md)).
 
+**Runtime side.** The findings above are half of this work; the other half is
+the runtime that produced them. The consolidated runtime is now published as a
+public fork of llama.cpp on the same GitHub account — repository
+`leoinfer/llama.cpp`, branch `rdna4-rocm-2026-09-22` (currently its default
+branch). It carries upstream master plus the `alice_ai` hybrid
+linear-attention MoE architecture, the recurrent-snapshot rollback correctness
+fix and its model-free known-answer test, the host expert tier and arena
+plumbing, the readback/submission batching, and the MIX34 type, and it builds
+ROCm/HIP and Vulkan from one tree. Verified here: `llama-cli`, `llama-server`,
+`llama-bench`, and the snapshot KAT all build, and the KAT reports 682 checks /
+0 failures. It is a research branch, not a proposed upstream change. This
+repository keeps the measurements, the negative results, and the exact
+configurations; the fork is where you run them.
+
 ## Why VRAM / RAM / NVMe tiering?
 
 Flash-Next does not fit. The reconciled 49-block expert geometry is
